@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8K Strong IPTV - Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">8K STRONG</div>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="packages.html">Packages</a>
+            <a href="player.html">Player</a>
+        </nav>
+    </header>
+
+    <main class="container" style="text-align: center; padding: 50px;">
+        <h2>?? IPTV Player</h2>
+        <p>Player will be available soon. Use the M3U link below in any IPTV app.</p>
+        <p><strong>M3U URL:</strong> <a href="playlist.m3u">http://104.167.198.152/playlist.m3u</a></p>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 8K Strong IPTV</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>?????? ??????? - 8K Strong</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">8K STRONG</div>
+        <nav class="nav-menu">
+            <a href="index.html">????????</a>
+            <a href="packages.html">???????</a>
+            <a href="player.html">??????</a>
+            <a href="channels.html">???????</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="section-title">???? ??????? ??????? ???? ??????</h1>
+
+        <div class="selection-panel">
+            <!-- ??? ??????? -->
+            <div class="panel">
+                <h2><i class="fas fa-tv"></i> ??????? ??????? (Packages)</h2>
+                <div class="search-box">
+                    <input type="text" id="searchPackages" placeholder="???? ?? ???????...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="table-container">
+                    <table class="package-table" id="packagesTable"></table>
+                </div>
+            </div>
+
+            <!-- ??? VOD -->
+            <div class="panel">
+                <h2><i class="fas fa-film"></i> ???? VOD</h2>
+                <div class="search-box">
+                    <input type="text" id="searchVod" placeholder="???? ?? ???? VOD...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="table-container">
+                    <table class="package-table" id="vodTable"></table>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn-primary" onclick="getSelection()"><i class="fas fa-check-circle"></i> ????? ????????</button>
+            <button class="btn-secondary" onclick="resetSelection()"><i class="fas fa-undo-alt"></i> ????? ?????</button>
+        </div>
+
+        <div class="selection-summary" id="summary">
+            <h3>??????</h3>
+            <p>??? ??????? ????????: <span id="selectedPackagesCount">0</span></p>
+            <p>??? ???? VOD ????????: <span id="selectedVodCount">0</span></p>
+            <p>????????: <span id="totalSelected">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        // ?????? ???????
+        const packagesData = [
+            "1 - 4K UHD 3840P ?",
+            "2 - RELAX UHD 3840P ?",
+            "3 - SPORT ON AIR ?",
+            "4 - UK ULTIMATE",
+            "5 - HORSE RACING ?",
+            "6 - TENNIS ?",
+            "7 - GERMANY ULTIMATE",
+            "8 - AUSTRIA",
+            "9 - NETHERLAND ULTIMATE",
+            "10 - Belgium",
+            "11 - ITALY ULTIMATE",
+            "12 - FRANCE ULTIMATE",
+            "13 - SPAIN ULTIMATE",
+            "14 - Portugal",
+            "15 - Switzerland",
+            "16 - Poland",
+            "17 - GREECE ULTIMATE",
+            "18 - CYPRUS ULTIMATE",
+            "19 - SWEDEN ULTIMATE",
+            "20 - DENMARK ULTIMATE",
+            "21 - NORWAY ULTIMATE"
+        ];
+
+        // ?????? VOD
+        const vodData = [
+            "1 - VOD - TOP MOVIES DOLBY AUDIO 4K 3840p",
+            "2 - VOD - TOP MOVIES BLURAY (MULTI-SUBS) ?",
+            "3 - VOD - ASIA MOVIES (MULTI-SUBS)",
+            "4 - VOD - NETFLIX DOLBY AUDIO ?",
+            "5 - VOD - NETFLIX DOLBY AUDIO ?",
+            "6 - VOD - NETFLIX ?",
+            "7 - VOD - AMAZON ?",
+            "8 - VOD - DISNEY+ MOVIES MENA ?",
+            "9 - VOD - DISNEY+ SERIES MENA ?",
+            "10 - VOD - DISCOVERY+ SERIES MENA ?",
+            "11 - VOD - DISNEY+ ?",
+            "12 - VOD - APPLE+ ?",
+            "13 - VOD - DISCOVERY+ ?",
+            "14 - VOD - HBO MAX 4K 3840P",
+            "15 - VOD - HBO MAX",
+            "16 - VOD - VIAPLAY ?",
+            "17 - VOD - SKY ?",
+            "18 - VOD - SHOWTIME ?",
+            "19 - VOD - DREAMWORKS ?",
+            "20 - VOD - UNIVERSAL ?",
+            "21 - VOD - PARAMOUNT+ ?"
+        ];
+
+        // ???? ??? ???????
+        function renderPackages() {
+            const tbody = document.getElementById('packagesTable');
+            tbody.innerHTML = '';
+            packagesData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${item}</td><td><input type="checkbox" class="package-checkbox" data-index="${index}" onchange="updateSummary()"></td>`;
+                tbody.appendChild(row);
+            });
+        }
+
+        function renderVod() {
+            const tbody = document.getElementById('vodTable');
+            tbody.innerHTML = '';
+            vodData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${item}</td><td><input type="checkbox" class="vod-checkbox" data-index="${index}" onchange="updateSummary()"></td>`;
+                tbody.appendChild(row);
+            });
+        }
+
+        function updateSummary() {
+            const packagesChecked = document.querySelectorAll('.package-checkbox:checked').length;
+            const vodChecked = document.querySelectorAll('.vod-checkbox:checked').length;
+            document.getElementById('selectedPackagesCount').innerText = packagesChecked;
+            document.getElementById('selectedVodCount').innerText = vodChecked;
+            document.getElementById('totalSelected').innerText = packagesChecked + vodChecked;
+        }
+
+        function resetSelection() {
+            document.querySelectorAll('.package-checkbox, .vod-checkbox').forEach(cb => cb.checked = false);
+            updateSummary();
+        }
+
+        function getSelection() {
+            const selectedPackages = [];
+            const selectedVod = [];
+            document.querySelectorAll('.package-checkbox:checked').forEach(cb => {
+                selectedPackages.push(packagesData[cb.dataset.index]);
+            });
+            document.querySelectorAll('.vod-checkbox:checked').forEach(cb => {
+                selectedVod.push(vodData[cb.dataset.index]);
+            });
+            alert('??????? ????????:\n' + selectedPackages.join('\n') + '\n\n???? VOD:\n' + selectedVod.join('\n'));
+        }
+
+        document.getElementById('searchPackages').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const filtered = packagesData.filter(item => item.toLowerCase().includes(term));
+            const tbody = document.getElementById('packagesTable');
+            tbody.innerHTML = '';
+            filtered.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${item}</td><td><input type="checkbox" class="package-checkbox" data-index="${packagesData.indexOf(item)}" onchange="updateSummary()"></td>`;
+                tbody.appendChild(row);
+            });
+        });
+
+        document.getElementById('searchVod').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const filtered = vodData.filter(item => item.toLowerCase().includes(term));
+            const tbody = document.getElementById('vodTable');
+            tbody.innerHTML = '';
+            filtered.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${item}</td><td><input type="checkbox" class="vod-checkbox" data-index="${vodData.indexOf(item)}" onchange="updateSummary()"></td>`;
+                tbody.appendChild(row);
+            });
+        });
+
+        renderPackages();
+        renderVod();
+    </script>
+</body>
+</html>
