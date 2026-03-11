@@ -1,8 +1,3 @@
-#EXTM3U
-#EXTINF:-1 tvg-id="bein1" tvg-logo="images/bein1.png" group-title="?????",BeIN Sports 1 HD
-http://line.reselleripv-trex.online/get.php?username=9ee0e28fb5&password=cc0c58f72357&type=m3u_plus&output=m3u8
-#EXTINF:-1 tvg-id="mbc2" tvg-logo="images/mbc2.png" group-title="?????",MBC 2
-http://line.reselleripv-trex.online/get.php?username=9ee0e28fb5&password=cc0c58f72357&type=m3u_plus&output=m3u8
-#EXTINF:-1 tvg-id="cnn" tvg-logo="images/cnn.png" group-title="?????",CNN International
-http://example.com/cnn.m3u8
+
+
 
