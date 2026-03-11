@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us – 8K Strong IPTV</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Additional styling for the contact page */
+        .contact-section {
+            background: var(--gray-200);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            border: 1px solid var(--gray-400);
+        }
+
+        .contact-section h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-section p {
+            text-align: center;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: var(--gray-800);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: var(--gray-300);
+            border: 1px solid var(--gray-400);
+            border-radius: 10px;
+            padding: 12px 15px;
+            color: var(--gray-800);
+            font-size: 1em;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--button-bg);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: 0.3s;
+            align-self: center;
+            min-width: 200px;
+        }
+
+        .submit-btn:hover {
+            background: var(--button-hover);
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray-700);
+        }
+
+        .info-item i {
+            font-size: 1.5em;
+            color: var(--button-bg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Copy the exact header from your index.html -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo-area">
+                <a href="index.html">
+                    <img src="images/4k_tv_gold.png" alt="8K Strong" height="55">
+                </a>
+            </div>
+            <div class="search-area">
+                <form onsubmit="return false;">
+                    <input type="text" placeholder="Search channels, movies...">
+                    <button type="button"><i class="fas fa-search"></i> Search</button>
+                </form>
+            </div>
+            <div class="header-actions">
+                <div class="language-dropdown">
+                    <button class="lang-btn"><img src="images/flags/uk.png" alt="English"> EN</button>
+                </div>
+                <button class="theme-toggle"><i class="bx bx-moon"></i></button>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="resolution.html">Resolution Center</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="find.html">Find Content</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="contact-section">
+            <h1>Contact Us</h1>
+            <p>We're here to help! Send us a message and we'll get back to you as soon as possible.</p>
+
+            <!-- Contact Form – you need to replace the FORMSPREE_URL with your own -->
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="_replyto" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <!-- Alternative contact info (optional) -->
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i> <span>support@8kstrong.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fab fa-telegram-plane"></i> <span>@8kstrong_support</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i> <span>+123 456 7890</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Copy the footer from your index.html -->
+    <footer class="footer">
+        <p>&copy; 2026 8K Strong IPTV. All rights reserved.</p>
+    </footer>
+</body>
+</html>
