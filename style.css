@@ -28,7 +28,19 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.nav-menu a.packages-btn {
+    background: #f6c654;
+    color: #0a0b1a;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
+.nav-menu a.packages-btn:hover {
+    background: #ffd966;
+    transform: scale(1.05);
+}
 .nav-menu a {
     color: white;
     text-decoration: none;
@@ -293,3 +305,4 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
