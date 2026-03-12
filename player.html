@@ -32,7 +32,7 @@
 
     async function loadPlaylist() {
         try {
-            const res = await fetch('http://line.trxdnscloud.ru/get.php?username=80adee2f24&password=e928cf290856&type=m3u_plus&output=ts');
+            const res = await fetch('http://line.trxdnscloud.ru/get.php?username=80adee2f24&)password=e928cf290856&type=m3u_plus&output=m3u8';
             const text = await res.text();
             playlist = parseM3U(text);
             populateGroups(playlist);
@@ -123,4 +123,5 @@
 
     loadPlaylist();
 </script>
+
 
