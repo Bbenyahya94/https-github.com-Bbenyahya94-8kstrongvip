@@ -252,45 +252,245 @@
             display: block;
         }
 
-        /* Slideshow, sections, footer unchanged (keep your existing styles) */
-        .container {
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: rgba(4,19,36,0.8);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .slide-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: var(--gray-700);
+        }
+
+        .slide-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .slide-btn:hover {
+            background: var(--button-hover);
+            transform: scale(1.05);
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gray-200);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-400);
+            padding: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 20px;
+            transition: 0.3s;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prev:hover, .next:hover {
+            background: var(--button-bg);
+            color: white;
+            border-color: var(--button-bg);
+        }
+
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        .dots-container {
+            text-align: center;
             padding: 20px;
         }
-        .slideshow-container { position: relative; max-width: 1200px; margin: 40px auto; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .slides { display: flex; transition: transform 0.5s ease-in-out; }
-        .slide { min-width: 100%; position: relative; }
-        .slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
-        .slide-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; color: white; background: rgba(4,19,36,0.8); backdrop-filter: blur(5px); padding: 30px; border-radius: 20px; width: 80%; max-width: 600px; }
-        .slide-content h2 { font-size: 2.5em; margin-bottom: 15px; background: linear-gradient(45deg,var(--gray-800),var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .slide-content p { font-size: 1.2em; margin-bottom: 20px; color: var(--gray-700); }
-        .slide-btn { display: inline-block; padding: 12px 30px; background: var(--button-bg); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
-        .slide-btn:hover { background: var(--button-hover); transform: scale(1.05); }
-        .prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: var(--gray-200); color: var(--gray-700); border: 1px solid var(--gray-400); padding: 16px; cursor: pointer; border-radius: 50%; font-size: 20px; transition: 0.3s; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
-        .prev:hover, .next:hover { background: var(--button-bg); color: white; border-color: var(--button-bg); }
-        .prev { left: 20px; } .next { right: 20px; }
-        .dots-container { text-align: center; padding: 20px; }
-        .dot { height: 12px; width: 12px; margin: 0 5px; background-color: var(--gray-500); border-radius: 50%; display: inline-block; cursor: pointer; transition: 0.3s; }
-        .dot.active { background-color: var(--button-bg); transform: scale(1.3); }
-        .section { margin: 80px 0; }
-        .section-title { text-align: center; font-size: 2.5em; margin-bottom: 40px; background: linear-gradient(45deg,var(--gray-800),var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .features-grid, .reseller-grid, .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 25px; }
-        .feature-card, .reseller-card, .plan-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px 20px; text-align: center; transition: 0.3s; }
-        .feature-card:hover, .reseller-card:hover, .plan-card:hover { transform: translateY(-5px); border-color: var(--gray-600); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-        .feature-icon { font-size: 50px; color: var(--button-bg); margin-bottom: 20px; }
-        .feature-card h3, .reseller-card h3, .plan-card h3 { font-size: 1.5em; margin-bottom: 15px; color: var(--gray-900); }
-        .price { font-size: 2.2em; font-weight: 800; margin: 20px 0; background: linear-gradient(45deg,var(--gray-800),var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn { display: inline-block; padding: 10px 25px; background: var(--button-bg); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; margin-top: 15px; }
-        .btn:hover { background: var(--button-hover); transform: scale(1.05); }
-        .plan-card ul { list-style: none; margin: 20px 0; }
-        .plan-card li { margin: 10px 0; color: var(--gray-600); }
-        .plan-card li i { color: var(--button-bg); margin-right: 8px; }
-        .plan-card.popular { position: relative; overflow: hidden; }
-        .plan-card.popular::before { content: "MOST POPULAR"; position: absolute; top: 20px; right: -30px; background: var(--button-bg); color: white; padding: 5px 40px; font-size: 12px; font-weight: bold; transform: rotate(45deg); }
-        .footer { background: var(--gray-200); padding: 40px 0; text-align: center; margin-top: 60px; border-top: 1px solid var(--gray-400); color: var(--gray-600); }
 
-        /* Responsive styles */
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: var(--gray-500);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--button-bg);
+            transform: scale(1.3);
+        }
+
+        /* Sections */
+        .section {
+            margin: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Features, Reseller, Plans cards */
+        .features-grid, .reseller-grid, .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card, .reseller-card, .plan-card {
+            background: var(--gray-200);
+            border: 1px solid var(--gray-400);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.3s;
+            color: var(--gray-800);
+        }
+
+        .feature-card:hover, .reseller-card:hover, .plan-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gray-600);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            color: var(--button-bg);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3, .reseller-card h3, .plan-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--gray-900);
+        }
+
+        .price {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin: 20px 0;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: var(--button-hover);
+            transform: scale(1.05);
+        }
+
+        .plan-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .plan-card li {
+            margin: 10px 0;
+            color: var(--gray-600);
+        }
+
+        .plan-card li i {
+            color: var(--button-bg);
+            margin-right: 8px;
+        }
+
+        .plan-card.popular {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card.popular::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--button-bg);
+            color: white;
+            padding: 5px 40px;
+            font-size: 12px;
+            font-weight: bold;
+            transform: rotate(45deg);
+        }
+
+        .footer {
+            background: var(--gray-200);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid var(--gray-400);
+            color: var(--gray-600);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .header {
                 padding: 10px 20px;
@@ -302,7 +502,6 @@
                 max-height: 40px;   /* mobile size */
                 max-width: 150px;
             }
-            /* Show mobile toggle, hide desktop nav */
             .mobile-menu-toggle {
                 display: block;
             }
@@ -318,7 +517,7 @@
                 gap: 8px;
             }
             .lang-btn span {
-                display: none; /* Hide text, keep flag icon */
+                display: none;
             }
             .theme-toggle {
                 font-size: 1.3em;
@@ -339,21 +538,43 @@
     </style>
 </head>
 <body>
-    <body>
     <!-- Header -->
     <header class="header">
         <div class="header-top">
             <!-- Logo (responsive) -->
             <div class="logo-area">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="8K Strong" class="logo-img">
+                    <img src="images/logo.jpg" alt="8K Strong" class="logo-img">
                 </a>
             </div>
-            <!-- باقي محتويات الهيدر ... -->
- <body>
-  
 
-    <!-- هنا يبدأ المحتوى القديم لصفحتك (السلايدر، الأقسام، إلخ) -->
+            <!-- Mobile menu toggle button -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Search area -->
+            <div class="search-area">
+                <form onsubmit="return false;">
+                    <input type="text" placeholder="Search channels, movies...">
+                    <button type="button"><i class="fas fa-search"></i> Search</button>
+                </form>
+            </div>
+
+            <!-- Header actions -->
+            <div class="header-actions">
+                <div class="language-dropdown">
+                    <button class="lang-btn">
+                        <img src="images/flags/uk.png" alt="English"> <span>EN</span>
+                    </button>
+                </div>
+                <button class="theme-toggle">
+                    <i class="bx bx-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+        </div>
+
         <!-- Desktop navigation -->
         <nav class="main-nav">
             <ul>
@@ -381,7 +602,7 @@
         </div>
     </header>
 
-    <!-- Slideshow (rest of your content unchanged) -->
+    <!-- Slideshow -->
     <div class="slideshow-container">
         <div class="slides" id="slides">
             <div class="slide">
@@ -418,36 +639,112 @@
         </div>
     </div>
 
-    <!-- Features, Reseller, Subscription sections (copy your full sections here) -->
-    <!-- (I'll keep them short, but you should include your full content) -->
+    <!-- Features Section -->
     <section class="section container">
         <h2 class="section-title">Why Choose 8K Strong?</h2>
         <div class="features-grid">
-            <div class="feature-card"><i class="fas fa-tachometer-alt feature-icon"></i><h3>Ultra Fast</h3><p>High‑performance servers for buffer‑free streaming</p></div>
-            <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3>VPN Protection</h3><p>Built‑in VPN for privacy and security</p></div>
-            <div class="feature-card"><i class="fas fa-globe feature-icon"></i><h3>Worldwide Channels</h3><p>Channels from 100+ countries</p></div>
-            <div class="feature-card"><i class="fas fa-headset feature-icon"></i><h3>24/7 Support</h3><p>Dedicated support team</p></div>
+            <div class="feature-card">
+                <i class="fas fa-tachometer-alt feature-icon"></i>
+                <h3>Ultra Fast</h3>
+                <p>High‑performance servers for buffer‑free streaming</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>VPN Protection</h3>
+                <p>Built‑in VPN for privacy and security</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-globe feature-icon"></i>
+                <h3>Worldwide Channels</h3>
+                <p>Channels from 100+ countries, sports, news, movies</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset feature-icon"></i>
+                <h3>24/7 Support</h3>
+                <p>Dedicated support team always ready to help</p>
+            </div>
         </div>
     </section>
 
-    <!-- Reseller Plans -->
+    <!-- Reseller Plans Section -->
     <section class="section container">
         <h2 class="section-title">Reseller Programs</h2>
         <div class="reseller-grid">
-            <div class="reseller-card"><i class="fas fa-store"></i><h3>Basic</h3><div class="price">€199</div><p>50 credits, panel access</p><a href="reseller.html" class="btn">Get Started</a></div>
-            <div class="reseller-card popular"><i class="fas fa-chart-line"></i><h3>Pro</h3><div class="price">€349</div><p>100 credits, white label</p><a href="reseller.html" class="btn">Get Started</a></div>
-            <div class="reseller-card"><i class="fas fa-building"></i><h3>Enterprise</h3><div class="price">€699</div><p>250 credits, API access</p><a href="reseller.html" class="btn">Get Started</a></div>
+            <div class="reseller-card">
+                <i class="fas fa-store"></i>
+                <h3>Basic</h3>
+                <div class="price">€199</div>
+                <p>50 credits, panel access, 24/7 support</p>
+                <a href="reseller.html" class="btn">Get Started</a>
+            </div>
+            <div class="reseller-card popular">
+                <i class="fas fa-chart-line"></i>
+                <h3>Pro</h3>
+                <div class="price">€349</div>
+                <p>100 credits, white label, priority support</p>
+                <a href="reseller.html" class="btn">Get Started</a>
+            </div>
+            <div class="reseller-card">
+                <i class="fas fa-building"></i>
+                <h3>Enterprise</h3>
+                <div class="price">€699</div>
+                <p>250 credits, API access, dedicated support</p>
+                <a href="reseller.html" class="btn">Get Started</a>
+            </div>
         </div>
     </section>
 
-    <!-- Subscription Plans -->
+    <!-- Subscription Plans Section -->
     <section class="section container">
         <h2 class="section-title">Subscription Plans</h2>
         <div class="plans-grid">
-            <div class="plan-card"><i class="fas fa-film plan-icon"></i><h3>1 Month</h3><div class="price">€15</div><ul><li><i class="fas fa-check"></i> All channels</li><li><i class="fas fa-check"></i> HD quality</li></ul><a href="subscription.html" class="btn">Subscribe</a></div>
-            <div class="plan-card popular"><i class="fas fa-star plan-icon"></i><h3>3 Months</h3><div class="price">€25</div><ul><li><i class="fas fa-check"></i> All channels</li><li><i class="fas fa-check"></i> 4K quality</li></ul><a href="subscription.html" class="btn">Subscribe</a></div>
-            <div class="plan-card"><i class="fas fa-crown plan-icon"></i><h3>6 Months</h3><div class="price">€35</div><ul><li><i class="fas fa-check"></i> All channels</li><li><i class="fas fa-check"></i> 4K quality</li></ul><a href="subscription.html" class="btn">Subscribe</a></div>
-            <div class="plan-card"><i class="fas fa-gem plan-icon"></i><h3>12 Months</h3><div class="price">€59</div><ul><li><i class="fas fa-check"></i> All channels</li><li><i class="fas fa-check"></i> 4K quality</li></ul><a href="subscription.html" class="btn">Subscribe</a></div>
+            <div class="plan-card">
+                <i class="fas fa-film plan-icon"></i>
+                <h3>1 Month</h3>
+                <div class="price">€15</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> All channels</li>
+                    <li><i class="fas fa-check"></i> HD quality</li>
+                    <li><i class="fas fa-check"></i> 1 connection</li>
+                </ul>
+                <a href="subscription.html" class="btn">Subscribe</a>
+            </div>
+            <div class="plan-card popular">
+                <i class="fas fa-star plan-icon"></i>
+                <h3>3 Months</h3>
+                <div class="price">€25</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> All channels</li>
+                    <li><i class="fas fa-check"></i> 4K quality</li>
+                    <li><i class="fas fa-check"></i> 2 connections</li>
+                    <li><i class="fas fa-check"></i> VPN included</li>
+                </ul>
+                <a href="subscription.html" class="btn">Subscribe</a>
+            </div>
+            <div class="plan-card">
+                <i class="fas fa-crown plan-icon"></i>
+                <h3>6 Months</h3>
+                <div class="price">€35</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> All channels</li>
+                    <li><i class="fas fa-check"></i> 4K quality</li>
+                    <li><i class="fas fa-check"></i> 3 connections</li>
+                    <li><i class="fas fa-check"></i> VPN + catch‑up</li>
+                </ul>
+                <a href="subscription.html" class="btn">Subscribe</a>
+            </div>
+            <div class="plan-card">
+                <i class="fas fa-gem plan-icon"></i>
+                <h3>12 Months</h3>
+                <div class="price">€59</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> All channels</li>
+                    <li><i class="fas fa-check"></i> 4K quality</li>
+                    <li><i class="fas fa-check"></i> 4 connections</li>
+                    <li><i class="fas fa-check"></i> All features</li>
+                </ul>
+                <a href="subscription.html" class="btn">Subscribe</a>
+            </div>
         </div>
     </section>
 
@@ -462,6 +759,7 @@
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
         const slidesContainer = document.getElementById('slides');
+
         function showSlide(n) {
             if (n >= slides.length) slideIndex = 0;
             if (n < 0) slideIndex = slides.length - 1;
@@ -469,9 +767,21 @@
             dots.forEach(dot => dot.classList.remove('active'));
             dots[slideIndex].classList.add('active');
         }
-        function changeSlide(n) { slideIndex += n; showSlide(slideIndex); }
-        function currentSlide(n) { slideIndex = n; showSlide(slideIndex); }
-        setInterval(() => { slideIndex++; showSlide(slideIndex); }, 5000);
+
+        function changeSlide(n) {
+            slideIndex += n;
+            showSlide(slideIndex);
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlide(slideIndex);
+        }
+
+        setInterval(() => {
+            slideIndex++;
+            showSlide(slideIndex);
+        }, 5000);
     </script>
 
     <!-- Mobile menu toggle script -->
@@ -494,7 +804,3 @@
     </script>
 </body>
 </html>
-
-
-
-
