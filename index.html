@@ -339,22 +339,23 @@
     </style>
 </head>
 <body>
+ <body>
     <!-- Header -->
     <header class="header">
         <div class="header-top">
-            <!-- Logo (responsive) -->
+            <!-- Logo -->
             <div class="logo-area">
                 <a href="index.html">
                     <img src="images/logo.png" alt="8K Strong" class="logo-img">
                 </a>
             </div>
 
-            <!-- Mobile menu toggle button -->
+            <!-- زر القائمة للجوال (سيظهر فقط على الشاشات الصغيرة) -->
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!-- Search area -->
+            <!-- مربع البحث -->
             <div class="search-area">
                 <form onsubmit="return false;">
                     <input type="text" placeholder="Search channels, movies...">
@@ -362,7 +363,7 @@
                 </form>
             </div>
 
-            <!-- Header actions -->
+            <!-- أيقونات اللغة والثيم وتسجيل الدخول -->
             <div class="header-actions">
                 <div class="language-dropdown">
                     <button class="lang-btn">
@@ -376,6 +377,34 @@
             </div>
         </div>
 
+        <!-- القائمة الرئيسية (تظهر على الكمبيوتر) -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="resolution.html">Resolution Center</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="find.html">Find Content</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+            </ul>
+        </nav>
+
+        <!-- القائمة المتنقلة (تظهر عند الضغط على زر الهامبرغر) -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="resolution.html">Resolution Center</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="find.html">Find Content</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- هنا يبدأ المحتوى القديم لصفحتك (السلايدر، الأقسام، إلخ) -->
         <!-- Desktop navigation -->
         <nav class="main-nav">
             <ul>
@@ -516,5 +545,6 @@
     </script>
 </body>
 </html>
+
 
 
