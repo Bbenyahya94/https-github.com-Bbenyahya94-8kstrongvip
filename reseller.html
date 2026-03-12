@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reseller Program – 8K Strong IPTV</title>
+    <title>8K Strong Reseller – Become an IPTV & OTT Reseller</title>
+    <meta name="description" content="Join 8K Strong Reseller program. Start your IPTV reseller business with 8k stron iptv. Access powerful reseller panel, credits system, and OTT reseller tools.">
+    <meta name="keywords" content="8k stron iptv, 8k strong reseller, 8k strong reseller panel, iptv reseller, ott reseller">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Boxicons (optional) -->
+    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         /* Dark color system – same as all pages */
@@ -61,9 +63,27 @@
             align-items: center;
         }
 
-        .logo-area img {
-            height: 55px;
+        .logo-img {
+            height: auto;
+            max-height: 55px;
             width: auto;
+            max-width: 200px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--gray-400);
+            color: var(--gray-700);
+            font-size: 1.8em;
+            cursor: pointer;
+            padding: 5px 15px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .mobile-menu-toggle:hover {
+            background: var(--gray-300);
+            color: var(--button-bg);
         }
 
         .search-area {
@@ -176,11 +196,9 @@
             transform: scale(1.05);
         }
 
-        /* Main navigation */
         .main-nav {
             margin-top: 10px;
         }
-
         .main-nav ul {
             display: flex;
             flex-wrap: wrap;
@@ -188,7 +206,6 @@
             gap: 20px;
             justify-content: center;
         }
-
         .main-nav a {
             color: var(--gray-700);
             text-decoration: none;
@@ -197,10 +214,39 @@
             transition: 0.3s;
             font-weight: 500;
         }
-
         .main-nav a:hover {
             background: var(--gray-300);
             color: var(--gray-900);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: var(--gray-200);
+            border-top: 1px solid var(--gray-400);
+            padding: 20px;
+            margin-top: 10px;
+        }
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .mobile-menu a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px;
+            display: block;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .mobile-menu a:hover {
+            background: var(--gray-300);
+            color: var(--gray-900);
+        }
+        .mobile-menu-open .mobile-menu {
+            display: block;
         }
 
         .container {
@@ -214,6 +260,7 @@
             margin: 40px 0;
         }
 
+        /* H1 – main title with primary keyword */
         .reseller-section h1 {
             text-align: center;
             font-size: 2.5em;
@@ -328,74 +375,170 @@
             transform: scale(1.05);
         }
 
-        /* Benefits section */
-        .benefits-section {
+        /* Panel workflow */
+        .panel-workflow {
             background: var(--gray-200);
             border-radius: 20px;
             padding: 40px;
-            margin: 60px 0;
+            margin: 40px 0;
             border: 1px solid var(--gray-400);
         }
 
-        .benefits-section h2 {
+        .panel-workflow h2 {
             text-align: center;
             font-size: 2em;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .benefits-grid {
+        .workflow-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
+        .workflow-step {
+            text-align: center;
         }
 
-        .benefit-icon {
-            font-size: 2em;
-            color: var(--button-bg);
-            min-width: 40px;
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--button-bg);
+            color: var(--gray-100);
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 40px;
+            margin-bottom: 15px;
         }
 
-        .benefit-text h3 {
-            font-size: 1.2em;
-            margin-bottom: 5px;
+        .workflow-step h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
             color: var(--gray-900);
         }
 
-        .benefit-text p {
+        .workflow-step p {
             color: var(--gray-600);
-            font-size: 0.95em;
         }
 
-        /* CTA section */
-        .cta-section {
+        /* Video tutorial section */
+        .video-tutorial {
+            background: var(--gray-200);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid var(--gray-400);
+        }
+
+        .video-tutorial h2 {
             text-align: center;
-            margin: 60px 0;
+            font-size: 2em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .cta-btn {
-            display: inline-block;
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2em;
-            transition: 0.3s;
+        .video-tutorial p {
+            text-align: center;
+            color: var(--gray-600);
+            margin-bottom: 30px;
         }
 
-        .cta-btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            background: var(--gray-300);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--gray-400);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder {
+            text-align: center;
+            color: var(--gray-600);
+        }
+
+        .video-placeholder i {
+            font-size: 4em;
+            color: var(--button-bg);
+            margin-bottom: 15px;
+        }
+
+        .video-placeholder p {
+            font-size: 1.1em;
+        }
+
+        .video-placeholder .small-note {
+            font-size: 0.9em;
+            margin-top: 10px;
+            color: var(--gray-500);
+        }
+
+        /* For actual video embed, we can add iframe or video tag later */
+        .video-container iframe,
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Video integration */
+        .video-section {
+            background: var(--gray-200);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid var(--gray-400);
+        }
+
+        .video-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .method-card {
+            background: var(--gray-300);
+            border: 1px solid var(--gray-400);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .method-card i {
+            font-size: 2.5em;
+            color: var(--button-bg);
+            margin-bottom: 15px;
+        }
+
+        .method-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--gray-900);
+        }
+
+        .method-card p {
+            color: var(--gray-600);
         }
 
         .footer {
@@ -409,22 +552,31 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 15px 20px;
+                padding: 10px 20px;
             }
             .header-top {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .search-area {
-                max-width: 100%;
-            }
-            .main-nav ul {
                 gap: 10px;
             }
-            .benefit-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+            .logo-img {
+                max-height: 40px;
+                max-width: 150px;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .main-nav {
+                display: none;
+            }
+            .search-area {
+                order: 3;
+                width: 100%;
+                max-width: none;
+            }
+            .header-actions {
+                gap: 8px;
+            }
+            .lang-btn span {
+                display: none;
             }
         }
     </style>
@@ -435,32 +587,30 @@
         <div class="header-top">
             <div class="logo-area">
                 <a href="index.html">
-                    <img src="images/4k_tv_gold.png" alt="8K Strong" height="55">
+                    <img src="images/logo.png" alt="8K Strong IPTV" class="logo-img">
                 </a>
             </div>
-
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="search-area">
                 <form onsubmit="return false;">
                     <input type="text" placeholder="Search channels, movies...">
                     <button type="button"><i class="fas fa-search"></i> Search</button>
                 </form>
             </div>
-
             <div class="header-actions">
                 <div class="language-dropdown">
                     <button class="lang-btn">
-                        <img src="images/flags/uk.png" alt="English"> EN
+                        <img src="images/flags/uk.png" alt="English"> <span>EN</span>
                     </button>
                 </div>
-
                 <button class="theme-toggle">
                     <i class="bx bx-moon"></i>
                 </button>
-
                 <a href="login.html" class="login-btn">Login</a>
             </div>
         </div>
-
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -472,119 +622,189 @@
                 <li><a href="subscription.html">Subscription</a></li>
             </ul>
         </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="resolution.html">Resolution Center</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="find.html">Find Content</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+            </ul>
+        </div>
     </header>
 
     <main class="container">
         <section class="reseller-section">
-            <h1>Reseller Program</h1>
-            <p>Start your own IPTV business with our flexible reseller plans. Enjoy high margins, dedicated support, and a reliable platform.</p>
+            <!-- H1 with primary keyword -->
+            <h1>8K Strong Reseller: Become an IPTV & OTT Reseller</h1>
+            <p>Join the leading <strong>8k stron iptv</strong> reseller program. Start your own business with our powerful <strong>8k strong reseller panel</strong> and earn high profits as an <strong>iptv reseller</strong> or <strong>ott reseller</strong>.</p>
 
-            <!-- Reseller Plans Grid -->
+            <!-- Choose Your 8K Strong Reseller Plan – with your specific info -->
+            <h2 style="text-align: center; margin-bottom: 30px; color: var(--gray-900);">Choose Your 8K Strong Reseller Plan</h2>
             <div class="reseller-plans-grid">
-                <!-- Basic Plan -->
+                <!-- 120 Credits Plan -->
                 <div class="plan-card">
                     <div class="plan-icon">
                         <i class="fas fa-store"></i>
                     </div>
-                    <h3>Basic</h3>
-                    <div class="price">€199</div>
+                    <h3>120 Credits – Starter</h3>
+                    <div class="price">€190</div>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> 50 Credits</li>
-                        <li><i class="fas fa-check-circle"></i> Panel Access</li>
+                        <li><i class="fas fa-check-circle"></i> 120 Credits (120 months of subscription)</li>
+                        <li><i class="fas fa-check-circle"></i> Full Panel Access</li>
+                        <li><i class="fas fa-check-circle"></i> User Management</li>
                         <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
-                        <li><i class="fas fa-check-circle"></i> No White Label</li>
                     </ul>
-                    <a href="signup.html?plan=basic" class="plan-btn">Get Started</a>
+                    <a href="signup.html?plan=120" class="plan-btn">Get Started</a>
                 </div>
 
-                <!-- Pro Plan (Popular) -->
+                <!-- 240 Credits Plan – Popular -->
                 <div class="plan-card popular">
                     <div class="plan-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Pro</h3>
-                    <div class="price">€349</div>
+                    <h3>240 Credits – Pro</h3>
+                    <div class="price">€375</div>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> 100 Credits</li>
-                        <li><i class="fas fa-check-circle"></i> Panel Access</li>
+                        <li><i class="fas fa-check-circle"></i> 240 Credits (240 months of subscription)</li>
+                        <li><i class="fas fa-check-circle"></i> Full Panel Access</li>
                         <li><i class="fas fa-check-circle"></i> White Label</li>
                         <li><i class="fas fa-check-circle"></i> Priority Support</li>
+                        <li><i class="fas fa-check-circle"></i> Sub‑reseller Creation</li>
                     </ul>
-                    <a href="signup.html?plan=pro" class="plan-btn">Get Started</a>
+                    <a href="signup.html?plan=240" class="plan-btn">Get Started</a>
                 </div>
 
-                <!-- Enterprise Plan -->
+                <!-- 600 – 12000 Credits – Custom -->
                 <div class="plan-card">
                     <div class="plan-icon">
                         <i class="fas fa-building"></i>
                     </div>
-                    <h3>Enterprise</h3>
-                    <div class="price">€699</div>
+                    <h3>600 – 12,000 Credits</h3>
+                    <div class="price">Custom</div>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> 250 Credits</li>
-                        <li><i class="fas fa-check-circle"></i> Panel Access</li>
+                        <li><i class="fas fa-check-circle"></i> Bulk credits from 600 to 12,000</li>
+                        <li><i class="fas fa-check-circle"></i> Full Panel Access</li>
                         <li><i class="fas fa-check-circle"></i> White Label</li>
                         <li><i class="fas fa-check-circle"></i> API Access</li>
                         <li><i class="fas fa-check-circle"></i> Dedicated Support</li>
+                        <li><i class="fas fa-check-circle"></i> Sub‑reseller Creation</li>
                     </ul>
-                    <a href="signup.html?plan=enterprise" class="plan-btn">Get Started</a>
+                    <a href="contact.html" class="plan-btn">Contact Support</a>
                 </div>
             </div>
 
-            <!-- Benefits Section -->
-            <div class="benefits-section">
-                <h2>Why Become a Reseller?</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>High Profit Margins</h3>
-                            <p>Keep up to 70% of the revenue. Set your own prices and maximize earnings.</p>
-                        </div>
+            <!-- How the Panel Works – H2 with H3 steps -->
+            <div class="panel-workflow">
+                <h2>How the 8K Strong Reseller Panel Works</h2>
+                <div class="workflow-grid">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <h3>Purchase Credits</h3>
+                        <p>Choose a credit pack (120, 240, or custom) and activate your <strong>iptv reseller</strong> panel instantly.</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Dedicated Support</h3>
-                            <p>Get priority assistance from our team to help you grow your business.</p>
-                        </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <h3>Create Users</h3>
+                        <p>Use credits to generate subscription accounts for your customers (1 credit = 1 month).</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Reliable Infrastructure</h3>
-                            <p>99.9% uptime guarantee, fast servers, and global content delivery.</p>
-                        </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <h3>Manage Subscriptions</h3>
+                        <p>Extend, suspend, or monitor active lines from your dashboard.</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Easy to Start</h3>
-                            <p>Instant panel access and marketing materials to help you begin immediately.</p>
-                        </div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <h3>Grow Your Team</h3>
+                        <p>With 240+ credits, you can create sub‑resellers who manage their own customers.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- New Video Tutorial Section -->
+            <div class="video-tutorial">
+                <h2>Video Tutorial: How to Use the Reseller Panel</h2>
+                <p>Watch this step‑by‑step guide to get started with your <strong>8K Strong reseller panel</strong>.</p>
+                <div class="video-container">
+                    <!-- Placeholder for your video – replace with your own embed code -->
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <p>Your tutorial video will appear here</p>
+                        <p class="small-note">(Replace this placeholder with a YouTube iframe or video tag)</p>
+                    </div>
+                    <!-- Example YouTube embed (uncomment and replace VIDEO_ID):
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+                    -->
+                    <!-- Example self-hosted video:
+                    <video controls>
+                        <source src="videos/panel-tutorial.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    -->
+                </div>
+            </div>
+
+            <!-- Adding Videos (Content) – H2 -->
+            <div class="video-section">
+                <h2>How to Add Videos (Channels / Movies / Series) to Your IPTV Service</h2>
+                <div class="video-methods">
+                    <div class="method-card">
+                        <i class="fas fa-upload"></i>
+                        <h3>Upload M3U File</h3>
+                        <p>Simply upload your M3U playlist through the <strong>8k strong reseller panel</strong>. Our system automatically organizes channels into groups.</p>
+                    </div>
+                    <div class="method-card">
+                        <i class="fas fa-link"></i>
+                        <h3>Add Stream URLs</h3>
+                        <p>Manually add single streams by pasting the direct URL – perfect for testing or adding premium content.</p>
+                    </div>
+                    <div class="method-card">
+                        <i class="fas fa-database"></i>
+                        <h3>Use Built‑in Library</h3>
+                        <p>Access our curated library of popular channels and VOD content (available for Pro & Enterprise).</p>
+                    </div>
+                    <div class="method-card">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Automatic EPG</h3>
+                        <p>Upload XMLTV files for Electronic Program Guide, or let our system generate it from your M3U.</p>
+                    </div>
+                </div>
+                <p style="text-align: center; color: var(--gray-600); margin-top: 30px;">
+                    All videos are instantly available on all devices – Smart TV, mobile, tablet, and web player.
+                </p>
             </div>
 
             <!-- Call to Action -->
-            <div class="cta-section">
-                <p style="color: var(--gray-600); margin-bottom: 20px;">Ready to become a reseller? Join now and start earning!</p>
-                <a href="signup.html" class="cta-btn">Sign Up as Reseller</a>
+            <div class="cta-section" style="text-align: center; margin: 60px 0;">
+                <p style="color: var(--gray-600); margin-bottom: 20px;">Ready to become a top <strong>iptv reseller</strong>? Join now and start earning!</p>
+                <a href="signup.html" class="plan-btn" style="padding: 15px 40px; font-size: 1.2em;">Sign Up as 8K Strong Reseller</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 8K Strong IPTV. All rights reserved.</p>
+        <p>&copy; 2026 8K Strong IPTV – Your trusted <strong>8k stron iptv</strong> & <strong>ott reseller</strong> partner. All rights reserved.</p>
     </footer>
+
+    <!-- Mobile menu toggle script -->
+    <script>
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+        toggleBtn.addEventListener('click', function() {
+            body.classList.toggle('mobile-menu-open');
+            const icon = toggleBtn.querySelector('i');
+            if (body.classList.contains('mobile-menu-open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 </body>
 </html>
