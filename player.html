@@ -1,29 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8K Strong IPTV - Player</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="header">
-        <div class="logo">8K STRONG</div>
-        <nav class="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="packages.html">Packages</a>
-            <a href="player.html">Player</a>
-        </nav>
-    </header>
+<main class="player-container">
+    <h1>IPTV Player</h1>
 
-    <main class="container" style="text-align: center; padding: 50px;">
-        <h2>?? IPTV Player</h2>
-        <p>Player will be available soon. Use the M3U link below in any IPTV app.</p>
-        <p><strong>M3U URL:</strong> <a href="playlist.m3u">http://104.167.198.152/playlist.m3u</a></p>
-    </main>
+    <div class="player-wrapper">
+        <video id="player" controls playsinline></video>
+        <div class="video-title" id="currentChannel">Select a channel</div>
+    </div>
 
-    <footer class="footer">
-        <p>© 2026 8K Strong IPTV</p>
-    </footer>
-</body>
-</html>
+    <div class="channel-list">
+        <div class="search-filter">
+            <input type="text" id="search" placeholder="Search channels...">
+            <select id="groupFilter">
+                <option value="all">All Groups</option>
+            </select>
+        </div>
+        <div id="channels" class="channels-grid">Loading channels...</div>
+    </div>
+</main>
+
+<!-- Scripts for the player -->
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+    // Initialize Plyr
+    const player = new Plyr('#player', {
+        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+        settings: ['quality'],
+    });
+
+    let playlist = [];
+    let filteredPlaylist = [];
+
+    async function loadPlaylist() {
+        try {
+            const res = await fetch('playlist.m3u');
+            const text = await res.text();
+            playlist = parseM3U(text);
+            populateGroups(playlist);
+            filteredPlaylist = playlist;
+            renderChannels(filteredPlaylist);
+        } catch (err) {
+            document.getElementById('channels').innerHTML = 'Error loading playlist.';
+        }
+    }
+
+    function parseM3U(content) {
+        const lines = content.split('\n');
+        const items = [];
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (line.startsWith('#EXTINF')) {
+                let name = '';
+                const nameMatch = line.match(/#EXTINF:-?[^,]*,?(.+)/);
+                if (nameMatch) name = nameMatch[1].trim();
+
+                let group = 'Other';
+                const groupMatch = line.match(/group-title="([^"]*)"/);
+                if (groupMatch && groupMatch[1]) group = groupMatch[1];
+
+                if (i + 1 < lines.length && !lines[i+1].startsWith('#')) {
+                    const url = lines[i+1].trim();
+                    items.push({ name, group, url });
+                }
+            }
+        }
+        return items;
+    }
+
+    function populateGroups(items) {
+        const groups = ['all', ...new Set(items.map(i => i.group))];
+        const select = document.getElementById('groupFilter');
+        select.innerHTML = groups.map(g => `<option value="${g}">${g}</option>`).join('');
+    }
+
+    function renderChannels(items) {
+        const container = document.getElementById('channels');
+        container.innerHTML = items.map(item => `
+            <div class="channel-item" data-url="${item.url}">
+                <div class="channel-name">${item.name}</div>
+                <div class="channel-group">${item.group}</div>
+            </div>
+        `).join('');
+
+        document.querySelectorAll('.channel-item').forEach(el => {
+            el.addEventListener('click', () => {
+                const url = el.dataset.url;
+                playChannel(url, el.innerText);
+                document.querySelectorAll('.channel-item').forEach(c => c.classList.remove('active'));
+                el.classList.add('active');
+            });
+        });
+    }
+
+    function playChannel(url, name) {
+        document.getElementById('currentChannel').innerText = `Now playing: ${name}`;
+        const video = document.getElementById('player');
+        if (url.includes('.m3u8')) {
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = url;
+            }
+        } else {
+            video.src = url;
+        }
+        player.play();
+    }
+
+    function filter() {
+        const search = document.getElementById('search').value.toLowerCase();
+        const group = document.getElementById('groupFilter').value;
+        filteredPlaylist = playlist.filter(item => 
+            (group === 'all' || item.group === group) &&
+            item.name.toLowerCase().includes(search)
+        );
+        renderChannels(filteredPlaylist);
+    }
+
+    document.getElementById('search').addEventListener('input', filter);
+    document.getElementById('groupFilter').addEventListener('change', filter);
+
+    loadPlaylist();
+</script>
