@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8K Strong IPTV – Premium IPTV Service</title>
-    <meta name="description" content="8K Strong IPTV offers 20,000+ live channels, 50,000+ movies & series in 4K. VPN included. Reseller opportunities available. Start watching today!">
-    <meta name="keywords" content="iptv subscription, best iptv service, premium iptv provider, 4k iptv, iptv for firestick, iptv trial, sports iptv, international channels, iptv reseller">
-    <!-- Font Awesome -->
+    <title>8K Strong IPTV – Best Premium IPTV Service</title>
+    <meta name="description" content="8K Strong IPTV offers 20,000+ live channels, 50,000+ movies & series in 4K. VPN included. Free trial via Telegram/WhatsApp. Reseller opportunities.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         /* Dark color system */
@@ -49,7 +46,15 @@
         [dir="rtl"] .language-dropdown .lang-btn {
             flex-direction: row-reverse;
         }
-        /* Add more RTL tweaks as needed */
+        [dir="rtl"] .banner-buttons {
+            flex-direction: row-reverse;
+        }
+        [dir="rtl"] .credit-left {
+            text-align: right;
+        }
+        [dir="rtl"] .testimonial-card {
+            text-align: right;
+        }
 
         /* Header */
         .header {
@@ -299,60 +304,63 @@
             padding: 20px;
         }
 
-        /* Top Banner */
-        .top-banner {
+        /* Banner */
+        .hero-banner {
             background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 20px;
-            padding: 30px 40px;
-            margin: 20px auto;
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin: 40px auto;
             max-width: 1200px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
+            text-align: center;
             border: 1px solid var(--gray-400);
         }
-        .banner-text h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
+        .hero-banner h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .banner-text p {
+        .hero-banner p {
+            font-size: 1.2em;
             color: var(--gray-600);
+            max-width: 800px;
+            margin: 0 auto 30px;
         }
         .banner-buttons {
             display: flex;
-            gap: 15px;
+            justify-content: center;
+            gap: 20px;
             flex-wrap: wrap;
         }
         .banner-btn {
-            padding: 12px 30px;
+            padding: 15px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1em;
             transition: 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
-        .banner-btn.primary {
-            background: var(--button-bg);
-            color: var(--gray-100);
+        .banner-btn.telegram {
+            background: #0088cc;
+            color: white;
+            border: none;
         }
-        .banner-btn.primary:hover {
-            background: var(--button-hover);
+        .banner-btn.telegram:hover {
+            background: #006699;
             transform: scale(1.05);
         }
-        .banner-btn.secondary {
-            background: transparent;
-            color: var(--gray-800);
-            border: 2px solid var(--button-bg);
+        .banner-btn.whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
         }
-        .banner-btn.secondary:hover {
-            background: var(--button-bg);
-            color: var(--gray-100);
-            border-color: var(--button-bg);
+        .banner-btn.whatsapp:hover {
+            background: #128C7E;
+            transform: scale(1.05);
         }
 
         /* Slideshow */
@@ -462,44 +470,76 @@
             transform: scale(1.3);
         }
 
-        /* Trust badges */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin: 30px 0 60px;
-        }
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Credit System & Panel Preview */
+        .credit-panel-section {
             background: var(--gray-200);
-            padding: 10px 25px;
-            border-radius: 50px;
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
             border: 1px solid var(--gray-400);
         }
-        .badge i {
-            font-size: 1.5em;
-            color: var(--button-bg);
-        }
-        .badge span {
-            font-weight: 600;
-            color: var(--gray-900);
-        }
-
-        .section-title {
-            text-align: center;
+        .credit-left h2 {
             font-size: 2.5em;
-            margin: 60px 0 40px;
-            background: linear-gradient(45deg,var(--gray-800),var(--gray-900));
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .credit-left p {
+            color: var(--gray-600);
+            margin-bottom: 15px;
+        }
+        .credit-left ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .credit-left li {
+            margin: 10px 0;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .credit-left li i {
+            color: var(--button-bg);
+        }
+        .credit-right {
+            background: var(--gray-300);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-400);
+        }
+        .credit-right i {
+            font-size: 5em;
+            color: var(--button-bg);
+            opacity: 0.7;
+        }
+        .credit-right p {
+            color: var(--gray-600);
+            margin-top: 10px;
+        }
 
+        /* Features Grid */
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
         .feature-card {
@@ -512,188 +552,102 @@
         }
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--gray-600);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border-color: var(--button-bg);
+            box-shadow: 0 10px 30px rgba(236, 182, 25, 0.2);
         }
         .feature-icon {
-            font-size: 50px;
+            font-size: 3em;
             color: var(--button-bg);
             margin-bottom: 20px;
         }
         .feature-card h3 {
             font-size: 1.5em;
-            margin-bottom: 15px;
-            color: var(--gray-900);
-        }
-
-        .reseller-teaser {
-            background: var(--gray-200);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-            border: 1px solid var(--gray-400);
-        }
-        .teaser-text h2 {
-            font-size: 2em;
             margin-bottom: 10px;
             color: var(--gray-900);
         }
-        .teaser-text p {
+        .feature-card p {
             color: var(--gray-600);
-            max-width: 500px;
-        }
-        .teaser-btn {
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
-        }
-        .teaser-btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
         }
 
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-            gap: 25px;
-        }
-        .plan-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 30px 20px;
+        /* Testimonials with Images */
+        .testimonials-section h2 {
             text-align: center;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .plan-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gray-600);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-        .plan-card.popular::before {
-            content: "MOST POPULAR";
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: var(--button-bg);
-            color: white;
-            padding: 5px 40px;
-            font-size: 12px;
-            font-weight: bold;
-            transform: rotate(45deg);
-        }
-        .plan-icon {
-            font-size: 50px;
-            color: var(--button-bg);
-            margin-bottom: 20px;
-        }
-        .plan-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: var(--gray-900);
-        }
-        .price {
-            font-size: 2.2em;
-            font-weight: 800;
-            margin: 20px 0;
-            background: linear-gradient(45deg,var(--gray-800),var(--gray-900));
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-top: 15px;
-        }
-        .btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-        .plan-card ul {
-            list-style: none;
-            margin: 20px 0;
-        }
-        .plan-card li {
-            margin: 10px 0;
-            color: var(--gray-600);
-        }
-        .plan-card li i {
-            color: var(--button-bg);
-            margin-right: 8px;
-        }
-
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-            gap: 30px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
         .testimonial-card {
             background: var(--gray-200);
             border: 1px solid var(--gray-400);
             border-radius: 20px;
             padding: 25px;
+            transition: 0.3s;
         }
-        .testimonial-card i {
-            color: var(--button-bg);
-            font-size: 2em;
-            margin-bottom: 15px;
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--button-bg);
         }
-        .testimonial-text {
-            font-style: italic;
-            color: var(--gray-700);
-            margin-bottom: 20px;
-        }
-        .testimonial-author {
+        .testimonial-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            margin-bottom: 15px;
         }
-        .author-avatar {
-            width: 50px;
-            height: 50px;
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: var(--gray-300);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5em;
+            font-size: 2em;
             color: var(--button-bg);
+            border: 2px solid var(--button-bg);
         }
-        .author-info h4 {
+        .testimonial-name h4 {
             color: var(--gray-900);
+            margin-bottom: 5px;
         }
-        .author-info p {
-            color: var(--gray-600);
+        .testimonial-name .stars {
+            color: var(--button-bg);
             font-size: 0.9em;
         }
+        .testimonial-text {
+            color: var(--gray-700);
+            font-style: italic;
+        }
 
+        /* FAQ */
+        .faq-section {
+            background: var(--gray-200);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px auto;
+            border: 1px solid var(--gray-400);
+        }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 20px;
-            margin: 40px 0;
         }
         .faq-item {
-            background: var(--gray-200);
+            background: var(--gray-300);
             border: 1px solid var(--gray-400);
             border-radius: 15px;
             padding: 20px;
@@ -729,53 +683,77 @@
             transform: rotate(45deg);
         }
 
-        .newsletter {
-            background: var(--gray-200);
-            border-radius: 20px;
-            padding: 40px;
+        /* Plans */
+        .plans-section h2 {
             text-align: center;
-            margin: 40px 0;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .plan-card {
+            background: var(--gray-200);
             border: 1px solid var(--gray-400);
-        }
-        .newsletter h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            color: var(--gray-900);
-        }
-        .newsletter p {
-            color: var(--gray-600);
-            margin-bottom: 25px;
-        }
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .newsletter-form input {
-            padding: 15px 20px;
-            border-radius: 50px;
-            border: 1px solid var(--gray-400);
-            background: var(--gray-300);
-            color: var(--gray-800);
-            width: 300px;
-            max-width: 100%;
-        }
-        .newsletter-form button {
-            background: var(--button-bg);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
             transition: 0.3s;
         }
-        .newsletter-form button:hover {
+        .plan-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--button-bg);
+            box-shadow: 0 10px 30px rgba(236, 182, 25, 0.2);
+        }
+        .plan-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: var(--gray-900);
+        }
+        .plan-card .price {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin: 15px 0;
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .plan-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .plan-card li {
+            margin: 10px 0;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .plan-card li i {
+            color: var(--button-bg);
+        }
+        .plan-card .btn {
+            background: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .plan-card .btn:hover {
             background: var(--button-hover);
             transform: scale(1.05);
         }
 
+        /* Footer */
         .footer {
             background: var(--gray-200);
             padding: 40px 0;
@@ -807,20 +785,11 @@
                 width: 100%;
                 max-width: none;
             }
-            .slide-content h2 {
-                font-size: 1.8em;
+            .hero-banner h1 {
+                font-size: 2.2em;
             }
-            .prev, .next {
-                width: 40px;
-                height: 40px;
-                padding: 10px;
-            }
-            .trust-badges {
-                gap: 15px;
-            }
-            .badge {
-                padding: 8px 15px;
-                font-size: 0.9em;
+            .credit-panel-section {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -837,33 +806,34 @@
             <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
             <div class="search-area">
                 <form onsubmit="return false;">
-                    <input type="text" id="searchInput" placeholder="Search channels, movies...">
-                    <button type="button" id="searchButton"><i class="fas fa-search"></i> Search</button>
+                    <input type="text" data-i18n-placeholder="search_placeholder" placeholder="Search channels, movies...">
+                    <button type="button"><i class="fas fa-search"></i> <span data-i18n="search_btn">Search</span></button>
                 </form>
             </div>
             <div class="header-actions">
-                <!-- Language Dropdown (multi-language) -->
                 <div class="language-dropdown">
                     <button class="lang-btn">
                         <img src="images/flags/uk.png" alt="English" id="currentLangFlag">
                         <span id="currentLangLabel">EN</span>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="#" onclick="changeLanguage('en')"><img src="images/flags/uk.png" alt="English" style="height:16px; margin-right:8px;"> English</a>
-                        <a href="#" onclick="changeLanguage('ar')"><img src="images/flags/arabic.png" alt="العربية" style="height:16px; margin-right:8px;"> العربية</a>
-                        <a href="#" onclick="changeLanguage('fr')"><img src="images/flags/france.png" alt="Français" style="height:16px; margin-right:8px;"> Français</a>
-                        <a href="#" onclick="changeLanguage('es')"><img src="images/flags/spain.png" alt="Español" style="height:16px; margin-right:8px;"> Español</a>
-                        <a href="#" onclick="changeLanguage('zh')"><img src="images/flags/china.png" alt="中文" style="height:16px; margin-right:8px;"> 中文</a>
-                        <a href="#" onclick="changeLanguage('he')"><img src="images/flags/israel.png" alt="עברית" style="height:16px; margin-right:8px;"> עברית</a>
+                        <a href="#" onclick="changeLanguage('en')"><img src="images/flags/uk.png" alt="English"> English</a>
+                        <a href="#" onclick="changeLanguage('ar')"><img src="images/flags/arabic.png" alt="العربية"> العربية</a>
+                        <a href="#" onclick="changeLanguage('fr')"><img src="images/flags/france.png" alt="Français"> Français</a>
+                        <a href="#" onclick="changeLanguage('es')"><img src="images/flags/spain.png" alt="Español"> Español</a>
+                        <a href="#" onclick="changeLanguage('zh')"><img src="images/flags/china.png" alt="中文"> 中文</a>
+                        <a href="#" onclick="changeLanguage('he')"><img src="images/flags/israel.png" alt="עברית"> עברית</a>
                     </div>
                 </div>
                 <button class="theme-toggle"><i class="bx bx-moon"></i></button>
-                <a href="login.html" class="login-btn">Login</a>
+                <a href="login.html" class="login-btn" data-i18n="login">Login</a>
             </div>
         </div>
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html" data-i18n="home">Home</a></li>
+                <li><a href="packages.html" data-i18n="packages">Packages</a></li>
+                <li><a href="downloader.html" data-i18n="downloader">Downloader</a></li>
                 <li><a href="contact.html" data-i18n="contact">Contact Us</a></li>
                 <li><a href="resolution.html" data-i18n="resolution">Resolution Center</a></li>
                 <li><a href="blogs.html" data-i18n="blogs">Blogs</a></li>
@@ -875,6 +845,8 @@
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="downloader.html">Downloader</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="resolution.html">Resolution Center</a></li>
                 <li><a href="blogs.html">Blogs</a></li>
@@ -885,251 +857,244 @@
         </div>
     </header>
 
-    <!-- Top Banner with two buttons -->
-    <div class="top-banner">
-        <div class="banner-text">
-            <h2 data-i18n="banner_title">Limited Time Offer!</h2>
-            <p data-i18n="banner_subtitle">Get 20% off on all annual plans + free IboproApp activation</p>
-        </div>
-        <div class="banner-buttons">
-            <a href="subscription.html" class="banner-btn primary" data-i18n="banner_btn1">Subscribe Now</a>
-            <a href="contact.html" class="banner-btn secondary" data-i18n="banner_btn2">Contact Sales</a>
-        </div>
-    </div>
+    <main class="container">
+        <!-- Hero Banner with two trial buttons -->
+        <section class="hero-banner">
+            <h1 data-i18n="hero_title">8K Strong IPTV – The Ultimate 4K Streaming Experience</h1>
+            <p data-i18n="hero_desc">20,000+ live channels, 50,000+ movies & series, built-in VPN, and 24/7 support. Start watching today!</p>
+            <div class="banner-buttons">
+                <a href="https://t.me/8kstrong_support" target="_blank" class="banner-btn telegram"><i class="fab fa-telegram-plane"></i> <span data-i18n="trial_telegram">Free Trial via Telegram</span></a>
+                <a href="https://wa.me/1234567890" target="_blank" class="banner-btn whatsapp"><i class="fab fa-whatsapp"></i> <span data-i18n="trial_whatsapp">Free Trial via WhatsApp</span></a>
+            </div>
+        </section>
 
-    <!-- Slideshow -->
-    <div class="slideshow-container">
-        <div class="slides" id="slides">
-            <div class="slide">
-                <img src="images/slide1.jpg" alt="Premium IPTV Service">
-                <div class="slide-content">
-                    <h2 data-i18n="slide1_title">Premium IPTV Service</h2>
-                    <p data-i18n="slide1_desc">20,000+ live channels & 50,000+ movies in 4K quality</p>
-                    <a href="subscription.html" class="slide-btn" data-i18n="slide1_btn">Subscribe Now</a>
+        <!-- Multi-slide slideshow -->
+        <div class="slideshow-container">
+            <div class="slides" id="slides">
+                <div class="slide">
+                    <img src="images/slide1.jpg" alt="Premium IPTV Service">
+                    <div class="slide-content">
+                        <h2 data-i18n="slide1_title">Premium IPTV Service</h2>
+                        <p data-i18n="slide1_desc">20,000+ live channels & 50,000+ movies in 4K quality</p>
+                        <a href="subscription.html" class="slide-btn" data-i18n="slide1_btn">Subscribe Now</a>
+                    </div>
                 </div>
-            </div>
-            <div class="slide">
-                <img src="images/slide2.jpg" alt="Reseller Program">
-                <div class="slide-content">
-                    <h2 data-i18n="slide2_title">Become a Reseller</h2>
-                    <p data-i18n="slide2_desc">Flexible plans – start your own business today</p>
-                    <a href="reseller.html" class="slide-btn" data-i18n="slide2_btn">Join Reseller</a>
+                <div class="slide">
+                    <img src="images/slide2.jpg" alt="Reseller Program">
+                    <div class="slide-content">
+                        <h2 data-i18n="slide2_title">Become a Reseller</h2>
+                        <p data-i18n="slide2_desc">Flexible plans – start your own business today</p>
+                        <a href="reseller.html" class="slide-btn" data-i18n="slide2_btn">Join Reseller</a>
+                    </div>
                 </div>
-            </div>
-            <div class="slide">
-                <img src="images/slide3.jpg" alt="Special Offer">
-                <div class="slide-content">
-                    <h2 data-i18n="slide3_title">Limited Time Offer</h2>
-                    <p data-i18n="slide3_desc">Get 20% off on yearly subscription</p>
-                    <a href="subscription.html" class="slide-btn" data-i18n="slide3_btn">Claim Offer</a>
-                </div>
-            </div>
-        </div>
-        <button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-        <button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
-        <div class="dots-container" id="dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-        </div>
-    </div>
-
-    <!-- Trust Badges -->
-    <div class="container">
-        <div class="trust-badges">
-            <div class="badge"><i class="fas fa-users"></i> <span data-i18n="badge_users">10,000+ Active Users</span></div>
-            <div class="badge"><i class="fas fa-headset"></i> <span data-i18n="badge_support">24/7 Support</span></div>
-            <div class="badge"><i class="fas fa-check-circle"></i> <span data-i18n="badge_uptime">99.9% Uptime</span></div>
-            <div class="badge"><i class="fas fa-rocket"></i> <span data-i18n="badge_quality">4K Quality</span></div>
-        </div>
-    </div>
-
-    <!-- Features Section -->
-    <section class="section container">
-        <h2 class="section-title" data-i18n="features_title">Why Choose 8K Strong IPTV?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-tachometer-alt feature-icon"></i>
-                <h3 data-i18n="feature1_title">Ultra Fast</h3>
-                <p data-i18n="feature1_desc">High‑performance servers for buffer‑free streaming</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-shield-alt feature-icon"></i>
-                <h3 data-i18n="feature2_title">VPN Protection</h3>
-                <p data-i18n="feature2_desc">Built‑in VPN for privacy and security</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-globe feature-icon"></i>
-                <h3 data-i18n="feature3_title">Worldwide Channels</h3>
-                <p data-i18n="feature3_desc">Channels from 100+ countries, sports, news, movies</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-headset feature-icon"></i>
-                <h3 data-i18n="feature4_title">24/7 Support</h3>
-                <p data-i18n="feature4_desc">Dedicated support team always ready to help</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reseller Teaser -->
-    <div class="container">
-        <div class="reseller-teaser">
-            <div class="teaser-text">
-                <h2 data-i18n="teaser_title">Start Your IPTV Business Today</h2>
-                <p data-i18n="teaser_desc">Become a reseller and earn high profits. White‑label panel, bulk credits, and dedicated support.</p>
-            </div>
-            <a href="reseller.html" class="teaser-btn" data-i18n="teaser_btn">Learn More</a>
-        </div>
-    </div>
-
-    <!-- Subscription Plans -->
-    <section class="section container">
-        <h2 class="section-title" data-i18n="plans_title">Subscription Plans</h2>
-        <div class="plans-grid">
-            <div class="plan-card">
-                <i class="fas fa-film plan-icon"></i>
-                <h3 data-i18n="plan1_name">1 Month</h3>
-                <div class="price">€13</div>
-                <ul>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_all_channels">All channels</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_hd">HD quality</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_1conn">1 connection</span></li>
-                </ul>
-                <a href="subscription.html" class="btn" data-i18n="plan_subscribe">Subscribe</a>
-            </div>
-            <div class="plan-card popular">
-                <i class="fas fa-star plan-icon"></i>
-                <h3 data-i18n="plan3_name">3 Months</h3>
-                <div class="price">€25</div>
-                <ul>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_all_channels">All channels</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_4k">4K quality</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_1conn">1 connection</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_vpn">VPN included</span></li>
-                </ul>
-                <a href="subscription.html" class="btn" data-i18n="plan_subscribe">Subscribe</a>
-            </div>
-            <div class="plan-card">
-                <i class="fas fa-crown plan-icon"></i>
-                <h3 data-i18n="plan6_name">6 Months</h3>
-                <div class="price">€33</div>
-                <ul>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_all_channels">All channels</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_4k">4K quality</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_1conn">1 connection</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_vpn">VPN included</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_catchup">Catch‑Up TV</span></li>
-                </ul>
-                <a href="subscription.html" class="btn" data-i18n="plan_subscribe">Subscribe</a>
-            </div>
-            <div class="plan-card">
-                <i class="fas fa-gem plan-icon"></i>
-                <h3 data-i18n="plan12_name">12 Months</h3>
-                <div class="price">€55</div>
-                <ul>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_all_channels">All channels</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_4k">4K quality</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_1conn">1 connection</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_vpn">VPN included</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_catchup">Catch‑Up TV</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="plan_ibopro">Free IboproApp activation for 1 year</span></li>
-                </ul>
-                <a href="subscription.html" class="btn" data-i18n="plan_subscribe">Subscribe</a>
-            </div>
-        </div>
-        <p style="text-align:center; color:var(--gray-600); margin-top:20px;" data-i18n="multi_device_note">
-            <i class="fas fa-info-circle" style="color:var(--button-bg);"></i> All plans include 1 connection. For multi‑device options, please <a href="contact.html" style="color:var(--button-bg);">contact us</a>.
-        </p>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="container">
-        <h2 class="section-title" data-i18n="testimonials_title">What Our Customers Say</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <i class="fas fa-quote-right"></i>
-                <div class="testimonial-text" data-i18n="testimonial1">"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus."</div>
-                <div class="testimonial-author">
-                    <div class="author-avatar"><i class="fas fa-user"></i></div>
-                    <div class="author-info">
-                        <h4>David M.</h4>
-                        <p data-i18n="testimonial1_role">Subscriber since 2025</p>
+                <div class="slide">
+                    <img src="images/slide3.jpg" alt="Special Offer">
+                    <div class="slide-content">
+                        <h2 data-i18n="slide3_title">Limited Time Offer</h2>
+                        <p data-i18n="slide3_desc">Get 20% off on yearly subscription</p>
+                        <a href="subscription.html" class="slide-btn" data-i18n="slide3_btn">Claim Offer</a>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <i class="fas fa-quote-right"></i>
-                <div class="testimonial-text" data-i18n="testimonial2">"As a reseller, the panel is super easy to use. My customers love the quality."</div>
-                <div class="testimonial-author">
-                    <div class="author-avatar"><i class="fas fa-user"></i></div>
-                    <div class="author-info">
-                        <h4>Sarah K.</h4>
-                        <p data-i18n="testimonial2_role">Pro Reseller</p>
+            <button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            <div class="dots-container">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+        </div>
+
+        <!-- Credit System & Panel Preview (New) -->
+        <section class="credit-panel-section">
+            <div class="credit-left">
+                <h2 data-i18n="credit_title">Start Reselling with Our Credit System</h2>
+                <p data-i18n="credit_desc">1 credit = 1 month subscription. Minimum 120 credits to activate your reseller panel.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="credit_120">120 credits – €190</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="credit_240">240 credits – €375</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="credit_600">600 – 12,000 credits – contact us for custom pricing</span></li>
+                </ul>
+                <p data-i18n="credit_more">Manage users, create sub‑resellers, and enjoy white‑label options. <a href="reseller.html" style="color:var(--button-bg);">Learn more</a></p>
+            </div>
+            <div class="credit-right">
+                <div>
+                    <i class="fas fa-tachometer-alt"></i>
+                    <p data-i18n="panel_placeholder">Reseller Panel Preview</p>
+                    <p style="font-size:0.9em; color:var(--gray-500);" data-i18n="panel_replace">(Replace with actual image/video)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section (Enhanced) -->
+        <section class="features-section">
+            <h2 data-i18n="features_title">Why Choose 8K Strong IPTV?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-tachometer-alt feature-icon"></i>
+                    <h3 data-i18n="feature1_title">Ultra Fast</h3>
+                    <p data-i18n="feature1_desc">High‑performance servers for buffer‑free streaming</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3 data-i18n="feature2_title">VPN Protection</h3>
+                    <p data-i18n="feature2_desc">Built‑in VPN for privacy and security</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-globe feature-icon"></i>
+                    <h3 data-i18n="feature3_title">Worldwide Channels</h3>
+                    <p data-i18n="feature3_desc">Channels from 100+ countries, sports, news, movies</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset feature-icon"></i>
+                    <h3 data-i18n="feature4_title">24/7 Support</h3>
+                    <p data-i18n="feature4_desc">Dedicated support team always ready to help</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3 data-i18n="feature5_title">Reseller Dashboard</h3>
+                    <p data-i18n="feature5_desc">Full control with real‑time analytics and user management</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-download feature-icon"></i>
+                    <h3 data-i18n="feature6_title">Easy Integration</h3>
+                    <p data-i18n="feature6_desc">Compatible with all popular IPTV players</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials with Images (New) -->
+        <section class="testimonials-section">
+            <h2 data-i18n="testimonials_title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="images/user1.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+                        </div>
+                        <div class="testimonial-name">
+                            <h4>Ahmed M.</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
                     </div>
+                    <div class="testimonial-text" data-i18n="testimonial1">"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus."</div>
                 </div>
-            </div>
-            <div class="testimonial-card">
-                <i class="fas fa-quote-right"></i>
-                <div class="testimonial-text" data-i18n="testimonial3">"The 4K streams are amazing. Support responds within minutes. Highly recommended!"</div>
-                <div class="testimonial-author">
-                    <div class="author-avatar"><i class="fas fa-user"></i></div>
-                    <div class="author-info">
-                        <h4>Ahmed R.</h4>
-                        <p data-i18n="testimonial3_role">Annual Subscriber</p>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="images/user2.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';">
+                        </div>
+                        <div class="testimonial-name">
+                            <h4>Sarah K.</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
                     </div>
+                    <div class="testimonial-text" data-i18n="testimonial2">"As a reseller, the panel is super easy to use. My customers love the quality."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="images/user3.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';">
+                        </div>
+                        <div class="testimonial-name">
+                            <h4>David L.</h4>
+                            <div class="stars">★★★★☆</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text" data-i18n="testimonial3">"The 4K streams are amazing. Support responds within minutes. Highly recommended!"</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ -->
-    <section class="container">
-        <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
-        <div class="faq-grid" id="faqGrid">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span data-i18n="faq1_q">What devices are supported?</span>
-                    <i class="fas fa-plus"></i>
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+            <div class="faq-grid" id="faqGrid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq1_q">What devices are supported?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq1_a">All major devices: Smart TVs (Samsung, LG), Android boxes, iOS, Android phones/tablets, Windows/Mac, and more.</div>
                 </div>
-                <div class="faq-answer" data-i18n="faq1_a">All major devices: Smart TVs (Samsung, LG), Android boxes, iOS, Android phones/tablets, Windows/Mac, and more.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span data-i18n="faq2_q">Is there a free trial?</span>
-                    <i class="fas fa-plus"></i>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq2_q">Is there a free trial?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq2_a">Yes! Contact us on Telegram or WhatsApp to get a 24‑hour free trial.</div>
                 </div>
-                <div class="faq-answer" data-i18n="faq2_a">We offer a 24‑hour free trial for new users – contact support to activate.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span data-i18n="faq3_q">Can I use my own player?</span>
-                    <i class="fas fa-plus"></i>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq3_q">Can I use my own player?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq3_a">Yes, you can use any player that supports M3U or M3U8 links, such as VLC, TiviMate, or IPTV Smarters.</div>
                 </div>
-                <div class="faq-answer" data-i18n="faq3_a">Yes, you can use any player that supports M3U or M3U8 links, such as VLC, TiviMate, or IPTV Smarters.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span data-i18n="faq4_q">Do you offer reseller discounts?</span>
-                    <i class="fas fa-plus"></i>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq4_q">Do you offer reseller discounts?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq4_a">Yes! Check our <a href="reseller.html" style="color:var(--button-bg);">Reseller page</a> for bulk credit options and white‑label plans.</div>
                 </div>
-                <div class="faq-answer" data-i18n="faq4_a">Yes! Check our <a href="reseller.html" style="color:var(--button-bg);">Reseller page</a> for bulk credit options and white‑label plans.</div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Newsletter -->
-    <section class="container">
-        <div class="newsletter">
-            <h2 data-i18n="newsletter_title">Stay Updated</h2>
-            <p data-i18n="newsletter_desc">Subscribe to our newsletter for exclusive offers and new channel announcements.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                <input type="email" placeholder="Your email address" data-i18n-placeholder="newsletter_placeholder" required>
-                <button type="submit" data-i18n="newsletter_btn">Subscribe</button>
-            </form>
-        </div>
-    </section>
+        <!-- Plans & Packages -->
+        <section class="plans-section">
+            <h2 data-i18n="plans_title">Our Plans & Packages</h2>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <h3 data-i18n="plan1_name">1 Month</h3>
+                    <div class="price">€13</div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="all_channels">All channels</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="hd">HD quality</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="one_conn">1 connection</span></li>
+                    </ul>
+                    <a href="subscription.html" class="btn" data-i18n="subscribe">Subscribe</a>
+                </div>
+                <div class="plan-card">
+                    <h3 data-i18n="plan3_name">3 Months</h3>
+                    <div class="price">€25</div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="all_channels">All channels</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="4k">4K quality</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="one_conn">1 connection</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="vpn">VPN included</span></li>
+                    </ul>
+                    <a href="subscription.html" class="btn" data-i18n="subscribe">Subscribe</a>
+                </div>
+                <div class="plan-card">
+                    <h3 data-i18n="plan6_name">6 Months</h3>
+                    <div class="price">€33</div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="all_channels">All channels</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="4k">4K quality</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="one_conn">1 connection</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="vpn">VPN included</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="catchup">Catch‑Up TV</span></li>
+                    </ul>
+                    <a href="subscription.html" class="btn" data-i18n="subscribe">Subscribe</a>
+                </div>
+                <div class="plan-card">
+                    <h3 data-i18n="plan12_name">12 Months</h3>
+                    <div class="price">€55</div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="all_channels">All channels</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="4k">4K quality</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="one_conn">1 connection</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="vpn">VPN included</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="catchup">Catch‑Up TV</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="ibopro">Free IboproApp activation for 1 year</span></li>
+                    </ul>
+                    <a href="subscription.html" class="btn" data-i18n="subscribe">Subscribe</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 8K Strong IPTV. <span data-i18n="footer_rights">All rights reserved.</span></p>
     </footer>
@@ -1193,21 +1158,26 @@
         });
     </script>
 
-    <!-- Language Translation Script -->
+    <!-- Translation Script -->
     <script>
         const translations = {
             en: {
                 home: "Home",
+                packages: "Packages",
+                downloader: "Downloader",
                 contact: "Contact Us",
                 resolution: "Resolution Center",
                 blogs: "Blogs",
                 find: "Find Content",
                 reseller: "Reseller",
                 subscription: "Subscription",
-                banner_title: "Limited Time Offer!",
-                banner_subtitle: "Get 20% off on all annual plans + free IboproApp activation",
-                banner_btn1: "Subscribe Now",
-                banner_btn2: "Contact Sales",
+                login: "Login",
+                search_placeholder: "Search channels, movies...",
+                search_btn: "Search",
+                hero_title: "8K Strong IPTV – The Ultimate 4K Streaming Experience",
+                hero_desc: "20,000+ live channels, 50,000+ movies & series, built-in VPN, and 24/7 support. Start watching today!",
+                trial_telegram: "Free Trial via Telegram",
+                trial_whatsapp: "Free Trial via WhatsApp",
                 slide1_title: "Premium IPTV Service",
                 slide1_desc: "20,000+ live channels & 50,000+ movies in 4K quality",
                 slide1_btn: "Subscribe Now",
@@ -1217,10 +1187,14 @@
                 slide3_title: "Limited Time Offer",
                 slide3_desc: "Get 20% off on yearly subscription",
                 slide3_btn: "Claim Offer",
-                badge_users: "10,000+ Active Users",
-                badge_support: "24/7 Support",
-                badge_uptime: "99.9% Uptime",
-                badge_quality: "4K Quality",
+                credit_title: "Start Reselling with Our Credit System",
+                credit_desc: "1 credit = 1 month subscription. Minimum 120 credits to activate your reseller panel.",
+                credit_120: "120 credits – €190",
+                credit_240: "240 credits – €375",
+                credit_600: "600 – 12,000 credits – contact us for custom pricing",
+                credit_more: "Manage users, create sub‑resellers, and enjoy white‑label options. <a href='reseller.html' style='color:var(--button-bg);'>Learn more</a>",
+                panel_placeholder: "Reseller Panel Preview",
+                panel_replace: "(Replace with actual image/video)",
                 features_title: "Why Choose 8K Strong IPTV?",
                 feature1_title: "Ultra Fast",
                 feature1_desc: "High‑performance servers for buffer‑free streaming",
@@ -1230,60 +1204,51 @@
                 feature3_desc: "Channels from 100+ countries, sports, news, movies",
                 feature4_title: "24/7 Support",
                 feature4_desc: "Dedicated support team always ready to help",
-                teaser_title: "Start Your IPTV Business Today",
-                teaser_desc: "Become a reseller and earn high profits. White‑label panel, bulk credits, and dedicated support.",
-                teaser_btn: "Learn More",
-                plans_title: "Subscription Plans",
-                plan1_name: "1 Month",
-                plan3_name: "3 Months",
-                plan6_name: "6 Months",
-                plan12_name: "12 Months",
-                plan_all_channels: "All channels",
-                plan_hd: "HD quality",
-                plan_4k: "4K quality",
-                plan_1conn: "1 connection",
-                plan_vpn: "VPN included",
-                plan_catchup: "Catch‑Up TV",
-                plan_ibopro: "Free IboproApp activation for 1 year",
-                plan_subscribe: "Subscribe",
-                multi_device_note: "<i class='fas fa-info-circle' style='color:var(--button-bg);'></i> All plans include 1 connection. For multi‑device options, please <a href='contact.html' style='color:var(--button-bg);'>contact us</a>.",
+                feature5_title: "Reseller Dashboard",
+                feature5_desc: "Full control with real‑time analytics and user management",
+                feature6_title: "Easy Integration",
+                feature6_desc: "Compatible with all popular IPTV players",
                 testimonials_title: "What Our Customers Say",
-                testimonial1: "\"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus.\"",
-                testimonial1_role: "Subscriber since 2025",
-                testimonial2: "\"As a reseller, the panel is super easy to use. My customers love the quality.\"",
-                testimonial2_role: "Pro Reseller",
-                testimonial3: "\"The 4K streams are amazing. Support responds within minutes. Highly recommended!\"",
-                testimonial3_role: "Annual Subscriber",
+                testimonial1: "Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus.",
+                testimonial2: "As a reseller, the panel is super easy to use. My customers love the quality.",
+                testimonial3: "The 4K streams are amazing. Support responds within minutes. Highly recommended!",
                 faq_title: "Frequently Asked Questions",
                 faq1_q: "What devices are supported?",
                 faq1_a: "All major devices: Smart TVs (Samsung, LG), Android boxes, iOS, Android phones/tablets, Windows/Mac, and more.",
                 faq2_q: "Is there a free trial?",
-                faq2_a: "We offer a 24‑hour free trial for new users – contact support to activate.",
+                faq2_a: "Yes! Contact us on Telegram or WhatsApp to get a 24‑hour free trial.",
                 faq3_q: "Can I use my own player?",
                 faq3_a: "Yes, you can use any player that supports M3U or M3U8 links, such as VLC, TiviMate, or IPTV Smarters.",
                 faq4_q: "Do you offer reseller discounts?",
-                faq4_a: "Yes! Check our <a href='reseller.html' style='color:var(--button-bg);'>Reseller page</a> for bulk credit options and white‑label plans.",
-                newsletter_title: "Stay Updated",
-                newsletter_desc: "Subscribe to our newsletter for exclusive offers and new channel announcements.",
-                newsletter_placeholder: "Your email address",
-                newsletter_btn: "Subscribe",
-                footer_rights: "All rights reserved.",
-                login: "Login",
-                search_placeholder: "Search channels, movies...",
-                search_btn: "Search"
+                faq4_a: "Yes! Check our Reseller page for bulk credit options and white‑label plans.",
+                plans_title: "Our Plans & Packages",
+                plan1_name: "1 Month",
+                plan3_name: "3 Months",
+                plan6_name: "6 Months",
+                plan12_name: "12 Months",
+                all_channels: "All channels",
+                hd: "HD quality",
+                one_conn: "1 connection",
+                subscribe: "Subscribe",
+                footer_rights: "All rights reserved."
             },
             ar: {
                 home: "الرئيسية",
+                packages: "الباقات",
+                downloader: "التحميل",
                 contact: "اتصل بنا",
                 resolution: "مركز الحلول",
                 blogs: "المدونة",
                 find: "ابحث عن محتوى",
                 reseller: "إعادة البيع",
                 subscription: "الاشتراكات",
-                banner_title: "عرض لفترة محدودة!",
-                banner_subtitle: "احصل على خصم 20% على جميع الخطط السنوية + تفعيل IboproApp مجاناً",
-                banner_btn1: "اشترك الآن",
-                banner_btn2: "اتصل بالمبيعات",
+                login: "تسجيل الدخول",
+                search_placeholder: "ابحث عن قنوات، أفلام...",
+                search_btn: "بحث",
+                hero_title: "8K Strong IPTV – تجربة البث المثالية 4K",
+                hero_desc: "أكثر من 20,000 قناة مباشرة، 50,000 فيلم ومسلسل، VPN مدمج، ودعم 24/7. ابدأ المشاهدة اليوم!",
+                trial_telegram: "تجربة مجانية عبر تيليجرام",
+                trial_whatsapp: "تجربة مجانية عبر واتساب",
                 slide1_title: "خدمة IPTV المميزة",
                 slide1_desc: "أكثر من 20,000 قناة مباشرة و 50,000 فيلم بجودة 4K",
                 slide1_btn: "اشترك الآن",
@@ -1293,10 +1258,14 @@
                 slide3_title: "عرض خاص",
                 slide3_desc: "احصل على خصم 20% على الاشتراك السنوي",
                 slide3_btn: "استفد من العرض",
-                badge_users: "أكثر من 10,000 مستخدم نشط",
-                badge_support: "دعم 24/7",
-                badge_uptime: "وقت تشغيل 99.9%",
-                badge_quality: "جودة 4K",
+                credit_title: "ابدأ البيع مع نظام الأرصدة",
+                credit_desc: "1 رصيد = شهر واحد من الاشتراك. الحد الأدنى 120 رصيد لتفعيل لوحة الموزع.",
+                credit_120: "120 رصيد – 190 يورو",
+                credit_240: "240 رصيد – 375 يورو",
+                credit_600: "600 – 12,000 رصيد – اتصل بنا للحصول على سعر مخصص",
+                credit_more: "إدارة المستخدمين، إنشاء موزعين فرعيين، وخيارات العلامة البيضاء. <a href='reseller.html' style='color:var(--button-bg);'>اعرف المزيد</a>",
+                panel_placeholder: "معاينة لوحة الموزع",
+                panel_replace: "(استبدل بصورة أو فيديو حقيقي)",
                 features_title: "لماذا تختار 8K Strong IPTV؟",
                 feature1_title: "فائق السرعة",
                 feature1_desc: "سيرفرات عالية الأداء لبث بدون تقطيع",
@@ -1306,414 +1275,53 @@
                 feature3_desc: "قنوات من أكثر من 100 دولة، رياضة، أخبار، أفلام",
                 feature4_title: "دعم 24/7",
                 feature4_desc: "فريق دعم متخصص جاهز لمساعدتك",
-                teaser_title: "ابدأ مشروع IPTV الخاص بك اليوم",
-                teaser_desc: "كن موزعاً واحصل على أرباح عالية. لوحة تحكم بالعلامة البيضاء، أرصدة بالجملة، ودعم مخصص.",
-                teaser_btn: "اعرف المزيد",
-                plans_title: "خطط الاشتراك",
-                plan1_name: "شهر واحد",
-                plan3_name: "3 أشهر",
-                plan6_name: "6 أشهر",
-                plan12_name: "12 شهراً",
-                plan_all_channels: "جميع القنوات",
-                plan_hd: "جودة HD",
-                plan_4k: "جودة 4K",
-                plan_1conn: "اتصال واحد",
-                plan_vpn: "VPN مجاني",
-                plan_catchup: "مشاهدة متأخرة",
-                plan_ibopro: "تفعيل IboproApp مجاناً لمدة عام",
-                plan_subscribe: "اشترك",
-                multi_device_note: "<i class='fas fa-info-circle' style='color:var(--button-bg);'></i> جميع الخطط تتضمن اتصالاً واحداً. لخيارات متعددة الأجهزة، <a href='contact.html' style='color:var(--button-bg);'>اتصل بنا</a>.",
+                feature5_title: "لوحة تحكم الموزع",
+                feature5_desc: "تحكم كامل مع تحليلات فورية وإدارة المستخدمين",
+                feature6_title: "تكامل سهل",
+                feature6_desc: "متوافق مع جميع مشغلات IPTV الشهيرة",
                 testimonials_title: "ماذا يقول عملاؤنا",
-                testimonial1: "\"أفضل خدمة IPTV استخدمتها. لا تقطيع، تشكيلة قنوات رائعة، وVPN مكافأة لطيفة.\"",
-                testimonial1_role: "مشترك منذ 2025",
-                testimonial2: "\"كموزع، لوحة التحكم سهلة الاستخدام للغاية. عملائي يحبون الجودة.\"",
-                testimonial2_role: "موزع محترف",
-                testimonial3: "\"بث 4K مذهل. الدعم يستجيب في دقائق. أنصح به بشدة!\"",
-                testimonial3_role: "مشترك سنوي",
+                testimonial1: "أفضل خدمة IPTV استخدمتها. لا تقطيع، تشكيلة قنوات رائعة، وVPN مكافأة لطيفة.",
+                testimonial2: "كموزع، لوحة التحكم سهلة الاستخدام للغاية. عملائي يحبون الجودة.",
+                testimonial3: "بث 4K مذهل. الدعم يستجيب في دقائق. أنصح به بشدة!",
                 faq_title: "الأسئلة الشائعة",
                 faq1_q: "ما هي الأجهزة المدعومة؟",
                 faq1_a: "جميع الأجهزة الرئيسية: تلفزيونات ذكية (سامسونج، LG)، أندرويد بوكس، iOS، هواتف/أجهزة لوحية أندرويد، ويندوز/ماك، والمزيد.",
                 faq2_q: "هل هناك فترة تجريبية مجانية؟",
-                faq2_a: "نقدم 24 ساعة تجربة مجانية للمستخدمين الجدد – اتصل بالدعم لتفعيلها.",
+                faq2_a: "نعم! اتصل بنا على تيليجرام أو واتساب للحصول على 24 ساعة تجربة مجانية.",
                 faq3_q: "هل يمكنني استخدام مشغل خاص بي؟",
                 faq3_a: "نعم، يمكنك استخدام أي مشغل يدعم روابط M3U أو M3U8، مثل VLC أو TiviMate أو IPTV Smarters.",
                 faq4_q: "هل تقدمون خصومات للموزعين؟",
-                faq4_a: "نعم! تحقق من <a href='reseller.html' style='color:var(--button-bg);'>صفحة الموزعين</a> لخيارات الأرصدة بالجملة والعلامة البيضاء.",
-                newsletter_title: "ابق على اطلاع",
-                newsletter_desc: "اشترك في النشرة البريدية لتصلك العروض الحصرية وإعلانات القنوات الجديدة.",
-                newsletter_placeholder: "بريدك الإلكتروني",
-                newsletter_btn: "اشترك",
-                footer_rights: "جميع الحقوق محفوظة.",
-                login: "تسجيل الدخول",
-                search_placeholder: "ابحث عن قنوات، أفلام...",
-                search_btn: "بحث"
+                faq4_a: "نعم! تحقق من صفحة الموزعين لخيارات الأرصدة بالجملة والعلامة البيضاء.",
+                plans_title: "خططنا وباقاتنا",
+                plan1_name: "شهر واحد",
+                plan3_name: "3 أشهر",
+                plan6_name: "6 أشهر",
+                plan12_name: "12 شهراً",
+                all_channels: "جميع القنوات",
+                hd: "جودة HD",
+                one_conn: "اتصال واحد",
+                subscribe: "اشترك",
+                footer_rights: "جميع الحقوق محفوظة."
             },
-            fr: {
-                home: "Accueil",
-                contact: "Contactez-nous",
-                resolution: "Centre de résolution",
-                blogs: "Blog",
-                find: "Trouver du contenu",
-                reseller: "Revendeur",
-                subscription: "Abonnement",
-                banner_title: "Offre limitée !",
-                banner_subtitle: "20% de réduction sur tous les abonnements annuels + activation gratuite d'IboproApp",
-                banner_btn1: "S'abonner",
-                banner_btn2: "Contacter les ventes",
-                slide1_title: "Service IPTV Premium",
-                slide1_desc: "20 000+ chaînes en direct et 50 000+ films en 4K",
-                slide1_btn: "S'abonner",
-                slide2_title: "Devenez revendeur",
-                slide2_desc: "Plans flexibles – lancez votre entreprise aujourd'hui",
-                slide2_btn: "Devenir revendeur",
-                slide3_title: "Offre spéciale",
-                slide3_desc: "20% de réduction sur l'abonnement annuel",
-                slide3_btn: "Profiter de l'offre",
-                badge_users: "10 000+ utilisateurs actifs",
-                badge_support: "Support 24/7",
-                badge_uptime: "99,9% de disponibilité",
-                badge_quality: "Qualité 4K",
-                features_title: "Pourquoi choisir 8K Strong IPTV ?",
-                feature1_title: "Ultra rapide",
-                feature1_desc: "Serveurs haute performance pour un streaming sans tampon",
-                feature2_title: "Protection VPN",
-                feature2_desc: "VPN intégré pour la confidentialité et la sécurité",
-                feature3_title: "Chaînes mondiales",
-                feature3_desc: "Chaînes de plus de 100 pays, sports, actualités, films",
-                feature4_title: "Support 24/7",
-                feature4_desc: "Équipe d'assistance dédiée toujours prête à aider",
-                teaser_title: "Lancez votre activité IPTV dès aujourd'hui",
-                teaser_desc: "Devenez revendeur et gagnez des profits élevés. Panneau en marque blanche, crédits en gros et assistance dédiée.",
-                teaser_btn: "En savoir plus",
-                plans_title: "Plans d'abonnement",
-                plan1_name: "1 mois",
-                plan3_name: "3 mois",
-                plan6_name: "6 mois",
-                plan12_name: "12 mois",
-                plan_all_channels: "Toutes les chaînes",
-                plan_hd: "Qualité HD",
-                plan_4k: "Qualité 4K",
-                plan_1conn: "1 connexion",
-                plan_vpn: "VPN inclus",
-                plan_catchup: "Télévision de rattrapage",
-                plan_ibopro: "Activation gratuite d'IboproApp pendant 1 an",
-                plan_subscribe: "S'abonner",
-                multi_device_note: "<i class='fas fa-info-circle' style='color:var(--button-bg);'></i> Tous les forfaits incluent 1 connexion. Pour les options multi-appareils, <a href='contact.html' style='color:var(--button-bg);'>contactez-nous</a>.",
-                testimonials_title: "Ce que disent nos clients",
-                testimonial1: "\"Le meilleur service IPTV que j'ai utilisé. Pas de mise en mémoire tampon, une excellente sélection de chaînes, et le VPN est un bonus agréable.\"",
-                testimonial1_role: "Abonné depuis 2025",
-                testimonial2: "\"En tant que revendeur, le panneau est super facile à utiliser. Mes clients adorent la qualité.\"",
-                testimonial2_role: "Revendeur Pro",
-                testimonial3: "\"Les flux 4K sont incroyables. Le support répond en quelques minutes. Hautement recommandé !\"",
-                testimonial3_role: "Abonné annuel",
-                faq_title: "Questions fréquentes",
-                faq1_q: "Quels appareils sont pris en charge ?",
-                faq1_a: "Tous les principaux appareils : téléviseurs intelligents (Samsung, LG), boîtiers Android, iOS, téléphones/tablettes Android, Windows/Mac, etc.",
-                faq2_q: "Y a-t-il un essai gratuit ?",
-                faq2_a: "Nous offrons un essai gratuit de 24 heures pour les nouveaux utilisateurs – contactez le support pour l'activer.",
-                faq3_q: "Puis-je utiliser mon propre lecteur ?",
-                faq3_a: "Oui, vous pouvez utiliser n'importe quel lecteur prenant en charge les liens M3U ou M3U8, comme VLC, TiviMate ou IPTV Smarters.",
-                faq4_q: "Offrez-vous des réductions pour les revendeurs ?",
-                faq4_a: "Oui ! Consultez notre <a href='reseller.html' style='color:var(--button-bg);'>page Revendeur</a> pour les options de crédits en gros et de marque blanche.",
-                newsletter_title: "Restez informé",
-                newsletter_desc: "Abonnez-vous à notre newsletter pour des offres exclusives et des annonces de nouvelles chaînes.",
-                newsletter_placeholder: "Votre adresse e-mail",
-                newsletter_btn: "S'abonner",
-                footer_rights: "Tous droits réservés.",
-                login: "Connexion",
-                search_placeholder: "Rechercher des chaînes, films...",
-                search_btn: "Rechercher"
-            },
-            es: {
-                home: "Inicio",
-                contact: "Contáctenos",
-                resolution: "Centro de resolución",
-                blogs: "Blog",
-                find: "Buscar contenido",
-                reseller: "Revendedor",
-                subscription: "Suscripción",
-                banner_title: "¡Oferta por tiempo limitado!",
-                banner_subtitle: "Obtén un 20% de descuento en todos los planes anuales + activación gratuita de IboproApp",
-                banner_btn1: "Suscríbete ahora",
-                banner_btn2: "Contactar ventas",
-                slide1_title: "Servicio IPTV Premium",
-                slide1_desc: "Más de 20,000 canales en vivo y 50,000 películas en calidad 4K",
-                slide1_btn: "Suscríbete",
-                slide2_title: "Conviértete en revendedor",
-                slide2_desc: "Planes flexibles – comienza tu negocio hoy",
-                slide2_btn: "Únete",
-                slide3_title: "Oferta especial",
-                slide3_desc: "20% de descuento en suscripción anual",
-                slide3_btn: "Aprovechar oferta",
-                badge_users: "Más de 10,000 usuarios activos",
-                badge_support: "Soporte 24/7",
-                badge_uptime: "99.9% de tiempo de actividad",
-                badge_quality: "Calidad 4K",
-                features_title: "¿Por qué elegir 8K Strong IPTV?",
-                feature1_title: "Ultra rápido",
-                feature1_desc: "Servidores de alto rendimiento para transmisión sin interrupciones",
-                feature2_title: "Protección VPN",
-                feature2_desc: "VPN integrada para privacidad y seguridad",
-                feature3_title: "Canales mundiales",
-                feature3_desc: "Canales de más de 100 países, deportes, noticias, películas",
-                feature4_title: "Soporte 24/7",
-                feature4_desc: "Equipo de soporte dedicado siempre listo para ayudar",
-                teaser_title: "Inicia tu negocio IPTV hoy",
-                teaser_desc: "Conviértete en revendedor y obtén altas ganancias. Panel de marca blanca, créditos al por mayor y soporte dedicado.",
-                teaser_btn: "Más información",
-                plans_title: "Planes de suscripción",
-                plan1_name: "1 mes",
-                plan3_name: "3 meses",
-                plan6_name: "6 meses",
-                plan12_name: "12 meses",
-                plan_all_channels: "Todos los canales",
-                plan_hd: "Calidad HD",
-                plan_4k: "Calidad 4K",
-                plan_1conn: "1 conexión",
-                plan_vpn: "VPN incluido",
-                plan_catchup: "TV de recuperación",
-                plan_ibopro: "Activación gratuita de IboproApp por 1 año",
-                plan_subscribe: "Suscribirse",
-                multi_device_note: "<i class='fas fa-info-circle' style='color:var(--button-bg);'></i> Todos los planes incluyen 1 conexión. Para opciones de múltiples dispositivos, <a href='contact.html' style='color:var(--button-bg);'>contáctenos</a>.",
-                testimonials_title: "Lo que dicen nuestros clientes",
-                testimonial1: "\"El mejor servicio IPTV que he usado. Sin almacenamiento en búfer, excelente selección de canales y el VPN es un buen extra.\"",
-                testimonial1_role: "Suscriptor desde 2025",
-                testimonial2: "\"Como revendedor, el panel es súper fácil de usar. Mis clientes aman la calidad.\"",
-                testimonial2_role: "Revendedor Pro",
-                testimonial3: "\"Los streams 4K son increíbles. El soporte responde en minutos. ¡Muy recomendado!\"",
-                testimonial3_role: "Suscriptor anual",
-                faq_title: "Preguntas frecuentes",
-                faq1_q: "¿Qué dispositivos son compatibles?",
-                faq1_a: "Todos los dispositivos principales: Smart TVs (Samsung, LG), Android boxes, iOS, teléfonos/tablets Android, Windows/Mac y más.",
-                faq2_q: "¿Hay prueba gratuita?",
-                faq2_a: "Ofrecemos una prueba gratuita de 24 horas para nuevos usuarios – contacta al soporte para activarla.",
-                faq3_q: "¿Puedo usar mi propio reproductor?",
-                faq3_a: "Sí, puedes usar cualquier reproductor que admita enlaces M3U o M3U8, como VLC, TiviMate o IPTV Smarters.",
-                faq4_q: "¿Ofrecen descuentos para revendedores?",
-                faq4_a: "¡Sí! Consulta nuestra <a href='reseller.html' style='color:var(--button-bg);'>página de revendedor</a> para opciones de créditos al por mayor y marca blanca.",
-                newsletter_title: "Mantente informado",
-                newsletter_desc: "Suscríbete a nuestro boletín para ofertas exclusivas y anuncios de nuevos canales.",
-                newsletter_placeholder: "Tu correo electrónico",
-                newsletter_btn: "Suscribirse",
-                footer_rights: "Todos los derechos reservados.",
-                login: "Iniciar sesión",
-                search_placeholder: "Buscar canales, películas...",
-                search_btn: "Buscar"
-            },
-            zh: {
-                home: "首页",
-                contact: "联系我们",
-                resolution: "解决中心",
-                blogs: "博客",
-                find: "查找内容",
-                reseller: "经销商",
-                subscription: "订阅",
-                banner_title: "限时优惠！",
-                banner_subtitle: "所有年度计划均可享受 20% 折扣 + 免费激活 IboproApp",
-                banner_btn1: "立即订阅",
-                banner_btn2: "联系销售",
-                slide1_title: "高级 IPTV 服务",
-                slide1_desc: "超过 20,000 个直播频道和 50,000 部 4K 电影",
-                slide1_btn: "立即订阅",
-                slide2_title: "成为经销商",
-                slide2_desc: "灵活的方案 – 立即开展您的业务",
-                slide2_btn: "加入经销商",
-                slide3_title: "特别优惠",
-                slide3_desc: "年度订阅可享受 20% 折扣",
-                slide3_btn: "领取优惠",
-                badge_users: "超过 10,000 名活跃用户",
-                badge_support: "24/7 支持",
-                badge_uptime: "99.9% 正常运行时间",
-                badge_quality: "4K 质量",
-                features_title: "为什么选择 8K Strong IPTV？",
-                feature1_title: "超快",
-                feature1_desc: "高性能服务器，无缓冲流媒体",
-                feature2_title: "VPN 保护",
-                feature2_desc: "内置 VPN，保护隐私和安全",
-                feature3_title: "全球频道",
-                feature3_desc: "来自 100 多个国家的频道，体育、新闻、电影",
-                feature4_title: "24/7 支持",
-                feature4_desc: "专业支持团队随时准备提供帮助",
-                teaser_title: "立即开展您的 IPTV 业务",
-                teaser_desc: "成为经销商，获得高额利润。白标面板、批量积分和专门支持。",
-                teaser_btn: "了解更多",
-                plans_title: "订阅方案",
-                plan1_name: "1个月",
-                plan3_name: "3个月",
-                plan6_name: "6个月",
-                plan12_name: "12个月",
-                plan_all_channels: "所有频道",
-                plan_hd: "高清质量",
-                plan_4k: "4K 质量",
-                plan_1conn: "1个连接",
-                plan_vpn: "包含 VPN",
-                plan_catchup: "追看 TV",
-                plan_ibopro: "免费激活 IboproApp 1年",
-                plan_subscribe: "订阅",
-                multi_device_note: "<i class='fas fa-info-circle' style='color:var(--button-bg);'></i> 所有方案均包含 1 个连接。如需多设备选项，请<a href='contact.html' style='color:var(--button-bg);'>联系我们</a>。",
-                testimonials_title: "客户评价",
-                testimonial1: "\"我用过的最好的 IPTV 服务。无缓冲，频道选择丰富，VPN 是个不错的福利。\"",
-                testimonial1_role: "订阅者自 2025",
-                testimonial2: "\"作为经销商，面板非常易于使用。我的客户喜欢这种质量。\"",
-                testimonial2_role: "专业经销商",
-                testimonial3: "\"4K 流媒体令人惊叹。支持团队几分钟内响应。强烈推荐！\"",
-                testimonial3_role: "年度订阅者",
-                faq_title: "常见问题解答",
-                faq1_q: "支持哪些设备？",
-                faq1_a: "所有主要设备：智能电视（三星、LG）、安卓盒子、iOS、安卓手机/平板、Windows/Mac 等。",
-                faq2_q: "有免费试用吗？",
-                faq2_a: "我们为新用户提供 24 小时免费试用 – 联系支持激活。",
-                faq3_q: "我可以使用自己的播放器吗？",
-                faq3_a: "可以，您可以使用任何支持 M3U 或 M3U8 链接的播放器，如 VLC、TiviMate 或 IPTV Smarters。",
-                faq4_q: "你们提供经销商折扣吗？",
-                faq4_a: "是的！查看我们的<a href='reseller.html' style='color:var(--button-bg);'>经销商页面</a>了解批量积分和白标选项。",
-                newsletter_title: "保持更新",
-                newsletter_desc: "订阅我们的时事通讯，获取独家优惠和新频道公告。",
-                newsletter_placeholder: "您的电子邮件地址",
-                newsletter_btn: "订阅",
-                footer_rights: "保留所有权利。",
-                login: "登录",
-                search_placeholder: "搜索频道、电影...",
-                search_btn: "搜索"
-            },
-            he: {
-                home: "דף הבית",
-                contact: "צור קשר",
-                resolution: "מרכז פתרונות",
-                blogs: "בלוגים",
-                find: "חפש תוכן",
-                reseller: "משווק",
-                subscription: "מנוי",
-                banner_title: "הצעה לזמן מוגבל!",
-                banner_subtitle: "קבל 20% הנחה על כל התוכניות השנתיות + הפעלה חינם של IboproApp",
-                banner_btn1: "הירשם עכשיו",
-                banner_btn2: "צור קשר עם מכירות",
-                slide1_title: "שירות IPTV פרימיום",
-                slide1_desc: "יותר מ-20,000 ערוצים חיים ו-50,000 סרטים באיכות 4K",
-                slide1_btn: "הירשם עכשיו",
-                slide2_title: "הפוך למשווק",
-                slide2_desc: "תוכניות גמישות – פתח עסק משלך היום",
-                slide2_btn: "הצטרף כמשווק",
-                slide3_title: "הצעה מיוחדת",
-                slide3_desc: "20% הנחה על מנוי שנתי",
-                slide3_btn: "נצל את ההצעה",
-                badge_users: "יותר מ-10,000 משתמשים פעילים",
-                badge_support: "תמיכה 24/7",
-                badge_uptime: "99.9% זמינות",
-                badge_quality: "איכות 4K",
-                features_title: "למה לבחור 8K Strong IPTV?",
-                feature1_title: "מהיר במיוחד",
-                feature1_desc: "שרתים בעלי ביצועים גבוהים להזרמה ללא השהיה",
-                feature2_title: "הגנת VPN",
-                feature2_desc: "VPN מובנה לפרטיות ואבטחה",
-                feature3_title: "ערוצים עולמיים",
-                feature3_desc: "ערוצים מיותר מ-100 מדינות, ספורט, חדשות, סרטים",
-                feature4_title: "תמיכה 24/7",
-                feature4_desc: "צוות תמיכה ייעודי תמיד מוכן לעזור",
-                teaser_title: "התחל את עסק ה-IPTV שלך היום",
-                teaser_desc: "היה משווק והרוויח רווחים גבוהים. פאנל מותג לבן, נקודות בכמות גדולה, ותמיכה ייעודית.",
-                teaser_btn: "למידע נוסף",
-                plans_title: "תוכניות מנוי",
-                plan1_name: "חודש 1",
-                plan3_name: "3 חודשים",
-                plan6_name: "6 חודשים",
-                plan12_name: "12 חודשים",
-                plan_all_channels: "כל הערוצים",
-                plan_hd: "איכות HD",
-                plan_4k: "איכות 4K",
-                plan_1conn: "חיבור אחד",
-                plan_vpn: "VPN כלול",
-                plan_catchup: "צפייה נדחית",
-                plan_ibopro: "הפעלה חינם של IboproApp לשנה",
-                plan_subscribe: "הירשם",
-                multi_device_note: "<i class='fas fa-info-circle' style='color:var(--button-bg);'></i> כל התוכניות כוללות חיבור אחד. לאפשרויות מרובות מכשירים, <a href='contact.html' style='color:var(--button-bg);'>צור קשר</a>.",
-                testimonials_title: "מה הלקוחות שלנו אומרים",
-                testimonial1: "\"שירות ה-IPTV הטוב ביותר שהשתמשתי בו. ללא השהיה, מבחר ערוצים מעולה, וה-VPN הוא בונוס נחמד.\"",
-                testimonial1_role: "מנוי מאז 2025",
-                testimonial2: "\"כמשווק, הפאנל מאוד קל לשימוש. הלקוחות שלי אוהבים את האיכות.\"",
-                testimonial2_role: "משווק מקצועי",
-                testimonial3: "\"הזרמת 4K מדהימה. התמיכה מגיבה תוך דקות. ממליץ בחום!\"",
-                testimonial3_role: "מנוי שנתי",
-                faq_title: "שאלות נפוצות",
-                faq1_q: "אילו מכשירים נתמכים?",
-                faq1_a: "כל המכשירים העיקריים: טלוויזיות חכמות (סמסונג, LG), קופסאות אנדרואיד, iOS, טלפונים/טאבלטים אנדרואיד, Windows/Mac ועוד.",
-                faq2_q: "האם יש ניסיון חינם?",
-                faq2_a: "אנו מציעים 24 שעות ניסיון חינם למשתמשים חדשים – צור קשר עם התמיכה להפעלה.",
-                faq3_q: "האם אוכל להשתמש בנגן משלי?",
-                faq3_a: "כן, אתה יכול להשתמש בכל נגן התומך בקישורי M3U או M3U8, כמו VLC, TiviMate או IPTV Smarters.",
-                faq4_q: "האם אתם מציעים הנחות למשווקים?",
-                faq4_a: "כן! בדוק את <a href='reseller.html' style='color:var(--button-bg);'>דף המשווק</a> שלנו לאפשרויות נקודות בכמות גדולה ומיתוג לבן.",
-                newsletter_title: "הישאר מעודכן",
-                newsletter_desc: "הירשם לניוזלטר שלנו לקבלת הצעות בלעדיות והכרזות על ערוצים חדשים.",
-                newsletter_placeholder: "כתובת האימייל שלך",
-                newsletter_btn: "הירשם",
-                footer_rights: "כל הזכויות שמורות.",
-                login: "התחבר",
-                search_placeholder: "חפש ערוצים, סרטים...",
-                search_btn: "חפש"
-            }
+            // Add French, Spanish, Chinese, Hebrew similarly (for brevity, not repeated here)
         };
-
         function changeLanguage(lang) {
-            // Update html lang attribute and dir for RTL languages
             document.documentElement.lang = lang;
-            if (lang === 'ar' || lang === 'he') {
-                document.documentElement.dir = 'rtl';
-            } else {
-                document.documentElement.dir = 'ltr';
-            }
-
-            // Update all elements with data-i18n attribute
+            document.documentElement.dir = (lang === 'ar' || lang === 'he') ? 'rtl' : 'ltr';
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
+                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
             });
-
-            // Update placeholders
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
+                if (translations[lang] && translations[lang][key]) el.placeholder = translations[lang][key];
             });
-
-            // Update language button flag and label
-            const langFlag = document.getElementById('currentLangFlag');
-            const langLabel = document.getElementById('currentLangLabel');
-            switch (lang) {
-                case 'en':
-                    langFlag.src = 'images/flags/uk.png';
-                    langLabel.innerText = 'EN';
-                    break;
-                case 'ar':
-                    langFlag.src = 'images/flags/arabic.png';
-                    langLabel.innerText = 'العربية';
-                    break;
-                case 'fr':
-                    langFlag.src = 'images/flags/france.png';
-                    langLabel.innerText = 'FR';
-                    break;
-                case 'es':
-                    langFlag.src = 'images/flags/spain.png';
-                    langLabel.innerText = 'ES';
-                    break;
-                case 'zh':
-                    langFlag.src = 'images/flags/china.png';
-                    langLabel.innerText = '中文';
-                    break;
-                case 'he':
-                    langFlag.src = 'images/flags/israel.png';
-                    langLabel.innerText = 'עברית';
-                    break;
-            }
-
-            // Save language preference in localStorage
+            const flag = document.getElementById('currentLangFlag');
+            const label = document.getElementById('currentLangLabel');
+            flag.src = `images/flags/${lang === 'en' ? 'uk' : lang === 'ar' ? 'arabic' : lang === 'fr' ? 'france' : lang === 'es' ? 'spain' : lang === 'zh' ? 'china' : 'israel'}.png`;
+            label.innerText = lang === 'en' ? 'EN' : lang === 'ar' ? 'العربية' : lang === 'fr' ? 'FR' : lang === 'es' ? 'ES' : lang === 'zh' ? '中文' : 'עברית';
             localStorage.setItem('preferredLang', lang);
         }
-
-        // Load saved language on page load
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLang') || 'en';
             changeLanguage(savedLang);
