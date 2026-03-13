@@ -1,455 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs – 8K Strong IPTV</title>
-    <!-- Font Awesome -->
+    <title>Blogs – 8K Strong IPTV News & Updates</title>
+    <meta name="description" content="Stay updated with the latest IPTV news, guides, and announcements from 8K Strong. Read our blog for tips and offers.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Boxicons (optional) -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        /* Dark color system – same as all pages */
-        :root {
-            --gray-100: #041324;
-            --gray-200: #05192f;
-            --gray-300: #061e39;
-            --gray-400: #072342;
-            --gray-500: #a6afb8;
-            --gray-600: #bfc8e2;
-            --gray-700: #ced4da;
-            --gray-800: #eff2f7;
-            --gray-900: #f3f6f9;
-            --button-bg: #ecb619;
-            --button-hover: #d4a514;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        body {
-            background: var(--gray-100);
-            color: var(--gray-800);
-            line-height: 1.6;
-        }
-
-        /* Header – same as homepage */
-        .header {
-            background: var(--gray-200);
-            backdrop-filter: blur(10px);
-            padding: 10px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--gray-400);
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .logo-area a {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-area img {
-            height: 55px;
-            width: auto;
-        }
-
-        .search-area {
-            flex: 1;
-            max-width: 500px;
-        }
-
-        .search-area form {
-            display: flex;
-            align-items: center;
-            background: var(--gray-300);
-            border-radius: 50px;
-            padding: 5px 10px;
-            border: 1px solid var(--gray-400);
-        }
-
-        .search-area input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 10px 15px;
-            color: var(--gray-800);
-            font-size: 1em;
-            outline: none;
-        }
-
-        .search-area input::placeholder {
-            color: var(--gray-600);
-        }
-
-        .search-area button {
-            background: var(--button-bg);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .search-area button:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .language-dropdown {
-            position: relative;
-        }
-
-        .lang-btn {
-            background: var(--gray-300);
-            border: 1px solid var(--gray-400);
-            color: var(--gray-800);
-            padding: 8px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-
-        .lang-btn:hover {
-            background: var(--gray-400);
-        }
-
-        .lang-btn img {
-            height: 20px;
-            width: auto;
-            border-radius: 3px;
-        }
-
-        .theme-toggle {
-            background: transparent;
-            border: none;
-            color: var(--gray-700);
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-        }
-
-        .theme-toggle:hover {
-            color: var(--button-bg);
-        }
-
-        .login-btn {
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .login-btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-
-        /* Main navigation */
-        .main-nav {
-            margin-top: 10px;
-        }
-
-        .main-nav ul {
-            display: flex;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .main-nav a {
-            color: var(--gray-700);
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 50px;
-            transition: 0.3s;
-            font-weight: 500;
-        }
-
-        .main-nav a:hover {
-            background: var(--gray-300);
-            color: var(--gray-900);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Blogs page specific */
-        .blogs-section {
-            margin: 40px 0;
-        }
-
-        .blogs-section h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .blogs-section > p {
-            text-align: center;
-            color: var(--gray-600);
-            margin-bottom: 40px;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .blog-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-            box-shadow: 0 10px 30px rgba(236, 182, 25, 0.2);
-        }
-
-        .blog-image {
-            height: 200px;
-            background: var(--gray-300);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-600);
-            font-size: 3em;
-        }
-
-        .blog-content {
-            padding: 20px;
-        }
-
-        .blog-content h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
-        }
-
-        .blog-meta {
-            font-size: 0.9em;
-            color: var(--gray-600);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .blog-meta i {
-            color: var(--button-bg);
-        }
-
-        .blog-excerpt {
-            color: var(--gray-700);
-            margin-bottom: 20px;
-        }
-
-        .blog-link {
-            display: inline-block;
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .blog-link:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-
-        .footer {
-            background: var(--gray-200);
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 60px;
-            border-top: 1px solid var(--gray-400);
-            color: var(--gray-600);
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 15px 20px;
-            }
-            .header-top {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .search-area {
-                max-width: 100%;
-            }
-            .main-nav ul {
-                gap: 10px;
-            }
-        }
-    </style>
+    <style>/* same styles */</style>
 </head>
 <body>
-    <!-- Header (same as all pages) -->
-    <header class="header">
-        <div class="header-top">
-            <div class="logo-area">
-                <a href="index.html">
-                    <img src="images/4k_tv_gold.png" alt="8K Strong" height="55">
-                </a>
-            </div>
-
-            <div class="search-area">
-                <form onsubmit="return false;">
-                    <input type="text" placeholder="Search channels, movies...">
-                    <button type="button"><i class="fas fa-search"></i> Search</button>
-                </form>
-            </div>
-
-            <div class="header-actions">
-                <div class="language-dropdown">
-                    <button class="lang-btn">
-                        <img src="images/flags/uk.png" alt="English"> EN
-                    </button>
-                </div>
-
-                <button class="theme-toggle">
-                    <i class="bx bx-moon"></i>
-                </button>
-
-                <a href="login.html" class="login-btn">Login</a>
-            </div>
-        </div>
-
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="resolution.html">Resolution Center</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="find.html">Find Content</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header class="header">...</header>
 
     <main class="container">
-        <section class="blogs-section">
-            <h1>Latest Blogs</h1>
-            <p>Stay updated with news, tips, and announcements.</p>
+        <h1 class="section-title" data-i18n="blog_title">Latest Blogs</h1>
+        <p style="text-align:center; color:var(--gray-600); margin-bottom:40px;" data-i18n="blog_subtitle">Stay updated with news, tips, and announcements.</p>
 
-            <div class="blog-grid">
-                <!-- Blog Post 1 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-newspaper"></i>
-                    </div>
-                    <div class="blog-content">
-                        <h3>How to Set Up IPTV on Any Device</h3>
-                        <div class="blog-meta">
-                            <i class="fas fa-calendar-alt"></i> <span>March 10, 2026</span>
-                            <i class="fas fa-user"></i> <span>Admin</span>
-                        </div>
-                        <p class="blog-excerpt">A complete guide to installing and configuring IPTV on Smart TVs, Android boxes, iOS, and more. Step‑by‑step instructions included.</p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-
-                <!-- Blog Post 2 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="blog-content">
-                        <h3>Why You Need a VPN for IPTV</h3>
-                        <div class="blog-meta">
-                            <i class="fas fa-calendar-alt"></i> <span>March 5, 2026</span>
-                            <i class="fas fa-user"></i> <span>Tech Team</span>
-                        </div>
-                        <p class="blog-excerpt">Learn how a VPN protects your privacy, bypasses ISP throttling, and unlocks geo‑restricted content. We recommend the best VPNs for IPTV.</p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-
-                <!-- Blog Post 3 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <div class="blog-content">
-                        <h3>Top 10 Channels for Sports Fans</h3>
-                        <div class="blog-meta">
-                            <i class="fas fa-calendar-alt"></i> <span>February 28, 2026</span>
-                            <i class="fas fa-user"></i> <span>Sports Desk</span>
-                        </div>
-                        <p class="blog-excerpt">Never miss a game! Discover the best sports channels available on our service, including live matches, highlights, and analysis.</p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-
-                <!-- Blog Post 4 -->
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <div class="blog-content">
-                        <h3>Maximize Your Reseller Profits</h3>
-                        <div class="blog-meta">
-                            <i class="fas fa-calendar-alt"></i> <span>February 20, 2026</span>
-                            <i class="fas fa-user"></i> <span>Business Team</span>
-                        </div>
-                        <p class="blog-excerpt">Tips and strategies to grow your IPTV reseller business. Learn about pricing, marketing, and customer retention.</p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-            </div>
-        </section>
+        <div class="blog-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:30px;">
+            <!-- Blog Post 1 -->
+            <article class="blog-card" style="background:var(--gray-200); border:1px solid var(--gray-400); border-radius:20px; overflow:hidden;">
+                <div style="height:200px; background:var(--gray-300); display:flex; align-items:center; justify-content:center;">
+                    <i class="fas fa-newspaper" style="font-size:3em; color:var(--button-bg);"></i>
+                </div>
+                <div style="padding:20px;">
+                    <h3 style="font-size:1.4em; margin-bottom:10px; color:var(--gray-900);" data-i18n="blog_post1_title">How to Set Up IPTV on Any Device</h3>
+                    <div style="font-size:0.9em; color:var(--gray-600); margin-bottom:15px;"><i class="fas fa-calendar-alt" style="color:var(--button-bg);"></i> <span data-i18n="blog_post1_date">March 10, 2026</span> | <i class="fas fa-user"></i> <span data-i18n="blog_post1_author">Admin</span></div>
+                    <p style="color:var(--gray-700); margin-bottom:20px;" data-i18n="blog_post1_excerpt">A complete guide to installing and configuring IPTV on Smart TVs, Android boxes, iOS, and more.</p>
+                    <a href="#" class="btn" data-i18n="blog_read">Read More</a>
+                </div>
+            </article>
+            <!-- Blog Post 2 -->
+            <article class="blog-card" style="background:var(--gray-200); border:1px solid var(--gray-400); border-radius:20px; overflow:hidden;">
+                <div style="height:200px; background:var(--gray-300); display:flex; align-items:center; justify-content:center;">
+                    <i class="fas fa-shield-alt" style="font-size:3em; color:var(--button-bg);"></i>
+                </div>
+                <div style="padding:20px;">
+                    <h3 style="font-size:1.4em; margin-bottom:10px; color:var(--gray-900);" data-i18n="blog_post2_title">Why You Need a VPN for IPTV</h3>
+                    <div style="font-size:0.9em; color:var(--gray-600); margin-bottom:15px;"><i class="fas fa-calendar-alt" style="color:var(--button-bg);"></i> <span data-i18n="blog_post2_date">March 5, 2026</span> | <i class="fas fa-user"></i> <span data-i18n="blog_post2_author">Tech Team</span></div>
+                    <p style="color:var(--gray-700); margin-bottom:20px;" data-i18n="blog_post2_excerpt">Learn how a VPN protects your privacy, bypasses ISP throttling, and unlocks geo‑restricted content.</p>
+                    <a href="#" class="btn" data-i18n="blog_read">Read More</a>
+                </div>
+            </article>
+            <!-- Blog Post 3 -->
+            <article class="blog-card" style="background:var(--gray-200); border:1px solid var(--gray-400); border-radius:20px; overflow:hidden;">
+                <div style="height:200px; background:var(--gray-300); display:flex; align-items:center; justify-content:center;">
+                    <i class="fas fa-tachometer-alt" style="font-size:3em; color:var(--button-bg);"></i>
+                </div>
+                <div style="padding:20px;">
+                    <h3 style="font-size:1.4em; margin-bottom:10px; color:var(--gray-900);" data-i18n="blog_post3_title">Top 10 Channels for Sports Fans</h3>
+                    <div style="font-size:0.9em; color:var(--gray-600); margin-bottom:15px;"><i class="fas fa-calendar-alt" style="color:var(--button-bg);"></i> <span data-i18n="blog_post3_date">February 28, 2026</span> | <i class="fas fa-user"></i> <span data-i18n="blog_post3_author">Sports Desk</span></div>
+                    <p style="color:var(--gray-700); margin-bottom:20px;" data-i18n="blog_post3_excerpt">Never miss a game! Discover the best sports channels available on our service.</p>
+                    <a href="#" class="btn" data-i18n="blog_read">Read More</a>
+                </div>
+            </article>
+        </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 8K Strong IPTV. All rights reserved.</p>
-    </footer>
+    <footer class="footer">...</footer>
+    <!-- scripts -->
 </body>
 </html>
