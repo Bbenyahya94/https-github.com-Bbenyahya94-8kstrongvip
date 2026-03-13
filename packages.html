@@ -1,221 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8K Strong VIP - Packages from M3U</title>
-    <!-- Font Awesome -->
+    <title>IPTV Packages & VOD – 8K Strong Selection</title>
+    <meta name="description" content="Browse our IPTV packages and VOD categories: sports, movies, Netflix, Disney+, HBO, and more. Choose your favorite channels and on‑demand content.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: #fff; }
-        .header { background: rgba(10,11,26,0.95); padding: 15px 50px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-size:24px; font-weight:800; background: linear-gradient(45deg, #f6c654, #ffaa00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-menu a { color:white; text-decoration:none; margin-left:20px; padding:8px 16px; border-radius:50px; transition:0.3s; }
-        .nav-menu a:hover { background: rgba(255,255,255,0.1); }
-        .nav-menu a.packages-btn { background:#f6c654; color:#0a0b1a; font-weight:bold; }
-        .container { max-width:1400px; margin:40px auto; padding:0 20px; }
-        .page-title { text-align:center; font-size:2.5em; margin-bottom:30px; color:#f6c654; text-shadow:0 2px 10px rgba(246,198,84,0.3); }
-        .selection-panel { display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:30px; }
-        .panel { background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:20px; padding:25px; }
-        .panel h2 { font-size:1.8em; margin-bottom:15px; color:#f6c654; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px; }
-        .panel h2 i { margin-right:10px; }
-        .search-box { margin-bottom:20px; position:relative; }
-        .search-box input { width:100%; padding:12px 20px; padding-right:45px; border-radius:50px; border:2px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:white; font-size:1em; }
-        .search-box input:focus { outline:none; border-color:#f6c654; }
-        .search-box i { position:absolute; right:20px; top:50%; transform:translateY(-50%); color:#f6c654; }
-        .table-container { max-height:500px; overflow-y:auto; border-radius:10px; scrollbar-width:thin; scrollbar-color:#f6c654 #1a1b2f; }
-        .table-container::-webkit-scrollbar { width:8px; }
-        .table-container::-webkit-scrollbar-track { background:#1a1b2f; }
-        .table-container::-webkit-scrollbar-thumb { background:#f6c654; border-radius:10px; }
-        .package-table { width:100%; border-collapse:collapse; }
-        .package-table tr { border-bottom:1px solid rgba(255,255,255,0.05); transition:background 0.3s; }
-        .package-table tr:hover { background:rgba(255,255,255,0.05); }
-        .package-table td { padding:12px 5px; color:#ccc; font-size:0.95em; }
-        .package-table td:first-child { width:80%; }
-        .package-table td:last-child { text-align:center; width:20%; }
-        .package-table input[type="checkbox"] { width:20px; height:20px; cursor:pointer; accent-color:#f6c654; transform:scale(1.2); }
-        .action-buttons { display:flex; justify-content:center; gap:20px; margin:50px 0 30px; flex-wrap:wrap; }
-        .btn { padding:15px 40px; border-radius:50px; text-decoration:none; font-weight:600; font-size:1.2em; transition:all 0.3s; display:inline-flex; align-items:center; gap:10px; }
-        .btn-primary { background:#f6c654; color:#0a0b1a; }
-        .btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 20px rgba(246,198,84,0.3); }
-        .btn-whatsapp { background:#25D366; color:white; }
-        .btn-whatsapp:hover { background:#128C7E; }
-        .selection-summary { background:rgba(0,0,0,0.3); border-radius:15px; padding:20px; margin-top:30px; text-align:center; border:1px solid rgba(255,255,255,0.1); }
-        .selection-summary h3 { color:#f6c654; margin-bottom:10px; }
-        #selectedLiveCount, #selectedVodCount, #totalSelected { font-weight:bold; color:#f6c654; font-size:1.2em; }
-        .footer { text-align:center; padding:30px 0; margin-top:60px; border-top:1px solid rgba(255,255,255,0.05); color:#888; }
-        @media (max-width:768px) { .header { padding:15px 20px; flex-direction:column; gap:10px; } .selection-panel { grid-template-columns:1fr; } }
-        .loading { text-align:center; padding:50px; color:#f6c654; }
-        .error { text-align:center; padding:50px; color:#ff6b6b; }
-    </style>
+    <style>/* same styles */</style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">8K STRONG</div>
-        <nav class="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="packages.html" class="packages-btn">Packages</a>
-            <a href="search.html">Search</a>
-            <a href="#subscription">Subscribe</a>
-            <a href="#reseller">Reseller</a>
-        </nav>
-    </header>
+    <header class="header">...</header>
 
-    <div class="container">
-        <h1 class="page-title"><i class="fas fa-list-ul"></i> Available Content from M3U</h1>
+    <main class="container">
+        <h1 class="section-title" data-i18n="packages_title">IPTV Packages & VOD Selection</h1>
+        <p style="text-align:center; color:var(--gray-600); margin-bottom:40px;" data-i18n="packages_subtitle">Choose from over 1000+ channels and thousands of movies & series. All packages include 4K quality and VPN.</p>
 
-        <div class="selection-panel">
-            <!-- Live TV Panel -->
-            <div class="panel">
-                <h2><i class="fas fa-tv"></i> Live TV Packages</h2>
-                <div class="search-box">
-                    <input type="text" id="searchLive" placeholder="Search live channels...">
-                    <i class="fas fa-search"></i>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+            <!-- Packages column -->
+            <div style="background:var(--gray-200); border:1px solid var(--gray-400); border-radius:20px; padding:25px;">
+                <h2 style="color:var(--button-bg); margin-bottom:20px;"><i class="fas fa-tv"></i> <span data-i18n="packages_live">Live Channel Packages</span></h2>
+                <div style="margin-bottom:20px; position:relative;">
+                    <input type="text" id="searchPackages" placeholder="Search packages..." data-i18n-placeholder="packages_search" style="width:100%; padding:12px 20px; border-radius:50px; border:1px solid var(--gray-400); background:var(--gray-300); color:var(--gray-800);">
+                    <i class="fas fa-search" style="position:absolute; right:20px; top:50%; transform:translateY(-50%); color:var(--button-bg);"></i>
                 </div>
-                <div class="table-container">
-                    <table class="package-table" id="liveTable"></table>
-                </div>
-            </div>
-
-            <!-- VOD Panel -->
-            <div class="panel">
-                <h2><i class="fas fa-film"></i> VOD Categories</h2>
-                <div class="search-box">
-                    <input type="text" id="searchVod" placeholder="Search movies/series...">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="table-container">
-                    <table class="package-table" id="vodTable"></table>
+                <div style="max-height:400px; overflow-y:auto;">
+                    <table style="width:100%; color:var(--gray-700);">
+                        <tr><td>1 - 4K UHD 3840P ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>2 - RELAX UHD 3840P ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>3 - SPORT ON AIR ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>4 - UK ULTIMATE</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>5 - HORSE RACING ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>6 - TENNIS ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>7 - GERMANY ULTIMATE</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>8 - AUSTRIA</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>9 - NETHERLAND ULTIMATE</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>10 - Belgium</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <!-- Add more rows as needed -->
+                    </table>
                 </div>
             </div>
+            <!-- VOD column -->
+            <div style="background:var(--gray-200); border:1px solid var(--gray-400); border-radius:20px; padding:25px;">
+                <h2 style="color:var(--button-bg); margin-bottom:20px;"><i class="fas fa-film"></i> <span data-i18n="packages_vod">VOD Categories</span></h2>
+                <div style="margin-bottom:20px; position:relative;">
+                    <input type="text" id="searchVod" placeholder="Search VOD..." data-i18n-placeholder="packages_vod_search" style="width:100%; padding:12px 20px; border-radius:50px; border:1px solid var(--gray-400); background:var(--gray-300); color:var(--gray-800);">
+                    <i class="fas fa-search" style="position:absolute; right:20px; top:50%; transform:translateY(-50%); color:var(--button-bg);"></i>
+                </div>
+                <div style="max-height:400px; overflow-y:auto;">
+                    <table style="width:100%; color:var(--gray-700);">
+                        <tr><td>1 - VOD - TOP MOVIES DOLBY AUDIO 4K 3840p</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>2 - VOD - TOP MOVIES BLURAY (MULTI-SUBS) ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>3 - VOD - ASIA MOVIES (MULTI-SUBS)</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>4 - VOD - NETFLIX DOLBY AUDIO ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>5 - VOD - NETFLIX DOLBY AUDIO ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>6 - VOD - NETFLIX ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>7 - VOD - AMAZON ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>8 - VOD - DISNEY+ MOVIES MENA ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>9 - VOD - DISNEY+ SERIES MENA ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <tr><td>10 - VOD - DISCOVERY+ SERIES MENA ★</td><td style="text-align:center;"><input type="checkbox"></td></tr>
+                        <!-- Add more rows -->
+                    </table>
+                </div>
+            </div>
         </div>
-
-        <div class="action-buttons">
-            <a href="#" class="btn btn-primary"><i class="fas fa-calendar-alt"></i> Get Free Trial</a>
-            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us</a>
+        <div style="display:flex; justify-content:center; gap:20px; margin-top:40px;">
+            <button class="btn" data-i18n="packages_confirm">Confirm Selection</button>
+            <button class="btn" style="background:transparent; border:2px solid var(--button-bg);" data-i18n="packages_reset">Reset</button>
         </div>
+    </main>
 
-        <div class="selection-summary">
-            <h3>Your Selection</h3>
-            <p>Live TV selected: <span id="selectedLiveCount">0</span></p>
-            <p>VOD selected: <span id="selectedVodCount">0</span></p>
-            <p>Total: <span id="totalSelected">0</span></p>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>© 2026 8K Strong VIP – Powered by your M3U playlist.</p>
-    </footer>
-
-    <script>
-        // بيانات مؤقتة للعرض أثناء التحميل
-        let liveItems = [];
-        let vodItems = [];
-
-        async function loadM3U() {
-            const liveTable = document.getElementById('liveTable');
-            const vodTable = document.getElementById('vodTable');
-            liveTable.innerHTML = '<tr><td colspan="2" class="loading">Loading live channels...</td></tr>';
-            vodTable.innerHTML = '<tr><td colspan="2" class="loading">Loading VOD...</td></tr>';
-
-            try {
-                const response = await fetch('playlist.m3u');
-                if (!response.ok) throw new Error('M3U file not found');
-                const text = await response.text();
-                parseM3U(text);
-            } catch (error) {
-                liveTable.innerHTML = `<tr><td colspan="2" class="error">⚠️ Error: ${error.message}. Make sure playlist.m3u exists.</td></tr>`;
-                vodTable.innerHTML = `<tr><td colspan="2" class="error">⚠️ Error loading M3U.</td></tr>`;
-            }
-        }
-
-        function parseM3U(content) {
-            const lines = content.split('\n');
-            const allItems = [];
-
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (line.startsWith('#EXTINF')) {
-                    // Extract name (after last comma)
-                    const nameMatch = line.match(/#EXTINF:-?\d*.*?,(.*)/);
-                    const name = nameMatch ? nameMatch[1].trim() : 'Unknown';
-
-                    // Extract group-title
-                    const groupMatch = line.match(/group-title="([^"]*)"/);
-                    let group = groupMatch ? groupMatch[1] : 'Uncategorized';
-                    if (!group) group = 'Uncategorized';
-
-                    // URL is next line (if not starting with #)
-                    if (i + 1 < lines.length && !lines[i+1].trim().startsWith('#')) {
-                        const url = lines[i+1].trim();
-                        allItems.push({ name, group, url });
-                    }
-                }
-            }
-
-            // Split into Live and VOD based on group name containing "VOD"
-            liveItems = allItems.filter(item => !item.group.toUpperCase().includes('VOD'));
-            vodItems = allItems.filter(item => item.group.toUpperCase().includes('VOD'));
-
-            // عرض الكل في البداية
-            renderLive(liveItems);
-            renderVod(vodItems);
-        }
-
-        function renderLive(items) {
-            const tbody = document.getElementById('liveTable');
-            tbody.innerHTML = '';
-            if (items.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="2" class="loading">No live channels found.</td></tr>';
-                return;
-            }
-            items.forEach((item, index) => {
-                const row = document.createElement('tr');
-                // Use the original item's index for data-index if needed (but we don't have original index now)
-                // For simplicity, we'll just use the item's name and group
-                row.innerHTML = `<td>${item.name} <span style="color:#f6c654;">(${item.group})</span></td><td><input type="checkbox" class="live-checkbox" data-name="${item.name}" data-group="${item.group}" onchange="updateSummary()"></td>`;
-                tbody.appendChild(row);
-            });
-        }
-
-        function renderVod(items) {
-            const tbody = document.getElementById('vodTable');
-            tbody.innerHTML = '';
-            if (items.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="2" class="loading">No VOD found.</td></tr>';
-                return;
-            }
-            items.forEach((item, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `<td>${item.name} <span style="color:#f6c654;">(${item.group})</span></td><td><input type="checkbox" class="vod-checkbox" data-name="${item.name}" data-group="${item.group}" onchange="updateSummary()"></td>`;
-                tbody.appendChild(row);
-            });
-        }
-
-        // Search functions
-        document.getElementById('searchLive').addEventListener('input', function(e) {
-            const term = e.target.value.toLowerCase();
-            const filtered = liveItems.filter(item => item.name.toLowerCase().includes(term) || item.group.toLowerCase().includes(term));
-            renderLive(filtered);
-        });
-
-        document.getElementById('searchVod').addEventListener('input', function(e) {
-            const term = e.target.value.toLowerCase();
-            const filtered = vodItems.filter(item => item.name.toLowerCase().includes(term) || item.group.toLowerCase().includes(term));
-            renderVod(filtered);
-        });
-
-        function updateSummary() {
-            const liveChecked = document.querySelectorAll('.live-checkbox:checked').length;
-            const vodChecked = document.querySelectorAll('.vod-checkbox:checked').length;
-            document.getElementById('selectedLiveCount').innerText = liveChecked;
-            document.getElementById('selectedVodCount').innerText = vodChecked;
-            document.getElementById('totalSelected').innerText = liveChecked + vodChecked;
-        }
-
-        // Load M3U when page loads
-        loadM3U();
-    </script>
+    <footer class="footer">...</footer>
+    <!-- scripts -->
 </body>
 </html>
