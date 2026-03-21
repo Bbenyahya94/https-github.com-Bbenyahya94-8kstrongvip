@@ -55,6 +55,14 @@
         [dir="rtl"] .testimonial-card {
             text-align: right;
         }
+        [dir="rtl"] .credit-row {
+            flex-direction: row;
+        }
+        @media (max-width: 768px) {
+            [dir="rtl"] .credit-row {
+                flex-direction: column;
+            }
+        }
 
         /* Header */
         .header {
@@ -493,19 +501,46 @@
             color: var(--gray-600);
             margin-bottom: 15px;
         }
-        .credit-left ul {
-            list-style: none;
+        .credit-table {
+            background: var(--gray-300);
+            border-radius: 20px;
+            padding: 20px;
             margin: 20px 0;
+            border: 1px solid var(--gray-400);
         }
-        .credit-left li {
-            margin: 10px 0;
-            color: var(--gray-700);
+        .credit-row {
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-400);
         }
-        .credit-left li i {
+        .credit-row:last-child {
+            border-bottom: none;
+        }
+        .credit-amount {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--gray-900);
+            background: var(--button-bg);
+            padding: 8px 20px;
+            border-radius: 50px;
+            min-width: 120px;
+            text-align: center;
+        }
+        .credit-arrow {
             color: var(--button-bg);
+            font-size: 1.5em;
+        }
+        .credit-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--gray-900);
+            background: var(--gray-400);
+            padding: 8px 20px;
+            border-radius: 50px;
+            min-width: 120px;
+            text-align: center;
         }
         .credit-right {
             background: var(--gray-300);
@@ -611,6 +646,12 @@
             font-size: 2em;
             color: var(--button-bg);
             border: 2px solid var(--button-bg);
+            overflow: hidden;
+        }
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .testimonial-name h4 {
             color: var(--gray-900);
@@ -791,6 +832,17 @@
             .credit-panel-section {
                 grid-template-columns: 1fr;
             }
+            .credit-row {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .credit-arrow {
+                transform: rotate(90deg);
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -905,16 +957,33 @@
             </div>
         </div>
 
-        <!-- Credit System & Panel Preview (New) -->
+        <!-- Credit System Table (NEW) -->
         <section class="credit-panel-section">
             <div class="credit-left">
-                <h2 data-i18n="credit_title">Start Reselling with Our Credit System</h2>
-                <p data-i18n="credit_desc">1 credit = 1 month subscription. Minimum 120 credits to activate your reseller panel.</p>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> <span data-i18n="credit_120">120 credits – €190</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span data-i18n="credit_240">240 credits – €375</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span data-i18n="credit_600">600 – 12,000 credits – contact us for custom pricing</span></li>
-                </ul>
+                <h2 data-i18n="credit_title">Credit System</h2>
+                <p data-i18n="credit_desc">Simple and transparent – convert credits directly into subscription months.</p>
+                <div class="credit-table">
+                    <div class="credit-row">
+                        <div class="credit-amount">1 Credit</div>
+                        <div class="credit-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="credit-value">1 Month</div>
+                    </div>
+                    <div class="credit-row">
+                        <div class="credit-amount">3 Credits</div>
+                        <div class="credit-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="credit-value">3 Months</div>
+                    </div>
+                    <div class="credit-row">
+                        <div class="credit-amount">6 Credits</div>
+                        <div class="credit-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="credit-value">6 Months</div>
+                    </div>
+                    <div class="credit-row">
+                        <div class="credit-amount">12 Credits</div>
+                        <div class="credit-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="credit-value">12 Months</div>
+                    </div>
+                </div>
                 <p data-i18n="credit_more">Manage users, create sub‑resellers, and enjoy white‑label options. <a href="reseller.html" style="color:var(--button-bg);">Learn more</a></p>
             </div>
             <div class="credit-right">
@@ -963,14 +1032,14 @@
             </div>
         </section>
 
-        <!-- Testimonials with Images (New) -->
+        <!-- Testimonials with Images -->
         <section class="testimonials-section">
             <h2 data-i18n="testimonials_title">What Our Customers Say</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-img">
-                            <img src="images/user1.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+                            <img src="images/user1.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';">
                         </div>
                         <div class="testimonial-name">
                             <h4>Ahmed M.</h4>
@@ -1187,11 +1256,8 @@
                 slide3_title: "Limited Time Offer",
                 slide3_desc: "Get 20% off on yearly subscription",
                 slide3_btn: "Claim Offer",
-                credit_title: "Start Reselling with Our Credit System",
-                credit_desc: "1 credit = 1 month subscription. Minimum 120 credits to activate your reseller panel.",
-                credit_120: "120 credits – €190",
-                credit_240: "240 credits – €375",
-                credit_600: "600 – 12,000 credits – contact us for custom pricing",
+                credit_title: "Credit System",
+                credit_desc: "Simple and transparent – convert credits directly into subscription months.",
                 credit_more: "Manage users, create sub‑resellers, and enjoy white‑label options. <a href='reseller.html' style='color:var(--button-bg);'>Learn more</a>",
                 panel_placeholder: "Reseller Panel Preview",
                 panel_replace: "(Replace with actual image/video)",
@@ -1258,11 +1324,8 @@
                 slide3_title: "عرض خاص",
                 slide3_desc: "احصل على خصم 20% على الاشتراك السنوي",
                 slide3_btn: "استفد من العرض",
-                credit_title: "ابدأ البيع مع نظام الأرصدة",
-                credit_desc: "1 رصيد = شهر واحد من الاشتراك. الحد الأدنى 120 رصيد لتفعيل لوحة الموزع.",
-                credit_120: "120 رصيد – 190 يورو",
-                credit_240: "240 رصيد – 375 يورو",
-                credit_600: "600 – 12,000 رصيد – اتصل بنا للحصول على سعر مخصص",
+                credit_title: "نظام الأرصدة",
+                credit_desc: "بسيط وشفاف – حوّل الأرصدة مباشرة إلى أشهر اشتراك.",
                 credit_more: "إدارة المستخدمين، إنشاء موزعين فرعيين، وخيارات العلامة البيضاء. <a href='reseller.html' style='color:var(--button-bg);'>اعرف المزيد</a>",
                 panel_placeholder: "معاينة لوحة الموزع",
                 panel_replace: "(استبدل بصورة أو فيديو حقيقي)",
@@ -1303,7 +1366,7 @@
                 subscribe: "اشترك",
                 footer_rights: "جميع الحقوق محفوظة."
             },
-            // Add French, Spanish, Chinese, Hebrew similarly (for brevity, not repeated here)
+            // Add French, Spanish, Chinese, Hebrew similarly
         };
         function changeLanguage(lang) {
             document.documentElement.lang = lang;
