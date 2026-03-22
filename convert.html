@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convert M3U to Xtream Codes – 8K Strong IPTV</title>
-    <meta name="description" content="Convert your M3U playlist to Xtream Codes format. Auto-detect expiration date from M3U file. Generate username, password, and server URL.">
+    <meta name="description" content="Convert your M3U playlist to Xtream Codes format. Auto-detect expiration date from M3U file. Generate username, password, server URL, M3U link, and EPG link.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        /* Dark color system – same as homepage */
+        /* Dark color system */
         :root {
             --gray-100: #041324;
             --gray-200: #05192f;
@@ -36,7 +36,7 @@
             line-height: 1.6;
         }
 
-        /* Header (same as previous) */
+        /* Header */
         .header {
             background: var(--gray-200);
             backdrop-filter: blur(10px);
@@ -388,10 +388,19 @@
             display: none;
         }
 
-        .result-box h3 {
+        .result-box h2 {
             color: var(--button-bg);
             margin-bottom: 20px;
-            font-size: 1.5em;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .result-box h3 {
+            color: var(--gray-900);
+            margin: 20px 0 10px;
+            font-size: 1.2em;
+            border-left: 3px solid var(--button-bg);
+            padding-left: 12px;
         }
 
         .result-item {
@@ -405,26 +414,34 @@
         .result-label {
             font-weight: bold;
             color: var(--gray-900);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .result-value {
             color: var(--gray-600);
             word-break: break-all;
             font-family: monospace;
-            font-size: 0.95em;
+            font-size: 1em;
+            background: var(--gray-100);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 5px;
         }
 
         .copy-btn {
             background: var(--button-bg);
             color: var(--gray-100);
             border: none;
-            padding: 8px 15px;
+            padding: 8px 20px;
             border-radius: 50px;
             cursor: pointer;
             margin-top: 10px;
             font-size: 0.85em;
             transition: 0.3s;
+            font-weight: bold;
         }
 
         .copy-btn:hover {
@@ -489,6 +506,9 @@
             }
             .convert-section h1 {
                 font-size: 1.8em;
+            }
+            .result-value {
+                font-size: 0.8em;
             }
         }
     </style>
@@ -556,7 +576,7 @@
     <main class="container">
         <section class="convert-section">
             <h1>Convert M3U to Xtream Codes</h1>
-            <p>Enter your M3U playlist URL. We'll automatically detect expiration date from the M3U file.</p>
+            <p>Enter your M3U playlist URL. We'll automatically extract credentials and detect expiration date.</p>
 
             <div class="input-group">
                 <label>M3U Playlist URL</label>
@@ -566,27 +586,44 @@
             <button class="convert-btn" id="convertBtn" onclick="convertM3U()">Convert to Xtream Codes</button>
 
             <div class="result-box" id="resultBox">
-                <h3>Xtream Codes Credentials</h3>
+                <h2>Xtream Codes</h2>
+                
                 <div class="result-item">
-                    <div class="result-label">Server URL</div>
-                    <div class="result-value" id="serverUrl"></div>
-                    <button class="copy-btn" onclick="copyText('serverUrl')">Copy</button>
+                    <div class="result-label">Playlist Name</div>
+                    <div class="result-value" id="playlistName">Converted Playlist</div>
+                    <button class="copy-btn" onclick="copyText('playlistName')">Copy</button>
                 </div>
+                
                 <div class="result-item">
                     <div class="result-label">Username</div>
                     <div class="result-value" id="username"></div>
                     <button class="copy-btn" onclick="copyText('username')">Copy</button>
                 </div>
+                
                 <div class="result-item">
                     <div class="result-label">Password</div>
                     <div class="result-value" id="password"></div>
                     <button class="copy-btn" onclick="copyText('password')">Copy</button>
                 </div>
+                
                 <div class="result-item">
-                    <div class="result-label">Port</div>
-                    <div class="result-value" id="port">80</div>
-                    <button class="copy-btn" onclick="copyText('port')">Copy</button>
+                    <div class="result-label">Host / URL</div>
+                    <div class="result-value" id="hostUrl"></div>
+                    <button class="copy-btn" onclick="copyText('hostUrl')">Copy</button>
                 </div>
+                
+                <h3>M3U LINK</h3>
+                <div class="result-item">
+                    <div class="result-value" id="m3uLink" style="font-size: 0.85em;"></div>
+                    <button class="copy-btn" onclick="copyText('m3uLink')">Copy</button>
+                </div>
+                
+                <h3>EPG LINK</h3>
+                <div class="result-item">
+                    <div class="result-value" id="epgLink" style="font-size: 0.85em;"></div>
+                    <button class="copy-btn" onclick="copyText('epgLink')">Copy</button>
+                </div>
+                
                 <div class="expiry-warning" id="expiryWarning"></div>
                 <div id="errorMessage" class="error-message" style="display: none;"></div>
             </div>
@@ -619,7 +656,6 @@
             errorDiv.style.display = 'none';
 
             try {
-                // Try to fetch the M3U file content
                 let m3uContent = null;
                 let expirationDate = null;
                 let serverHeaders = null;
@@ -631,7 +667,7 @@
                         m3uContent = await response.text();
                         serverHeaders = response.headers;
                         
-                        // Try to get expiration from headers first
+                        // Try to get expiration from headers
                         const expiryFromHeaders = getExpirationFromHeaders(serverHeaders);
                         if (expiryFromHeaders) {
                             expirationDate = expiryFromHeaders;
@@ -648,10 +684,34 @@
                 const parsed = parseM3UtoXtream(m3uUrl, m3uContent);
 
                 if (parsed) {
-                    document.getElementById('serverUrl').innerText = parsed.serverUrl;
-                    document.getElementById('username').innerText = parsed.username;
-                    document.getElementById('password').innerText = parsed.password;
-                    document.getElementById('port').innerText = parsed.port || '80';
+                    const serverUrl = parsed.serverUrl;
+                    const port = parsed.port || '80';
+                    const username = parsed.username;
+                    const password = parsed.password;
+                    
+                    // Format host URL
+                    const hostUrl = `${serverUrl}:${port}`;
+                    
+                    // Generate M3U Link
+                    const m3uLink = `${serverUrl}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`;
+                    
+                    // Generate EPG Link
+                    const epgLink = `${serverUrl}/xmltv.php?username=${username}&password=${password}`;
+                    
+                    // Set playlist name
+                    let playlistName = "Converted Playlist";
+                    try {
+                        const urlObj = new URL(m3uUrl);
+                        const domain = urlObj.hostname;
+                        playlistName = domain.replace('www.', '').split('.')[0].toUpperCase() + " Playlist";
+                    } catch(e) {}
+                    
+                    document.getElementById('playlistName').innerText = playlistName;
+                    document.getElementById('username').innerText = username;
+                    document.getElementById('password').innerText = password;
+                    document.getElementById('hostUrl').innerText = hostUrl;
+                    document.getElementById('m3uLink').innerText = m3uLink;
+                    document.getElementById('epgLink').innerText = epgLink;
 
                     // Display expiration information
                     if (expirationDate) {
@@ -748,7 +808,6 @@
         }
 
         function getExpirationFromHeaders(headers) {
-            // Check common header fields for expiration
             const expiryHeaders = ['expires', 'x-expires', 'x-expiration-date', 'x-account-expires'];
             
             for (const header of expiryHeaders) {
@@ -787,10 +846,9 @@
 
         function parseM3UtoXtream(url, m3uContent) {
             try {
-                // Try to parse as URL
                 const urlObj = new URL(url);
                 
-                // Check if it's an Xtream-style URL
+                // Check if it's already an Xtream-style URL
                 if (urlObj.pathname.includes('get.php') && urlObj.searchParams.has('username') && urlObj.searchParams.has('password')) {
                     return {
                         serverUrl: `${urlObj.protocol}//${urlObj.hostname}`,
@@ -800,7 +858,7 @@
                     };
                 }
                 
-                // Try to extract from M3U content if available
+                // Try to extract from M3U content
                 if (m3uContent) {
                     const xtreamPattern = /(?:server|host)[=:]\s*(https?:\/\/[^\s]+)/i;
                     const userPattern = /(?:username|user)[=:]\s*([^\s&]+)/i;
@@ -811,30 +869,31 @@
                     const passMatch = m3uContent.match(passPattern);
                     
                     if (serverMatch && userMatch && passMatch) {
+                        const server = serverMatch[1];
+                        const serverUrlObj = new URL(server);
                         return {
-                            serverUrl: serverMatch[1],
+                            serverUrl: `${serverUrlObj.protocol}//${serverUrlObj.hostname}`,
                             username: userMatch[1],
                             password: passMatch[1],
-                            port: '80'
+                            port: serverUrlObj.port || '80'
                         };
                     }
                 }
                 
-                // If it's a direct M3U file URL, generate from domain
-                if (url.endsWith('.m3u') || url.endsWith('.m3u8') || url.includes('playlist')) {
-                    try {
-                        const domain = url.split('/')[2];
-                        if (domain) {
-                            const timestamp = Date.now();
-                            return {
-                                serverUrl: `http://${domain}`,
-                                username: `user_${timestamp}`,
-                                password: `pass_${Math.random().toString(36).substring(2, 10)}`,
-                                port: '80'
-                            };
-                        }
-                    } catch(e) {}
-                }
+                // Generate from domain if possible
+                try {
+                    const domain = url.split('/')[2];
+                    if (domain) {
+                        const timestamp = Date.now();
+                        const randomId = Math.random().toString(36).substring(2, 15);
+                        return {
+                            serverUrl: `http://${domain}`,
+                            username: `user_${timestamp}`,
+                            password: randomId,
+                            port: '80'
+                        };
+                    }
+                } catch(e) {}
                 
                 return null;
             } catch (e) {
@@ -871,7 +930,7 @@
             });
         }
 
-        // Add mobile menu toggle
+        // Mobile menu toggle
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const body = document.body;
