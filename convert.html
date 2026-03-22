@@ -1,541 +1,401 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convert M3U to Xtream Codes – 8K Strong IPTV</title>
-    <meta name="description" content="Convert your M3U playlist to Xtream Codes format. Auto-detect expiration date from M3U file. Generate username, password, server URL, M3U link, and EPG link.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        :root {
-            --gray-100: #041324;
-            --gray-200: #05192f;
-            --gray-300: #061e39;
-            --gray-400: #072342;
-            --gray-500: #a6afb8;
-            --gray-600: #bfc8e2;
-            --gray-700: #ced4da;
-            --gray-800: #eff2f7;
-            --gray-900: #f3f6f9;
-            --button-bg: #ecb619;
-            --button-hover: #d4a514;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--gray-100); color: var(--gray-800); line-height: 1.6; }
+        body {
+            background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
 
+        /* Header */
         .header {
-            background: var(--gray-200);
+            background: rgba(10, 11, 26, 0.95);
             backdrop-filter: blur(10px);
-            padding: 10px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--gray-400);
-        }
-
-        .header-top {
+            padding: 15px 50px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             flex-wrap: wrap;
-            gap: 20px;
         }
 
-        .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid var(--gray-400);
-            color: var(--gray-700);
-            font-size: 1.8em;
-            cursor: pointer;
-            padding: 5px 15px;
-            border-radius: 10px;
-        }
-
-        .search-area { flex: 1; max-width: 500px; }
-        .search-area form {
-            display: flex;
-            align-items: center;
-            background: var(--gray-300);
-            border-radius: 50px;
-            padding: 5px 10px;
-            border: 1px solid var(--gray-400);
-        }
-        .search-area input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 10px 15px;
-            color: var(--gray-800);
-            outline: none;
-        }
-        .search-area button {
-            background: var(--button-bg);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .search-area button:hover { background: var(--button-hover); }
-
-        .header-actions { display: flex; align-items: center; gap: 15px; }
-        .lang-btn {
-            background: var(--gray-300);
-            border: 1px solid var(--gray-400);
-            color: var(--gray-800);
-            padding: 8px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .theme-toggle {
-            background: transparent;
-            border: none;
-            color: var(--gray-700);
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-        .login-btn {
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-        }
-        .main-nav { margin-top: 10px; }
-        .main-nav ul {
-            display: flex;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 20px;
-            justify-content: center;
-        }
-        .main-nav a {
-            color: var(--gray-700);
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-        .main-nav a:hover { background: var(--gray-300); }
-
-        .mobile-menu {
-            display: none;
-            background: var(--gray-200);
-            border-top: 1px solid var(--gray-400);
-            padding: 20px;
-            margin-top: 10px;
-        }
-        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
-        .mobile-menu a {
-            color: var(--gray-700);
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 10px;
-            display: block;
-        }
-        .mobile-menu-open .mobile-menu { display: block; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-
-        .convert-section {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-        }
-
-        .convert-section h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .convert-section > p { text-align: center; color: var(--gray-600); margin-bottom: 40px; }
-
-        .input-group { margin-bottom: 25px; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--gray-900); }
-        .input-group input {
-            width: 100%;
-            padding: 15px 20px;
-            background: var(--gray-300);
-            border: 1px solid var(--gray-400);
-            border-radius: 15px;
-            color: var(--gray-800);
-            font-size: 1em;
+        .nav-menu {
+            display: flex;
+            gap: 20px;
         }
-        .input-group input:focus { outline: none; border-color: var(--button-bg); }
 
-        .convert-btn {
-            background: var(--button-bg);
-            color: var(--gray-100);
+        .nav-menu a {
+            color: #ced4da;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Card */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #ecb619);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #ddd;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            color: white;
+            font-size: 14px;
+            font-family: monospace;
+            resize: vertical;
+            transition: 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #ecb619;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ecb619, #d4a514);
+            color: #0a0b1a;
             border: none;
-            padding: 15px 40px;
+            padding: 14px 30px;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 16px;
             cursor: pointer;
+            transition: 0.3s;
             width: 100%;
         }
-        .convert-btn:hover { background: var(--button-hover); }
-        .convert-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(236, 182, 25, 0.3);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Loading */
         .loading {
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--gray-400);
-            border-top-color: var(--button-bg);
+            width: 18px;
+            height: 18px;
+            border: 2px solid #0a0b1a;
+            border-top-color: #ecb619;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
             margin-left: 10px;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .result-box {
-            margin-top: 40px;
-            padding: 30px;
-            background: var(--gray-300);
-            border-radius: 20px;
-            border: 1px solid var(--gray-400);
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Result Section */
+        .result-section {
+            margin-top: 30px;
             display: none;
         }
 
-        .result-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+        .result-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 25px;
             margin-bottom: 20px;
         }
-        .result-box h2 { color: var(--button-bg); font-size: 1.8em; margin: 0; }
 
-        .copy-all-btn {
-            background: var(--button-bg);
-            color: var(--gray-100);
-            border: none;
-            padding: 10px 25px;
-            border-radius: 50px;
-            cursor: pointer;
+        .result-title {
+            font-size: 18px;
             font-weight: bold;
+            color: #ecb619;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-row {
             display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .copy-all-btn:hover { background: var(--button-hover); }
-
-        .result-box h3 {
-            color: var(--gray-900);
-            margin: 20px 0 10px;
-            font-size: 1.2em;
-            border-left: 3px solid var(--button-bg);
-            padding-left: 12px;
-        }
-
-        .result-item {
-            background: var(--gray-200);
-            padding: 15px;
-            border-radius: 12px;
             margin-bottom: 15px;
-            border: 1px solid var(--gray-400);
+            flex-wrap: wrap;
         }
 
-        .result-label {
-            font-weight: bold;
-            color: var(--gray-900);
-            margin-bottom: 8px;
-            font-size: 0.9em;
-            text-transform: uppercase;
+        .info-label {
+            width: 130px;
+            font-weight: 600;
+            color: #aaa;
         }
 
-        .result-value {
-            color: var(--gray-600);
+        .info-value {
+            flex: 1;
             word-break: break-all;
             font-family: monospace;
-            font-size: 1em;
-            background: var(--gray-100);
-            padding: 10px;
-            border-radius: 8px;
-            margin-top: 5px;
-        }
-
-        .expiry-warning {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(236, 182, 25, 0.1);
-            border-left: 4px solid var(--button-bg);
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 12px;
             border-radius: 10px;
-            color: var(--gray-700);
         }
 
-        .expiry-warning i { margin-right: 10px; }
-        .expiry-warning.expired { background: rgba(255, 68, 68, 0.1); border-left-color: #ff4444; }
-        .expiry-warning.warning { background: rgba(236, 182, 25, 0.2); border-left-color: #ffaa00; }
+        .copy-btn {
+            background: rgba(236, 182, 25, 0.2);
+            color: #ecb619;
+            border: 1px solid rgba(236, 182, 25, 0.3);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: 0.3s;
+        }
 
-        .error-message {
+        .copy-btn:hover {
+            background: #ecb619;
+            color: #0a0b1a;
+        }
+
+        .expiry-box {
+            background: rgba(236, 182, 25, 0.1);
+            border-left: 4px solid #ecb619;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .expiry-box.expired {
+            background: rgba(255, 68, 68, 0.1);
+            border-left-color: #ff4444;
+        }
+
+        .expiry-box.expiring {
+            background: rgba(236, 182, 25, 0.2);
+            border-left-color: #ffaa00;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #ecb619;
+            text-decoration: none;
+        }
+
+        .error {
             background: rgba(255, 68, 68, 0.1);
             border-left: 4px solid #ff4444;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-top: 20px;
             color: #ff8888;
         }
 
-        .notification {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--button-bg);
-            color: var(--gray-100);
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: bold;
-            z-index: 1000;
-            display: none;
-            animation: fadeInOut 2s ease;
-        }
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(20px); }
-            15% { opacity: 1; transform: translateY(0); }
-            85% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-20px); }
-        }
-
-        .footer {
-            background: var(--gray-200);
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 60px;
-            border-top: 1px solid var(--gray-400);
-            color: var(--gray-600);
-        }
-
-        @media (max-width: 768px) {
-            .header { padding: 10px 20px; }
-            .header-top { gap: 10px; }
-            .logo-img { max-height: 40px; max-width: 150px; }
-            .mobile-menu-toggle { display: block; }
-            .main-nav { display: none; }
-            .search-area { order: 3; width: 100%; max-width: none; }
-            .convert-section { padding: 25px; }
-            .convert-section h1 { font-size: 1.8em; }
-            .result-value { font-size: 0.8em; }
-            .result-header { flex-direction: column; gap: 15px; align-items: flex-start; }
+        @media (max-width: 600px) {
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .card {
+                padding: 25px;
+            }
+            .info-row {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .info-label {
+                width: auto;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="header-top">
-            <div class="logo-area">
-                <a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a>
-            </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
-            <div class="search-area">
-                <form onsubmit="return false;">
-                    <input type="text" placeholder="Search channels, movies...">
-                    <button type="button"><i class="fas fa-search"></i> Search</button>
-                </form>
-            </div>
-            <div class="header-actions">
-                <div class="language-dropdown">
-                    <button class="lang-btn"><img src="images/flags/uk.png" alt="English"> EN</button>
-                </div>
-                <button class="theme-toggle"><i class="bx bx-moon"></i></button>
-                <a href="login.html" class="login-btn">Login</a>
-            </div>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="packages.html">Packages</a></li>
-                <li><a href="convert.html">Convert</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="resolution.html">Resolution Center</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="find.html">Find Content</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-            </ul>
+        <div class="logo">8K STRONG IPTV</div>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="convert.html">Convert</a>
+            <a href="packages.html">Packages</a>
+            <a href="contact.html">Contact</a>
         </nav>
-        <div class="mobile-menu" id="mobileMenu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="packages.html">Packages</a></li>
-                <li><a href="convert.html">Convert</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="resolution.html">Resolution Center</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="find.html">Find Content</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-            </ul>
-        </div>
     </header>
 
     <main class="container">
-        <section class="convert-section">
+        <div class="card">
             <h1>Convert M3U to Xtream Codes</h1>
-            <p>Enter your M3U playlist URL. We'll automatically extract credentials and <strong>detect expiration date</strong>.</p>
+            <p class="subtitle">Paste your M3U link to get Xtream Codes credentials</p>
 
-            <div class="input-group">
-                <label>M3U Playlist URL</label>
-                <input type="url" id="m3uUrl" placeholder="https://example.com/playlist.m3u8 or http://your-server:8080/get.php?username=xxx&password=xxx&type=m3u" required>
+            <div class="form-group">
+                <label>M3U Link</label>
+                <textarea id="m3uLink" rows="3" placeholder="https://example.com/get.php?username=xxx&password=xxx&type=m3u"></textarea>
             </div>
 
-            <button class="convert-btn" id="convertBtn" onclick="convertM3U()">Convert to Xtream Codes</button>
+            <button id="convertBtn" onclick="convertM3U()">Convert</button>
 
-            <div class="result-box" id="resultBox">
-                <div class="result-header">
-                    <h2>Xtream Codes</h2>
-                    <button class="copy-all-btn" id="copyAllBtn" onclick="copyAll()">
-                        <i class="fas fa-copy"></i> Copy All
-                    </button>
+            <div id="resultSection" class="result-section">
+                <div class="result-card">
+                    <div class="result-title">Account Information</div>
+                    
+                    <div class="info-row">
+                        <div class="info-label">Playlist Name:</div>
+                        <div class="info-value" id="playlistName">-</div>
+                        <button class="copy-btn" onclick="copyText('playlistName')">Copy</button>
+                    </div>
+                    
+                    <div class="info-row">
+                        <div class="info-label">Username:</div>
+                        <div class="info-value" id="username">-</div>
+                        <button class="copy-btn" onclick="copyText('username')">Copy</button>
+                    </div>
+                    
+                    <div class="info-row">
+                        <div class="info-label">Password:</div>
+                        <div class="info-value" id="password">-</div>
+                        <button class="copy-btn" onclick="copyText('password')">Copy</button>
+                    </div>
+                    
+                    <div class="info-row">
+                        <div class="info-label">Host/API/URL:</div>
+                        <div class="info-value" id="hostUrl">-</div>
+                        <button class="copy-btn" onclick="copyText('hostUrl')">Copy</button>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="info-row">
+                        <div class="info-label">M3U LINK:</div>
+                        <div class="info-value" id="m3uOutput">-</div>
+                        <button class="copy-btn" onclick="copyText('m3uOutput')">Copy</button>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="info-row">
+                        <div class="info-label">EPG LINK:</div>
+                        <div class="info-value" id="epgLink">-</div>
+                        <button class="copy-btn" onclick="copyText('epgLink')">Copy</button>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div id="expiryInfo" class="expiry-box"></div>
                 </div>
                 
-                <div class="result-item">
-                    <div class="result-label">Playlist Name</div>
-                    <div class="result-value" id="playlistName">Converted Playlist</div>
+                <div class="back-link">
+                    <a href="#">back to</a> 8K Strong IPTV
                 </div>
-                
-                <div class="result-item">
-                    <div class="result-label">Username</div>
-                    <div class="result-value" id="username"></div>
-                </div>
-                
-                <div class="result-item">
-                    <div class="result-label">Password</div>
-                    <div class="result-value" id="password"></div>
-                </div>
-                
-                <div class="result-item">
-                    <div class="result-label">Host / URL</div>
-                    <div class="result-value" id="hostUrl"></div>
-                </div>
-                
-                <h3>M3U LINK</h3>
-                <div class="result-item">
-                    <div class="result-value" id="m3uLink" style="font-size: 0.85em;"></div>
-                </div>
-                
-                <h3>EPG LINK</h3>
-                <div class="result-item">
-                    <div class="result-value" id="epgLink" style="font-size: 0.85em;"></div>
-                </div>
-                
-                <div class="expiry-warning" id="expiryWarning"></div>
-                <div id="errorMessage" class="error-message" style="display: none;"></div>
             </div>
-        </section>
+
+            <div id="errorMessage" class="error" style="display: none;"></div>
+        </div>
     </main>
-
-    <div id="notification" class="notification">Copied! ✅</div>
-
-    <footer class="footer">
-        <p>&copy; 2026 8K Strong IPTV. All rights reserved.</p>
-    </footer>
 
     <script>
         let currentData = {};
 
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.style.display = 'block';
-            setTimeout(() => { notification.style.display = 'none'; }, 2000);
-        }
-
-        function copyToClipboard(text) {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => showNotification('Copied! ✅'))
-                    .catch(() => fallbackCopy(text));
-            } else {
-                fallbackCopy(text);
-            }
-        }
-
-        function fallbackCopy(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.top = '-1000px';
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                showNotification('Copied! ✅');
-            } catch (err) {
-                showNotification('Failed to copy');
-            }
-            document.body.removeChild(textarea);
-        }
-
         async function convertM3U() {
-            const m3uUrl = document.getElementById('m3uUrl').value.trim();
-            const resultBox = document.getElementById('resultBox');
-            const errorDiv = document.getElementById('errorMessage');
+            const inputLink = document.getElementById('m3uLink').value.trim();
             const convertBtn = document.getElementById('convertBtn');
+            const resultSection = document.getElementById('resultSection');
+            const errorDiv = document.getElementById('errorMessage');
 
-            if (!m3uUrl) {
-                alert('Please enter an M3U playlist URL');
+            if (!inputLink) {
+                errorDiv.style.display = 'block';
+                errorDiv.innerHTML = 'Please enter an M3U link';
                 return;
             }
 
+            errorDiv.style.display = 'none';
             convertBtn.disabled = true;
             convertBtn.innerHTML = 'Converting... <span class="loading"></span>';
-            resultBox.style.display = 'none';
-            errorDiv.style.display = 'none';
+            resultSection.style.display = 'none';
 
             try {
                 let m3uContent = null;
-                let expirationInfo = { date: null, source: null };
-                let serverHeaders = null;
+                let expirationDate = null;
 
-                // Fetch the M3U file
+                // Try to fetch the M3U content
                 try {
-                    const response = await fetch(m3uUrl);
+                    const response = await fetch(inputLink);
                     if (response.ok) {
                         m3uContent = await response.text();
-                        serverHeaders = response.headers;
-                        
-                        // Check HTTP headers first
-                        const headerExpiry = getExpirationFromHeaders(serverHeaders);
-                        if (headerExpiry) {
-                            expirationInfo = { date: headerExpiry, source: 'HTTP Header' };
-                        } else {
-                            // Parse M3U content for expiration
-                            const m3uExpiry = parseExpirationFromM3U(m3uContent);
-                            if (m3uExpiry) {
-                                expirationInfo = { date: m3uExpiry, source: 'M3U Tag' };
-                            }
-                        }
+                        expirationDate = parseExpirationFromM3U(m3uContent);
                     }
                 } catch (fetchError) {
                     console.log('Could not fetch M3U content:', fetchError);
                 }
 
-                // Also check URL for expiration parameters
-                const urlExpiry = getExpirationFromURL(m3uUrl);
-                if (urlExpiry && (!expirationInfo.date || urlExpiry < expirationInfo.date)) {
-                    expirationInfo = { date: urlExpiry, source: 'URL Parameter' };
-                }
-
                 // Parse credentials
-                const parsed = parseM3UtoXtream(m3uUrl, m3uContent);
+                const parsed = parseM3UtoXtream(inputLink, m3uContent);
 
                 if (parsed) {
                     const serverUrl = parsed.serverUrl;
@@ -544,12 +404,12 @@
                     const password = parsed.password;
                     
                     const hostUrl = `${serverUrl}:${port}`;
-                    const m3uLink = `${serverUrl}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`;
-                    const epgLink = `${serverUrl}/xmltv.php?username=${username}&password=${password}`;
+                    const m3uOutput = `${serverUrl}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`;
+                    const epgOutput = `${serverUrl}/xmltv.php?username=${username}&password=${password}`;
                     
                     let playlistName = "Converted Playlist";
                     try {
-                        const urlObj = new URL(m3uUrl);
+                        const urlObj = new URL(inputLink);
                         const domain = urlObj.hostname;
                         playlistName = domain.replace('www.', '').split('.')[0].toUpperCase() + " Playlist";
                     } catch(e) {}
@@ -559,166 +419,90 @@
                         username: username,
                         password: password,
                         hostUrl: hostUrl,
-                        m3uLink: m3uLink,
-                        epgLink: epgLink,
-                        expirationInfo: expirationInfo
+                        m3uOutput: m3uOutput,
+                        epgOutput: epgOutput,
+                        expirationDate: expirationDate
                     };
                     
                     document.getElementById('playlistName').innerText = playlistName;
                     document.getElementById('username').innerText = username;
                     document.getElementById('password').innerText = password;
                     document.getElementById('hostUrl').innerText = hostUrl;
-                    document.getElementById('m3uLink').innerText = m3uLink;
-                    document.getElementById('epgLink').innerText = epgLink;
-
-                    // Display expiration info with color coding
-                    const expiryDiv = document.getElementById('expiryWarning');
+                    document.getElementById('m3uOutput').innerText = m3uOutput;
+                    document.getElementById('epgLink').innerText = epgOutput;
                     
-                    if (expirationInfo.date) {
-                        const expiry = new Date(expirationInfo.date);
+                    // Show expiration
+                    const expiryDiv = document.getElementById('expiryInfo');
+                    if (expirationDate && !isNaN(expirationDate.getTime())) {
                         const now = new Date();
-                        const diff = expiry - now;
+                        const diff = expirationDate - now;
                         const isExpired = diff <= 0;
                         const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
                         
-                        const formattedDate = expiry.toLocaleDateString('en-US', { 
+                        const formatted = expirationDate.toLocaleDateString('en-US', {
                             year: 'numeric', month: 'long', day: 'numeric',
                             hour: '2-digit', minute: '2-digit'
                         });
                         
-                        expiryDiv.className = 'expiry-warning';
-                        if (isExpired) {
-                            expiryDiv.classList.add('expired');
-                        } else if (daysLeft < 7) {
-                            expiryDiv.classList.add('warning');
-                        }
-                        
-                        let statusIcon = isExpired ? '⚠️' : (daysLeft < 7 ? '⏰' : '✅');
-                        let statusText = isExpired ? 'EXPIRED' : (daysLeft < 7 ? 'EXPIRING SOON' : 'ACTIVE');
+                        expiryDiv.className = 'expiry-box';
+                        if (isExpired) expiryDiv.classList.add('expired');
+                        else if (daysLeft < 7) expiryDiv.classList.add('expiring');
                         
                         expiryDiv.innerHTML = `
                             <i class="fas ${isExpired ? 'fa-exclamation-triangle' : (daysLeft < 7 ? 'fa-hourglass-half' : 'fa-calendar-check')}"></i>
-                            <strong>Expiration Information:</strong><br>
-                            📅 <strong>Expiration Date:</strong> ${formattedDate}<br>
-                            ⏱️ <strong>Time remaining:</strong> ${getTimeLeft(expiry)}<br>
-                            📍 <strong>Detected from:</strong> ${expirationInfo.source}<br>
-                            <span style="color: ${isExpired ? '#ff8888' : (daysLeft < 7 ? '#ffaa00' : '#88ff88')}">${statusIcon} Status: ${statusText}</span>
+                            <strong>Expired in:</strong> ${formatted}<br>
+                            <small>${daysLeft > 0 ? `${daysLeft} days remaining` : 'EXPIRED'}</small>
                         `;
-                        currentData.expirationText = `Expiration Date: ${formattedDate}\nTime remaining: ${getTimeLeft(expiry)}\nDetected from: ${expirationInfo.source}\nStatus: ${statusText}`;
                     } else {
+                        expiryDiv.className = 'expiry-box';
                         expiryDiv.innerHTML = `
                             <i class="fas fa-info-circle"></i>
-                            No expiration date found in the M3U file, HTTP headers, or URL parameters.
-                            <br><small>This account will remain active until manually deactivated.</small>
+                            <strong>Expired in:</strong> No expiration date detected<br>
+                            <small>Account active until manually deactivated</small>
                         `;
-                        currentData.expirationText = "No expiration date detected. Account active until manually deactivated.";
                     }
-
-                    resultBox.style.display = 'block';
+                    
+                    resultSection.style.display = 'block';
                 } else {
-                    errorDiv.innerHTML = 'Could not parse the M3U URL. Please make sure it contains username and password.';
                     errorDiv.style.display = 'block';
+                    errorDiv.innerHTML = 'Invalid M3U link. Make sure it contains username and password.';
                 }
 
             } catch (error) {
-                console.error('Conversion error:', error);
-                errorDiv.innerHTML = 'Error processing the M3U file. Please check the URL and try again.';
+                console.error('Error:', error);
                 errorDiv.style.display = 'block';
+                errorDiv.innerHTML = 'Error processing the link. Please check and try again.';
             } finally {
                 convertBtn.disabled = false;
-                convertBtn.innerHTML = 'Convert to Xtream Codes';
+                convertBtn.innerHTML = 'Convert';
             }
-        }
-
-        function getExpirationFromURL(url) {
-            // Check URL for expiration parameters
-            const patterns = [
-                /expires?[=:](\d{10,13})/i,
-                /expiry[=:](\d{10,13})/i,
-                /validuntil[=:](\d{10,13})/i,
-                /end[=:](\d{10,13})/i,
-                /until[=:](\d{10,13})/i
-            ];
-            
-            for (const pattern of patterns) {
-                const match = url.match(pattern);
-                if (match && match[1]) {
-                    const timestamp = parseInt(match[1]);
-                    const date = new Date(timestamp < 10000000000 ? timestamp * 1000 : timestamp);
-                    if (!isNaN(date.getTime())) {
-                        return date;
-                    }
-                }
-            }
-            return null;
         }
 
         function parseExpirationFromM3U(content) {
             if (!content) return null;
-            
             const lines = content.split('\n');
             
             const patterns = [
-                /#EXTVLCOPT.*expire[-_]?date[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
-                /#EXTM3U.*expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
-                /#EXTINF.*expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
-                /expiry[-_]?date[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
-                /expire[-_]?time[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
-                /valid[-_]?until[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i
+                /#EXTVLCOPT.*expire[-_]?date[=:]\s*([\d\-\s:]+)/i,
+                /#\s*expires?[=:]\s*([\d\-\s:]+)/i,
+                /#\s*account[-_]?expires[=:]\s*([\d\-\s:]+)/i,
+                /expires?[=:](\d{10,13})/i
             ];
-            
-            const timestampPattern = /(?:expire|expiry|valid)[-_]?(?:date|time)?[=:]\s*(\d{10,13})/i;
             
             for (const line of lines) {
                 for (const pattern of patterns) {
                     const match = line.match(pattern);
                     if (match && match[1]) {
-                        const parsedDate = new Date(match[1]);
-                        if (!isNaN(parsedDate.getTime())) {
-                            return parsedDate;
+                        if (/^\d{10,13}$/.test(match[1])) {
+                            const ts = parseInt(match[1]);
+                            return new Date(ts < 10000000000 ? ts * 1000 : ts);
                         }
-                    }
-                }
-                
-                const timestampMatch = line.match(timestampPattern);
-                if (timestampMatch && timestampMatch[1]) {
-                    const timestamp = parseInt(timestampMatch[1]);
-                    const date = new Date(timestamp < 10000000000 ? timestamp * 1000 : timestamp);
-                    if (!isNaN(date.getTime())) {
-                        return date;
+                        const date = new Date(match[1]);
+                        if (!isNaN(date.getTime())) return date;
                     }
                 }
             }
             return null;
-        }
-
-        function getExpirationFromHeaders(headers) {
-            const expiryHeaders = ['expires', 'x-expires', 'x-expiration-date', 'x-account-expires', 'x-expiry'];
-            
-            for (const header of expiryHeaders) {
-                const value = headers.get(header);
-                if (value) {
-                    const date = new Date(value);
-                    if (!isNaN(date.getTime())) {
-                        return date;
-                    }
-                }
-            }
-            return null;
-        }
-
-        function getTimeLeft(expiryDate) {
-            const now = new Date();
-            const diff = expiryDate - now;
-            if (diff <= 0) return 'EXPIRED';
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            
-            if (days > 0) return `${days} day(s), ${hours} hour(s)`;
-            if (hours > 0) return `${hours} hour(s), ${minutes} minute(s)`;
-            return `${minutes} minute(s)`;
         }
 
         function parseM3UtoXtream(url, m3uContent) {
@@ -748,41 +532,17 @@
             }
         }
 
-        function copyAll() {
-            const text = `Xtream Codes
-==============
-
-Playlist Name: ${currentData.playlistName}
-Username: ${currentData.username}
-Password: ${currentData.password}
-Host/URL: ${currentData.hostUrl}
-
-M3U LINK
-${currentData.m3uLink}
-
-EPG LINK
-${currentData.epgLink}
-
-${currentData.expirationText || 'No expiration detected'}
-
---- Generated by 8K Strong IPTV ---`;
-            copyToClipboard(text);
-        }
-
-        const toggleBtn = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const body = document.body;
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', function() {
-                body.classList.toggle('mobile-menu-open');
-                const icon = toggleBtn.querySelector('i');
-                if (body.classList.contains('mobile-menu-open')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 1500);
+            }).catch(() => {
+                alert('Press Ctrl+C to copy');
             });
         }
     </script>
