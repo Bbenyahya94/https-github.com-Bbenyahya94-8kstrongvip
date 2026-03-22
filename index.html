@@ -411,7 +411,7 @@
         .slide-content h2 {
             font-size: 2.5em;
             margin-bottom: 15px;
-            background: linear-gradient(45deg,var(--gray-800),var(--gray-900));
+            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -552,6 +552,10 @@
             align-items: center;
             justify-content: center;
             border: 1px solid var(--gray-400);
+        }
+        .credit-right img {
+            width: 100%;
+            border-radius: 15px;
         }
         .credit-right i {
             font-size: 5em;
@@ -920,9 +924,10 @@
             </div>
         </section>
 
-        <!-- Multi-slide slideshow -->
+        <!-- Slideshow with GIF as Slide 2 -->
         <div class="slideshow-container">
             <div class="slides" id="slides">
+                <!-- Slide 1: Static Image -->
                 <div class="slide">
                     <img src="images/slide1.jpg" alt="Premium IPTV Service">
                     <div class="slide-content">
@@ -930,15 +935,19 @@
                         <p data-i18n="slide1_desc">20,000+ live channels & 50,000+ movies in 4K quality</p>
                         <a href="subscription.html" class="slide-btn" data-i18n="slide1_btn">Subscribe Now</a>
                     </div>
-                <div class="slide">
-    <img src="images/slide2.gif" alt="Anywhere, Any Device, Anytime">
-    <div class="slide-content">
-        <h2>Anywhere, Any Device, Anytime</h2>
-        <p>Watch on Smart TV, Phone, Tablet, or Laptop – 24/7 access</p>
-        <a href="subscription.html" class="slide-btn">Start Watching</a>
-    </div>
-</div>
                 </div>
+                
+                <!-- Slide 2: GIF Animation -->
+                <div class="slide">
+                    <img src="images/slide2.gif" alt="Anywhere, Any Device, Anytime">
+                    <div class="slide-content">
+                        <h2>Anywhere, Any Device, Anytime</h2>
+                        <p>Watch on Smart TV, Phone, Tablet, or Laptop – 24/7 access</p>
+                        <a href="subscription.html" class="slide-btn">Start Watching</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 3: Static Image -->
                 <div class="slide">
                     <img src="images/slide3.jpg" alt="Special Offer">
                     <div class="slide-content">
@@ -957,7 +966,7 @@
             </div>
         </div>
 
-        <!-- Credit System Table (NEW) -->
+        <!-- Credit System Table -->
         <section class="credit-panel-section">
             <div class="credit-left">
                 <h2 data-i18n="credit_title">Credit System</h2>
@@ -986,15 +995,14 @@
                 </div>
                 <p data-i18n="credit_more">Manage users, create sub‑resellers, and enjoy white‑label options. <a href="reseller.html" style="color:var(--button-bg);">Learn more</a></p>
             </div>
-           <div class="credit-right">
-    <div>
-        <img src="images/reseller-panel.jpg" alt="8K Strong Reseller Panel Dashboard" style="width:100%; border-radius:15px; border:1px solid var(--gray-400);">
-        <p style="margin-top:15px; color:var(--gray-600); font-size:0.9em;">Reseller Panel Dashboard – Manage users, credits, and subscriptions</p>
-    </div>
-</div>
+            <div class="credit-right">
+                <div>
+                    <img src="images/reseller-panel.jpg" alt="Reseller Panel Dashboard" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-tachometer-alt\'></i><p>Reseller Panel Preview</p>'">
+                </div>
+            </div>
         </section>
 
-        <!-- Features Section (Enhanced) -->
+        <!-- Features Section -->
         <section class="features-section">
             <h2 data-i18n="features_title">Why Choose 8K Strong IPTV?</h2>
             <div class="features-grid">
@@ -1031,7 +1039,7 @@
             </div>
         </section>
 
-        <!-- Testimonials with Images -->
+        <!-- Testimonials -->
         <section class="testimonials-section">
             <h2 data-i18n="testimonials_title">What Our Customers Say</h2>
             <div class="testimonials-grid">
@@ -1249,17 +1257,12 @@
                 slide1_title: "Premium IPTV Service",
                 slide1_desc: "20,000+ live channels & 50,000+ movies in 4K quality",
                 slide1_btn: "Subscribe Now",
-                slide2_title: "Become a Reseller",
-                slide2_desc: "Flexible plans – start your own business today",
-                slide2_btn: "Join Reseller",
                 slide3_title: "Limited Time Offer",
                 slide3_desc: "Get 20% off on yearly subscription",
                 slide3_btn: "Claim Offer",
                 credit_title: "Credit System",
                 credit_desc: "Simple and transparent – convert credits directly into subscription months.",
                 credit_more: "Manage users, create sub‑resellers, and enjoy white‑label options. <a href='reseller.html' style='color:var(--button-bg);'>Learn more</a>",
-                panel_placeholder: "Reseller Panel Preview",
-                panel_replace: "(Replace with actual image/video)",
                 features_title: "Why Choose 8K Strong IPTV?",
                 feature1_title: "Ultra Fast",
                 feature1_desc: "High‑performance servers for buffer‑free streaming",
@@ -1317,17 +1320,12 @@
                 slide1_title: "خدمة IPTV المميزة",
                 slide1_desc: "أكثر من 20,000 قناة مباشرة و 50,000 فيلم بجودة 4K",
                 slide1_btn: "اشترك الآن",
-                slide2_title: "كن موزعاً معتمداً",
-                slide2_desc: "خطط مرنة – ابدأ مشروعك اليوم",
-                slide2_btn: "انضم للموزعين",
                 slide3_title: "عرض خاص",
                 slide3_desc: "احصل على خصم 20% على الاشتراك السنوي",
                 slide3_btn: "استفد من العرض",
                 credit_title: "نظام الأرصدة",
                 credit_desc: "بسيط وشفاف – حوّل الأرصدة مباشرة إلى أشهر اشتراك.",
                 credit_more: "إدارة المستخدمين، إنشاء موزعين فرعيين، وخيارات العلامة البيضاء. <a href='reseller.html' style='color:var(--button-bg);'>اعرف المزيد</a>",
-                panel_placeholder: "معاينة لوحة الموزع",
-                panel_replace: "(استبدل بصورة أو فيديو حقيقي)",
                 features_title: "لماذا تختار 8K Strong IPTV؟",
                 feature1_title: "فائق السرعة",
                 feature1_desc: "سيرفرات عالية الأداء لبث بدون تقطيع",
@@ -1364,19 +1362,27 @@
                 one_conn: "اتصال واحد",
                 subscribe: "اشترك",
                 footer_rights: "جميع الحقوق محفوظة."
-            },
-            // Add French, Spanish, Chinese, Hebrew similarly
+            }
         };
+
         function changeLanguage(lang) {
             document.documentElement.lang = lang;
             document.documentElement.dir = (lang === 'ar' || lang === 'he') ? 'rtl' : 'ltr';
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
+                if (translations[lang] && translations[lang][key]) {
+                    if (key === 'credit_more' && lang === 'ar') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
             });
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) el.placeholder = translations[lang][key];
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
             });
             const flag = document.getElementById('currentLangFlag');
             const label = document.getElementById('currentLangLabel');
@@ -1384,6 +1390,7 @@
             label.innerText = lang === 'en' ? 'EN' : lang === 'ar' ? 'العربية' : lang === 'fr' ? 'FR' : lang === 'es' ? 'ES' : lang === 'zh' ? '中文' : 'עברית';
             localStorage.setItem('preferredLang', lang);
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLang') || 'en';
             changeLanguage(savedLang);
