@@ -390,7 +390,7 @@
     <main class="container">
         <section class="convert-section">
             <h1>Convert M3U to Xtream Codes</h1>
-            <p>Enter your M3U playlist URL. We'll <strong>automatically detect expiration date</strong> from the file, server headers, or URL parameters.</p>
+            <p>Enter your M3U playlist URL. We'll <strong>automatically detect expiration date</strong> from the M3U file content.</p>
 
             <div class="input-group">
                 <label>M3U Playlist URL</label>
@@ -512,22 +512,29 @@
                         m3uContent = await response.text();
                         serverHeaders = response.headers;
                         
-                        // 1. Check HTTP Headers first
+                        // 1. First check HTTP Headers
                         const headerExpiry = getExpirationFromHeaders(serverHeaders);
                         if (headerExpiry) {
                             expirationDate = headerExpiry;
                             expirationSource = 'HTTP Header';
                         } else {
-                            // 2. Parse M3U file content
+                            // 2. Parse M3U file content for expiration tags
                             const m3uExpiry = parseExpirationFromM3U(m3uContent);
                             if (m3uExpiry) {
                                 expirationDate = m3uExpiry;
                                 expirationSource = 'M3U Tag';
                             }
                         }
+                    } else if (response.status === 502) {
+                        errorDiv.innerHTML = 'Server Error (502): The M3U server is currently unreachable. Please try again later.';
+                        errorDiv.style.display = 'block';
+                        return;
                     }
                 } catch (fetchError) {
                     console.log('Could not fetch M3U content:', fetchError);
+                    errorDiv.innerHTML = 'Could not fetch the M3U file. Please check the URL and try again.';
+                    errorDiv.style.display = 'block';
+                    return;
                 }
 
                 // 3. Check URL parameters for expiration
@@ -613,10 +620,7 @@
                         expiryDiv.innerHTML = `
                             <i class="fas fa-info-circle"></i>
                             <strong>No Expiration Detected</strong><br>
-                            We couldn't find any expiration information in:<br>
-                            • HTTP Headers<br>
-                            • M3U File Content<br>
-                            • URL Parameters<br><br>
+                            We searched the M3U file content, HTTP headers, and URL parameters but found no expiration information.<br><br>
                             This account will remain active until manually deactivated by the provider.
                         `;
                         currentData.expirationText = "No expiration date detected. Account active until manually deactivated.";
@@ -639,14 +643,12 @@
         }
 
         function getExpirationFromURL(url) {
-            // Check URL for expiration parameters
             const patterns = [
                 /expires?[=:](\d{10,13})/i,
                 /expiry[=:](\d{10,13})/i,
                 /validuntil[=:](\d{10,13})/i,
                 /end[=:](\d{10,13})/i,
-                /until[=:](\d{10,13})/i,
-                /expire[=:](\d{10,13})/i
+                /until[=:](\d{10,13})/i
             ];
             
             for (const pattern of patterns) {
@@ -654,22 +656,16 @@
                 if (match && match[1]) {
                     const timestamp = parseInt(match[1]);
                     const date = new Date(timestamp < 10000000000 ? timestamp * 1000 : timestamp);
-                    if (!isNaN(date.getTime())) {
-                        return date;
-                    }
+                    if (!isNaN(date.getTime())) return date;
                 }
             }
             
-            // Also check for date strings
             const datePattern = /(?:expires|expiry|validuntil)[=:](\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2})?)/i;
             const dateMatch = url.match(datePattern);
             if (dateMatch && dateMatch[1]) {
                 const date = new Date(dateMatch[1]);
-                if (!isNaN(date.getTime())) {
-                    return date;
-                }
+                if (!isNaN(date.getTime())) return date;
             }
-            
             return null;
         }
 
@@ -678,19 +674,24 @@
             
             const lines = content.split('\n');
             
+            // Common expiration patterns in M3U files
             const patterns = [
                 /#EXTVLCOPT.*expire[-_]?date[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
+                /#EXTVLCOPT.*expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
                 /#EXTM3U.*expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
                 /#EXTINF.*expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
+                /#EXT-X-ENDLIST.*expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
                 /expiry[-_]?date[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
                 /expire[-_]?time[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
                 /valid[-_]?until[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
-                /account[-_]?expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i
+                /account[-_]?expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
+                /subscription[-_]?end[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i
             ];
             
-            const timestampPattern = /(?:expire|expiry|valid|account)[-_]?(?:date|time)?[=:]\s*(\d{10,13})/i;
+            const timestampPattern = /(?:expire|expiry|valid|account|subscription)[-_]?(?:date|time|end)?[=:]\s*(\d{10,13})/i;
             
             for (const line of lines) {
+                // Check all text patterns
                 for (const pattern of patterns) {
                     const match = line.match(pattern);
                     if (match && match[1]) {
@@ -701,6 +702,7 @@
                     }
                 }
                 
+                // Check for Unix timestamps
                 const timestampMatch = line.match(timestampPattern);
                 if (timestampMatch && timestampMatch[1]) {
                     const timestamp = parseInt(timestampMatch[1]);
@@ -714,7 +716,7 @@
         }
 
         function getExpirationFromHeaders(headers) {
-            const expiryHeaders = ['expires', 'x-expires', 'x-expiration-date', 'x-account-expires', 'x-expiry', 'x-valid-until'];
+            const expiryHeaders = ['expires', 'x-expires', 'x-expiration-date', 'x-account-expires', 'x-expiry', 'x-valid-until', 'x-subscription-end'];
             
             for (const header of expiryHeaders) {
                 const value = headers.get(header);
