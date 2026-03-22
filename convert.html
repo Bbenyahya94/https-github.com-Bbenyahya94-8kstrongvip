@@ -388,11 +388,37 @@
             display: none;
         }
 
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
         .result-box h2 {
             color: var(--button-bg);
-            margin-bottom: 20px;
             font-size: 1.8em;
-            text-align: center;
+            margin: 0;
+        }
+
+        .copy-all-btn {
+            background: var(--button-bg);
+            color: var(--gray-100);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-all-btn:hover {
+            background: var(--button-hover);
+            transform: scale(1.02);
         }
 
         .result-box h3 {
@@ -510,6 +536,11 @@
             .result-value {
                 font-size: 0.8em;
             }
+            .result-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -586,7 +617,12 @@
             <button class="convert-btn" id="convertBtn" onclick="convertM3U()">Convert to Xtream Codes</button>
 
             <div class="result-box" id="resultBox">
-                <h2>Xtream Codes</h2>
+                <div class="result-header">
+                    <h2>Xtream Codes</h2>
+                    <button class="copy-all-btn" id="copyAllBtn" onclick="copyAll()">
+                        <i class="fas fa-copy"></i> Copy All
+                    </button>
+                </div>
                 
                 <div class="result-item">
                     <div class="result-label">Playlist Name</div>
@@ -636,6 +672,7 @@
 
     <script>
         let isConverting = false;
+        let currentData = {};
 
         async function convertM3U() {
             const m3uUrl = document.getElementById('m3uUrl').value.trim();
@@ -667,12 +704,10 @@
                         m3uContent = await response.text();
                         serverHeaders = response.headers;
                         
-                        // Try to get expiration from headers
                         const expiryFromHeaders = getExpirationFromHeaders(serverHeaders);
                         if (expiryFromHeaders) {
                             expirationDate = expiryFromHeaders;
                         } else {
-                            // Parse M3U content for expiration tags
                             expirationDate = parseExpirationFromM3U(m3uContent);
                         }
                     }
@@ -689,22 +724,27 @@
                     const username = parsed.username;
                     const password = parsed.password;
                     
-                    // Format host URL
                     const hostUrl = `${serverUrl}:${port}`;
-                    
-                    // Generate M3U Link
                     const m3uLink = `${serverUrl}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`;
-                    
-                    // Generate EPG Link
                     const epgLink = `${serverUrl}/xmltv.php?username=${username}&password=${password}`;
                     
-                    // Set playlist name
                     let playlistName = "Converted Playlist";
                     try {
                         const urlObj = new URL(m3uUrl);
                         const domain = urlObj.hostname;
                         playlistName = domain.replace('www.', '').split('.')[0].toUpperCase() + " Playlist";
                     } catch(e) {}
+                    
+                    // Store data for copy all
+                    currentData = {
+                        playlistName: playlistName,
+                        username: username,
+                        password: password,
+                        hostUrl: hostUrl,
+                        m3uLink: m3uLink,
+                        epgLink: epgLink,
+                        expirationDate: expirationDate
+                    };
                     
                     document.getElementById('playlistName').innerText = playlistName;
                     document.getElementById('username').innerText = username;
@@ -713,7 +753,6 @@
                     document.getElementById('m3uLink').innerText = m3uLink;
                     document.getElementById('epgLink').innerText = epgLink;
 
-                    // Display expiration information
                     if (expirationDate) {
                         const expiry = new Date(expirationDate);
                         const formattedDate = expiry.toLocaleDateString('en-US', { 
@@ -731,12 +770,14 @@
                             <strong>Time remaining:</strong> ${timeLeft}<br>
                             <small>This expiration was detected automatically from your M3U file.</small>
                         `;
+                        currentData.expirationText = `Expiration Date: ${formattedDate}\nTime remaining: ${timeLeft}`;
                     } else {
                         document.getElementById('expiryWarning').innerHTML = `
                             <i class="fas fa-info-circle"></i>
                             No expiration date found in the M3U file. This account will remain active until manually deactivated.
                             <br><small>You can also set a custom expiration date in your panel.</small>
                         `;
+                        currentData.expirationText = "No expiration date detected. Account active until manually deactivated.";
                     }
 
                     resultBox.style.display = 'block';
@@ -750,11 +791,42 @@
                 errorDiv.innerHTML = 'Error processing the M3U file. Please check the URL and try again.';
                 errorDiv.style.display = 'block';
             } finally {
-                // Reset button
                 isConverting = false;
                 convertBtn.disabled = false;
                 convertBtn.innerHTML = 'Convert to Xtream Codes';
             }
+        }
+
+        function copyAll() {
+            const text = `Xtream Codes
+==============
+
+Playlist Name: ${currentData.playlistName}
+Username: ${currentData.username}
+Password: ${currentData.password}
+Host/URL: ${currentData.hostUrl}
+
+M3U LINK
+${currentData.m3uLink}
+
+EPG LINK
+${currentData.epgLink}
+
+${currentData.expirationText || 'No expiration detected'}
+
+--- Generated by 8K Strong IPTV ---`;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyAllBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied All!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy. Please select and copy manually.');
+            });
         }
 
         function parseExpirationFromM3U(content) {
@@ -763,7 +835,6 @@
             const lines = content.split('\n');
             let expirationDate = null;
             
-            // Common expiration patterns in M3U files
             const patterns = [
                 /#EXTVLCOPT.*expire[-_]?date[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
                 /#EXTM3U.*expires[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i,
@@ -774,15 +845,13 @@
                 /valid[-_]?until[=:]\s*(\d{4}-\d{2}-\d{2}(?:\s*\d{2}:\d{2}:\d{2})?)/i
             ];
             
-            // Also look for Unix timestamp format
             const timestampPattern = /(?:expire|expiry|valid)[-_]?(?:date|time)?[=:]\s*(\d{10,13})/i;
             
             for (const line of lines) {
                 for (const pattern of patterns) {
                     const match = line.match(pattern);
                     if (match && match[1]) {
-                        const dateStr = match[1];
-                        const parsedDate = new Date(dateStr);
+                        const parsedDate = new Date(match[1]);
                         if (!isNaN(parsedDate.getTime())) {
                             expirationDate = parsedDate;
                             break;
@@ -792,7 +861,6 @@
                 
                 if (expirationDate) break;
                 
-                // Check for Unix timestamp
                 const timestampMatch = line.match(timestampPattern);
                 if (timestampMatch && timestampMatch[1]) {
                     const timestamp = parseInt(timestampMatch[1]);
@@ -848,7 +916,6 @@
             try {
                 const urlObj = new URL(url);
                 
-                // Check if it's already an Xtream-style URL
                 if (urlObj.pathname.includes('get.php') && urlObj.searchParams.has('username') && urlObj.searchParams.has('password')) {
                     return {
                         serverUrl: `${urlObj.protocol}//${urlObj.hostname}`,
@@ -858,7 +925,6 @@
                     };
                 }
                 
-                // Try to extract from M3U content
                 if (m3uContent) {
                     const xtreamPattern = /(?:server|host)[=:]\s*(https?:\/\/[^\s]+)/i;
                     const userPattern = /(?:username|user)[=:]\s*([^\s&]+)/i;
@@ -880,7 +946,6 @@
                     }
                 }
                 
-                // Generate from domain if possible
                 try {
                     const domain = url.split('/')[2];
                     if (domain) {
@@ -897,9 +962,6 @@
                 
                 return null;
             } catch (e) {
-                console.error('Error parsing URL:', e);
-                
-                // Try to extract from raw string
                 const regex = /(https?:\/\/[^\/]+)(?:\/get\.php\?.*username=([^&]+).*password=([^&]+))/i;
                 const match = url.match(regex);
                 if (match) {
@@ -930,7 +992,6 @@
             });
         }
 
-        // Mobile menu toggle
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const body = document.body;
