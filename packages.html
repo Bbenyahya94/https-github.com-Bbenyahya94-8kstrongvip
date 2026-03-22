@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPTV Packages & VOD – 8K Strong IPTV</title>
-    <meta name="description" content="Browse all channel packages and VOD categories from your IPTV playlist. Automatically loaded from M3U link.">
+    <meta name="description" content="Browse all channel packages and VOD categories from your IPTV playlist.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -19,38 +19,24 @@
         .hero h1 { font-size: 2.5em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { color: #888; max-width: 700px; margin: 0 auto; }
         
-        /* M3U Link Input */
-        .m3u-input-section { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05); }
-        .m3u-input-section label { display: block; margin-bottom: 10px; font-weight: 600; color: #ecb619; }
-        .m3u-input-row { display: flex; gap: 15px; flex-wrap: wrap; }
-        .m3u-input-row input { flex: 1; padding: 15px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; font-size: 14px; font-family: monospace; }
-        .m3u-input-row button { background: #ecb619; color: #0a0b1a; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .m3u-input-row button:hover { transform: scale(1.02); }
-        .stats { margin: 15px 0; padding: 10px; background: rgba(236,182,25,0.1); border-radius: 10px; text-align: center; font-size: 14px; }
+        /* Stats Bar */
+        .stats-bar { background: rgba(236,182,25,0.1); border-radius: 12px; padding: 12px 20px; margin-bottom: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+        .stat-item { display: flex; align-items: center; gap: 8px; }
+        .stat-number { font-size: 1.5em; font-weight: bold; color: #ecb619; }
         
         .section-title { font-size: 1.8em; margin: 40px 0 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(236,182,25,0.3); display: inline-block; }
         .section-title i { color: #ecb619; margin-right: 10px; }
         
-        /* Packages Grid */
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .package-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 15px; transition: 0.3s; cursor: pointer; }
-        .package-card:hover { transform: translateY(-3px); border-color: #ecb619; background: rgba(236,182,25,0.05); }
-        .package-card.selected { border-color: #ecb619; background: rgba(236,182,25,0.1); }
-        .package-icon { width: 50px; height: 50px; background: rgba(236,182,25,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #ecb619; }
-        .package-info { flex: 1; }
-        .package-name { font-weight: 600; margin-bottom: 5px; }
-        .package-count { font-size: 11px; color: #888; }
-        .package-check { width: 24px; height: 24px; accent-color: #ecb619; cursor: pointer; }
-        
-        /* VOD Grid */
-        .vod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
-        .vod-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 15px; text-align: center; transition: 0.3s; cursor: pointer; }
-        .vod-card:hover { transform: translateY(-3px); border-color: #ecb619; background: rgba(236,182,25,0.05); }
-        .vod-card.selected { border-color: #ecb619; background: rgba(236,182,25,0.1); }
-        .vod-icon { font-size: 32px; color: #ecb619; margin-bottom: 10px; }
-        .vod-name { font-size: 13px; font-weight: 500; margin-bottom: 5px; }
-        .vod-category { font-size: 10px; color: #888; }
-        .vod-check { margin-top: 10px; color: #ecb619; }
+        /* Categories Grid */
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .category-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 15px; transition: 0.3s; cursor: pointer; }
+        .category-card:hover { transform: translateY(-3px); border-color: #ecb619; background: rgba(236,182,25,0.05); }
+        .category-card.selected { border-color: #ecb619; background: rgba(236,182,25,0.1); }
+        .category-icon { width: 50px; height: 50px; background: rgba(236,182,25,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #ecb619; }
+        .category-info { flex: 1; }
+        .category-name { font-weight: 600; margin-bottom: 5px; }
+        .category-count { font-size: 12px; color: #888; }
+        .category-check { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: #ecb619; font-size: 20px; }
         
         /* Search & Filter */
         .search-filter { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
@@ -69,7 +55,13 @@
         
         .loading { text-align: center; padding: 60px; color: #ecb619; }
         .footer { background: rgba(10,11,26,0.95); padding: 30px; text-align: center; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); color: #888; }
-        @media (max-width: 768px) { .header { padding: 15px 20px; flex-direction: column; gap: 10px; } .logo img { height: 35px; } .packages-grid { grid-template-columns: 1fr; } }
+        
+        @media (max-width: 768px) { 
+            .header { padding: 15px 20px; flex-direction: column; gap: 10px; } 
+            .logo img { height: 35px; } 
+            .categories-grid { grid-template-columns: 1fr; }
+            .stats-bar { flex-direction: column; align-items: center; }
+        }
     </style>
 </head>
 <body>
@@ -90,123 +82,100 @@
     <main class="container">
         <div class="hero">
             <h1>IPTV Packages & VOD Selection</h1>
-            <p>Browse all channel packages and VOD categories from your IPTV playlist</p>
+            <p>Browse all channel categories, movies, and series available on your IPTV service</p>
         </div>
 
-        <!-- M3U Link Input -->
-        <div class="m3u-input-section">
-            <label><i class="fas fa-link"></i> Your M3U Playlist Link</label>
-            <div class="m3u-input-row">
-                <input type="text" id="m3uLink" placeholder="https://your-server.com/get.php?username=xxx&password=xxx&type=m3u" value="http://cf.business-cloud-8k.ru/get.php?username=81b4b9d24234&password=5bdfefd037&type=m3u_plus&output=ts">
-                <button onclick="loadFromM3U()"><i class="fas fa-download"></i> Load Playlist</button>
+        <!-- Stats Bar -->
+        <div id="statsBar" class="stats-bar" style="display: none;">
+            <div class="stat-item"><i class="fas fa-tv"></i> <span id="totalChannels" class="stat-number">0</span> <span>Total Channels</span></div>
+            <div class="stat-item"><i class="fas fa-layer-group"></i> <span id="totalCategories" class="stat-number">0</span> <span>Categories</span></div>
+            <div class="stat-item"><i class="fas fa-film"></i> <span id="totalMovies" class="stat-number">0</span> <span>Movies & Series</span></div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div id="searchFilter" style="display: none;">
+            <div class="search-filter">
+                <input type="text" id="searchInput" placeholder="Search categories...">
+                <select id="typeFilter">
+                    <option value="all">All Categories</option>
+                    <option value="channels">Live Channels</option>
+                    <option value="vod">Movies & Series</option>
+                </select>
             </div>
-            <div id="loadStats" class="stats">Enter your M3U link and click Load Playlist</div>
         </div>
 
-        <div class="search-filter" id="searchFilter" style="display: none;">
-            <input type="text" id="searchInput" placeholder="Search packages or VOD...">
-            <select id="typeFilter"><option value="all">All Categories</option><option value="packages">Live Channel Packages</option><option value="vod">VOD Categories</option></select>
-        </div>
+        <!-- Categories Grid -->
+        <div id="categoriesContainer" class="categories-grid"></div>
 
-        <div id="packagesSection" style="display: none;">
-            <h2 class="section-title"><i class="fas fa-tv"></i> Live Channel Packages</h2>
-            <div id="packagesContainer" class="packages-grid"></div>
-        </div>
-
-        <div id="vodSection" style="display: none;">
-            <h2 class="section-title"><i class="fas fa-film"></i> VOD Categories</h2>
-            <div id="vodContainer" class="vod-grid"></div>
-        </div>
-
+        <!-- Action Buttons -->
         <div id="actionButtons" class="action-buttons" style="display: none;">
             <button class="btn-primary" onclick="getSelection()"><i class="fas fa-check-circle"></i> Confirm Selection</button>
             <button class="btn-secondary" onclick="resetSelection()"><i class="fas fa-undo-alt"></i> Reset All</button>
         </div>
 
+        <!-- Summary -->
         <div id="summaryBox" class="summary" style="display: none;">
             <h3>Your Selection Summary</h3>
-            <div><span class="summary-count" id="selectedCount">0</span> items selected</div>
+            <div><span class="summary-count" id="selectedCount">0</span> categories selected</div>
             <div id="selectedList" class="selected-list"></div>
         </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading playlist...</div>
     </main>
 
     <footer class="footer"><p>&copy; 2026 8K Strong IPTV. All rights reserved.</p></footer>
 
     <script>
-        let packagesData = [];
-        let vodData = [];
-        let selectedPackages = new Set();
-        let selectedVod = new Set();
-        let allChannels = [];
+        // ============================================================
+        // ⚠️ ONLY EDIT THIS SECTION - YOUR M3U LINK GOES HERE ⚠️
+        // ============================================================
+        const M3U_LINK = 'http://cf.business-cloud-8k.ru/get.php?username=6e2b3beeb9eb&password=9fc215ef2a&type=m3u_plus&output=ts';
+        // ============================================================
+        
+        let categories = [];      // { id, name, type, count, icon, items }
+        let selectedCategories = new Set();
+        let allStats = { totalChannels: 0, totalCategories: 0, totalVOD: 0 };
 
-        async function loadFromM3U() {
-            const m3uLink = document.getElementById('m3uLink').value.trim();
-            const statsDiv = document.getElementById('loadStats');
-            
-            if (!m3uLink) {
-                statsDiv.innerHTML = '❌ Please enter a valid M3U link';
-                return;
-            }
-            
-            statsDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading playlist...';
+        async function loadPlaylist() {
+            const loadingDiv = document.getElementById('loading');
             
             try {
-                const response = await fetch(m3uLink);
+                const response = await fetch(M3U_LINK);
                 if (!response.ok) throw new Error('Failed to load playlist');
                 const content = await response.text();
                 
-                // Parse M3U
                 const parsed = parseM3U(content);
-                allChannels = parsed.channels;
-                const groups = parsed.groups;
-                const vodCategories = parsed.vodCategories;
+                categories = parsed.categories;
+                allStats = parsed.stats;
                 
-                // Build packages data from groups
-                packagesData = groups.map(group => ({
-                    name: group.name,
-                    count: group.count,
-                    icon: getGroupIcon(group.name)
-                }));
+                // Update stats bar
+                document.getElementById('totalChannels').innerText = allStats.totalChannels;
+                document.getElementById('totalCategories').innerText = allStats.totalCategories;
+                document.getElementById('totalMovies').innerText = allStats.totalVOD;
+                document.getElementById('statsBar').style.display = 'flex';
                 
-                // Build VOD data from categories
-                vodData = vodCategories.map(cat => ({
-                    name: cat.name,
-                    count: cat.count,
-                    category: cat.category || 'VOD',
-                    icon: getVodIcon(cat.name)
-                }));
-                
-                // Display stats
-                statsDiv.innerHTML = `✅ Loaded ${allChannels.length} channels, ${packagesData.length} packages, ${vodData.length} VOD categories`;
-                
-                // Show all sections
-                document.getElementById('searchFilter').style.display = 'flex';
-                document.getElementById('packagesSection').style.display = 'block';
-                document.getElementById('vodSection').style.display = 'block';
+                // Show search and filters
+                document.getElementById('searchFilter').style.display = 'block';
                 document.getElementById('actionButtons').style.display = 'flex';
                 document.getElementById('summaryBox').style.display = 'block';
                 
-                // Render
-                renderPackages();
-                renderVod();
-                updateSummary();
-                
-                // Store the loaded data in localStorage for persistence
-                localStorage.setItem('m3uLoaded', 'true');
-                localStorage.setItem('packagesData', JSON.stringify(packagesData));
-                localStorage.setItem('vodData', JSON.stringify(vodData));
+                // Render categories
+                renderCategories(categories);
+                loadingDiv.style.display = 'none';
                 
             } catch (error) {
-                console.error('Error loading M3U:', error);
-                statsDiv.innerHTML = '❌ Error loading playlist. Please check your M3U link.';
+                console.error('Error loading playlist:', error);
+                loadingDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error loading playlist. Please check your M3U link.<br><br><small>Make sure the link is correct and accessible.</small>';
             }
         }
 
         function parseM3U(content) {
             const lines = content.split('\n');
-            const channels = [];
-            const groupsMap = new Map();
-            const vodCategoriesMap = new Map();
+            const channelGroups = new Map();     // group name -> { count, items }
+            const vodCategories = new Map();     // VOD category -> { count, items }
+            let totalChannels = 0;
+            let totalVOD = 0;
             
             for (let i = 0; i < lines.length; i++) {
                 const line = lines[i].trim();
@@ -219,59 +188,127 @@
                     const groupMatch = line.match(/group-title="([^"]*)"/);
                     if (groupMatch && groupMatch[1]) group = groupMatch[1];
                     
-                    // Check if it's VOD (movie or series)
-                    const isVOD = name.toLowerCase().includes('movie') || 
-                                  name.toLowerCase().includes('film') ||
-                                  name.toLowerCase().includes('series') ||
-                                  group.toLowerCase().includes('vod') ||
-                                  group.toLowerCase().includes('movie');
+                    // Detect if it's VOD (movie or series)
+                    const isVOD = isVODContent(name, group);
                     
                     if (i + 1 < lines.length && !lines[i+1].startsWith('#')) {
                         const url = lines[i+1].trim();
-                        channels.push({ name, group, url });
+                        totalChannels++;
                         
-                        // Count for groups
-                        groupsMap.set(group, (groupsMap.get(group) || 0) + 1);
-                        
-                        // For VOD, also track by category
-                        if (isVOD || group.toLowerCase().includes('vod')) {
-                            let category = group;
-                            if (name.toLowerCase().includes('netflix')) category = 'Netflix';
-                            else if (name.toLowerCase().includes('disney')) category = 'Disney+';
-                            else if (name.toLowerCase().includes('hbo')) category = 'HBO Max';
-                            else if (name.toLowerCase().includes('amazon')) category = 'Amazon Prime';
-                            else if (name.toLowerCase().includes('apple')) category = 'Apple TV+';
-                            else if (name.toLowerCase().includes('paramount')) category = 'Paramount+';
-                            
-                            vodCategoriesMap.set(category, (vodCategoriesMap.get(category) || 0) + 1);
+                        if (isVOD) {
+                            totalVOD++;
+                            // Categorize VOD by platform
+                            let vodCat = getVODCategory(name, group);
+                            if (!vodCategories.has(vodCat)) {
+                                vodCategories.set(vodCat, { count: 0, items: [] });
+                            }
+                            vodCategories.get(vodCat).count++;
+                            vodCategories.get(vodCat).items.push({ name, group, url });
+                        } else {
+                            // Regular channel group
+                            if (!channelGroups.has(group)) {
+                                channelGroups.set(group, { count: 0, items: [] });
+                            }
+                            channelGroups.get(group).count++;
+                            channelGroups.get(group).items.push({ name, group, url });
                         }
                     }
                 }
             }
             
-            // Convert to arrays
-            const groups = Array.from(groupsMap.entries()).map(([name, count]) => ({ name, count }));
-            groups.sort((a, b) => b.count - a.count);
+            // Build categories array
+            const categoriesArray = [];
             
-            const vodCategories = Array.from(vodCategoriesMap.entries()).map(([name, count]) => ({ name, count, category: 'VOD' }));
-            vodCategories.sort((a, b) => b.count - a.count);
+            // Add channel groups
+            channelGroups.forEach((data, groupName) => {
+                categoriesArray.push({
+                    id: `channel_${groupName}`,
+                    name: groupName,
+                    type: 'channels',
+                    count: data.count,
+                    icon: getIconForCategory(groupName),
+                    items: data.items
+                });
+            });
             
-            return { channels, groups, vodCategories };
+            // Add VOD categories
+            vodCategories.forEach((data, catName) => {
+                categoriesArray.push({
+                    id: `vod_${catName}`,
+                    name: catName,
+                    type: 'vod',
+                    count: data.count,
+                    icon: getVODIcon(catName),
+                    items: data.items
+                });
+            });
+            
+            // Sort by count (largest first)
+            categoriesArray.sort((a, b) => b.count - a.count);
+            
+            return {
+                categories: categoriesArray,
+                stats: {
+                    totalChannels: totalChannels,
+                    totalCategories: categoriesArray.length,
+                    totalVOD: totalVOD
+                }
+            };
         }
 
-        function getGroupIcon(groupName) {
-            const name = groupName.toLowerCase();
+        function isVODContent(name, group) {
+            const lowerName = name.toLowerCase();
+            const lowerGroup = group.toLowerCase();
+            
+            const vodKeywords = ['movie', 'film', 'series', 'vod', 'netflix', 'disney', 'hbo', 'amazon', 'apple', 'paramount', 'showtime', 'dreamworks', 'universal'];
+            
+            for (const keyword of vodKeywords) {
+                if (lowerName.includes(keyword) || lowerGroup.includes(keyword)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function getVODCategory(name, group) {
+            const lowerName = name.toLowerCase();
+            const lowerGroup = group.toLowerCase();
+            
+            if (lowerName.includes('netflix') || lowerGroup.includes('netflix')) return 'Netflix';
+            if (lowerName.includes('disney') || lowerGroup.includes('disney')) return 'Disney+';
+            if (lowerName.includes('hbo') || lowerGroup.includes('hbo')) return 'HBO Max';
+            if (lowerName.includes('amazon') || lowerGroup.includes('amazon')) return 'Amazon Prime';
+            if (lowerName.includes('apple') || lowerGroup.includes('apple')) return 'Apple TV+';
+            if (lowerName.includes('paramount') || lowerGroup.includes('paramount')) return 'Paramount+';
+            if (lowerName.includes('showtime') || lowerGroup.includes('showtime')) return 'Showtime';
+            if (lowerName.includes('dreamworks') || lowerGroup.includes('dreamworks')) return 'DreamWorks';
+            if (lowerName.includes('universal') || lowerGroup.includes('universal')) return 'Universal';
+            if (lowerName.includes('series')) return 'TV Series';
+            if (lowerName.includes('movie') || lowerGroup.includes('movie')) return 'Movies';
+            
+            return group;
+        }
+
+        function getIconForCategory(categoryName) {
+            const name = categoryName.toLowerCase();
             if (name.includes('sport')) return 'fa-futbol';
+            if (name.includes('football')) return 'fa-futbol';
             if (name.includes('news')) return 'fa-newspaper';
             if (name.includes('movie') || name.includes('film')) return 'fa-film';
             if (name.includes('music')) return 'fa-music';
             if (name.includes('kids') || name.includes('children')) return 'fa-child';
             if (name.includes('documentary')) return 'fa-globe';
             if (name.includes('4k') || name.includes('uhd')) return 'fa-tv';
+            if (name.includes('uk')) return 'fa-flag-checkered';
+            if (name.includes('usa') || name.includes('us')) return 'fa-flag-usa';
+            if (name.includes('france')) return 'fa-flag';
+            if (name.includes('germany')) return 'fa-flag';
+            if (name.includes('italy')) return 'fa-flag';
+            if (name.includes('spain')) return 'fa-flag';
             return 'fa-tv';
         }
 
-        function getVodIcon(vodName) {
+        function getVODIcon(vodName) {
             const name = vodName.toLowerCase();
             if (name.includes('netflix')) return 'fa-netflix';
             if (name.includes('disney')) return 'fa-disney';
@@ -279,127 +316,100 @@
             if (name.includes('amazon')) return 'fa-amazon';
             if (name.includes('apple')) return 'fa-apple';
             if (name.includes('paramount')) return 'fa-plus';
+            if (name.includes('showtime')) return 'fa-clock';
+            if (name.includes('dreamworks')) return 'fa-star';
+            if (name.includes('universal')) return 'fa-globe';
+            if (name.includes('series')) return 'fa-tv';
             return 'fa-film';
         }
 
-        function renderPackages() {
-            const container = document.getElementById('packagesContainer');
-            container.innerHTML = packagesData.map((pkg, index) => `
-                <div class="package-card ${selectedPackages.has(index) ? 'selected' : ''}" onclick="togglePackage(${index})">
-                    <div class="package-icon"><i class="fas ${pkg.icon}"></i></div>
-                    <div class="package-info">
-                        <div class="package-name">${escapeHtml(pkg.name)}</div>
-                        <div class="package-count">${pkg.count} channels</div>
+        function renderCategories(categoriesToShow) {
+            const container = document.getElementById('categoriesContainer');
+            container.innerHTML = categoriesToShow.map(cat => `
+                <div class="category-card ${selectedCategories.has(cat.id) ? 'selected' : ''}" onclick="toggleCategory('${cat.id}')">
+                    <div class="category-icon"><i class="fas ${cat.icon}"></i></div>
+                    <div class="category-info">
+                        <div class="category-name">${escapeHtml(cat.name)}</div>
+                        <div class="category-count">${cat.count} ${cat.type === 'vod' ? 'movies/series' : 'channels'}</div>
                     </div>
-                    <div class="package-check">
-                        <i class="fas ${selectedPackages.has(index) ? 'fa-check-square' : 'fa-square'}"></i>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderVod() {
-            const container = document.getElementById('vodContainer');
-            container.innerHTML = vodData.map((vod, index) => `
-                <div class="vod-card ${selectedVod.has(index) ? 'selected' : ''}" onclick="toggleVod(${index})">
-                    <div class="vod-icon"><i class="fab ${vod.icon}"></i></div>
-                    <div class="vod-name">${escapeHtml(vod.name)}</div>
-                    <div class="vod-category">${vod.count} items</div>
-                    <div class="vod-check">
-                        <i class="fas ${selectedVod.has(index) ? 'fa-check-circle' : 'fa-circle'}"></i>
+                    <div class="category-check">
+                        <i class="fas ${selectedCategories.has(cat.id) ? 'fa-check-circle' : 'fa-circle'}"></i>
                     </div>
                 </div>
             `).join('');
-        }
-
-        function togglePackage(index) {
-            if (selectedPackages.has(index)) {
-                selectedPackages.delete(index);
-            } else {
-                selectedPackages.add(index);
-            }
-            renderPackages();
+            
             updateSummary();
         }
 
-        function toggleVod(index) {
-            if (selectedVod.has(index)) {
-                selectedVod.delete(index);
+        function toggleCategory(id) {
+            if (selectedCategories.has(id)) {
+                selectedCategories.delete(id);
             } else {
-                selectedVod.add(index);
+                selectedCategories.add(id);
             }
-            renderVod();
-            updateSummary();
+            renderCategories(categories);
         }
 
         function updateSummary() {
-            const total = selectedPackages.size + selectedVod.size;
+            const total = selectedCategories.size;
             document.getElementById('selectedCount').innerText = total;
             
             const selectedItems = [];
-            selectedPackages.forEach(id => {
-                selectedItems.push(`<span class="selected-badge">📺 ${packagesData[id].name} (${packagesData[id].count} ch)</span>`);
-            });
-            selectedVod.forEach(id => {
-                selectedItems.push(`<span class="selected-badge">🎬 ${vodData[id].name} (${vodData[id].count})</span>`);
+            selectedCategories.forEach(id => {
+                const cat = categories.find(c => c.id === id);
+                if (cat) {
+                    selectedItems.push(`<span class="selected-badge">${cat.type === 'vod' ? '🎬' : '📺'} ${cat.name} (${cat.count})</span>`);
+                }
             });
             
-            document.getElementById('selectedList').innerHTML = selectedItems.join('') || '<span style="color:#666;">No items selected</span>';
+            document.getElementById('selectedList').innerHTML = selectedItems.join('') || '<span style="color:#666;">No categories selected</span>';
         }
 
         function resetSelection() {
-            selectedPackages.clear();
-            selectedVod.clear();
-            renderPackages();
-            renderVod();
-            updateSummary();
+            selectedCategories.clear();
+            renderCategories(categories);
         }
 
         function getSelection() {
-            const selectedPackagesList = Array.from(selectedPackages).map(id => packagesData[id].name);
-            const selectedVodList = Array.from(selectedVod).map(id => vodData[id].name);
+            const selectedChannels = [];
+            const selectedVOD = [];
             
-            let message = '🎯 SELECTED PACKAGES:\n';
-            message += selectedPackagesList.length > 0 ? selectedPackagesList.join('\n') : 'None';
-            message += '\n\n📽️ SELECTED VOD:\n';
-            message += selectedVodList.length > 0 ? selectedVodList.join('\n') : 'None';
-            message += `\n\n📊 TOTAL: ${selectedPackagesList.length + selectedVodList.length} items selected`;
+            selectedCategories.forEach(id => {
+                const cat = categories.find(c => c.id === id);
+                if (cat) {
+                    if (cat.type === 'vod') {
+                        selectedVOD.push(`${cat.name} (${cat.count} movies/series)`);
+                    } else {
+                        selectedChannels.push(`${cat.name} (${cat.count} channels)`);
+                    }
+                }
+            });
+            
+            let message = '📺 SELECTED CHANNEL CATEGORIES:\n';
+            message += selectedChannels.length > 0 ? selectedChannels.join('\n') : 'None';
+            message += '\n\n🎬 SELECTED VOD CATEGORIES:\n';
+            message += selectedVOD.length > 0 ? selectedVOD.join('\n') : 'None';
+            message += `\n\n📊 TOTAL: ${selectedCategories.size} categories selected`;
             message += '\n\n✅ Thank you! We will contact you shortly.';
             
             alert(message);
         }
 
-        function filterContent() {
+        function filterCategories() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const typeFilter = document.getElementById('typeFilter').value;
             
-            // Filter packages
-            const pkgContainer = document.getElementById('packagesContainer');
-            const pkgCards = pkgContainer.querySelectorAll('.package-card');
-            pkgCards.forEach(card => {
-                const name = card.querySelector('.package-name').innerText.toLowerCase();
-                card.style.display = name.includes(searchTerm) ? 'flex' : 'none';
-            });
+            let filtered = categories;
             
-            // Filter VOD
-            const vodContainer = document.getElementById('vodContainer');
-            const vodCards = vodContainer.querySelectorAll('.vod-card');
-            vodCards.forEach(card => {
-                const name = card.querySelector('.vod-name').innerText.toLowerCase();
-                card.style.display = name.includes(searchTerm) ? 'flex' : 'none';
-            });
-            
-            // Filter by type
-            if (typeFilter === 'packages') {
-                document.getElementById('packagesSection').style.display = 'block';
-                document.getElementById('vodSection').style.display = 'none';
-            } else if (typeFilter === 'vod') {
-                document.getElementById('packagesSection').style.display = 'none';
-                document.getElementById('vodSection').style.display = 'block';
-            } else {
-                document.getElementById('packagesSection').style.display = 'block';
-                document.getElementById('vodSection').style.display = 'block';
+            if (searchTerm) {
+                filtered = filtered.filter(cat => cat.name.toLowerCase().includes(searchTerm));
             }
+            
+            if (typeFilter !== 'all') {
+                filtered = filtered.filter(cat => cat.type === typeFilter);
+            }
+            
+            renderCategories(filtered);
         }
 
         function escapeHtml(text) {
@@ -408,28 +418,12 @@
             return div.innerHTML;
         }
 
-        // Check if we have saved data
-        if (localStorage.getItem('m3uLoaded') === 'true') {
-            const savedPackages = localStorage.getItem('packagesData');
-            const savedVod = localStorage.getItem('vodData');
-            if (savedPackages && savedVod) {
-                packagesData = JSON.parse(savedPackages);
-                vodData = JSON.parse(savedVod);
-                document.getElementById('searchFilter').style.display = 'flex';
-                document.getElementById('packagesSection').style.display = 'block';
-                document.getElementById('vodSection').style.display = 'block';
-                document.getElementById('actionButtons').style.display = 'flex';
-                document.getElementById('summaryBox').style.display = 'block';
-                renderPackages();
-                renderVod();
-                updateSummary();
-                document.getElementById('loadStats').innerHTML = `✅ Loaded from cache (${packagesData.length} packages, ${vodData.length} VOD)`;
-            }
-        }
-
         // Event listeners
-        document.getElementById('searchInput').addEventListener('input', filterContent);
-        document.getElementById('typeFilter').addEventListener('change', filterContent);
+        document.getElementById('searchInput').addEventListener('input', filterCategories);
+        document.getElementById('typeFilter').addEventListener('change', filterCategories);
+        
+        // Load playlist
+        loadPlaylist();
     </script>
 </body>
 </html>
