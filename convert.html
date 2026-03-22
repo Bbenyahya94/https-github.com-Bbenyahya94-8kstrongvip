@@ -457,23 +457,6 @@
             margin-top: 5px;
         }
 
-        .copy-btn {
-            background: var(--button-bg);
-            color: var(--gray-100);
-            border: none;
-            padding: 8px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 0.85em;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-
-        .copy-btn:hover {
-            background: var(--button-hover);
-        }
-
         .expiry-warning {
             margin-top: 20px;
             padding: 15px;
@@ -627,37 +610,31 @@
                 <div class="result-item">
                     <div class="result-label">Playlist Name</div>
                     <div class="result-value" id="playlistName">Converted Playlist</div>
-                    <button class="copy-btn" onclick="copyText('playlistName', this)">Copy</button>
                 </div>
                 
                 <div class="result-item">
                     <div class="result-label">Username</div>
                     <div class="result-value" id="username"></div>
-                    <button class="copy-btn" onclick="copyText('username', this)">Copy</button>
                 </div>
                 
                 <div class="result-item">
                     <div class="result-label">Password</div>
                     <div class="result-value" id="password"></div>
-                    <button class="copy-btn" onclick="copyText('password', this)">Copy</button>
                 </div>
                 
                 <div class="result-item">
                     <div class="result-label">Host / URL</div>
                     <div class="result-value" id="hostUrl"></div>
-                    <button class="copy-btn" onclick="copyText('hostUrl', this)">Copy</button>
                 </div>
                 
                 <h3>M3U LINK</h3>
                 <div class="result-item">
                     <div class="result-value" id="m3uLink" style="font-size: 0.85em;"></div>
-                    <button class="copy-btn" onclick="copyText('m3uLink', this)">Copy</button>
                 </div>
                 
                 <h3>EPG LINK</h3>
                 <div class="result-item">
                     <div class="result-value" id="epgLink" style="font-size: 0.85em;"></div>
-                    <button class="copy-btn" onclick="copyText('epgLink', this)">Copy</button>
                 </div>
                 
                 <div class="expiry-warning" id="expiryWarning"></div>
@@ -819,20 +796,6 @@ ${currentData.expirationText || 'No expiration detected'}
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                 }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-                alert('Failed to copy. Please select and copy manually.');
-            });
-        }
-
-        function copyText(elementId, btnElement) {
-            const text = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const originalText = btnElement.innerText;
-                btnElement.innerText = 'Copied!';
-                setTimeout(() => {
-                    btnElement.innerText = originalText;
-                }, 1500);
             }).catch(err => {
                 console.error('Failed to copy:', err);
                 alert('Failed to copy. Please select and copy manually.');
