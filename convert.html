@@ -30,12 +30,16 @@
             flex-wrap: wrap;
         }
 
+        /* Logo Image */
         .logo {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 45px;
+            width: auto;
+            max-height: 50px;
         }
 
         .nav-menu {
@@ -287,6 +291,9 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            .logo img {
+                height: 35px;
+            }
             .card {
                 padding: 25px;
             }
@@ -302,7 +309,9 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo">8K STRONG IPTV</div>
+        <div class="logo">
+            <img src="images/logo.png" alt="8K Strong IPTV">
+        </div>
         <nav class="nav-menu">
             <a href="index.html">Home</a>
             <a href="convert.html">Convert</a>
