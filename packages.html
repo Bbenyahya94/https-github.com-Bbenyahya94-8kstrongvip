@@ -4,350 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPTV Packages & VOD – 8K Strong IPTV</title>
-    <meta name="description" content="Choose from our wide selection of IPTV packages: sports, movies, news, entertainment. VOD categories including Netflix, Disney+, HBO, and more.">
+    <meta name="description" content="Browse all channel packages and VOD categories from your IPTV playlist. Automatically loaded from M3U link.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%);
-            color: #fff;
-            min-height: 100vh;
-        }
-
-        .header {
-            background: rgba(10, 11, 26, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 45px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-menu a {
-            color: #ced4da;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .nav-menu a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-        }
-
-        .hero h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fff, #ecb619);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: #888;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Section Titles */
-        .section-title {
-            font-size: 1.8em;
-            margin: 40px 0 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(236, 182, 25, 0.3);
-            display: inline-block;
-        }
-
-        .section-title i {
-            color: #ecb619;
-            margin-right: 10px;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: #fff; min-height: 100vh; }
+        .header { background: rgba(10,11,26,0.95); backdrop-filter: blur(10px); padding: 15px 50px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+        .logo img { height: 45px; width: auto; }
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-menu a { color: #ced4da; text-decoration: none; padding: 8px 16px; border-radius: 50px; transition: 0.3s; }
+        .nav-menu a:hover { background: rgba(255,255,255,0.1); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        .hero { text-align: center; padding: 40px 20px; margin-bottom: 40px; }
+        .hero h1 { font-size: 2.5em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: #888; max-width: 700px; margin: 0 auto; }
+        
+        /* M3U Link Input */
+        .m3u-input-section { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05); }
+        .m3u-input-section label { display: block; margin-bottom: 10px; font-weight: 600; color: #ecb619; }
+        .m3u-input-row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .m3u-input-row input { flex: 1; padding: 15px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; font-size: 14px; font-family: monospace; }
+        .m3u-input-row button { background: #ecb619; color: #0a0b1a; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .m3u-input-row button:hover { transform: scale(1.02); }
+        .stats { margin: 15px 0; padding: 10px; background: rgba(236,182,25,0.1); border-radius: 10px; text-align: center; font-size: 14px; }
+        
+        .section-title { font-size: 1.8em; margin: 40px 0 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(236,182,25,0.3); display: inline-block; }
+        .section-title i { color: #ecb619; margin-right: 10px; }
+        
         /* Packages Grid */
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .package-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 20px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .package-card:hover {
-            transform: translateY(-3px);
-            border-color: #ecb619;
-            background: rgba(236, 182, 25, 0.05);
-        }
-
-        .package-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(236, 182, 25, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: #ecb619;
-        }
-
-        .package-info {
-            flex: 1;
-        }
-
-        .package-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .package-desc {
-            font-size: 12px;
-            color: #888;
-        }
-
-        .package-check {
-            width: 24px;
-            height: 24px;
-            accent-color: #ecb619;
-            cursor: pointer;
-        }
-
+        .packages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .package-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 15px; transition: 0.3s; cursor: pointer; }
+        .package-card:hover { transform: translateY(-3px); border-color: #ecb619; background: rgba(236,182,25,0.05); }
+        .package-card.selected { border-color: #ecb619; background: rgba(236,182,25,0.1); }
+        .package-icon { width: 50px; height: 50px; background: rgba(236,182,25,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #ecb619; }
+        .package-info { flex: 1; }
+        .package-name { font-weight: 600; margin-bottom: 5px; }
+        .package-count { font-size: 11px; color: #888; }
+        .package-check { width: 24px; height: 24px; accent-color: #ecb619; cursor: pointer; }
+        
         /* VOD Grid */
-        .vod-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .vod-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .vod-card:hover {
-            transform: translateY(-3px);
-            border-color: #ecb619;
-            background: rgba(236, 182, 25, 0.05);
-        }
-
-        .vod-card.selected {
-            border-color: #ecb619;
-            background: rgba(236, 182, 25, 0.1);
-        }
-
-        .vod-icon {
-            font-size: 32px;
-            color: #ecb619;
-            margin-bottom: 10px;
-        }
-
-        .vod-name {
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .vod-category {
-            font-size: 10px;
-            color: #888;
-        }
-
-        .vod-check {
-            margin-top: 10px;
-        }
-
+        .vod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .vod-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 15px; text-align: center; transition: 0.3s; cursor: pointer; }
+        .vod-card:hover { transform: translateY(-3px); border-color: #ecb619; background: rgba(236,182,25,0.05); }
+        .vod-card.selected { border-color: #ecb619; background: rgba(236,182,25,0.1); }
+        .vod-icon { font-size: 32px; color: #ecb619; margin-bottom: 10px; }
+        .vod-name { font-size: 13px; font-weight: 500; margin-bottom: 5px; }
+        .vod-category { font-size: 10px; color: #888; }
+        .vod-check { margin-top: 10px; color: #ecb619; }
+        
         /* Search & Filter */
-        .search-filter {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .search-filter input {
-            flex: 1;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            color: white;
-        }
-
-        .search-filter input:focus {
-            outline: none;
-            border-color: #ecb619;
-        }
-
-        .search-filter select {
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #ecb619, #d4a514);
-            color: #0a0b1a;
-            border: none;
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #ecb619;
-            border: 2px solid #ecb619;
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: scale(1.02);
-        }
-
-        /* Summary */
-        .summary {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 25px;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .summary h3 {
-            margin-bottom: 15px;
-            color: #ecb619;
-        }
-
-        .summary-count {
-            font-size: 2em;
-            font-weight: bold;
-            color: #ecb619;
-        }
-
-        .selected-list {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-        }
-
-        .selected-badge {
-            background: rgba(236, 182, 25, 0.2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-        }
-
-        .footer {
-            background: rgba(10, 11, 26, 0.95);
-            padding: 30px;
-            text-align: center;
-            margin-top: 60px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #888;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 10px;
-            }
-            .logo img {
-                height: 35px;
-            }
-            .packages-grid {
-                grid-template-columns: 1fr;
-            }
-            .vod-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-        }
+        .search-filter { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .search-filter input { flex: 1; padding: 12px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; }
+        .search-filter select { padding: 12px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; cursor: pointer; }
+        
+        .action-buttons { display: flex; justify-content: center; gap: 20px; margin: 40px 0; flex-wrap: wrap; }
+        .btn-primary { background: linear-gradient(45deg, #ecb619, #d4a514); color: #0a0b1a; border: none; padding: 14px 40px; border-radius: 50px; font-weight: bold; font-size: 16px; cursor: pointer; }
+        .btn-secondary { background: transparent; color: #ecb619; border: 2px solid #ecb619; padding: 14px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; }
+        
+        .summary { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 25px; margin-top: 30px; text-align: center; }
+        .summary h3 { margin-bottom: 15px; color: #ecb619; }
+        .summary-count { font-size: 2em; font-weight: bold; color: #ecb619; }
+        .selected-list { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .selected-badge { background: rgba(236,182,25,0.2); padding: 5px 12px; border-radius: 20px; font-size: 12px; }
+        
+        .loading { text-align: center; padding: 60px; color: #ecb619; }
+        .footer { background: rgba(10,11,26,0.95); padding: 30px; text-align: center; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); color: #888; }
+        @media (max-width: 768px) { .header { padding: 15px 20px; flex-direction: column; gap: 10px; } .logo img { height: 35px; } .packages-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <img src="images/logo.png" alt="8K Strong IPTV">
-        </div>
+        <div class="logo"><img src="images/logo.png" alt="8K Strong IPTV"></div>
         <nav class="nav-menu">
             <a href="index.html">Home</a>
-            <a href="convert.html">Convert</a>
             <a href="packages.html">Packages</a>
-            <a href="subscription.html">Subscription</a>
+            <a href="convert.html">Convert</a>
             <a href="find.html">Find Content</a>
+            <a href="subscription.html">Subscription</a>
+            <a href="reseller.html">Reseller</a>
+            <a href="resolution.html">Resolution</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
@@ -355,112 +90,210 @@
     <main class="container">
         <div class="hero">
             <h1>IPTV Packages & VOD Selection</h1>
-            <p>Choose from over 1000+ channels and thousands of movies & series. All packages include 4K quality and VPN.</p>
+            <p>Browse all channel packages and VOD categories from your IPTV playlist</p>
         </div>
 
-        <!-- Search and Filter -->
-        <div class="search-filter">
+        <!-- M3U Link Input -->
+        <div class="m3u-input-section">
+            <label><i class="fas fa-link"></i> Your M3U Playlist Link</label>
+            <div class="m3u-input-row">
+                <input type="text" id="m3uLink" placeholder="https://your-server.com/get.php?username=xxx&password=xxx&type=m3u" value="http://cf.business-cloud-8k.ru/get.php?username=81b4b9d24234&password=5bdfefd037&type=m3u_plus&output=ts">
+                <button onclick="loadFromM3U()"><i class="fas fa-download"></i> Load Playlist</button>
+            </div>
+            <div id="loadStats" class="stats">Enter your M3U link and click Load Playlist</div>
+        </div>
+
+        <div class="search-filter" id="searchFilter" style="display: none;">
             <input type="text" id="searchInput" placeholder="Search packages or VOD...">
-            <select id="typeFilter">
-                <option value="all">All Categories</option>
-                <option value="packages">Live Channel Packages</option>
-                <option value="vod">VOD Categories</option>
-            </select>
+            <select id="typeFilter"><option value="all">All Categories</option><option value="packages">Live Channel Packages</option><option value="vod">VOD Categories</option></select>
         </div>
 
-        <!-- Live Channel Packages Section -->
-        <h2 class="section-title"><i class="fas fa-tv"></i> Live Channel Packages</h2>
-        <div id="packagesContainer" class="packages-grid"></div>
-
-        <!-- VOD Categories Section -->
-        <h2 class="section-title"><i class="fas fa-film"></i> VOD Categories</h2>
-        <div id="vodContainer" class="vod-grid"></div>
-
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-            <button class="btn-primary" onclick="getSelection()">
-                <i class="fas fa-check-circle"></i> Confirm Selection
-            </button>
-            <button class="btn-secondary" onclick="resetSelection()">
-                <i class="fas fa-undo-alt"></i> Reset All
-            </button>
+        <div id="packagesSection" style="display: none;">
+            <h2 class="section-title"><i class="fas fa-tv"></i> Live Channel Packages</h2>
+            <div id="packagesContainer" class="packages-grid"></div>
         </div>
 
-        <!-- Summary -->
-        <div class="summary" id="summary">
+        <div id="vodSection" style="display: none;">
+            <h2 class="section-title"><i class="fas fa-film"></i> VOD Categories</h2>
+            <div id="vodContainer" class="vod-grid"></div>
+        </div>
+
+        <div id="actionButtons" class="action-buttons" style="display: none;">
+            <button class="btn-primary" onclick="getSelection()"><i class="fas fa-check-circle"></i> Confirm Selection</button>
+            <button class="btn-secondary" onclick="resetSelection()"><i class="fas fa-undo-alt"></i> Reset All</button>
+        </div>
+
+        <div id="summaryBox" class="summary" style="display: none;">
             <h3>Your Selection Summary</h3>
             <div><span class="summary-count" id="selectedCount">0</span> items selected</div>
             <div id="selectedList" class="selected-list"></div>
         </div>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 8K Strong IPTV. All rights reserved.</p>
-    </footer>
+    <footer class="footer"><p>&copy; 2026 8K Strong IPTV. All rights reserved.</p></footer>
 
     <script>
-        // Packages Data
-        const packagesData = [
-            "1 - 4K UHD 3840P ★",
-            "2 - RELAX UHD 3840P ★",
-            "3 - SPORT ON AIR ★",
-            "4 - UK ULTIMATE",
-            "5 - HORSE RACING ★",
-            "6 - TENNIS ★",
-            "7 - GERMANY ULTIMATE",
-            "8 - AUSTRIA",
-            "9 - NETHERLAND ULTIMATE",
-            "10 - Belgium",
-            "11 - ITALY ULTIMATE",
-            "12 - FRANCE ULTIMATE",
-            "13 - SPAIN ULTIMATE",
-            "14 - Portugal",
-            "15 - Switzerland",
-            "16 - Poland",
-            "17 - GREECE ULTIMATE",
-            "18 - CYPRUS ULTIMATE",
-            "19 - SWEDEN ULTIMATE",
-            "20 - DENMARK ULTIMATE",
-            "21 - NORWAY ULTIMATE"
-        ];
-
-        // VOD Data
-        const vodData = [
-            { name: "TOP MOVIES DOLBY AUDIO 4K 3840p", category: "Movies", icon: "fa-film" },
-            { name: "TOP MOVIES BLURAY (MULTI-SUBS) ★", category: "Movies", icon: "fa-film" },
-            { name: "ASIA MOVIES (MULTI-SUBS)", category: "Movies", icon: "fa-film" },
-            { name: "NETFLIX DOLBY AUDIO ★", category: "Netflix", icon: "fa-netflix" },
-            { name: "NETFLIX ★", category: "Netflix", icon: "fa-netflix" },
-            { name: "AMAZON ★", category: "Amazon", icon: "fa-amazon" },
-            { name: "DISNEY+ MOVIES MENA ★", category: "Disney+", icon: "fa-disney" },
-            { name: "DISNEY+ SERIES MENA ★", category: "Disney+", icon: "fa-disney" },
-            { name: "DISCOVERY+ SERIES MENA ★", category: "Discovery+", icon: "fa-globe" },
-            { name: "DISNEY+ ★", category: "Disney+", icon: "fa-disney" },
-            { name: "APPLE+ ★", category: "Apple+", icon: "fa-apple" },
-            { name: "DISCOVERY+ ★", category: "Discovery+", icon: "fa-globe" },
-            { name: "HBO MAX 4K 3840P", category: "HBO Max", icon: "fa-tv" },
-            { name: "HBO MAX", category: "HBO Max", icon: "fa-tv" },
-            { name: "VIAPLAY ★", category: "Viaplay", icon: "fa-play" },
-            { name: "SKY ★", category: "Sky", icon: "fa-cloud" },
-            { name: "SHOWTIME ★", category: "Showtime", icon: "fa-clock" },
-            { name: "DREAMWORKS ★", category: "DreamWorks", icon: "fa-star" },
-            { name: "UNIVERSAL ★", category: "Universal", icon: "fa-globe" },
-            { name: "PARAMOUNT+ ★", category: "Paramount+", icon: "fa-plus" }
-        ];
-
+        let packagesData = [];
+        let vodData = [];
         let selectedPackages = new Set();
         let selectedVod = new Set();
+        let allChannels = [];
+
+        async function loadFromM3U() {
+            const m3uLink = document.getElementById('m3uLink').value.trim();
+            const statsDiv = document.getElementById('loadStats');
+            
+            if (!m3uLink) {
+                statsDiv.innerHTML = '❌ Please enter a valid M3U link';
+                return;
+            }
+            
+            statsDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading playlist...';
+            
+            try {
+                const response = await fetch(m3uLink);
+                if (!response.ok) throw new Error('Failed to load playlist');
+                const content = await response.text();
+                
+                // Parse M3U
+                const parsed = parseM3U(content);
+                allChannels = parsed.channels;
+                const groups = parsed.groups;
+                const vodCategories = parsed.vodCategories;
+                
+                // Build packages data from groups
+                packagesData = groups.map(group => ({
+                    name: group.name,
+                    count: group.count,
+                    icon: getGroupIcon(group.name)
+                }));
+                
+                // Build VOD data from categories
+                vodData = vodCategories.map(cat => ({
+                    name: cat.name,
+                    count: cat.count,
+                    category: cat.category || 'VOD',
+                    icon: getVodIcon(cat.name)
+                }));
+                
+                // Display stats
+                statsDiv.innerHTML = `✅ Loaded ${allChannels.length} channels, ${packagesData.length} packages, ${vodData.length} VOD categories`;
+                
+                // Show all sections
+                document.getElementById('searchFilter').style.display = 'flex';
+                document.getElementById('packagesSection').style.display = 'block';
+                document.getElementById('vodSection').style.display = 'block';
+                document.getElementById('actionButtons').style.display = 'flex';
+                document.getElementById('summaryBox').style.display = 'block';
+                
+                // Render
+                renderPackages();
+                renderVod();
+                updateSummary();
+                
+                // Store the loaded data in localStorage for persistence
+                localStorage.setItem('m3uLoaded', 'true');
+                localStorage.setItem('packagesData', JSON.stringify(packagesData));
+                localStorage.setItem('vodData', JSON.stringify(vodData));
+                
+            } catch (error) {
+                console.error('Error loading M3U:', error);
+                statsDiv.innerHTML = '❌ Error loading playlist. Please check your M3U link.';
+            }
+        }
+
+        function parseM3U(content) {
+            const lines = content.split('\n');
+            const channels = [];
+            const groupsMap = new Map();
+            const vodCategoriesMap = new Map();
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line.startsWith('#EXTINF')) {
+                    let name = '';
+                    const nameMatch = line.match(/#EXTINF:-?[^,]*,?(.+)/);
+                    if (nameMatch) name = nameMatch[1].trim();
+                    
+                    let group = 'Other';
+                    const groupMatch = line.match(/group-title="([^"]*)"/);
+                    if (groupMatch && groupMatch[1]) group = groupMatch[1];
+                    
+                    // Check if it's VOD (movie or series)
+                    const isVOD = name.toLowerCase().includes('movie') || 
+                                  name.toLowerCase().includes('film') ||
+                                  name.toLowerCase().includes('series') ||
+                                  group.toLowerCase().includes('vod') ||
+                                  group.toLowerCase().includes('movie');
+                    
+                    if (i + 1 < lines.length && !lines[i+1].startsWith('#')) {
+                        const url = lines[i+1].trim();
+                        channels.push({ name, group, url });
+                        
+                        // Count for groups
+                        groupsMap.set(group, (groupsMap.get(group) || 0) + 1);
+                        
+                        // For VOD, also track by category
+                        if (isVOD || group.toLowerCase().includes('vod')) {
+                            let category = group;
+                            if (name.toLowerCase().includes('netflix')) category = 'Netflix';
+                            else if (name.toLowerCase().includes('disney')) category = 'Disney+';
+                            else if (name.toLowerCase().includes('hbo')) category = 'HBO Max';
+                            else if (name.toLowerCase().includes('amazon')) category = 'Amazon Prime';
+                            else if (name.toLowerCase().includes('apple')) category = 'Apple TV+';
+                            else if (name.toLowerCase().includes('paramount')) category = 'Paramount+';
+                            
+                            vodCategoriesMap.set(category, (vodCategoriesMap.get(category) || 0) + 1);
+                        }
+                    }
+                }
+            }
+            
+            // Convert to arrays
+            const groups = Array.from(groupsMap.entries()).map(([name, count]) => ({ name, count }));
+            groups.sort((a, b) => b.count - a.count);
+            
+            const vodCategories = Array.from(vodCategoriesMap.entries()).map(([name, count]) => ({ name, count, category: 'VOD' }));
+            vodCategories.sort((a, b) => b.count - a.count);
+            
+            return { channels, groups, vodCategories };
+        }
+
+        function getGroupIcon(groupName) {
+            const name = groupName.toLowerCase();
+            if (name.includes('sport')) return 'fa-futbol';
+            if (name.includes('news')) return 'fa-newspaper';
+            if (name.includes('movie') || name.includes('film')) return 'fa-film';
+            if (name.includes('music')) return 'fa-music';
+            if (name.includes('kids') || name.includes('children')) return 'fa-child';
+            if (name.includes('documentary')) return 'fa-globe';
+            if (name.includes('4k') || name.includes('uhd')) return 'fa-tv';
+            return 'fa-tv';
+        }
+
+        function getVodIcon(vodName) {
+            const name = vodName.toLowerCase();
+            if (name.includes('netflix')) return 'fa-netflix';
+            if (name.includes('disney')) return 'fa-disney';
+            if (name.includes('hbo')) return 'fa-tv';
+            if (name.includes('amazon')) return 'fa-amazon';
+            if (name.includes('apple')) return 'fa-apple';
+            if (name.includes('paramount')) return 'fa-plus';
+            return 'fa-film';
+        }
 
         function renderPackages() {
             const container = document.getElementById('packagesContainer');
             container.innerHTML = packagesData.map((pkg, index) => `
-                <div class="package-card" data-type="package" data-id="${index}">
-                    <div class="package-icon"><i class="fas fa-tv"></i></div>
+                <div class="package-card ${selectedPackages.has(index) ? 'selected' : ''}" onclick="togglePackage(${index})">
+                    <div class="package-icon"><i class="fas ${pkg.icon}"></i></div>
                     <div class="package-info">
-                        <div class="package-name">${pkg}</div>
-                        <div class="package-desc">HD & 4K channels available</div>
+                        <div class="package-name">${escapeHtml(pkg.name)}</div>
+                        <div class="package-count">${pkg.count} channels</div>
                     </div>
-                    <input type="checkbox" class="package-check" data-id="${index}" onchange="togglePackage(${index})" ${selectedPackages.has(index) ? 'checked' : ''}>
+                    <div class="package-check">
+                        <i class="fas ${selectedPackages.has(index) ? 'fa-check-square' : 'fa-square'}"></i>
+                    </div>
                 </div>
             `).join('');
         }
@@ -468,65 +301,62 @@
         function renderVod() {
             const container = document.getElementById('vodContainer');
             container.innerHTML = vodData.map((vod, index) => `
-                <div class="vod-card" data-type="vod" data-id="${index}" onclick="toggleVod(${index})">
-                    <div class="vod-icon"><i class="fas ${vod.icon || 'fa-film'}"></i></div>
-                    <div class="vod-name">${vod.name}</div>
-                    <div class="vod-category">${vod.category}</div>
+                <div class="vod-card ${selectedVod.has(index) ? 'selected' : ''}" onclick="toggleVod(${index})">
+                    <div class="vod-icon"><i class="fab ${vod.icon}"></i></div>
+                    <div class="vod-name">${escapeHtml(vod.name)}</div>
+                    <div class="vod-category">${vod.count} items</div>
                     <div class="vod-check">
-                        <i class="fas ${selectedVod.has(index) ? 'fa-check-circle' : 'fa-circle'}" style="color: ${selectedVod.has(index) ? '#ecb619' : '#666'}"></i>
+                        <i class="fas ${selectedVod.has(index) ? 'fa-check-circle' : 'fa-circle'}"></i>
                     </div>
                 </div>
             `).join('');
         }
 
-        function togglePackage(id) {
-            if (selectedPackages.has(id)) {
-                selectedPackages.delete(id);
+        function togglePackage(index) {
+            if (selectedPackages.has(index)) {
+                selectedPackages.delete(index);
             } else {
-                selectedPackages.add(id);
+                selectedPackages.add(index);
             }
-            updateSummary();
             renderPackages();
+            updateSummary();
         }
 
-        function toggleVod(id) {
-            if (selectedVod.has(id)) {
-                selectedVod.delete(id);
+        function toggleVod(index) {
+            if (selectedVod.has(index)) {
+                selectedVod.delete(index);
             } else {
-                selectedVod.add(id);
+                selectedVod.add(index);
             }
-            updateSummary();
             renderVod();
+            updateSummary();
         }
 
         function updateSummary() {
             const total = selectedPackages.size + selectedVod.size;
             document.getElementById('selectedCount').innerText = total;
             
-            const selectedListDiv = document.getElementById('selectedList');
             const selectedItems = [];
-            
             selectedPackages.forEach(id => {
-                selectedItems.push(`<span class="selected-badge">📺 ${packagesData[id].substring(0, 30)}...</span>`);
+                selectedItems.push(`<span class="selected-badge">📺 ${packagesData[id].name} (${packagesData[id].count} ch)</span>`);
             });
-            
             selectedVod.forEach(id => {
-                selectedItems.push(`<span class="selected-badge">🎬 ${vodData[id].name.substring(0, 30)}...</span>`);
+                selectedItems.push(`<span class="selected-badge">🎬 ${vodData[id].name} (${vodData[id].count})</span>`);
             });
             
-            selectedListDiv.innerHTML = selectedItems.join('') || '<span style="color:#666;">No items selected</span>';
+            document.getElementById('selectedList').innerHTML = selectedItems.join('') || '<span style="color:#666;">No items selected</span>';
         }
 
         function resetSelection() {
             selectedPackages.clear();
             selectedVod.clear();
-            updateSummary();
             renderPackages();
             renderVod();
+            updateSummary();
         }
 
         function getSelection() {
-            const selectedPackagesList = Array.from(selectedPackages).map(id => packagesData[id]);
+            const selectedPackagesList = Array.from(selectedPackages).map(id => packagesData[id].name);
             const selectedVodList = Array.from(selectedVod).map(id => vodData[id].name);
             
             let message = '🎯 SELECTED PACKAGES:\n';
@@ -534,23 +364,21 @@
             message += '\n\n📽️ SELECTED VOD:\n';
             message += selectedVodList.length > 0 ? selectedVodList.join('\n') : 'None';
             message += `\n\n📊 TOTAL: ${selectedPackagesList.length + selectedVodList.length} items selected`;
-            message += '\n\n✅ Thank you for your selection! We will contact you shortly.';
+            message += '\n\n✅ Thank you! We will contact you shortly.';
             
             alert(message);
         }
 
-        // Search functionality
         function filterContent() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const typeFilter = document.getElementById('typeFilter').value;
             
             // Filter packages
-            const packageContainer = document.getElementById('packagesContainer');
-            const packageCards = packageContainer.querySelectorAll('.package-card');
-            packageCards.forEach(card => {
+            const pkgContainer = document.getElementById('packagesContainer');
+            const pkgCards = pkgContainer.querySelectorAll('.package-card');
+            pkgCards.forEach(card => {
                 const name = card.querySelector('.package-name').innerText.toLowerCase();
-                const matches = name.includes(searchTerm);
-                card.style.display = matches ? 'flex' : 'none';
+                card.style.display = name.includes(searchTerm) ? 'flex' : 'none';
             });
             
             // Filter VOD
@@ -558,38 +386,50 @@
             const vodCards = vodContainer.querySelectorAll('.vod-card');
             vodCards.forEach(card => {
                 const name = card.querySelector('.vod-name').innerText.toLowerCase();
-                const category = card.querySelector('.vod-category').innerText.toLowerCase();
-                const matches = name.includes(searchTerm) || category.includes(searchTerm);
-                card.style.display = matches ? 'flex' : 'none';
+                card.style.display = name.includes(searchTerm) ? 'flex' : 'none';
             });
             
             // Filter by type
             if (typeFilter === 'packages') {
-                document.querySelector('.section-title:first-child').style.display = 'block';
-                document.querySelector('.section-title:last-child').style.display = 'none';
-                packageContainer.style.display = 'grid';
-                vodContainer.style.display = 'none';
+                document.getElementById('packagesSection').style.display = 'block';
+                document.getElementById('vodSection').style.display = 'none';
             } else if (typeFilter === 'vod') {
-                document.querySelector('.section-title:first-child').style.display = 'none';
-                document.querySelector('.section-title:last-child').style.display = 'block';
-                packageContainer.style.display = 'none';
-                vodContainer.style.display = 'grid';
+                document.getElementById('packagesSection').style.display = 'none';
+                document.getElementById('vodSection').style.display = 'block';
             } else {
-                document.querySelector('.section-title:first-child').style.display = 'block';
-                document.querySelector('.section-title:last-child').style.display = 'block';
-                packageContainer.style.display = 'grid';
-                vodContainer.style.display = 'grid';
+                document.getElementById('packagesSection').style.display = 'block';
+                document.getElementById('vodSection').style.display = 'block';
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Check if we have saved data
+        if (localStorage.getItem('m3uLoaded') === 'true') {
+            const savedPackages = localStorage.getItem('packagesData');
+            const savedVod = localStorage.getItem('vodData');
+            if (savedPackages && savedVod) {
+                packagesData = JSON.parse(savedPackages);
+                vodData = JSON.parse(savedVod);
+                document.getElementById('searchFilter').style.display = 'flex';
+                document.getElementById('packagesSection').style.display = 'block';
+                document.getElementById('vodSection').style.display = 'block';
+                document.getElementById('actionButtons').style.display = 'flex';
+                document.getElementById('summaryBox').style.display = 'block';
+                renderPackages();
+                renderVod();
+                updateSummary();
+                document.getElementById('loadStats').innerHTML = `✅ Loaded from cache (${packagesData.length} packages, ${vodData.length} VOD)`;
             }
         }
 
         // Event listeners
         document.getElementById('searchInput').addEventListener('input', filterContent);
         document.getElementById('typeFilter').addEventListener('change', filterContent);
-
-        // Initialize
-        renderPackages();
-        renderVod();
-        updateSummary();
     </script>
 </body>
 </html>
