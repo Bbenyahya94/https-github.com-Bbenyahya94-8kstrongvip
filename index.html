@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        /* Dark color system */
         :root {
             --gray-100: #041324;
             --gray-200: #05192f;
@@ -22,836 +21,101 @@
             --button-bg: #ecb619;
             --button-hover: #d4a514;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        body {
-            background: var(--gray-100);
-            color: var(--gray-800);
-            line-height: 1.6;
-        }
-
-        /* RTL adjustments */
-        [dir="rtl"] {
-            text-align: right;
-        }
-        [dir="rtl"] .nav-menu {
-            flex-direction: row-reverse;
-        }
-        [dir="rtl"] .language-dropdown .lang-btn {
-            flex-direction: row-reverse;
-        }
-        [dir="rtl"] .banner-buttons {
-            flex-direction: row-reverse;
-        }
-        [dir="rtl"] .credit-left {
-            text-align: right;
-        }
-        [dir="rtl"] .testimonial-card {
-            text-align: right;
-        }
-        [dir="rtl"] .credit-row {
-            flex-direction: row;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--gray-100); color: var(--gray-800); line-height: 1.6; }
+        [dir="rtl"] { text-align: right; }
+        .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
+        .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .logo-area a { display: flex; align-items: center; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .lang-btn { background: var(--gray-300); border: 1px solid var(--gray-400); color: var(--gray-800); padding: 8px 15px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .theme-toggle { background: transparent; border: none; color: var(--gray-700); font-size: 1.5em; cursor: pointer; }
+        .main-nav { margin-top: 10px; }
+        .main-nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 20px; justify-content: center; }
+        .main-nav a { color: var(--gray-700); text-decoration: none; padding: 8px 12px; border-radius: 50px; transition: 0.3s; font-weight: 500; }
+        .main-nav a:hover { background: var(--gray-300); color: var(--gray-900); }
+        .mobile-menu { display: none; background: var(--gray-200); border-top: 1px solid var(--gray-400); padding: 20px; margin-top: 10px; }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .mobile-menu a { color: var(--gray-700); text-decoration: none; font-size: 1.2em; padding: 10px; display: block; border-radius: 10px; }
+        .mobile-menu-open .mobile-menu { display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hero-banner { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 60px 40px; margin: 40px auto; max-width: 1200px; text-align: center; border: 1px solid var(--gray-400); }
+        .hero-banner h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-banner p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto 30px; }
+        .banner-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .banner-btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .banner-btn.telegram { background: #0088cc; color: white; }
+        .banner-btn.whatsapp { background: #25D366; color: white; }
+        .slideshow-container { position: relative; max-width: 1200px; margin: 40px auto; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .slides { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide { min-width: 100%; position: relative; }
+        .slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
+        .slide-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; background: rgba(4,19,36,0.8); backdrop-filter: blur(5px); padding: 30px; border-radius: 20px; width: 80%; max-width: 600px; }
+        .slide-content h2 { font-size: 2.5em; margin-bottom: 15px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .slide-content p { font-size: 1.2em; margin-bottom: 20px; color: var(--gray-700); }
+        .slide-btn { display: inline-block; padding: 12px 30px; background: var(--button-bg); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: var(--gray-200); color: var(--gray-700); border: 1px solid var(--gray-400); padding: 16px; cursor: pointer; border-radius: 50%; font-size: 20px; transition: 0.3s; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
+        .prev:hover, .next:hover { background: var(--button-bg); color: white; }
+        .prev { left: 20px; } .next { right: 20px; }
+        .dots-container { text-align: center; padding: 20px; }
+        .dot { height: 12px; width: 12px; margin: 0 5px; background-color: var(--gray-500); border-radius: 50%; display: inline-block; cursor: pointer; transition: 0.3s; }
+        .dot.active { background-color: var(--button-bg); transform: scale(1.3); }
+        .credit-panel-section { background: var(--gray-200); border-radius: 30px; padding: 40px; margin: 40px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; border: 1px solid var(--gray-400); }
+        .credit-left h2 { font-size: 2.5em; margin-bottom: 20px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .credit-table { background: var(--gray-300); border-radius: 20px; padding: 20px; margin: 20px 0; border: 1px solid var(--gray-400); }
+        .credit-row { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid var(--gray-400); }
+        .credit-row:last-child { border-bottom: none; }
+        .credit-amount { font-size: 1.2em; font-weight: bold; color: var(--gray-900); background: var(--button-bg); padding: 8px 20px; border-radius: 50px; min-width: 120px; text-align: center; }
+        .credit-arrow { color: var(--button-bg); font-size: 1.5em; }
+        .credit-value { font-size: 1.2em; font-weight: bold; color: var(--gray-900); background: var(--gray-400); padding: 8px 20px; border-radius: 50px; min-width: 120px; text-align: center; }
+        .credit-right { background: var(--gray-300); border-radius: 20px; padding: 20px; text-align: center; min-height: 250px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--gray-400); }
+        .features-section h2 { text-align: center; font-size: 2.5em; margin-bottom: 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .feature-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px 20px; text-align: center; transition: 0.3s; }
+        .feature-icon { font-size: 3em; color: var(--button-bg); margin-bottom: 20px; }
+        .feature-card h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--gray-900); }
+        .testimonials-section h2 { text-align: center; font-size: 2.5em; margin-bottom: 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .testimonial-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 25px; }
+        .testimonial-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .testimonial-img { width: 60px; height: 60px; border-radius: 50%; background: var(--gray-300); display: flex; align-items: center; justify-content: center; font-size: 2em; color: var(--button-bg); border: 2px solid var(--button-bg); overflow: hidden; }
+        .testimonial-name h4 { color: var(--gray-900); margin-bottom: 5px; }
+        .testimonial-name .stars { color: var(--button-bg); font-size: 0.9em; }
+        .testimonial-text { color: var(--gray-700); font-style: italic; }
+        .faq-section { background: var(--gray-200); border-radius: 30px; padding: 40px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .faq-section h2 { text-align: center; font-size: 2.5em; margin-bottom: 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+        .faq-item { background: var(--gray-300); border: 1px solid var(--gray-400); border-radius: 15px; padding: 20px; cursor: pointer; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; color: var(--gray-900); font-weight: 600; }
+        .faq-question i { color: var(--button-bg); transition: transform 0.3s; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--gray-600); margin-top: 0; }
+        .faq-item.active .faq-answer { max-height: 200px; margin-top: 15px; }
+        .faq-item.active .faq-question i { transform: rotate(45deg); }
+        .plans-section h2 { text-align: center; font-size: 2.5em; margin-bottom: 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .plan-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px 20px; text-align: center; transition: 0.3s; }
+        .plan-card h3 { font-size: 1.8em; margin-bottom: 10px; color: var(--gray-900); }
+        .plan-card .price { font-size: 2.2em; font-weight: 800; margin: 15px 0; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .plan-card ul { list-style: none; margin: 20px 0; }
+        .plan-card li { margin: 10px 0; color: var(--gray-600); display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .plan-card li i { color: var(--button-bg); }
+        .plan-card .btn { background: var(--button-bg); color: white; text-decoration: none; padding: 10px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-block; }
+        .footer { background: var(--gray-200); padding: 40px 0; text-align: center; margin-top: 60px; border-top: 1px solid var(--gray-400); color: var(--gray-600); }
         @media (max-width: 768px) {
-            [dir="rtl"] .credit-row {
-                flex-direction: column;
-            }
-        }
-
-        /* Header */
-        .header {
-            background: var(--gray-200);
-            backdrop-filter: blur(10px);
-            padding: 10px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--gray-400);
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .logo-area a {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            height: auto;
-            max-height: 55px;
-            width: auto;
-            max-width: 200px;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid var(--gray-400);
-            color: var(--gray-700);
-            font-size: 1.8em;
-            cursor: pointer;
-            padding: 5px 15px;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
-        .mobile-menu-toggle:hover {
-            background: var(--gray-300);
-            color: var(--button-bg);
-        }
-
-        .search-area {
-            flex: 1;
-            max-width: 500px;
-        }
-
-        .search-area form {
-            display: flex;
-            align-items: center;
-            background: var(--gray-300);
-            border-radius: 50px;
-            padding: 5px 10px;
-            border: 1px solid var(--gray-400);
-        }
-
-        .search-area input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 10px 15px;
-            color: var(--gray-800);
-            font-size: 1em;
-            outline: none;
-        }
-
-        .search-area input::placeholder {
-            color: var(--gray-600);
-        }
-
-        .search-area button {
-            background: var(--button-bg);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .search-area button:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .language-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .lang-btn {
-            background: var(--gray-300);
-            border: 1px solid var(--gray-400);
-            color: var(--gray-800);
-            padding: 8px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-
-        .lang-btn:hover {
-            background: var(--gray-400);
-        }
-
-        .lang-btn img {
-            height: 20px;
-            width: auto;
-            border-radius: 3px;
-        }
-
-        .lang-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 10px;
-            min-width: 150px;
-            z-index: 1001;
-            margin-top: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .lang-dropdown-menu a {
-            display: block;
-            padding: 10px 15px;
-            color: var(--gray-800);
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 0.95em;
-        }
-
-        .lang-dropdown-menu a:hover {
-            background: var(--gray-300);
-        }
-
-        .language-dropdown:hover .lang-dropdown-menu {
-            display: block;
-        }
-
-        .theme-toggle {
-            background: transparent;
-            border: none;
-            color: var(--gray-700);
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-        }
-
-        .theme-toggle:hover {
-            color: var(--button-bg);
-        }
-
-        .login-btn {
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .login-btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-
-        .main-nav {
-            margin-top: 10px;
-        }
-        .main-nav ul {
-            display: flex;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 20px;
-            justify-content: center;
-        }
-        .main-nav a {
-            color: var(--gray-700);
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 50px;
-            transition: 0.3s;
-            font-weight: 500;
-        }
-        .main-nav a:hover {
-            background: var(--gray-300);
-            color: var(--gray-900);
-        }
-
-        .mobile-menu {
-            display: none;
-            background: var(--gray-200);
-            border-top: 1px solid var(--gray-400);
-            padding: 20px;
-            margin-top: 10px;
-        }
-        .mobile-menu ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .mobile-menu a {
-            color: var(--gray-700);
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 10px;
-            display: block;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
-        .mobile-menu a:hover {
-            background: var(--gray-300);
-            color: var(--gray-900);
-        }
-        .mobile-menu-open .mobile-menu {
-            display: block;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Banner */
-        .hero-banner {
-            background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 30px;
-            padding: 60px 40px;
-            margin: 40px auto;
-            max-width: 1200px;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .hero-banner h1 {
-            font-size: 3.2em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-banner p {
-            font-size: 1.2em;
-            color: var(--gray-600);
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        .banner-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .banner-btn {
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .banner-btn.telegram {
-            background: #0088cc;
-            color: white;
-            border: none;
-        }
-        .banner-btn.telegram:hover {
-            background: #006699;
-            transform: scale(1.05);
-        }
-        .banner-btn.whatsapp {
-            background: #25D366;
-            color: white;
-            border: none;
-        }
-        .banner-btn.whatsapp:hover {
-            background: #128C7E;
-            transform: scale(1.05);
-        }
-
-        /* Slideshow */
-        .slideshow-container {
-            position: relative;
-            max-width: 1200px;
-            margin: 40px auto;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            min-width: 100%;
-            position: relative;
-        }
-        .slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-        }
-        .slide-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            background: rgba(4,19,36,0.8);
-            backdrop-filter: blur(5px);
-            padding: 30px;
-            border-radius: 20px;
-            width: 80%;
-            max-width: 600px;
-        }
-        .slide-content h2 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .slide-content p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: var(--gray-700);
-        }
-        .slide-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .slide-btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--gray-200);
-            color: var(--gray-700);
-            border: 1px solid var(--gray-400);
-            padding: 16px;
-            cursor: pointer;
-            border-radius: 50%;
-            font-size: 20px;
-            transition: 0.3s;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .prev:hover, .next:hover {
-            background: var(--button-bg);
-            color: white;
-            border-color: var(--button-bg);
-        }
-        .prev { left: 20px; }
-        .next { right: 20px; }
-        .dots-container {
-            text-align: center;
-            padding: 20px;
-        }
-        .dot {
-            height: 12px;
-            width: 12px;
-            margin: 0 5px;
-            background-color: var(--gray-500);
-            border-radius: 50%;
-            display: inline-block;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .dot.active {
-            background-color: var(--button-bg);
-            transform: scale(1.3);
-        }
-
-        /* Credit System & Panel Preview */
-        .credit-panel-section {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 40px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            border: 1px solid var(--gray-400);
-        }
-        .credit-left h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .credit-left p {
-            color: var(--gray-600);
-            margin-bottom: 15px;
-        }
-        .credit-table {
-            background: var(--gray-300);
-            border-radius: 20px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid var(--gray-400);
-        }
-        .credit-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--gray-400);
-        }
-        .credit-row:last-child {
-            border-bottom: none;
-        }
-        .credit-amount {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: var(--gray-900);
-            background: var(--button-bg);
-            padding: 8px 20px;
-            border-radius: 50px;
-            min-width: 120px;
-            text-align: center;
-        }
-        .credit-arrow {
-            color: var(--button-bg);
-            font-size: 1.5em;
-        }
-        .credit-value {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: var(--gray-900);
-            background: var(--gray-400);
-            padding: 8px 20px;
-            border-radius: 50px;
-            min-width: 120px;
-            text-align: center;
-        }
-        .credit-right {
-            background: var(--gray-300);
-            border-radius: 20px;
-            padding: 20px;
-            text-align: center;
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--gray-400);
-        }
-        .credit-right img {
-            width: 100%;
-            border-radius: 15px;
-        }
-        .credit-right i {
-            font-size: 5em;
-            color: var(--button-bg);
-            opacity: 0.7;
-        }
-        .credit-right p {
-            color: var(--gray-600);
-            margin-top: 10px;
-        }
-
-        /* Features Grid */
-        .features-section h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .feature-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-            box-shadow: 0 10px 30px rgba(236, 182, 25, 0.2);
-        }
-        .feature-icon {
-            font-size: 3em;
-            color: var(--button-bg);
-            margin-bottom: 20px;
-        }
-        .feature-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
-        }
-        .feature-card p {
-            color: var(--gray-600);
-        }
-
-        /* Testimonials with Images */
-        .testimonials-section h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .testimonial-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 25px;
-            transition: 0.3s;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-        }
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        .testimonial-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gray-300);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            color: var(--button-bg);
-            border: 2px solid var(--button-bg);
-            overflow: hidden;
-        }
-        .testimonial-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .testimonial-name h4 {
-            color: var(--gray-900);
-            margin-bottom: 5px;
-        }
-        .testimonial-name .stars {
-            color: var(--button-bg);
-            font-size: 0.9em;
-        }
-        .testimonial-text {
-            color: var(--gray-700);
-            font-style: italic;
-        }
-
-        /* FAQ */
-        .faq-section {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 40px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-        }
-        .faq-section h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
-        }
-        .faq-item {
-            background: var(--gray-300);
-            border: 1px solid var(--gray-400);
-            border-radius: 15px;
-            padding: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .faq-item:hover {
-            border-color: var(--button-bg);
-        }
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--gray-900);
-            font-weight: 600;
-        }
-        .faq-question i {
-            color: var(--button-bg);
-            transition: transform 0.3s;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: var(--gray-600);
-            margin-top: 0;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            margin-top: 15px;
-        }
-        .faq-item.active .faq-question i {
-            transform: rotate(45deg);
-        }
-
-        /* Plans */
-        .plans-section h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .plan-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .plan-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-            box-shadow: 0 10px 30px rgba(236, 182, 25, 0.2);
-        }
-        .plan-card h3 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
-        }
-        .plan-card .price {
-            font-size: 2.2em;
-            font-weight: 800;
-            margin: 15px 0;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .plan-card ul {
-            list-style: none;
-            margin: 20px 0;
-        }
-        .plan-card li {
-            margin: 10px 0;
-            color: var(--gray-600);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .plan-card li i {
-            color: var(--button-bg);
-        }
-        .plan-card .btn {
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
-        }
-        .plan-card .btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--gray-200);
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 60px;
-            border-top: 1px solid var(--gray-400);
-            color: var(--gray-600);
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px 20px;
-            }
-            .header-top {
-                gap: 10px;
-            }
-            .logo-img {
-                max-height: 40px;
-                max-width: 150px;
-            }
-            .mobile-menu-toggle {
-                display: block;
-            }
-            .main-nav {
-                display: none;
-            }
-            .search-area {
-                order: 3;
-                width: 100%;
-                max-width: none;
-            }
-            .hero-banner h1 {
-                font-size: 2.2em;
-            }
-            .credit-panel-section {
-                grid-template-columns: 1fr;
-            }
-            .credit-row {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            .credit-arrow {
-                transform: rotate(90deg);
-            }
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
+            .header { padding: 10px 20px; }
+            .logo-img { max-height: 40px; max-width: 150px; }
+            .mobile-menu-toggle { display: block; }
+            .main-nav { display: none; }
+            .hero-banner h1 { font-size: 2.2em; }
+            .credit-panel-section { grid-template-columns: 1fr; }
+            .credit-row { flex-direction: column; gap: 15px; text-align: center; }
+            .credit-arrow { transform: rotate(90deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-top">
             <div class="logo-area">
@@ -860,393 +124,134 @@
                 </a>
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
-            <div class="search-area">
-                <form onsubmit="return false;">
-                    <input type="text" data-i18n-placeholder="search_placeholder" placeholder="Search channels, movies...">
-                    <button type="button"><i class="fas fa-search"></i> <span data-i18n="search_btn">Search</span></button>
-                </form>
-            </div>
             <div class="header-actions">
                 <div class="language-dropdown">
                     <button class="lang-btn">
-                        <img src="images/flags/uk.png" alt="English" id="currentLangFlag">
-                        <span id="currentLangLabel">EN</span>
+                        <img src="images/flags/uk.png" alt="English"> EN
                     </button>
-                    <div class="lang-dropdown-menu">
-                        <a href="#" onclick="changeLanguage('en')"><img src="images/flags/uk.png" alt="English"> English</a>
-                        <a href="#" onclick="changeLanguage('ar')"><img src="images/flags/arabic.png" alt="العربية"> العربية</a>
-                        <a href="#" onclick="changeLanguage('fr')"><img src="images/flags/france.png" alt="Français"> Français</a>
-                        <a href="#" onclick="changeLanguage('es')"><img src="images/flags/spain.png" alt="Español"> Español</a>
-                        <a href="#" onclick="changeLanguage('zh')"><img src="images/flags/china.png" alt="中文"> 中文</a>
-                        <a href="#" onclick="changeLanguage('he')"><img src="images/flags/israel.png" alt="עברית"> עברית</a>
-                    </div>
                 </div>
                 <button class="theme-toggle"><i class="bx bx-moon"></i></button>
-                <a href="login.html" class="login-btn" data-i18n="login">Login</a>
             </div>
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html" data-i18n="home">Home</a></li>
-                <li><a href="packages.html" data-i18n="packages">Packages</a></li>
-                <li><a href="convert.html" data-i18n="convert">Convert</a></li>
-                <li><a href="contact.html" data-i18n="contact">Contact Us</a></li>
-                <li><a href="resolution.html" data-i18n="resolution">Resolution Center</a></li>
-                <li><a href="blogs.html" data-i18n="blogs">Blogs</a></li>
-                <li><a href="find.html" data-i18n="find">Find Content</a></li>
-                <li><a href="reseller.html" data-i18n="reseller">Reseller</a></li>
-                <li><a href="subscription.html" data-i18n="subscription">Subscription</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="convert.html">Convert</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="resolution.html">Resolution Center</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="packages.html">Packages</a></li>
                 <li><a href="convert.html">Convert</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="resolution.html">Resolution Center</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="find.html">Find Content</a></li>
                 <li><a href="reseller.html">Reseller</a></li>
                 <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="resolution.html">Resolution Center</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </div>
     </header>
 
     <main class="container">
-        <!-- Hero Banner -->
         <section class="hero-banner">
-            <h1 data-i18n="hero_title">8K Strong IPTV – The Ultimate 4K Streaming Experience</h1>
-            <p data-i18n="hero_desc">20,000+ live channels, 50,000+ movies & series, built-in VPN, and 24/7 support. Start watching today!</p>
+            <h1>8K Strong IPTV – The Ultimate 4K Streaming Experience</h1>
+            <p>20,000+ live channels, 50,000+ movies & series, built-in VPN, and 24/7 support. Start watching today!</p>
             <div class="banner-buttons">
-                <a href="https://t.me/8kstrong_support" target="_blank" class="banner-btn telegram"><i class="fab fa-telegram-plane"></i> <span data-i18n="trial_telegram">Free Trial via Telegram</span></a>
-                <a href="https://wa.me/1234567890" target="_blank" class="banner-btn whatsapp"><i class="fab fa-whatsapp"></i> <span data-i18n="trial_whatsapp">Free Trial via WhatsApp</span></a>
+                <a href="https://t.me/8kstrong_support" target="_blank" class="banner-btn telegram"><i class="fab fa-telegram-plane"></i> Free Trial via Telegram</a>
+                <a href="https://wa.me/1234567890" target="_blank" class="banner-btn whatsapp"><i class="fab fa-whatsapp"></i> Free Trial via WhatsApp</a>
             </div>
         </section>
 
-        <!-- Slideshow with GIF as Slide 2 -->
         <div class="slideshow-container">
             <div class="slides" id="slides">
-                <div class="slide">
-                    <img src="images/slide1.jpg" alt="Premium IPTV Service">
-                    <div class="slide-content">
-                        <h2 data-i18n="slide1_title">Premium IPTV Service</h2>
-                        <p data-i18n="slide1_desc">20,000+ live channels & 50,000+ movies in 4K quality</p>
-                        <a href="subscription.html" class="slide-btn" data-i18n="slide1_btn">Subscribe Now</a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/slide2.gif" alt="Anywhere, Any Device, Anytime">
-                    <div class="slide-content">
-                        <h2>Anywhere, Any Device, Anytime</h2>
-                        <p>Watch on Smart TV, Phone, Tablet, or Laptop – 24/7 access</p>
-                        <a href="subscription.html" class="slide-btn">Start Watching</a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/slide3.jpg" alt="Special Offer">
-                    <div class="slide-content">
-                        <h2 data-i18n="slide3_title">Limited Time Offer</h2>
-                        <p data-i18n="slide3_desc">Get 20% off on yearly subscription</p>
-                        <a href="subscription.html" class="slide-btn" data-i18n="slide3_btn">Claim Offer</a>
-                    </div>
-                </div>
+                <div class="slide"><img src="images/slide1.jpg" alt="Premium IPTV Service"><div class="slide-content"><h2>Premium IPTV Service</h2><p>20,000+ live channels & 50,000+ movies in 4K quality</p><a href="subscription.html" class="slide-btn">Subscribe Now</a></div></div>
+                <div class="slide"><img src="images/slide2.jpg" alt="Reseller Program"><div class="slide-content"><h2>Become a Reseller</h2><p>Flexible plans – start your own business today</p><a href="reseller.html" class="slide-btn">Join Reseller</a></div></div>
+                <div class="slide"><img src="images/slide3.jpg" alt="Special Offer"><div class="slide-content"><h2>Limited Time Offer</h2><p>Get 20% off on yearly subscription</p><a href="subscription.html" class="slide-btn">Claim Offer</a></div></div>
             </div>
             <button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
             <button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
-            <div class="dots-container">
-                <span class="dot active" onclick="currentSlide(0)"></span>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-            </div>
+            <div class="dots-container"><span class="dot active" onclick="currentSlide(0)"></span><span class="dot" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span></div>
         </div>
 
-        <!-- Credit System -->
         <section class="credit-panel-section">
             <div class="credit-left">
-                <h2 data-i18n="credit_title">Credit System</h2>
-                <p data-i18n="credit_desc">Simple and transparent – convert credits directly into subscription months.</p>
+                <h2>Credit System</h2>
+                <p>Simple and transparent – convert credits directly into subscription months.</p>
                 <div class="credit-table">
                     <div class="credit-row"><div class="credit-amount">1 Credit</div><div class="credit-arrow"><i class="fas fa-arrow-right"></i></div><div class="credit-value">1 Month</div></div>
                     <div class="credit-row"><div class="credit-amount">3 Credits</div><div class="credit-arrow"><i class="fas fa-arrow-right"></i></div><div class="credit-value">3 Months</div></div>
                     <div class="credit-row"><div class="credit-amount">6 Credits</div><div class="credit-arrow"><i class="fas fa-arrow-right"></i></div><div class="credit-value">6 Months</div></div>
                     <div class="credit-row"><div class="credit-amount">12 Credits</div><div class="credit-arrow"><i class="fas fa-arrow-right"></i></div><div class="credit-value">12 Months</div></div>
                 </div>
-                <p data-i18n="credit_more">Manage users, create sub‑resellers, and enjoy white‑label options. <a href="reseller.html" style="color:var(--button-bg);">Learn more</a></p>
+                <p>Manage users, create sub‑resellers, and enjoy white‑label options. <a href="reseller.html" style="color:var(--button-bg);">Learn more</a></p>
             </div>
-            <div class="credit-right">
-                <div>
-                    <img src="images/reseller-panel.jpg" alt="Reseller Panel Dashboard" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-tachometer-alt\'></i><p>Reseller Panel Preview</p>'">
-                </div>
-            </div>
+            <div class="credit-right"><div><img src="images/reseller-panel.jpg" alt="Reseller Panel Dashboard" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-tachometer-alt\'></i><p>Reseller Panel Preview</p>'"></div></div>
         </section>
 
-        <!-- Features -->
         <section class="features-section">
-            <h2 data-i18n="features_title">Why Choose 8K Strong IPTV?</h2>
+            <h2>Why Choose 8K Strong IPTV?</h2>
             <div class="features-grid">
-                <div class="feature-card"><i class="fas fa-tachometer-alt feature-icon"></i><h3 data-i18n="feature1_title">Ultra Fast</h3><p data-i18n="feature1_desc">High‑performance servers for buffer‑free streaming</p></div>
-                <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3 data-i18n="feature2_title">VPN Protection</h3><p data-i18n="feature2_desc">Built‑in VPN for privacy and security</p></div>
-                <div class="feature-card"><i class="fas fa-globe feature-icon"></i><h3 data-i18n="feature3_title">Worldwide Channels</h3><p data-i18n="feature3_desc">Channels from 100+ countries, sports, news, movies</p></div>
-                <div class="feature-card"><i class="fas fa-headset feature-icon"></i><h3 data-i18n="feature4_title">24/7 Support</h3><p data-i18n="feature4_desc">Dedicated support team always ready to help</p></div>
-                <div class="feature-card"><i class="fas fa-chart-line feature-icon"></i><h3 data-i18n="feature5_title">Reseller Dashboard</h3><p data-i18n="feature5_desc">Full control with real‑time analytics and user management</p></div>
-                <div class="feature-card"><i class="fas fa-download feature-icon"></i><h3 data-i18n="feature6_title">Easy Integration</h3><p data-i18n="feature6_desc">Compatible with all popular IPTV players</p></div>
+                <div class="feature-card"><i class="fas fa-tachometer-alt feature-icon"></i><h3>Ultra Fast</h3><p>High‑performance servers for buffer‑free streaming</p></div>
+                <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3>VPN Protection</h3><p>Built‑in VPN for privacy and security</p></div>
+                <div class="feature-card"><i class="fas fa-globe feature-icon"></i><h3>Worldwide Channels</h3><p>Channels from 100+ countries</p></div>
+                <div class="feature-card"><i class="fas fa-headset feature-icon"></i><h3>24/7 Support</h3><p>Dedicated support team</p></div>
+                <div class="feature-card"><i class="fas fa-chart-line feature-icon"></i><h3>Reseller Dashboard</h3><p>Full control with real‑time analytics</p></div>
+                <div class="feature-card"><i class="fas fa-download feature-icon"></i><h3>Easy Integration</h3><p>Compatible with all popular IPTV players</p></div>
             </div>
         </section>
 
-        <!-- Testimonials -->
         <section class="testimonials-section">
-            <h2 data-i18n="testimonials_title">What Our Customers Say</h2>
+            <h2>What Our Customers Say</h2>
             <div class="testimonials-grid">
-                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><img src="images/user1.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';"></div><div class="testimonial-name"><h4>Ahmed M.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text" data-i18n="testimonial1">"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus."</div></div>
-                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><img src="images/user2.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';"></div><div class="testimonial-name"><h4>Sarah K.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text" data-i18n="testimonial2">"As a reseller, the panel is super easy to use. My customers love the quality."</div></div>
-                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><img src="images/user3.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';"></div><div class="testimonial-name"><h4>David L.</h4><div class="stars">★★★★☆</div></div></div><div class="testimonial-text" data-i18n="testimonial3">"The 4K streams are amazing. Support responds within minutes. Highly recommended!"</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><img src="images/user1.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';"></div><div class="testimonial-name"><h4>Ahmed M.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text">"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus."</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><img src="images/user2.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';"></div><div class="testimonial-name"><h4>Sarah K.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text">"As a reseller, the panel is super easy to use. My customers love the quality."</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><img src="images/user3.jpg" alt="Customer" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';"></div><div class="testimonial-name"><h4>David L.</h4><div class="stars">★★★★☆</div></div></div><div class="testimonial-text">"The 4K streams are amazing. Support responds within minutes. Highly recommended!"</div></div>
             </div>
         </section>
 
-        <!-- FAQ -->
         <section class="faq-section">
-            <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+            <h2>Frequently Asked Questions</h2>
             <div class="faq-grid" id="faqGrid">
-                <div class="faq-item"><div class="faq-question"><span data-i18n="faq1_q">What devices are supported?</span><i class="fas fa-plus"></i></div><div class="faq-answer" data-i18n="faq1_a">All major devices: Smart TVs (Samsung, LG), Android boxes, iOS, Android phones/tablets, Windows/Mac, and more.</div></div>
-                <div class="faq-item"><div class="faq-question"><span data-i18n="faq2_q">Is there a free trial?</span><i class="fas fa-plus"></i></div><div class="faq-answer" data-i18n="faq2_a">Yes! Contact us on Telegram or WhatsApp to get a 24‑hour free trial.</div></div>
-                <div class="faq-item"><div class="faq-question"><span data-i18n="faq3_q">Can I use my own player?</span><i class="fas fa-plus"></i></div><div class="faq-answer" data-i18n="faq3_a">Yes, you can use any player that supports M3U or M3U8 links, such as VLC, TiviMate, or IPTV Smarters.</div></div>
-                <div class="faq-item"><div class="faq-question"><span data-i18n="faq4_q">Do you offer reseller discounts?</span><i class="fas fa-plus"></i></div><div class="faq-answer" data-i18n="faq4_a">Yes! Check our <a href="reseller.html" style="color:var(--button-bg);">Reseller page</a> for bulk credit options and white‑label plans.</div></div>
+                <div class="faq-item"><div class="faq-question"><span>What devices are supported?</span><i class="fas fa-plus"></i></div><div class="faq-answer">All major devices: Smart TVs (Samsung, LG), Android boxes, iOS, Android phones/tablets, Windows/Mac, and more.</div></div>
+                <div class="faq-item"><div class="faq-question"><span>Is there a free trial?</span><i class="fas fa-plus"></i></div><div class="faq-answer">Yes! Contact us on Telegram or WhatsApp to get a 24‑hour free trial.</div></div>
+                <div class="faq-item"><div class="faq-question"><span>Can I use my own player?</span><i class="fas fa-plus"></i></div><div class="faq-answer">Yes, you can use any player that supports M3U or M3U8 links, such as VLC, TiviMate, or IPTV Smarters.</div></div>
+                <div class="faq-item"><div class="faq-question"><span>Do you offer reseller discounts?</span><i class="fas fa-plus"></i></div><div class="faq-answer">Yes! Check our <a href="reseller.html" style="color:var(--button-bg);">Reseller page</a> for bulk credit options and white‑label plans.</div></div>
             </div>
         </section>
 
-        <!-- Plans -->
         <section class="plans-section">
-            <h2 data-i18n="plans_title">Our Plans & Packages</h2>
+            <h2>Our Plans & Packages</h2>
             <div class="plans-grid">
-                <div class="plan-card"><h3 data-i18n="plan1_name">1 Month</h3><div class="price">€13</div><ul><li><i class="fas fa-check-circle"></i> <span data-i18n="all_channels">All channels</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="hd">HD quality</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="one_conn">1 connection</span></li></ul><a href="subscription.html" class="btn" data-i18n="subscribe">Subscribe</a></div>
-                <div class="plan-card"><h3 data-i18n="plan3_name">3 Months</h3><div class="price">€25</div><ul><li><i class="fas fa-check-circle"></i> <span data-i18n="all_channels">All channels</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="4k">4K quality</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="one_conn">1 connection</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="vpn">VPN included</span></li></ul><a href="subscription.html" class="btn" data-i18n="subscribe">Subscribe</a></div>
-                <div class="plan-card"><h3 data-i18n="plan6_name">6 Months</h3><div class="price">€33</div><ul><li><i class="fas fa-check-circle"></i> <span data-i18n="all_channels">All channels</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="4k">4K quality</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="one_conn">1 connection</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="vpn">VPN included</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="catchup">Catch‑Up TV</span></li></ul><a href="subscription.html" class="btn" data-i18n="subscribe">Subscribe</a></div>
-                <div class="plan-card"><h3 data-i18n="plan12_name">12 Months</h3><div class="price">€55</div><ul><li><i class="fas fa-check-circle"></i> <span data-i18n="all_channels">All channels</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="4k">4K quality</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="one_conn">1 connection</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="vpn">VPN included</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="catchup">Catch‑Up TV</span></li><li><i class="fas fa-check-circle"></i> <span data-i18n="ibopro">Free IboproApp activation for 1 year</span></li></ul><a href="subscription.html" class="btn" data-i18n="subscribe">Subscribe</a></div>
+                <div class="plan-card"><h3>1 Month</h3><div class="price">€13</div><ul><li><i class="fas fa-check-circle"></i> All channels</li><li><i class="fas fa-check-circle"></i> HD quality</li><li><i class="fas fa-check-circle"></i> 1 connection</li></ul><a href="subscription.html" class="btn">Subscribe</a></div>
+                <div class="plan-card"><h3>3 Months</h3><div class="price">€25</div><ul><li><i class="fas fa-check-circle"></i> All channels</li><li><i class="fas fa-check-circle"></i> 4K quality</li><li><i class="fas fa-check-circle"></i> 1 connection</li><li><i class="fas fa-check-circle"></i> VPN included</li></ul><a href="subscription.html" class="btn">Subscribe</a></div>
+                <div class="plan-card"><h3>6 Months</h3><div class="price">€33</div><ul><li><i class="fas fa-check-circle"></i> All channels</li><li><i class="fas fa-check-circle"></i> 4K quality</li><li><i class="fas fa-check-circle"></i> 1 connection</li><li><i class="fas fa-check-circle"></i> VPN included</li><li><i class="fas fa-check-circle"></i> Catch‑Up TV</li></ul><a href="subscription.html" class="btn">Subscribe</a></div>
+                <div class="plan-card"><h3>12 Months</h3><div class="price">€55</div><ul><li><i class="fas fa-check-circle"></i> All channels</li><li><i class="fas fa-check-circle"></i> 4K quality</li><li><i class="fas fa-check-circle"></i> 1 connection</li><li><i class="fas fa-check-circle"></i> VPN included</li><li><i class="fas fa-check-circle"></i> Catch‑Up TV</li><li><i class="fas fa-check-circle"></i> Free IboproApp activation for 1 year</li></ul><a href="subscription.html" class="btn">Subscribe</a></div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 8K Strong IPTV. <span data-i18n="footer_rights">All rights reserved.</span></p>
+        <p>&copy; 2026 8K Strong IPTV. All rights reserved.</p>
     </footer>
 
-    <!-- Slideshow JavaScript -->
     <script>
         let slideIndex = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
         const slidesContainer = document.getElementById('slides');
-
-        function showSlide(n) {
-            if (n >= slides.length) slideIndex = 0;
-            if (n < 0) slideIndex = slides.length - 1;
-            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[slideIndex].classList.add('active');
-        }
-
-        function changeSlide(n) {
-            slideIndex += n;
-            showSlide(slideIndex);
-        }
-
-        function currentSlide(n) {
-            slideIndex = n;
-            showSlide(slideIndex);
-        }
-
-        setInterval(() => {
-            slideIndex++;
-            showSlide(slideIndex);
-        }, 5000);
-    </script>
-
-    <!-- Mobile menu toggle -->
-    <script>
+        function showSlide(n) { if (n >= slides.length) slideIndex = 0; if (n < 0) slideIndex = slides.length - 1; slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`; dots.forEach(dot => dot.classList.remove('active')); dots[slideIndex].classList.add('active'); }
+        function changeSlide(n) { slideIndex += n; showSlide(slideIndex); }
+        function currentSlide(n) { slideIndex = n; showSlide(slideIndex); }
+        setInterval(() => { slideIndex++; showSlide(slideIndex); }, 5000);
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const body = document.body;
-        toggleBtn.addEventListener('click', function() {
-            body.classList.toggle('mobile-menu-open');
-            const icon = toggleBtn.querySelector('i');
-            if (body.classList.contains('mobile-menu-open')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    </script>
-
-    <!-- FAQ accordion script -->
-    <script>
+        toggleBtn.addEventListener('click', function() { body.classList.toggle('mobile-menu-open'); const icon = toggleBtn.querySelector('i'); if (body.classList.contains('mobile-menu-open')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); } else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } });
         const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
-        });
-    </script>
-
-    <!-- Translation Script -->
-    <script>
-        const translations = {
-            en: {
-                home: "Home",
-                packages: "Packages",
-                convert: "Convert",
-                contact: "Contact Us",
-                resolution: "Resolution Center",
-                blogs: "Blogs",
-                find: "Find Content",
-                reseller: "Reseller",
-                subscription: "Subscription",
-                login: "Login",
-                search_placeholder: "Search channels, movies...",
-                search_btn: "Search",
-                hero_title: "8K Strong IPTV – The Ultimate 4K Streaming Experience",
-                hero_desc: "20,000+ live channels, 50,000+ movies & series, built-in VPN, and 24/7 support. Start watching today!",
-                trial_telegram: "Free Trial via Telegram",
-                trial_whatsapp: "Free Trial via WhatsApp",
-                slide1_title: "Premium IPTV Service",
-                slide1_desc: "20,000+ live channels & 50,000+ movies in 4K quality",
-                slide1_btn: "Subscribe Now",
-                slide3_title: "Limited Time Offer",
-                slide3_desc: "Get 20% off on yearly subscription",
-                slide3_btn: "Claim Offer",
-                credit_title: "Credit System",
-                credit_desc: "Simple and transparent – convert credits directly into subscription months.",
-                credit_more: "Manage users, create sub‑resellers, and enjoy white‑label options. <a href='reseller.html' style='color:var(--button-bg);'>Learn more</a>",
-                features_title: "Why Choose 8K Strong IPTV?",
-                feature1_title: "Ultra Fast",
-                feature1_desc: "High‑performance servers for buffer‑free streaming",
-                feature2_title: "VPN Protection",
-                feature2_desc: "Built‑in VPN for privacy and security",
-                feature3_title: "Worldwide Channels",
-                feature3_desc: "Channels from 100+ countries, sports, news, movies",
-                feature4_title: "24/7 Support",
-                feature4_desc: "Dedicated support team always ready to help",
-                feature5_title: "Reseller Dashboard",
-                feature5_desc: "Full control with real‑time analytics and user management",
-                feature6_title: "Easy Integration",
-                feature6_desc: "Compatible with all popular IPTV players",
-                testimonials_title: "What Our Customers Say",
-                testimonial1: "Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus.",
-                testimonial2: "As a reseller, the panel is super easy to use. My customers love the quality.",
-                testimonial3: "The 4K streams are amazing. Support responds within minutes. Highly recommended!",
-                faq_title: "Frequently Asked Questions",
-                faq1_q: "What devices are supported?",
-                faq1_a: "All major devices: Smart TVs (Samsung, LG), Android boxes, iOS, Android phones/tablets, Windows/Mac, and more.",
-                faq2_q: "Is there a free trial?",
-                faq2_a: "Yes! Contact us on Telegram or WhatsApp to get a 24‑hour free trial.",
-                faq3_q: "Can I use my own player?",
-                faq3_a: "Yes, you can use any player that supports M3U or M3U8 links, such as VLC, TiviMate, or IPTV Smarters.",
-                faq4_q: "Do you offer reseller discounts?",
-                faq4_a: "Yes! Check our Reseller page for bulk credit options and white‑label plans.",
-                plans_title: "Our Plans & Packages",
-                plan1_name: "1 Month",
-                plan3_name: "3 Months",
-                plan6_name: "6 Months",
-                plan12_name: "12 Months",
-                all_channels: "All channels",
-                hd: "HD quality",
-                one_conn: "1 connection",
-                subscribe: "Subscribe",
-                footer_rights: "All rights reserved."
-            },
-            ar: {
-                home: "الرئيسية",
-                packages: "الباقات",
-                convert: "تحويل",
-                contact: "اتصل بنا",
-                resolution: "مركز الحلول",
-                blogs: "المدونة",
-                find: "ابحث عن محتوى",
-                reseller: "إعادة البيع",
-                subscription: "الاشتراكات",
-                login: "تسجيل الدخول",
-                search_placeholder: "ابحث عن قنوات، أفلام...",
-                search_btn: "بحث",
-                hero_title: "8K Strong IPTV – تجربة البث المثالية 4K",
-                hero_desc: "أكثر من 20,000 قناة مباشرة، 50,000 فيلم ومسلسل، VPN مدمج، ودعم 24/7. ابدأ المشاهدة اليوم!",
-                trial_telegram: "تجربة مجانية عبر تيليجرام",
-                trial_whatsapp: "تجربة مجانية عبر واتساب",
-                slide1_title: "خدمة IPTV المميزة",
-                slide1_desc: "أكثر من 20,000 قناة مباشرة و 50,000 فيلم بجودة 4K",
-                slide1_btn: "اشترك الآن",
-                slide3_title: "عرض خاص",
-                slide3_desc: "احصل على خصم 20% على الاشتراك السنوي",
-                slide3_btn: "استفد من العرض",
-                credit_title: "نظام الأرصدة",
-                credit_desc: "بسيط وشفاف – حوّل الأرصدة مباشرة إلى أشهر اشتراك.",
-                credit_more: "إدارة المستخدمين، إنشاء موزعين فرعيين، وخيارات العلامة البيضاء. <a href='reseller.html' style='color:var(--button-bg);'>اعرف المزيد</a>",
-                features_title: "لماذا تختار 8K Strong IPTV؟",
-                feature1_title: "فائق السرعة",
-                feature1_desc: "سيرفرات عالية الأداء لبث بدون تقطيع",
-                feature2_title: "حماية VPN",
-                feature2_desc: "VPN مدمج للخصوصية والأمان",
-                feature3_title: "قنوات عالمية",
-                feature3_desc: "قنوات من أكثر من 100 دولة، رياضة، أخبار، أفلام",
-                feature4_title: "دعم 24/7",
-                feature4_desc: "فريق دعم متخصص جاهز لمساعدتك",
-                feature5_title: "لوحة تحكم الموزع",
-                feature5_desc: "تحكم كامل مع تحليلات فورية وإدارة المستخدمين",
-                feature6_title: "تكامل سهل",
-                feature6_desc: "متوافق مع جميع مشغلات IPTV الشهيرة",
-                testimonials_title: "ماذا يقول عملاؤنا",
-                testimonial1: "أفضل خدمة IPTV استخدمتها. لا تقطيع، تشكيلة قنوات رائعة، وVPN مكافأة لطيفة.",
-                testimonial2: "كموزع، لوحة التحكم سهلة الاستخدام للغاية. عملائي يحبون الجودة.",
-                testimonial3: "بث 4K مذهل. الدعم يستجيب في دقائق. أنصح به بشدة!",
-                faq_title: "الأسئلة الشائعة",
-                faq1_q: "ما هي الأجهزة المدعومة؟",
-                faq1_a: "جميع الأجهزة الرئيسية: تلفزيونات ذكية (سامسونج، LG)، أندرويد بوكس، iOS، هواتف/أجهزة لوحية أندرويد، ويندوز/ماك، والمزيد.",
-                faq2_q: "هل هناك فترة تجريبية مجانية؟",
-                faq2_a: "نعم! اتصل بنا على تيليجرام أو واتساب للحصول على 24 ساعة تجربة مجانية.",
-                faq3_q: "هل يمكنني استخدام مشغل خاص بي؟",
-                faq3_a: "نعم، يمكنك استخدام أي مشغل يدعم روابط M3U أو M3U8، مثل VLC أو TiviMate أو IPTV Smarters.",
-                faq4_q: "هل تقدمون خصومات للموزعين؟",
-                faq4_a: "نعم! تحقق من صفحة الموزعين لخيارات الأرصدة بالجملة والعلامة البيضاء.",
-                plans_title: "خططنا وباقاتنا",
-                plan1_name: "شهر واحد",
-                plan3_name: "3 أشهر",
-                plan6_name: "6 أشهر",
-                plan12_name: "12 شهراً",
-                all_channels: "جميع القنوات",
-                hd: "جودة HD",
-                one_conn: "اتصال واحد",
-                subscribe: "اشترك",
-                footer_rights: "جميع الحقوق محفوظة."
-            }
-        };
-
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.documentElement.dir = (lang === 'ar' || lang === 'he') ? 'rtl' : 'ltr';
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
-            });
-            const flag = document.getElementById('currentLangFlag');
-            const label = document.getElementById('currentLangLabel');
-            flag.src = `images/flags/${lang === 'en' ? 'uk' : lang === 'ar' ? 'arabic' : lang === 'fr' ? 'france' : lang === 'es' ? 'spain' : lang === 'zh' ? 'china' : 'israel'}.png`;
-            label.innerText = lang === 'en' ? 'EN' : lang === 'ar' ? 'العربية' : lang === 'fr' ? 'FR' : lang === 'es' ? 'ES' : lang === 'zh' ? '中文' : 'עברית';
-            localStorage.setItem('preferredLang', lang);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            changeLanguage(savedLang);
-        });
+        faqItems.forEach(item => { item.addEventListener('click', () => { item.classList.toggle('active'); }); });
     </script>
 </body>
 </html>
