@@ -1,32 +1,153 @@
-// Replace the loadPlaylist function with this version
-async function loadPlaylist() {
-    const resultsDiv = document.getElementById('results');
-    const statsDiv = document.getElementById('stats');
-    
-    // YOUR M3U LINK HERE - Replace with your actual link
-    const m3uLink = 'http://cf.business-cloud-8k.ru/get.php?username=6e2b3beeb9eb&password=9fc215ef2a&type=m3u_plus&output=ts';
-    
-    try {
-        const response = await fetch(m3uLink);
-        if (!response.ok) throw new Error('Playlist not accessible');
-        const text = await response.text();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Content – 8K Strong IPTV Search</title>
+    <meta name="description" content="Search through thousands of channels, movies, and series available on 8K Strong IPTV.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: #fff; min-height: 100vh; }
+        .header { background: rgba(10, 11, 26, 0.95); backdrop-filter: blur(10px); padding: 15px 50px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+        .logo img { height: 45px; width: auto; }
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-menu a { color: #ced4da; text-decoration: none; padding: 8px 16px; border-radius: 50px; transition: 0.3s; }
+        .nav-menu a:hover { background: rgba(255,255,255,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .hero { text-align: center; padding: 40px 20px; margin-bottom: 30px; }
+        .hero h1 { font-size: 2.5em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: #888; max-width: 700px; margin: 0 auto; }
+        .search-box { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; max-width: 800px; margin: 0 auto 30px; }
+        .search-box input { flex: 1; padding: 15px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; font-size: 16px; }
+        .search-box select { padding: 15px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; cursor: pointer; }
+        .stats { text-align: center; margin-bottom: 30px; color: #888; font-size: 14px; }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .result-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 15px; text-align: center; cursor: pointer; transition: 0.3s; }
+        .result-card:hover { transform: translateY(-5px); border-color: #ecb619; background: rgba(236,182,25,0.1); }
+        .result-icon { font-size: 40px; color: #ecb619; margin-bottom: 10px; }
+        .result-name { font-weight: 600; margin-bottom: 5px; font-size: 14px; }
+        .result-group { font-size: 11px; color: #888; }
+        .no-results { text-align: center; padding: 60px; color: #888; }
+        .footer { background: rgba(10,11,26,0.95); padding: 30px; text-align: center; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); color: #888; }
+        @media (max-width: 768px) { .header { padding: 15px 20px; flex-direction: column; gap: 10px; } .logo img { height: 35px; } .search-box { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><img src="images/logo.png" alt="8K Strong IPTV"></div>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="packages.html">Packages</a>
+            <a href="convert.html">Convert</a>
+            <a href="find.html">Find Content</a>
+            <a href="subscription.html">Subscription</a>
+            <a href="reseller.html">Reseller</a>
+            <a href="resolution.html">Resolution</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>Find Content</h1>
+            <p>Search through thousands of channels, movies, and series available on 8K Strong IPTV.</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search by channel name, movie, or series...">
+            <select id="groupFilter"><option value="all">All Categories</option></select>
+        </div>
+        <div id="stats" class="stats">Loading playlist...</div>
+        <div id="results" class="results-grid"></div>
+    </main>
+
+    <footer class="footer"><p>&copy; 2026 8K Strong IPTV. All rights reserved.</p></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        // ========== UPDATE YOUR M3U LINK HERE ==========
+        const M3U_LINK = 'http://cf.business-cloud-8k.ru/get.php?username=81b4b9d24234&password=5bdfefd037&type=m3u_plus&output=ts';
+        // =============================================
         
-        playlistData = parseM3U(text);
-        
-        // Get all unique groups
-        playlistData.forEach(item => allGroups.add(item.group));
-        
-        // Populate group filter
-        const groupFilter = document.getElementById('groupFilter');
-        groupFilter.innerHTML = '<option value="all">All Categories</option>' + 
-            Array.from(allGroups).sort().map(g => `<option value="${g}">${g}</option>`).join('');
-        
-        statsDiv.innerHTML = `✅ Loaded ${playlistData.length} channels`;
-        displayResults(playlistData);
-        
-    } catch (error) {
-        console.error('Error loading playlist:', error);
-        statsDiv.innerHTML = '❌ Could not load playlist. Please check the M3U link.';
-        resultsDiv.innerHTML = '<div class="no-results"><i class="fas fa-exclamation-triangle"></i><br>Playlist link not accessible</div>';
-    }
-}
+        let playlistData = [];
+        let allGroups = new Set();
+
+        async function loadPlaylist() {
+            const resultsDiv = document.getElementById('results');
+            const statsDiv = document.getElementById('stats');
+            try {
+                const response = await fetch(M3U_LINK);
+                if (!response.ok) throw new Error('Playlist not accessible');
+                const text = await response.text();
+                playlistData = parseM3U(text);
+                playlistData.forEach(item => allGroups.add(item.group));
+                const groupFilter = document.getElementById('groupFilter');
+                groupFilter.innerHTML = '<option value="all">All Categories</option>' + Array.from(allGroups).sort().map(g => `<option value="${g}">${g}</option>`).join('');
+                statsDiv.innerHTML = `✅ Loaded ${playlistData.length} channels`;
+                displayResults(playlistData);
+            } catch (error) {
+                console.error('Error loading playlist:', error);
+                statsDiv.innerHTML = '❌ Could not load playlist. Please check the M3U link.';
+                resultsDiv.innerHTML = '<div class="no-results"><i class="fas fa-exclamation-triangle"></i><br>Playlist link not accessible</div>';
+            }
+        }
+
+        function parseM3U(content) {
+            const lines = content.split('\n');
+            const items = [];
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line.startsWith('#EXTINF')) {
+                    let name = '';
+                    const nameMatch = line.match(/#EXTINF:-?[^,]*,?(.+)/);
+                    if (nameMatch) name = nameMatch[1].trim();
+                    let group = 'Other';
+                    const groupMatch = line.match(/group-title="([^"]*)"/);
+                    if (groupMatch && groupMatch[1]) group = groupMatch[1];
+                    if (i + 1 < lines.length && !lines[i+1].startsWith('#')) {
+                        const url = lines[i+1].trim();
+                        items.push({ name, group, url });
+                    }
+                }
+            }
+            return items;
+        }
+
+        function displayResults(items) {
+            const resultsDiv = document.getElementById('results');
+            const statsDiv = document.getElementById('stats');
+            if (items.length === 0) {
+                resultsDiv.innerHTML = '<div class="no-results"><i class="fas fa-search"></i><br>No results found. Try a different search term.</div>';
+                statsDiv.innerHTML = `🔍 Found 0 results`;
+                return;
+            }
+            statsDiv.innerHTML = `🔍 Found ${items.length} results`;
+            resultsDiv.innerHTML = items.map(item => `
+                <div class="result-card" onclick="alert('Stream URL: ${item.url}\nChannel: ${item.name}')">
+                    <div class="result-icon"><i class="fas fa-tv"></i></div>
+                    <div class="result-name">${escapeHtml(item.name)}</div>
+                    <div class="result-group">${escapeHtml(item.group)}</div>
+                </div>
+            `).join('');
+        }
+
+        function filterResults() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const selectedGroup = document.getElementById('groupFilter').value;
+            const filtered = playlistData.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(searchTerm);
+                const matchesGroup = selectedGroup === 'all' || item.group === selectedGroup;
+                return matchesSearch && matchesGroup;
+            });
+            displayResults(filtered);
+        }
+
+        function escapeHtml(text) { const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
+
+        document.getElementById('searchInput').addEventListener('input', filterResults);
+        document.getElementById('groupFilter').addEventListener('change', filterResults);
+        loadPlaylist();
+    </script>
+</body>
+</html>
