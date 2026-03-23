@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV Setup Guide – 8K Strong IPTV</title>
+    <meta name="description" content="Complete IPTV setup guide for Firestick, Android, iOS, Smart TV, and Windows. Learn how to install and configure your IPTV service.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: #fff; line-height: 1.6; }
+        .header { background: rgba(10,11,26,0.95); backdrop-filter: blur(10px); padding: 15px 50px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+        .logo { font-size: 24px; font-weight: 800; background: linear-gradient(45deg, #ecb619, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-menu { display: flex; gap: 20px; flex-wrap: wrap; }
+        .nav-menu a { color: #ced4da; text-decoration: none; padding: 8px 16px; border-radius: 50px; transition: 0.3s; }
+        .nav-menu a:hover { background: rgba(255,255,255,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .page-header { text-align: center; margin-bottom: 50px; }
+        .page-header h1 { font-size: 3em; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
+        .device-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .device-card { background: rgba(255,255,255,0.03); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .device-card:hover { transform: translateY(-5px); border-color: #ecb619; }
+        .device-header { background: rgba(236,182,25,0.1); padding: 20px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .device-header i { font-size: 2.5em; color: #ecb619; }
+        .device-header h2 { font-size: 1.5em; }
+        .device-content { padding: 20px; }
+        .device-content ol, .device-content ul { margin: 15px 0 0 20px; }
+        .device-content li { margin: 10px 0; color: #aaa; }
+        .note { background: rgba(236,182,25,0.1); border-left: 4px solid #ecb619; padding: 15px; margin-top: 20px; border-radius: 8px; }
+        .footer { background: #05192f; padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin: 10px 0; }
+        .footer-column ul li a { color: #888; text-decoration: none; transition: color 0.3s; }
+        .footer-column ul li a:hover { color: #ecb619; }
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #888; font-size: 12px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #888; text-decoration: none; transition: all 0.3s; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        @media (max-width: 768px) {
+            .header { padding: 15px 20px; flex-direction: column; gap: 10px; }
+            .device-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">8K STRONG IPTV</div>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="convert.html">Convert</a>
+            <a href="reseller.html">Reseller</a>
+            <a href="subscription.html">Subscription</a>
+            <a href="setup-guide.html">Setup Guide</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>IPTV Setup Guide</h1>
+            <p>Follow these step-by-step instructions to set up 8K Strong IPTV on your device</p>
+        </div>
+
+        <div class="device-grid">
+            <!-- Firestick / Android TV -->
+            <div class="device-card">
+                <div class="device-header"><i class="fab fa-amazon"></i><h2>Firestick / Fire TV</h2></div>
+                <div class="device-content">
+                    <ol>
+                        <li>Go to Settings → My Fire TV → Developer Options</li>
+                        <li>Enable "Apps from Unknown Sources"</li>
+                        <li>Search for and install "Downloader" from the App Store</li>
+                        <li>Open Downloader and enter the IPTV app URL (TiviMate, IPTV Smarters)</li>
+                        <li>Install the app and open it</li>
+                        <li>Enter your M3U URL or Xtream Codes credentials</li>
+                        <li>Start watching!</li>
+                    </ol>
+                    <div class="note"><i class="fas fa-lightbulb"></i> Recommended app: TiviMate for best experience</div>
+                </div>
+            </div>
+
+            <!-- Android Phone / Tablet -->
+            <div class="device-card">
+                <div class="device-header"><i class="fab fa-android"></i><h2>Android Phone/Tablet</h2></div>
+                <div class="device-content">
+                    <ol>
+                        <li>Open Google Play Store</li>
+                        <li>Search for "IPTV Smarters Pro" or "TiviMate"</li>
+                        <li>Install the app</li>
+                        <li>Open the app and select "Login with Xtream Codes" or "Load M3U"</li>
+                        <li>Enter your credentials or M3U URL</li>
+                        <li>Enjoy your channels!</li>
+                    </ol>
+                    <div class="note"><i class="fas fa-lightbulb"></i> IPTV Smarters Pro is free and easy to use</div>
+                </div>
+            </div>
+
+            <!-- iPhone / iPad -->
+            <div class="device-card">
+                <div class="device-header"><i class="fab fa-apple"></i><h2>iPhone / iPad</h2></div>
+                <div class="device-content">
+                    <ol>
+                        <li>Open App Store</li>
+                        <li>Search for "GSE IPTV" or "IPTV Smarters"</li>
+                        <li>Download and install the app</li>
+                        <li>Open the app and tap "Add Playlist"</li>
+                        <li>Select "Remote Playlist" and paste your M3U URL</li>
+                        <li>Your channels will load automatically</li>
+                    </ol>
+                    <div class="note"><i class="fas fa-lightbulb"></i> GSE IPTV is highly recommended for iOS</div>
+                </div>
+            </div>
+
+            <!-- Smart TV (Samsung/LG) -->
+            <div class="device-card">
+                <div class="device-header"><i class="fas fa-tv"></i><h2>Smart TV (Samsung/LG)</h2></div>
+                <div class="device-content">
+                    <ol>
+                        <li>Open the Smart TV app store (Samsung Apps / LG Content Store)</li>
+                        <li>Search for "Smart IPTV" or "SS IPTV"</li>
+                        <li>Install the app</li>
+                        <li>Open the app and note your device MAC address</li>
+                        <li>Upload your playlist to the app's website using the MAC address</li>
+                        <li>Restart the app to see your channels</li>
+                    </ol>
+                    <div class="note"><i class="fas fa-lightbulb"></i> Smart IPTV requires one-time payment for premium features</div>
+                </div>
+            </div>
+
+            <!-- Windows / Mac -->
+            <div class="device-card">
+                <div class="device-header"><i class="fab fa-windows"></i><h2>Windows / Mac</h2></div>
+                <div class="device-content">
+                    <ol>
+                        <li>Download VLC Media Player from videolan.org (free)</li>
+                        <li>Open VLC and go to Media → Open Network Stream</li>
+                        <li>Paste your M3U URL and click Play</li>
+                        <li>To browse channels, click View → Playlist</li>
+                        <li>Alternatively, download IPTV Smarters for Windows</li>
+                    </ol>
+                    <div class="note"><i class="fas fa-lightbulb"></i> VLC is free and works on all computers</div>
+                </div>
+            </div>
+
+            <!-- Enigma2 / MAG Box -->
+            <div class="device-card">
+                <div class="device-header"><i class="fas fa-microchip"></i><h2>Enigma2 / MAG Box</h2></div>
+                <div class="device-content">
+                    <ol>
+                        <li>Access your device portal via browser (IP address)</li>
+                        <li>Go to Settings → Servers → Portals</li>
+                        <li>Add new portal with your Xtream Codes server URL</li>
+                        <li>Enter your username and password</li>
+                        <li>Save and restart the device</li>
+                        <li>Channels will load automatically</li>
+                    </ol>
+                    <div class="note"><i class="fas fa-lightbulb"></i> Use Xtream Codes format for best compatibility</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="note" style="margin-top: 30px; text-align: center;">
+            <i class="fas fa-question-circle"></i> Need help? Contact our 24/7 support team on <a href="https://t.me/8kstrong_support" style="color:#ecb619;">Telegram</a> or <a href="https://wa.me/1234567890" style="color:#ecb619;">WhatsApp</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column"><h4>8K Strong</h4><p style="color:#888;">Premium IPTV service</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-telegram"></i></a></div></div>
+            <div class="footer-column"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="blogs.html">Blog</a></li></ul></div>
+            <div class="footer-column"><h4>Product</h4><ul><li><a href="subscription.html">Pricing</a></li><li><a href="reseller.html">Resellers Plan</a></li><li><a href="setup-guide.html">Setup Guide</a></li></ul></div>
+            <div class="footer-column"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="dmca.html">DMCA Policy</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 8K Strong IPTV. All rights reserved.</p></div>
+    </footer>
+</body>
+</html>
