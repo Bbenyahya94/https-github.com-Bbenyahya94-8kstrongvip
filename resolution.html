@@ -3,682 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resolution Center – 8K Strong IPTV Support</title>
-    <meta name="description" content="Find solutions for common IPTV issues: buffering, login problems, channel not working, and more. Step-by-step guides with images.">
+    <title>IPTV Support Center – Troubleshooting & Help | 8K Strong IPTV</title>
+    <meta name="description" content="Find solutions for common IPTV issues: buffering, login problems, channel not working, and more. Step-by-step guides and 24/7 support.">
+    <meta name="keywords" content="iptv support, iptv troubleshooting, iptv buffering fix, iptv login error, iptv setup guide, iptv help center">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="8K Strong IPTV">
+    <link rel="canonical" href="https://8kstrongvip.com/resolution.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        /* Same styles as previous pages */
+        :root {
+            --gray-100: #041324;
+            --gray-200: #05192f;
+            --gray-300: #061e39;
+            --gray-400: #072342;
+            --gray-500: #a6afb8;
+            --gray-600: #bfc8e2;
+            --gray-700: #ced4da;
+            --gray-800: #eff2f7;
+            --gray-900: #f3f6f9;
+            --button-bg: #ecb619;
+            --button-hover: #d4a514;
         }
-
-        body {
-            background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%);
-            color: #fff;
-            min-height: 100vh;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(10, 11, 26, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 45px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-menu a {
-            color: #ced4da;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .nav-menu a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 30px;
-            margin-bottom: 40px;
-        }
-
-        .hero h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fff, #ecb619);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: #888;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Search Bar */
-        .search-container {
-            max-width: 500px;
-            margin: 30px auto 0;
-            position: relative;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            color: white;
-            font-size: 16px;
-        }
-
-        .search-container input:focus {
-            outline: none;
-            border-color: #ecb619;
-        }
-
-        .search-container i {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ecb619;
-        }
-
-        /* Categories */
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .category-btn {
-            padding: 10px 25px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            color: #ccc;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .category-btn:hover, .category-btn.active {
-            background: #ecb619;
-            color: #0a0b1a;
-            border-color: #ecb619;
-        }
-
-        /* Problems Grid */
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .problem-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-5px);
-            border-color: #ecb619;
-        }
-
-        .problem-image {
-            height: 200px;
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .problem-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .problem-image .icon {
-            font-size: 60px;
-            color: #ecb619;
-        }
-
-        .problem-content {
-            padding: 20px;
-        }
-
-        .problem-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #ecb619;
-        }
-
-        .problem-desc {
-            color: #aaa;
-            font-size: 14px;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .solution {
-            background: rgba(236, 182, 25, 0.1);
-            padding: 12px;
-            border-radius: 12px;
-            margin-top: 10px;
-        }
-
-        .solution-title {
-            font-weight: bold;
-            color: #ecb619;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .solution-steps {
-            list-style: none;
-            font-size: 13px;
-            color: #ccc;
-        }
-
-        .solution-steps li {
-            margin: 8px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .solution-steps li i {
-            color: #ecb619;
-            margin-top: 2px;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 30px;
-            padding: 40px;
-            margin-top: 40px;
-        }
-
-        .faq-section h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 30px;
-            background: linear-gradient(45deg, #fff, #ecb619);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-        }
-
-        .faq-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            cursor: pointer;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .faq-question i {
-            color: #ecb619;
-            transition: transform 0.3s;
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: #aaa;
-            margin-top: 0;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            margin-top: 15px;
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(45deg);
-        }
-
-        /* Contact Support */
-        .support-box {
-            background: linear-gradient(135deg, rgba(236, 182, 25, 0.1), rgba(255, 0, 255, 0.1));
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .support-box h3 {
-            margin-bottom: 15px;
-        }
-
-        .support-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .support-btn {
-            background: #ecb619;
-            color: #0a0b1a;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .support-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .support-btn.whatsapp {
-            background: #25D366;
-            color: white;
-        }
-
-        .support-btn.telegram {
-            background: #0088cc;
-            color: white;
-        }
-
-        .footer {
-            background: rgba(10, 11, 26, 0.95);
-            padding: 30px;
-            text-align: center;
-            margin-top: 60px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #888;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--gray-100); color: var(--gray-800); line-height: 1.6; }
+        .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
+        .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .logo-area a { display: flex; align-items: center; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .lang-btn { background: var(--gray-300); border: 1px solid var(--gray-400); color: var(--gray-800); padding: 8px 15px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .theme-toggle { background: transparent; border: none; color: var(--gray-700); font-size: 1.5em; cursor: pointer; }
+        .main-nav { margin-top: 10px; }
+        .main-nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 20px; justify-content: center; }
+        .main-nav a { color: var(--gray-700); text-decoration: none; padding: 8px 12px; border-radius: 50px; transition: 0.3s; font-weight: 500; }
+        .main-nav a:hover { background: var(--gray-300); color: var(--gray-900); }
+        .mobile-menu { display: none; background: var(--gray-200); border-top: 1px solid var(--gray-400); padding: 20px; margin-top: 10px; }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .mobile-menu a { color: var(--gray-700); text-decoration: none; font-size: 1.2em; padding: 10px; display: block; border-radius: 10px; }
+        .mobile-menu-open .mobile-menu { display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .hero-section { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-200), var(--gray-300)); border-radius: 30px; margin-bottom: 40px; }
+        .hero-section h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-section p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto; }
+        .search-box { max-width: 600px; margin: 30px auto 0; position: relative; }
+        .search-box input { width: 100%; padding: 15px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; font-size: 16px; }
+        .search-box input:focus { outline: none; border-color: #ecb619; }
+        .search-box i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #ecb619; }
+        .section-title { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .problems-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .problem-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; overflow: hidden; transition: 0.3s; }
+        .problem-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
+        .problem-header { background: var(--gray-300); padding: 20px; display: flex; align-items: center; gap: 15px; }
+        .problem-icon { font-size: 2em; color: var(--button-bg); }
+        .problem-title { font-size: 1.3em; font-weight: bold; color: var(--gray-900); }
+        .problem-content { padding: 20px; }
+        .problem-desc { color: var(--gray-600); margin-bottom: 15px; }
+        .solution { background: rgba(236,182,25,0.1); padding: 15px; border-radius: 12px; }
+        .solution-title { font-weight: bold; color: var(--button-bg); margin-bottom: 10px; }
+        .solution-steps { list-style: none; }
+        .solution-steps li { margin: 8px 0; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--gray-700); }
+        .solution-steps li i { color: var(--button-bg); margin-top: 2px; }
+        .support-box { background: linear-gradient(135deg, rgba(236,182,25,0.1), rgba(255,0,255,0.1)); border-radius: 20px; padding: 30px; text-align: center; margin-top: 40px; }
+        .support-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .support-btn { background: #ecb619; color: #0a0b1a; text-decoration: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .support-btn.whatsapp { background: #25D366; color: white; }
+        .support-btn.telegram { background: #0088cc; color: white; }
+        .support-btn:hover { transform: scale(1.05); }
+        .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin: 10px 0; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; }
+        .footer-column ul li a:hover { color: #ecb619; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
         @media (max-width: 768px) {
-            .header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 10px;
-            }
-            .logo img {
-                height: 35px;
-            }
-            .problems-grid {
-                grid-template-columns: 1fr;
-            }
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
+            .header { padding: 10px 20px; }
+            .logo-img { max-height: 40px; }
+            .mobile-menu-toggle { display: block; }
+            .main-nav { display: none; }
+            .hero-section h1 { font-size: 2em; }
+            .problems-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <img src="images/logo.png" alt="8K Strong IPTV">
-        </div>
-        <nav class="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="convert.html">Convert</a>
-            <a href="packages.html">Packages</a>
-            <a href="resolution.html">Resolution</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn"><img src="images/flags/uk.png" alt="English"> EN</button></div><button class="theme-toggle"><i class="bx bx-moon"></i></button></div></div>
+        <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="resolution.html">Resolution Center</a></li><li><a href="contact.html">Contact Us</a></li></ul></nav>
+        <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="resolution.html">Resolution Center</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
     </header>
 
     <main class="container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1>Resolution Center</h1>
-            <p>Find solutions to common IPTV issues. Select a problem below or search for your issue.</p>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search for a problem...">
-                <i class="fas fa-search"></i>
-            </div>
-        </div>
+        <section class="hero-section">
+            <h1>IPTV Support & Resolution Center</h1>
+            <p>Find solutions to common IPTV issues. Search for your problem or browse our troubleshooting guides.</p>
+            <div class="search-box"><input type="text" id="searchInput" placeholder="Search for a problem..."><i class="fas fa-search"></i></div>
+        </section>
 
-        <!-- Categories -->
-        <div class="categories">
-            <button class="category-btn active" data-category="all">All Problems</button>
-            <button class="category-btn" data-category="playback">Playback Issues</button>
-            <button class="category-btn" data-category="login">Login & Connection</button>
-            <button class="category-btn" data-category="quality">Quality Issues</button>
-            <button class="category-btn" data-category="setup">Setup & Configuration</button>
-        </div>
+        <div id="problemsContainer" class="problems-grid"></div>
 
-        <!-- Problems Grid -->
-        <div id="problemsGrid" class="problems-grid"></div>
-
-        <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid" id="faqGrid"></div>
-        </div>
-
-        <!-- Contact Support -->
         <div class="support-box">
             <h3>Still having issues?</h3>
             <p>Our support team is available 24/7 to help you.</p>
             <div class="support-buttons">
-                <a href="https://wa.me/1234567890" class="support-btn whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Support
-                </a>
-                <a href="https://t.me/8kstrong_support" class="support-btn telegram" target="_blank">
-                    <i class="fab fa-telegram-plane"></i> Telegram Support
-                </a>
-                <a href="contact.html" class="support-btn">
-                    <i class="fas fa-envelope"></i> Email Support
-                </a>
+                <a href="https://wa.me/1234567890" class="support-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Support</a>
+                <a href="https://t.me/8kstrong_support" class="support-btn telegram" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram Support</a>
+                <a href="contact.html" class="support-btn"><i class="fas fa-envelope"></i> Email Support</a>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 8K Strong IPTV. All rights reserved.</p>
-    </footer>
+    <footer class="footer"><div class="footer-content"><div class="footer-column"><div class="footer-logo">8K</div><div class="footer-description">Premium IPTV service with the best quality and support.</div><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-telegram"></i></a></div></div><div class="footer-column"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="trial.html">Free 24H Trial</a></li><li><a href="blogs.html">Blog</a></li></ul></div><div class="footer-column"><h4>Product</h4><ul><li><a href="pricing.html">Pricing</a></li><li><a href="reseller.html">Resellers Plan</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="faq.html">FAQ</a></li></ul></div><div class="footer-column"><h4>Help</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="dmca.html">DMCA Policy</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 8K Strong IPTV. All rights reserved.</p></div></footer>
 
     <script>
-        // Problems Data with images and solutions
         const problems = [
-            {
-                id: 1,
-                title: "Buffering / Freezing",
-                category: "playback",
-                icon: "fa-spinner",
-                desc: "Video keeps buffering or freezing during playback.",
-                solution: [
-                    "Check your internet speed (minimum 15 Mbps for 4K, 8 Mbps for HD)",
-                    "Restart your router and device",
-                    "Try using a VPN to bypass ISP throttling",
-                    "Reduce video quality in player settings",
-                    "Switch to a wired connection (Ethernet) if possible",
-                    "Clear cache in your IPTV app"
-                ]
-            },
-            {
-                id: 2,
-                title: "Login Failed / Invalid Credentials",
-                category: "login",
-                icon: "fa-key",
-                desc: "Cannot login to the IPTV service. Invalid username or password.",
-                solution: [
-                    "Double-check username and password for typos",
-                    "Make sure Caps Lock is off",
-                    "Copy and paste credentials exactly as provided",
-                    "Check if your subscription is still active",
-                    "Reset password via contact support",
-                    "Ensure the server URL is correct"
-                ]
-            },
-            {
-                id: 3,
-                title: "Channel Not Working / Black Screen",
-                category: "playback",
-                icon: "fa-tv",
-                desc: "Some channels show black screen or fail to load.",
-                solution: [
-                    "Try a different channel to see if issue is specific",
-                    "Restart your IPTV app or device",
-                    "Check if the channel is currently offline",
-                    "Update your IPTV app to latest version",
-                    "Clear app cache and data",
-                    "Contact support if multiple channels are down"
-                ]
-            },
-            {
-                id: 4,
-                title: "Poor Video Quality / Pixelation",
-                category: "quality",
-                icon: "fa-image",
-                desc: "Video looks pixelated, blurry, or low resolution.",
-                solution: [
-                    "Check your internet connection speed",
-                    "Select a higher quality option in player",
-                    "Close other apps using bandwidth",
-                    "Use a wired connection instead of Wi-Fi",
-                    "Try a VPN to avoid ISP throttling",
-                    "Restart your router"
-                ]
-            },
-            {
-                id: 5,
-                title: "M3U Link Not Working",
-                category: "setup",
-                icon: "fa-link",
-                desc: "The M3U playlist URL does not load or shows error.",
-                solution: [
-                    "Verify the URL is correct (no spaces or typos)",
-                    "Test the link in VLC Media Player first",
-                    "Check if the link has expired",
-                    "Try using the Xtream Codes format",
-                    "Make sure your device has internet connection",
-                    "Contact your provider if link is invalid"
-                ]
-            },
-            {
-                id: 6,
-                title: "No Sound / Audio Issues",
-                category: "playback",
-                icon: "fa-volume-mute",
-                desc: "Video plays but there is no sound.",
-                solution: [
-                    "Check your device volume and mute settings",
-                    "Try a different channel to isolate the issue",
-                    "Restart your device",
-                    "Check audio output settings in IPTV app",
-                    "Try using headphones to test",
-                    "Update audio drivers if on PC"
-                ]
-            },
-            {
-                id: 7,
-                title: "VPN Not Working / Slow",
-                category: "login",
-                icon: "fa-shield-alt",
-                desc: "VPN connection is slow or not connecting.",
-                solution: [
-                    "Try a different VPN server location",
-                    "Switch to a premium VPN service",
-                    "Check if your ISP blocks VPNs",
-                    "Use OpenVPN protocol instead of WireGuard",
-                    "Restart your device and VPN app",
-                    "Contact your VPN provider for support"
-                ]
-            },
-            {
-                id: 8,
-                title: "App Crashes / Not Opening",
-                category: "setup",
-                icon: "fa-exclamation-triangle",
-                desc: "IPTV app crashes or fails to start.",
-                solution: [
-                    "Restart your device",
-                    "Clear app cache and data",
-                    "Update the app to latest version",
-                    "Reinstall the app",
-                    "Check if device has enough storage",
-                    "Contact app developer for support"
-                ]
-            },
-            {
-                id: 9,
-                title: "EPG Not Loading / Empty Guide",
-                category: "setup",
-                icon: "fa-calendar-alt",
-                desc: "Electronic Program Guide is empty or not loading.",
-                solution: [
-                    "Check if EPG URL is correct",
-                    "Refresh the guide in app settings",
-                    "Wait a few minutes for EPG to load",
-                    "Clear app cache",
-                    "Check if your subscription includes EPG",
-                    "Use a different IPTV app"
-                ]
-            }
+            { id: 1, title: "Buffering / Freezing", icon: "fa-spinner", desc: "Video keeps buffering or freezing during playback.", solution: ["Check your internet speed (minimum 15 Mbps for 4K)", "Restart your router and device", "Try using a VPN to bypass ISP throttling", "Reduce video quality in player settings", "Switch to a wired connection (Ethernet)"] },
+            { id: 2, title: "Login Failed / Invalid Credentials", icon: "fa-key", desc: "Cannot login to the IPTV service.", solution: ["Double-check username and password", "Make sure Caps Lock is off", "Check if your subscription is still active", "Reset password via contact support"] },
+            { id: 3, title: "Channel Not Working / Black Screen", icon: "fa-tv", desc: "Some channels show black screen or fail to load.", solution: ["Try a different channel", "Restart your IPTV app or device", "Check if the channel is currently offline", "Update your IPTV app to latest version", "Clear app cache and data"] },
+            { id: 4, title: "Poor Video Quality / Pixelation", icon: "fa-image", desc: "Video looks pixelated or low resolution.", solution: ["Check your internet connection speed", "Select a higher quality option in player", "Close other apps using bandwidth", "Use a wired connection instead of Wi-Fi", "Try a VPN to avoid ISP throttling"] },
+            { id: 5, title: "M3U Link Not Working", icon: "fa-link", desc: "The M3U playlist URL does not load.", solution: ["Verify the URL is correct", "Test the link in VLC Media Player first", "Check if the link has expired", "Try using the Xtream Codes format"] },
+            { id: 6, title: "No Sound / Audio Issues", icon: "fa-volume-mute", desc: "Video plays but there is no sound.", solution: ["Check your device volume", "Try a different channel", "Restart your device", "Check audio output settings", "Update audio drivers"] }
         ];
 
-        const faqs = [
-            {
-                question: "What internet speed do I need for IPTV?",
-                answer: "For HD quality: 8-10 Mbps. For 4K quality: 15-25 Mbps. For multiple connections, add 10 Mbps per additional connection."
-            },
-            {
-                question: "Why do channels freeze during peak hours?",
-                answer: "ISP throttling is common during peak hours. Use a VPN to bypass this issue and get stable streaming."
-            },
-            {
-                question: "How do I set up IPTV on Firestick?",
-                answer: "Install Downloader app, enter the URL of your IPTV app, download and install, then add your M3U link or Xtream Codes."
-            },
-            {
-                question: "What is the difference between M3U and Xtream Codes?",
-                answer: "M3U is a playlist link. Xtream Codes provide separate server URL, username, and password for easier management and EPG."
-            },
-            {
-                question: "Can I use IPTV on multiple devices?",
-                answer: "Yes, but each connection counts separately. Contact us for multi-connection packages."
-            }
-        ];
-
-        let currentCategory = "all";
-        let currentSearch = "";
-
-        function renderProblems() {
-            const grid = document.getElementById('problemsGrid');
-            let filtered = problems;
-
-            // Filter by category
-            if (currentCategory !== "all") {
-                filtered = filtered.filter(p => p.category === currentCategory);
-            }
-
-            // Filter by search
-            if (currentSearch) {
-                filtered = filtered.filter(p => 
-                    p.title.toLowerCase().includes(currentSearch) || 
-                    p.desc.toLowerCase().includes(currentSearch)
-                );
-            }
-
-            if (filtered.length === 0) {
-                grid.innerHTML = '<div style="text-align: center; padding: 40px; color: #888;">No problems found. Try a different search term.</div>';
-                return;
-            }
-
-            grid.innerHTML = filtered.map(problem => `
-                <div class="problem-card" data-category="${problem.category}">
-                    <div class="problem-image">
-                        <i class="fas ${problem.icon} icon"></i>
-                    </div>
-                    <div class="problem-content">
-                        <div class="problem-title">${problem.title}</div>
-                        <div class="problem-desc">${problem.desc}</div>
-                        <div class="solution">
-                            <div class="solution-title"><i class="fas fa-lightbulb"></i> How to fix:</div>
-                            <ul class="solution-steps">
-                                ${problem.solution.map(step => `<li><i class="fas fa-check-circle"></i> ${step}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </div>
+        function renderProblems(filteredProblems) {
+            const container = document.getElementById('problemsContainer');
+            container.innerHTML = filteredProblems.map(problem => `
+                <div class="problem-card">
+                    <div class="problem-header"><div class="problem-icon"><i class="fas ${problem.icon}"></i></div><div class="problem-title">${problem.title}</div></div>
+                    <div class="problem-content"><div class="problem-desc">${problem.desc}</div><div class="solution"><div class="solution-title"><i class="fas fa-lightbulb"></i> How to fix:</div><ul class="solution-steps">${problem.solution.map(step => `<li><i class="fas fa-check-circle"></i> ${step}</li>`).join('')}</ul></div></div>
                 </div>
             `).join('');
         }
 
-        function renderFaqs() {
-            const faqGrid = document.getElementById('faqGrid');
-            faqGrid.innerHTML = faqs.map((faq, index) => `
-                <div class="faq-item" onclick="toggleFaq(this)">
-                    <div class="faq-question">
-                        <span>${faq.question}</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">${faq.answer}</div>
-                </div>
-            `).join('');
+        function filterProblems() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = problems.filter(p => p.title.toLowerCase().includes(searchTerm) || p.desc.toLowerCase().includes(searchTerm));
+            renderProblems(filtered);
         }
 
-        function toggleFaq(element) {
-            element.classList.toggle('active');
-        }
+        document.getElementById('searchInput').addEventListener('input', filterProblems);
+        renderProblems(problems);
 
-        // Category filters
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentCategory = btn.dataset.category;
-                renderProblems();
-            });
-        });
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            currentSearch = e.target.value.toLowerCase();
-            renderProblems();
-        });
-
-        // Initial render
-        renderProblems();
-        renderFaqs();
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+        toggleBtn.addEventListener('click', function() { body.classList.toggle('mobile-menu-open'); const icon = toggleBtn.querySelector('i'); if (body.classList.contains('mobile-menu-open')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); } else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } });
     </script>
 </body>
 </html>
