@@ -3,466 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Plans – 8K Strong IPTV</title>
-    <meta name="description" content="Choose your IPTV subscription plan. 1 Month €13, 3 Months €25, 6 Months €33, 12 Months €55 + Free IboproApp activation. 4K quality, VPN included.">
+    <title>IPTV Subscription Plans – 4K Quality from €13 | 8K Strong IPTV</title>
+    <meta name="description" content="Choose your IPTV subscription plan: 1 month €13, 3 months €25, 6 months €33, 12 months €55. 4K quality, VPN included, 24/7 support. Start watching today!">
+    <meta name="keywords" content="iptv subscription, best iptv service, 4k iptv, iptv plans, iptv 12 months, iptv with vpn, affordable iptv, buy iptv online">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="8K Strong IPTV">
+    <link rel="canonical" href="https://8kstrongvip.com/subscription.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        /* Same styles as reseller page, add subscription specific styles */
+        :root {
+            --gray-100: #041324;
+            --gray-200: #05192f;
+            --gray-300: #061e39;
+            --gray-400: #072342;
+            --gray-500: #a6afb8;
+            --gray-600: #bfc8e2;
+            --gray-700: #ced4da;
+            --gray-800: #eff2f7;
+            --gray-900: #f3f6f9;
+            --button-bg: #ecb619;
+            --button-hover: #d4a514;
         }
-
-        body {
-            background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%);
-            color: #fff;
-            min-height: 100vh;
-        }
-
-        .header {
-            background: rgba(10, 11, 26, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 45px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-menu a {
-            color: #ced4da;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .nav-menu a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-        }
-
-        .hero h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fff, #ecb619);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: #888;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Plans Grid */
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .plan-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 30px;
-            text-align: center;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-10px);
-            border-color: #ecb619;
-            box-shadow: 0 20px 40px rgba(236, 182, 25, 0.2);
-        }
-
-        .plan-card.popular::before {
-            content: "MOST POPULAR";
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: #ecb619;
-            color: #0a0b1a;
-            padding: 5px 40px;
-            font-size: 12px;
-            font-weight: bold;
-            transform: rotate(45deg);
-        }
-
-        .plan-icon {
-            font-size: 50px;
-            color: #ecb619;
-            margin-bottom: 20px;
-        }
-
-        .plan-name {
-            font-size: 1.8em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .plan-price {
-            font-size: 2.5em;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: #ecb619;
-        }
-
-        .plan-price small {
-            font-size: 0.4em;
-            color: #888;
-        }
-
-        .plan-features {
-            list-style: none;
-            margin: 25px 0;
-            text-align: left;
-            padding: 0 15px;
-        }
-
-        .plan-features li {
-            margin: 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #ccc;
-        }
-
-        .plan-features li i {
-            color: #ecb619;
-            width: 20px;
-        }
-
-        .plan-btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #ecb619, #d4a514);
-            color: #0a0b1a;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-top: 15px;
-            width: 100%;
-        }
-
-        .plan-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(236, 182, 25, 0.4);
-        }
-
-        /* Comparison Table */
-        .comparison {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-        }
-
-        .comparison h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8em;
-            background: linear-gradient(45deg, #fff, #ecb619);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .comparison-table th {
-            color: #ecb619;
-            font-weight: 600;
-        }
-
-        .comparison-table td:first-child {
-            text-align: left;
-            font-weight: 500;
-        }
-
-        .comparison-table .check {
-            color: #00ff00;
-        }
-
-        .comparison-table .times {
-            color: #ff4444;
-        }
-
-        /* Payment Methods */
-        .payment-methods {
-            text-align: center;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            margin-top: 30px;
-        }
-
-        .payment-methods h3 {
-            margin-bottom: 20px;
-        }
-
-        .payment-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            font-size: 2em;
-            color: #888;
-        }
-
-        .payment-icons i {
-            transition: 0.3s;
-        }
-
-        .payment-icons i:hover {
-            color: #ecb619;
-        }
-
-        .footer {
-            background: rgba(10, 11, 26, 0.95);
-            padding: 30px;
-            text-align: center;
-            margin-top: 60px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #888;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--gray-100); color: var(--gray-800); line-height: 1.6; }
+        .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
+        .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .logo-area a { display: flex; align-items: center; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .lang-btn { background: var(--gray-300); border: 1px solid var(--gray-400); color: var(--gray-800); padding: 8px 15px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .theme-toggle { background: transparent; border: none; color: var(--gray-700); font-size: 1.5em; cursor: pointer; }
+        .main-nav { margin-top: 10px; }
+        .main-nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 20px; justify-content: center; }
+        .main-nav a { color: var(--gray-700); text-decoration: none; padding: 8px 12px; border-radius: 50px; transition: 0.3s; font-weight: 500; }
+        .main-nav a:hover { background: var(--gray-300); color: var(--gray-900); }
+        .mobile-menu { display: none; background: var(--gray-200); border-top: 1px solid var(--gray-400); padding: 20px; margin-top: 10px; }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .mobile-menu a { color: var(--gray-700); text-decoration: none; font-size: 1.2em; padding: 10px; display: block; border-radius: 10px; }
+        .mobile-menu-open .mobile-menu { display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .hero-section { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-200), var(--gray-300)); border-radius: 30px; margin-bottom: 40px; }
+        .hero-section h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-section p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .plan-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 24px; padding: 30px; text-align: center; transition: 0.3s; position: relative; }
+        .plan-card:hover { transform: translateY(-10px); border-color: var(--button-bg); box-shadow: 0 15px 30px rgba(236,182,25,0.2); }
+        .plan-card.popular::before { content: "MOST POPULAR"; position: absolute; top: 20px; right: -30px; background: var(--button-bg); color: var(--gray-100); padding: 5px 40px; font-size: 12px; font-weight: bold; transform: rotate(45deg); }
+        .plan-icon { font-size: 3em; color: var(--button-bg); margin-bottom: 20px; }
+        .plan-card h3 { font-size: 1.8em; margin-bottom: 10px; color: var(--gray-900); }
+        .price { font-size: 2.2em; font-weight: 800; margin: 15px 0; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .plan-features { list-style: none; margin: 20px 0; }
+        .plan-features li { margin: 10px 0; color: var(--gray-600); display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .plan-features li i { color: var(--button-bg); }
+        .btn { background: var(--button-bg); color: white; text-decoration: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-block; margin-top: 15px; width: 100%; text-align: center; }
+        .btn:hover { background: var(--button-hover); transform: scale(1.05); }
+        .comparison-table { width: 100%; border-collapse: collapse; background: var(--gray-200); border-radius: 20px; overflow: hidden; margin: 40px 0; }
+        .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid var(--gray-400); }
+        .comparison-table th { background: var(--gray-300); color: #ecb619; }
+        .comparison-table td:first-child { text-align: left; font-weight: 500; }
+        .check { color: #00ff00; }
+        .times { color: #ff4444; }
+        .payment-methods { text-align: center; padding: 30px; background: var(--gray-200); border-radius: 20px; margin-top: 30px; }
+        .payment-icons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 2em; color: #888; }
+        .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin: 10px 0; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; }
+        .footer-column ul li a:hover { color: #ecb619; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
         @media (max-width: 768px) {
-            .header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 10px;
-            }
-            .logo img {
-                height: 35px;
-            }
-            .comparison-table th,
-            .comparison-table td {
-                padding: 10px;
-                font-size: 12px;
-            }
+            .header { padding: 10px 20px; }
+            .logo-img { max-height: 40px; }
+            .mobile-menu-toggle { display: block; }
+            .main-nav { display: none; }
+            .hero-section h1 { font-size: 2em; }
+            .plans-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <img src="images/logo.png" alt="8K Strong IPTV">
-        </div>
-        <nav class="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="convert.html">Convert</a>
-            <a href="packages.html">Packages</a>
-            <a href="subscription.html">Subscription</a>
-            <a href="find.html">Find Content</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn"><img src="images/flags/uk.png" alt="English"> EN</button></div><button class="theme-toggle"><i class="bx bx-moon"></i></button></div></div>
+        <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="resolution.html">Resolution Center</a></li><li><a href="contact.html">Contact Us</a></li></ul></nav>
+        <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="resolution.html">Resolution Center</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
     </header>
 
     <main class="container">
-        <div class="hero">
-            <h1>Choose Your Subscription Plan</h1>
-            <p>Get access to 20,000+ live channels, 50,000+ movies & series in stunning 4K quality. All plans include VPN and 24/7 support.</p>
-        </div>
+        <section class="hero-section"><h1>IPTV Subscription Plans</h1><p>Choose the perfect IPTV subscription plan for you. All plans include 4K quality, VPN, and 24/7 support.</p></section>
 
         <div class="plans-grid">
-            <!-- 1 Month -->
-            <div class="plan-card">
-                <div class="plan-icon"><i class="fas fa-film"></i></div>
-                <div class="plan-name">1 Month</div>
-                <div class="plan-price">€13</div>
-                <ul class="plan-features">
-                    <li><i class="fas fa-check-circle"></i> 20,000+ Live Channels</li>
-                    <li><i class="fas fa-check-circle"></i> 50,000+ Movies & Series</li>
-                    <li><i class="fas fa-check-circle"></i> HD Quality</li>
-                    <li><i class="fas fa-check-circle"></i> 1 Connection</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
-                </ul>
-                <a href="contact.html" class="plan-btn">Subscribe</a>
-            </div>
-
-            <!-- 3 Months (Popular) -->
-            <div class="plan-card popular">
-                <div class="plan-icon"><i class="fas fa-star"></i></div>
-                <div class="plan-name">3 Months</div>
-                <div class="plan-price">€25</div>
-                <ul class="plan-features">
-                    <li><i class="fas fa-check-circle"></i> 20,000+ Live Channels</li>
-                    <li><i class="fas fa-check-circle"></i> 50,000+ Movies & Series</li>
-                    <li><i class="fas fa-check-circle"></i> 4K Quality</li>
-                    <li><i class="fas fa-check-circle"></i> 1 Connection</li>
-                    <li><i class="fas fa-check-circle"></i> VPN Included</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
-                </ul>
-                <a href="contact.html" class="plan-btn">Subscribe</a>
-            </div>
-
-            <!-- 6 Months -->
-            <div class="plan-card">
-                <div class="plan-icon"><i class="fas fa-crown"></i></div>
-                <div class="plan-name">6 Months</div>
-                <div class="plan-price">€33</div>
-                <ul class="plan-features">
-                    <li><i class="fas fa-check-circle"></i> 20,000+ Live Channels</li>
-                    <li><i class="fas fa-check-circle"></i> 50,000+ Movies & Series</li>
-                    <li><i class="fas fa-check-circle"></i> 4K Quality</li>
-                    <li><i class="fas fa-check-circle"></i> 1 Connection</li>
-                    <li><i class="fas fa-check-circle"></i> VPN Included</li>
-                    <li><i class="fas fa-check-circle"></i> Catch-Up TV</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
-                </ul>
-                <a href="contact.html" class="plan-btn">Subscribe</a>
-            </div>
-
-            <!-- 12 Months -->
-            <div class="plan-card">
-                <div class="plan-icon"><i class="fas fa-gem"></i></div>
-                <div class="plan-name">12 Months</div>
-                <div class="plan-price">€55</div>
-                <ul class="plan-features">
-                    <li><i class="fas fa-check-circle"></i> 20,000+ Live Channels</li>
-                    <li><i class="fas fa-check-circle"></i> 50,000+ Movies & Series</li>
-                    <li><i class="fas fa-check-circle"></i> 4K Quality</li>
-                    <li><i class="fas fa-check-circle"></i> 1 Connection</li>
-                    <li><i class="fas fa-check-circle"></i> VPN Included</li>
-                    <li><i class="fas fa-check-circle"></i> Catch-Up TV</li>
-                    <li><i class="fas fa-check-circle"></i> Free IboproApp Activation (1 Year)</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
-                </ul>
-                <a href="contact.html" class="plan-btn">Subscribe</a>
-            </div>
+            <div class="plan-card"><div class="plan-icon"><i class="fas fa-film"></i></div><h3>1 Month</h3><div class="price">€13</div><ul class="plan-features"><li><i class="fas fa-check-circle"></i> All channels</li><li><i class="fas fa-check-circle"></i> HD quality</li><li><i class="fas fa-check-circle"></i> 1 connection</li><li><i class="fas fa-check-circle"></i> 24/7 support</li></ul><a href="contact.html" class="btn">Subscribe</a></div>
+            <div class="plan-card popular"><div class="plan-icon"><i class="fas fa-star"></i></div><h3>3 Months</h3><div class="price">€25</div><ul class="plan-features"><li><i class="fas fa-check-circle"></i> All channels</li><li><i class="fas fa-check-circle"></i> 4K quality</li><li><i class="fas fa-check-circle"></i> 1 connection</li><li><i class="fas fa-check-circle"></i> VPN included</li><li><i class="fas fa-check-circle"></i> 24/7 support</li></ul><a href="contact.html" class="btn">Subscribe</a></div>
+            <div class="plan-card"><div class="plan-icon"><i class="fas fa-crown"></i></div><h3>6 Months</h3><div class="price">€33</div><ul class="plan-features"><li><i class="fas fa-check-circle"></i> All channels</li><li><i class="fas fa-check-circle"></i> 4K quality</li><li><i class="fas fa-check-circle"></i> 1 connection</li><li><i class="fas fa-check-circle"></i> VPN included</li><li><i class="fas fa-check-circle"></i> Catch-Up TV</li></ul><a href="contact.html" class="btn">Subscribe</a></div>
+            <div class="plan-card"><div class="plan-icon"><i class="fas fa-gem"></i></div><h3>12 Months</h3><div class="price">€55</div><ul class="plan-features"><li><i class="fas fa-check-circle"></i> All channels</li><li><i class="fas fa-check-circle"></i> 4K quality</li><li><i class="fas fa-check-circle"></i> 1 connection</li><li><i class="fas fa-check-circle"></i> VPN included</li><li><i class="fas fa-check-circle"></i> Catch-Up TV</li><li><i class="fas fa-check-circle"></i> Free IboproApp activation (1 year)</li></ul><a href="contact.html" class="btn">Subscribe</a></div>
         </div>
 
-        <!-- Comparison Table -->
-        <div class="comparison">
-            <h2>Compare Plans</h2>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Features</th>
-                        <th>1 Month</th>
-                        <th>3 Months</th>
-                        <th>6 Months</th>
-                        <th>12 Months</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Live Channels</td>
-                        <td>20,000+</td>
-                        <td>20,000+</td>
-                        <td>20,000+</td>
-                        <td>20,000+</td>
-                    </tr>
-                    <tr>
-                        <td>Movies & Series</td>
-                        <td>50,000+</td>
-                        <td>50,000+</td>
-                        <td>50,000+</td>
-                        <td>50,000+</td>
-                    </tr>
-                    <tr>
-                        <td>4K Quality</td>
-                        <td class="times"><i class="fas fa-times"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td>VPN Included</td>
-                        <td class="times"><i class="fas fa-times"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Catch-Up TV</td>
-                        <td class="times"><i class="fas fa-times"></i></td>
-                        <td class="times"><i class="fas fa-times"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td>IboproApp Activation</td>
-                        <td class="times"><i class="fas fa-times"></i></td>
-                        <td class="times"><i class="fas fa-times"></i></td>
-                        <td class="times"><i class="fas fa-times"></i></td>
-                        <td class="check"><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Price</td>
-                        <td><strong>€13</strong></td>
-                        <td><strong>€25</strong></td>
-                        <td><strong>€33</strong></td>
-                        <td><strong>€55</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <h2 class="section-title">Compare Plans</h2>
+        <table class="comparison-table"><thead><tr><th>Features</th><th>1 Month</th><th>3 Months</th><th>6 Months</th><th>12 Months</th></tr></thead><tbody>
+            <tr><td>Live Channels</td><td>20,000+</td><td>20,000+</td><td>20,000+</td><td>20,000+</td></tr>
+            <tr><td>Movies & Series</td><td>50,000+</td><td>50,000+</td><td>50,000+</td><td>50,000+</td></tr>
+            <tr><td>4K Quality</td><td class="times"><i class="fas fa-times"></i></td><td class="check"><i class="fas fa-check"></i></td><td class="check"><i class="fas fa-check"></i></td><td class="check"><i class="fas fa-check"></i></td></tr>
+            <tr><td>VPN Included</td><td class="times"><i class="fas fa-times"></i></td><td class="check"><i class="fas fa-check"></i></td><td class="check"><i class="fas fa-check"></i></td><td class="check"><i class="fas fa-check"></i></td></tr>
+            <tr><td>Catch-Up TV</td><td class="times"><i class="fas fa-times"></i></td><td class="times"><i class="fas fa-times"></i></td><td class="check"><i class="fas fa-check"></i></td><td class="check"><i class="fas fa-check"></i></td></tr>
+            <tr><td>IboproApp Free</td><td class="times"><i class="fas fa-times"></i></td><td class="times"><i class="fas fa-times"></i></td><td class="times"><i class="fas fa-times"></i></td><td class="check"><i class="fas fa-check"></i></td></tr>
+            <tr><td><strong>Price</strong></td><td><strong>€13</strong></td><td><strong>€25</strong></td><td><strong>€33</strong></td><td><strong>€55</strong></td></tr>
+        </tbody></table>
 
-        <!-- Payment Methods -->
-        <div class="payment-methods">
-            <h3>Accepted Payment Methods</h3>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-amex"></i>
-                <i class="fab fa-paypal"></i>
-                <i class="fab fa-bitcoin"></i>
-                <i class="fas fa-coins"></i>
-                <i class="fab fa-cc-apple-pay"></i>
-                <i class="fab fa-google-pay"></i>
-            </div>
-            <p style="margin-top: 20px; font-size: 12px; color: #666;">All payments are secure and encrypted</p>
-        </div>
+        <div class="payment-methods"><h3>Accepted Payment Methods</h3><div class="payment-icons"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-amex"></i><i class="fab fa-paypal"></i><i class="fab fa-bitcoin"></i><i class="fas fa-coins"></i></div></div>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 8K Strong IPTV. All rights reserved.</p>
-    </footer>
+    <footer class="footer"><div class="footer-content"><div class="footer-column"><div class="footer-logo">8K</div><div class="footer-description">Premium IPTV service with the best quality and support.</div><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-telegram"></i></a></div></div><div class="footer-column"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="trial.html">Free 24H Trial</a></li><li><a href="blogs.html">Blog</a></li></ul></div><div class="footer-column"><h4>Product</h4><ul><li><a href="pricing.html">Pricing</a></li><li><a href="reseller.html">Resellers Plan</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="faq.html">FAQ</a></li></ul></div><div class="footer-column"><h4>Help</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="dmca.html">DMCA Policy</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 8K Strong IPTV. All rights reserved.</p></div></footer>
+
+    <script>
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+        toggleBtn.addEventListener('click', function() { body.classList.toggle('mobile-menu-open'); const icon = toggleBtn.querySelector('i'); if (body.classList.contains('mobile-menu-open')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); } else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } });
+    </script>
 </body>
 </html>
