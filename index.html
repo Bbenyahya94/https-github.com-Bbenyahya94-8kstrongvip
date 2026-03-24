@@ -242,16 +242,52 @@
             </div>
         </section>
 
-        <div class="slideshow-container">
-            <div class="slides" id="slides">
-                <div class="slide"><img src="https://picsum.photos/id/104/1200/500" alt="Premium IPTV Service"><div class="slide-content"><h2 data-i18n="slide1_title">Premium IPTV Service</h2><p data-i18n="slide1_desc">33,076+ live channels & 148,361+ movies & series in 4K quality</p><a href="subscription.html" class="slide-btn" data-i18n="slide1_btn">Subscribe Now</a></div></div>
-                <div class="slide"><img src="https://picsum.photos/id/106/1200/500" alt="Reseller Program"><div class="slide-content"><h2 data-i18n="slide2_title">Become a Reseller</h2><p data-i18n="slide2_desc">Flexible plans – start your own business today</p><a href="reseller.html" class="slide-btn" data-i18n="slide2_btn">Join Reseller</a></div></div>
-                <div class="slide"><img src="https://picsum.photos/id/20/1200/500" alt="Special Offer"><div class="slide-content"><h2 data-i18n="slide3_title">Limited Time Offer</h2><p data-i18n="slide3_desc">Get 20% off on yearly subscription</p><a href="subscription.html" class="slide-btn" data-i18n="slide3_btn">Claim Offer</a></div></div>
+     <div class="slideshow-container">
+    <div class="slides" id="slides">
+        <!-- Slide 1 -->
+        <div class="slide">
+            <img src="images/slide-1.jpg" alt="8K Ultra HD Streaming">
+            <div class="slide-content">
+                <h2>8K Ultra HD Streaming</h2>
+                <p>Experience crystal clear picture quality with 8K resolution</p>
+                <a href="subscription.html" class="slide-btn">Get Started</a>
             </div>
-            <button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
-            <div class="dots-container"><span class="dot active" onclick="currentSlide(0)"></span><span class="dot" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span></div>
         </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide">
+            <img src="images/slide-2.jpg" alt="Sports Channels">
+            <div class="slide-content">
+                <h2>All Sports Channels</h2>
+                <p>Watch live football, basketball, UFC, and more</p>
+                <a href="subscription.html" class="slide-btn">View Channels</a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide">
+            <img src="images/slide-3.jpg" alt="Movies & Series">
+            <div class="slide-content">
+                <h2>119,608+ Movies & Series</h2>
+                <p>Latest releases and classic favorites in one place</p>
+                <a href="subscription.html" class="slide-btn">Start Watching</a>
+            </div>
+        </div>
+        
+        <!-- Add more slides as needed -->
+        <div class="slide">
+            <img src="images/slide-4.jpg" alt="24/7 Support">
+            <div class="slide-content">
+                <h2>24/7 Customer Support</h2>
+                <p>We're here to help you anytime, anywhere</p>
+                <a href="contact.html" class="slide-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    <button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+    <div class="dots-container" id="dotsContainer"></div>
+</div>
 
         <section class="credit-section">
             <div class="credit-left">
