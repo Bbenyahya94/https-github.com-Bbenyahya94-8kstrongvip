@@ -342,15 +342,48 @@
                 <div class="feature-item"><i class="fas fa-headset"></i> <span data-i18n="support">24/7 Support</span></div>
             </div>
         </section>
-        <!-- Slideshow Section --> 
+
+        <!-- Slideshow Section with your images -->
         <div class="slideshow-container">
+            <div class="slides" id="slides">
+                <div class="slide">
+                    <img src="images/slide1.png" alt="Premium IPTV Service">
+                    <div class="slide-content">
+                        <h2 data-i18n="slide1_title">Premium IPTV Service</h2>
+                        <p data-i18n="slide1_desc">33,076+ live channels & 148,361+ movies & series in 4K quality</p>
+                        <a href="subscription.html" class="slide-btn" data-i18n="slide1_btn">Subscribe Now</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/slide2.png" alt="Reseller Program">
+                    <div class="slide-content">
+                        <h2 data-i18n="slide2_title">Become a Reseller</h2>
+                        <p data-i18n="slide2_desc">Flexible plans – start your own business today</p>
+                        <a href="reseller.html" class="slide-btn" data-i18n="slide2_btn">Join Reseller</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/slide3.png" alt="Special Offer">
+                    <div class="slide-content">
+                        <h2 data-i18n="slide3_title">Limited Time Offer</h2>
+                        <p data-i18n="slide3_desc">Get 20% off on yearly subscription</p>
+                        <a href="subscription.html" class="slide-btn" data-i18n="slide3_btn">Claim Offer</a>
+                    </div>
+                </div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            <div class="dots-container" id="dotsContainer"></div>
+        </div>
 
         <section class="credit-section">
             <div class="credit-left">
                 <h2 data-i18n="credit_title">Credit System</h2>
                 <p data-i18n="credit_desc">Simple and transparent – convert credits directly into subscription months.</p>
                 <table class="credit-table">
-                    <thead><tr><th data-i18n="credits">Credits</th><th data-i18n="subscription_months">Subscription Months</th></tr></thead>
+                    <thead>……
+<th data-i18n="credits">Credits</th><th data-i18n="subscription_months">Subscription Months</th>……
+</thead>
                     <tbody>
                         <tr><td class="credit-amount"><i class="fas fa-coins"></i> 1 Credit</td><td class="credit-value"><i class="fas fa-calendar-alt"></i> 1 Month</td></tr>
                         <tr><td class="credit-amount"><i class="fas fa-coins"></i> 3 Credits</td><td class="credit-value"><i class="fas fa-calendar-alt"></i> 3 Months</td></tr>
@@ -478,8 +511,46 @@
         
         // ===== MULTI-LANGUAGE =====
         const translations = {
-            en: { hero_title:"8K Strong IPTV – The Ultimate 4K Streaming Experience", hero_desc:"33,076+ live channels, 119,608+ movies, 28,753+ series, built-in VPN, and 24/7 support. Start watching today!", panel_title:"Strong 8K IPTV Panel", credit_title:"Credit System", free_trial_btn:"Free Trial", about_reseller_btn:"About Reseller", testimonial1:"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus.", testimonial2:"As a reseller, the panel is super easy to use. My customers love the quality.", testimonial3:"4K streams are flawless. Support responds within minutes. Highly recommended!", slide1_title:"Premium IPTV Service", slide1_desc:"33,076+ live channels & 148,361+ movies & series in 4K quality", slide1_btn:"Subscribe Now", slide2_title:"Become a Reseller", slide2_desc:"Flexible plans – start your own business today", slide2_btn:"Join Reseller", slide3_title:"Limited Time Offer", slide3_desc:"Get 20% off on yearly subscription", slide3_btn:"Claim Offer" },
-            ar: { hero_title:"8K سترونج IPTV – تجربة بث فائقة الوضوح 4K", hero_desc:"33,076+ قناة مباشرة، 119,608+ فيلم، 28,753+ مسلسل، شبكة VPN مدمجة، دعم 24/7. ابدأ المشاهدة اليوم!", panel_title:"لوحة تحكم سترونج 8K", credit_title:"نظام الرصيد", free_trial_btn:"تجربة مجانية", about_reseller_btn:"حول إعادة البيع", testimonial1:"أفضل خدمة IPTV استخدمتها. بدون تقطيع ومجموعة قنوات رائعة، VPN إضافة رائعة.", testimonial2:"كموزع، اللوحة سهلة الاستخدام للغاية. عملائي يحبون الجودة.", testimonial3:"بث 4K خالي من المشاكل. الدعم يجيب في دقائق. موصى به بشدة!", slide1_title:"خدمة IPTV المتميزة", slide1_desc:"33,076+ قناة مباشرة و 148,361+ فيلم ومسلسل بجودة 4K", slide1_btn:"اشترك الآن", slide2_title:"كن موزعاً", slide2_desc:"خطط مرنة – ابدأ عملك الخاص اليوم", slide2_btn:"انضم للبيع", slide3_title:"عرض محدود", slide3_desc:"احصل على خصم 20% على الاشتراك السنوي", slide3_btn:"احصل على العرض" }
+            en: { 
+                hero_title:"8K Strong IPTV – The Ultimate 4K Streaming Experience", 
+                hero_desc:"33,076+ live channels, 119,608+ movies, 28,753+ series, built-in VPN, and 24/7 support. Start watching today!", 
+                panel_title:"Strong 8K IPTV Panel", 
+                credit_title:"Credit System", 
+                free_trial_btn:"Free Trial", 
+                about_reseller_btn:"About Reseller", 
+                testimonial1:"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus.", 
+                testimonial2:"As a reseller, the panel is super easy to use. My customers love the quality.", 
+                testimonial3:"4K streams are flawless. Support responds within minutes. Highly recommended!", 
+                slide1_title:"Premium IPTV Service", 
+                slide1_desc:"33,076+ live channels & 148,361+ movies & series in 4K quality", 
+                slide1_btn:"Subscribe Now", 
+                slide2_title:"Become a Reseller", 
+                slide2_desc:"Flexible plans – start your own business today", 
+                slide2_btn:"Join Reseller", 
+                slide3_title:"Limited Time Offer", 
+                slide3_desc:"Get 20% off on yearly subscription", 
+                slide3_btn:"Claim Offer" 
+            },
+            ar: { 
+                hero_title:"8K سترونج IPTV – تجربة بث فائقة الوضوح 4K", 
+                hero_desc:"33,076+ قناة مباشرة، 119,608+ فيلم، 28,753+ مسلسل، شبكة VPN مدمجة، دعم 24/7. ابدأ المشاهدة اليوم!", 
+                panel_title:"لوحة تحكم سترونج 8K", 
+                credit_title:"نظام الرصيد", 
+                free_trial_btn:"تجربة مجانية", 
+                about_reseller_btn:"حول إعادة البيع", 
+                testimonial1:"أفضل خدمة IPTV استخدمتها. بدون تقطيع ومجموعة قنوات رائعة، VPN إضافة رائعة.", 
+                testimonial2:"كموزع، اللوحة سهلة الاستخدام للغاية. عملائي يحبون الجودة.", 
+                testimonial3:"بث 4K خالي من المشاكل. الدعم يجيب في دقائق. موصى به بشدة!", 
+                slide1_title:"خدمة IPTV المتميزة", 
+                slide1_desc:"33,076+ قناة مباشرة و 148,361+ فيلم ومسلسل بجودة 4K", 
+                slide1_btn:"اشترك الآن", 
+                slide2_title:"كن موزعاً", 
+                slide2_desc:"خطط مرنة – ابدأ عملك الخاص اليوم", 
+                slide2_btn:"انضم للبيع", 
+                slide3_title:"عرض محدود", 
+                slide3_desc:"احصل على خصم 20% على الاشتراك السنوي", 
+                slide3_btn:"احصل على العرض" 
+            }
         };
         
         window.changeLanguage = function(lang) {
