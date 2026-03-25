@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPTV Support Center – Troubleshooting & Help | 8K Strong IPTV</title>
-    <meta name="description" content="Find solutions for common IPTV issues: buffering, login problems, channel not working, and more. Step-by-step guides and 24/7 support.">
-    <meta name="keywords" content="iptv support, iptv troubleshooting, iptv buffering fix, iptv login error, iptv setup guide, iptv help center">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="8K Strong IPTV">
-    <link rel="canonical" href="https://8kstrongvip.com/resolution.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Resolution Center – 8K Strong VIP | Customer Support</title>
+    <meta name="description" content="Get help with your 8K Strong VIP IPTV service. Submit support tickets, find solutions to common issues, and contact our support team for assistance.">
+    <meta name="keywords" content="IPTV support, resolution center, customer support, IPTV help, 8K Strong VIP support, technical support">
+    
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
-        /* Same styles as previous pages */
         :root {
             --gray-100: #041324;
             --gray-200: #05192f;
@@ -27,136 +34,123 @@
             --button-hover: #d4a514;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--gray-100); color: var(--gray-800); line-height: 1.6; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+        [dir="rtl"] { text-align: right; }
+        img { -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; user-drag: none; pointer-events: none; }
+        
         .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; pointer-events: none; }
         .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
-        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
+        .language-dropdown { position: relative; }
         .lang-btn { background: var(--gray-300); border: 1px solid var(--gray-400); color: var(--gray-800); padding: 8px 15px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-        .theme-toggle { background: transparent; border: none; color: var(--gray-700); font-size: 1.5em; cursor: pointer; }
+        .lang-dropdown-menu { display: none; position: absolute; top: 100%; right: 0; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; min-width: 150px; z-index: 1001; margin-top: 5px; }
+        .lang-dropdown-menu a { display: block; padding: 10px 15px; color: var(--gray-800); text-decoration: none; transition: 0.3s; }
+        .lang-dropdown-menu a:hover { background: var(--gray-300); }
+        .language-dropdown:hover .lang-dropdown-menu { display: block; }
         .main-nav { margin-top: 10px; }
         .main-nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 20px; justify-content: center; }
         .main-nav a { color: var(--gray-700); text-decoration: none; padding: 8px 12px; border-radius: 50px; transition: 0.3s; font-weight: 500; }
-        .main-nav a:hover { background: var(--gray-300); color: var(--gray-900); }
+        .main-nav a:hover, .main-nav a.active { background: var(--button-bg); color: var(--gray-100); }
         .mobile-menu { display: none; background: var(--gray-200); border-top: 1px solid var(--gray-400); padding: 20px; margin-top: 10px; }
         .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
         .mobile-menu a { color: var(--gray-700); text-decoration: none; font-size: 1.2em; padding: 10px; display: block; border-radius: 10px; }
         .mobile-menu-open .mobile-menu { display: block; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        .hero-section { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-200), var(--gray-300)); border-radius: 30px; margin-bottom: 40px; }
-        .hero-section h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-section p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto; }
-        .search-box { max-width: 600px; margin: 30px auto 0; position: relative; }
-        .search-box input { width: 100%; padding: 15px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; font-size: 16px; }
-        .search-box input:focus { outline: none; border-color: #ecb619; }
-        .search-box i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #ecb619; }
-        .section-title { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .problems-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .problem-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; overflow: hidden; transition: 0.3s; }
-        .problem-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
-        .problem-header { background: var(--gray-300); padding: 20px; display: flex; align-items: center; gap: 15px; }
-        .problem-icon { font-size: 2em; color: var(--button-bg); }
-        .problem-title { font-size: 1.3em; font-weight: bold; color: var(--gray-900); }
-        .problem-content { padding: 20px; }
-        .problem-desc { color: var(--gray-600); margin-bottom: 15px; }
-        .solution { background: rgba(236,182,25,0.1); padding: 15px; border-radius: 12px; }
-        .solution-title { font-weight: bold; color: var(--button-bg); margin-bottom: 10px; }
-        .solution-steps { list-style: none; }
-        .solution-steps li { margin: 8px 0; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--gray-700); }
-        .solution-steps li i { color: var(--button-bg); margin-top: 2px; }
-        .support-box { background: linear-gradient(135deg, rgba(236,182,25,0.1), rgba(255,0,255,0.1)); border-radius: 20px; padding: 30px; text-align: center; margin-top: 40px; }
-        .support-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
-        .support-btn { background: #ecb619; color: #0a0b1a; text-decoration: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
-        .support-btn.whatsapp { background: #25D366; color: white; }
-        .support-btn.telegram { background: #0088cc; color: white; }
-        .support-btn:hover { transform: scale(1.05); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        .page-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .page-hero h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-hero p { font-size: 1.2em; color: var(--gray-600); max-width: 700px; margin: 0 auto; }
+        
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px auto; }
+        .contact-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 40px 30px; text-align: center; transition: all 0.3s; }
+        .contact-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
+        .contact-icon { width: 80px; height: 80px; background: var(--gray-300); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5em; color: var(--button-bg); border: 2px solid var(--button-bg); }
+        .contact-card h3 { font-size: 1.8em; margin-bottom: 15px; color: var(--gray-900); }
+        .contact-detail { font-size: 1.2em; color: var(--gray-600); margin-bottom: 25px; }
+        .contact-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--button-bg); color: var(--gray-100); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .contact-btn:hover { background: var(--button-hover); transform: scale(1.05); }
+        
+        .ticket-form { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .ticket-form h2 { font-size: 2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; background: var(--gray-300); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1em; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--button-bg); }
+        .submit-btn { background: var(--button-bg); color: var(--gray-100); padding: 15px; border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .submit-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
+        
+        .faq-mini { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .faq-mini h2 { font-size: 2.2em; margin-bottom: 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .faq-mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; text-align: left; }
+        .faq-mini-item { background: var(--gray-300); padding: 20px; border-radius: 15px; border: 1px solid var(--gray-400); }
+        .faq-mini-item h4 { color: var(--button-bg); margin-bottom: 10px; }
+        
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
         .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin: 10px 0; }
-        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
         .footer-column ul li a:hover { color: #ecb619; }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
-        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
         .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
-        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
+        
         @media (max-width: 768px) {
             .header { padding: 10px 20px; }
-            .logo-img { max-height: 40px; }
+            .logo-img { max-height: 40px; max-width: 150px; }
             .mobile-menu-toggle { display: block; }
             .main-nav { display: none; }
-            .hero-section h1 { font-size: 2em; }
-            .problems-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            .social-links { justify-content: center; }
+            .page-hero h1 { font-size: 2em; }
+            .ticket-form { padding: 30px; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn"><img src="images/flags/uk.png" alt="English"> EN</button></div><button class="theme-toggle"><i class="bx bx-moon"></i></button></div></div>
-        <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="resolution.html">Resolution Center</a></li><li><a href="contact.html">Contact Us</a></li></ul></nav>
-        <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="resolution.html">Resolution Center</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button><div class="lang-dropdown-menu"><a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ar">🇸🇦 العربية</a><a href="#" data-lang="fr">🇫🇷 Français</a><a href="#" data-lang="es">🇪🇸 Español</a><a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="it">🇮🇹 Italiano</a></div></div></div></div>
+        <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+        <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     </header>
 
     <main class="container">
-        <section class="hero-section">
-            <h1>IPTV Support & Resolution Center</h1>
-            <p>Find solutions to common IPTV issues. Search for your problem or browse our troubleshooting guides.</p>
-            <div class="search-box"><input type="text" id="searchInput" placeholder="Search for a problem..."><i class="fas fa-search"></i></div>
-        </section>
-
-        <div id="problemsContainer" class="problems-grid"></div>
-
-        <div class="support-box">
-            <h3>Still having issues?</h3>
-            <p>Our support team is available 24/7 to help you.</p>
-            <div class="support-buttons">
-                <a href="https://wa.me/1234567890" class="support-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Support</a>
-                <a href="https://t.me/8kstrong_support" class="support-btn telegram" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram Support</a>
-                <a href="contact.html" class="support-btn"><i class="fas fa-envelope"></i> Email Support</a>
-            </div>
+        <section class="page-hero"><h1>Resolution Center</h1><p>Need help with your 8K Strong VIP service? Contact our support team or submit a ticket. We're here 24/7 to assist you.</p></section>
+        
+        <div class="contact-grid">
+            <div class="contact-card"><div class="contact-icon"><i class="fab fa-telegram-plane"></i></div><h3>Telegram Support</h3><div class="contact-detail">@8kstrong_support</div><a href="https://t.me/8kstrong_support" target="_blank" class="contact-btn"><i class="fab fa-telegram-plane"></i> Message on Telegram</a></div>
+            <div class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp Support</h3><div class="contact-detail">+1 234 567 890</div><a href="https://wa.me/1234567890" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></div>
+            <div class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h3>Email Support</h3><div class="contact-detail">support@8kstrongvip.com</div><a href="mailto:support@8kstrongvip.com" class="contact-btn"><i class="fas fa-envelope"></i> Send Email</a></div>
         </div>
+        
+        <div class="ticket-form"><h2><i class="fas fa-ticket-alt"></i> Submit a Support Ticket</h2><form id="ticketForm"><div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div><div class="form-group"><input type="email" name="email" placeholder="Email Address" required></div><div class="form-group"><select name="issue"><option value="">Select Issue Type</option><option value="subscription">Subscription Issue</option><option value="technical">Technical Problem</option><option value="billing">Billing Question</option><option value="reseller">Reseller Inquiry</option><option value="other">Other</option></select></div><div class="form-group"><textarea name="message" placeholder="Describe your issue..." rows="5" required></textarea></div><button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Submit Ticket</button></form></div>
+        
+        <div class="faq-mini"><h2>Common Issues & Solutions</h2><div class="faq-mini-grid"><div class="faq-mini-item"><h4><i class="fas fa-play-circle"></i> Buffering Issues</h4><p>Try restarting your device, check your internet speed, or use our built-in VPN to bypass ISP throttling.</p></div><div class="faq-mini-item"><h4><i class="fas fa-key"></i> Login Problems</h4><p>Verify your username and password. If you forgot your credentials, contact support for assistance.</p></div><div class="faq-mini-item"><h4><i class="fas fa-tv"></i> Channels Not Loading</h4><p>Clear app cache, restart the app, or check if your subscription is still active. Contact support if issue persists.</p></div><div class="faq-mini-item"><h4><i class="fas fa-download"></i> Installation Issues</h4><p>Make sure you have enabled "Unknown Sources" in settings. Use our Downloader codes: 993968 or 405663.</p></div></div></div>
     </main>
 
-    <footer class="footer"><div class="footer-content"><div class="footer-column"><div class="footer-logo">8K</div><div class="footer-description">Premium IPTV service with the best quality and support.</div><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-telegram"></i></a></div></div><div class="footer-column"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="trial.html">Free 24H Trial</a></li><li><a href="blogs.html">Blog</a></li></ul></div><div class="footer-column"><h4>Product</h4><ul><li><a href="pricing.html">Pricing</a></li><li><a href="reseller.html">Resellers Plan</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="faq.html">FAQ</a></li></ul></div><div class="footer-column"><h4>Help</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="dmca.html">DMCA Policy</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 8K Strong IPTV. All rights reserved.</p></div></footer>
+    <footer class="footer"><div class="footer-content"><div class="footer-column"><h4><i class="fas fa-tools"></i> Tools</h4><ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li><li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-question-circle"></i> Help</h4><ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li><li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-cogs"></i> Services</h4><ul><li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-crown"></i> 8K Strong VIP</h4><ul><li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li></ul></div></div><div class="footer-bottom"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a><a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a></div><p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div></footer>
 
     <script>
-        const problems = [
-            { id: 1, title: "Buffering / Freezing", icon: "fa-spinner", desc: "Video keeps buffering or freezing during playback.", solution: ["Check your internet speed (minimum 15 Mbps for 4K)", "Restart your router and device", "Try using a VPN to bypass ISP throttling", "Reduce video quality in player settings", "Switch to a wired connection (Ethernet)"] },
-            { id: 2, title: "Login Failed / Invalid Credentials", icon: "fa-key", desc: "Cannot login to the IPTV service.", solution: ["Double-check username and password", "Make sure Caps Lock is off", "Check if your subscription is still active", "Reset password via contact support"] },
-            { id: 3, title: "Channel Not Working / Black Screen", icon: "fa-tv", desc: "Some channels show black screen or fail to load.", solution: ["Try a different channel", "Restart your IPTV app or device", "Check if the channel is currently offline", "Update your IPTV app to latest version", "Clear app cache and data"] },
-            { id: 4, title: "Poor Video Quality / Pixelation", icon: "fa-image", desc: "Video looks pixelated or low resolution.", solution: ["Check your internet connection speed", "Select a higher quality option in player", "Close other apps using bandwidth", "Use a wired connection instead of Wi-Fi", "Try a VPN to avoid ISP throttling"] },
-            { id: 5, title: "M3U Link Not Working", icon: "fa-link", desc: "The M3U playlist URL does not load.", solution: ["Verify the URL is correct", "Test the link in VLC Media Player first", "Check if the link has expired", "Try using the Xtream Codes format"] },
-            { id: 6, title: "No Sound / Audio Issues", icon: "fa-volume-mute", desc: "Video plays but there is no sound.", solution: ["Check your device volume", "Try a different channel", "Restart your device", "Check audio output settings", "Update audio drivers"] }
-        ];
-
-        function renderProblems(filteredProblems) {
-            const container = document.getElementById('problemsContainer');
-            container.innerHTML = filteredProblems.map(problem => `
-                <div class="problem-card">
-                    <div class="problem-header"><div class="problem-icon"><i class="fas ${problem.icon}"></i></div><div class="problem-title">${problem.title}</div></div>
-                    <div class="problem-content"><div class="problem-desc">${problem.desc}</div><div class="solution"><div class="solution-title"><i class="fas fa-lightbulb"></i> How to fix:</div><ul class="solution-steps">${problem.solution.map(step => `<li><i class="fas fa-check-circle"></i> ${step}</li>`).join('')}</ul></div></div>
-                </div>
-            `).join('');
-        }
-
-        function filterProblems() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = problems.filter(p => p.title.toLowerCase().includes(searchTerm) || p.desc.toLowerCase().includes(searchTerm));
-            renderProblems(filtered);
-        }
-
-        document.getElementById('searchInput').addEventListener('input', filterProblems);
-        renderProblems(problems);
-
-        const toggleBtn = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const body = document.body;
-        toggleBtn.addEventListener('click', function() { body.classList.toggle('mobile-menu-open'); const icon = toggleBtn.querySelector('i'); if (body.classList.contains('mobile-menu-open')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); } else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } });
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('keydown', function(e) { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.shiftKey && e.key === 'K')) { e.preventDefault(); return false; } });
+        document.addEventListener('keyup', function(e) { if (e.key === 'PrintScreen') { navigator.clipboard.writeText('').catch(() => {}); alert('Screenshots are disabled'); } });
+        document.querySelectorAll('img').forEach(img => { img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }); });
+        document.addEventListener('copy', function(e) { e.preventDefault(); alert('Copying content is disabled'); return false; });
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+        setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
+        
+        document.getElementById('ticketForm')?.addEventListener('submit', function(e) { e.preventDefault(); alert('✅ Ticket submitted successfully! Our support team will respond within 2 hours.'); this.reset(); });
+        
+        const translations = { en: {}, ar: {}, fr: {}, es: {}, de: {}, it: {} };
+        let currentLang = localStorage.getItem('language') || 'en';
+        function applyLanguage(lang) { currentLang = lang; localStorage.setItem('language', lang); const langBtn = document.getElementById('currentLangBtn'); const names = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' }; langBtn.innerHTML = names[lang] || names.en; document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); }
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => { link.addEventListener('click', (e) => { e.preventDefault(); applyLanguage(link.getAttribute('data-lang')); }); });
+        const toggleBtn = document.getElementById('mobileMenuToggle'); const header = document.querySelector('.header'); if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        applyLanguage(currentLang);
     </script>
 </body>
 </html>
