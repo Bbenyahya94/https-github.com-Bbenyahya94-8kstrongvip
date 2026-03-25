@@ -81,6 +81,32 @@
         .copy-all-btn { background: var(--button-bg); color: var(--gray-100); border: none; padding: 12px 20px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; margin-top: 15px; }
         .copy-all-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: bold;
+            z-index: 9999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: slideIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toast-notification.error {
+            background: #dc3545;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
         .convert-btn { width: 100%; background: var(--button-bg); color: var(--gray-100); padding: 14px; border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; }
         .convert-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         
@@ -121,6 +147,7 @@
             .converter-section { grid-template-columns: 1fr; padding: 30px; }
             .footer-content { grid-template-columns: 1fr; text-align: center; }
             .social-links { justify-content: center; }
+            .toast-notification { bottom: 20px; right: 20px; left: 20px; text-align: center; }
         }
     </style>
 </head>
@@ -204,39 +231,39 @@
                         <div class="result-label"><i class="fas fa-server"></i> Server URL</div>
                         <div class="result-value" id="serverUrl">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" onclick="copyToClipboard('serverUrl')"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy="serverUrl"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-user"></i> Username</div>
                         <div class="result-value" id="username">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" onclick="copyToClipboard('username')"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy="username"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-lock"></i> Password</div>
                         <div class="result-value" id="password">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" onclick="copyToClipboard('password')"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy="password"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL (XMLTV)</div>
                         <div class="result-value" id="epgUrl">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" onclick="copyToClipboard('epgUrl')"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy="epgUrl"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-hourglass-half"></i> Expiration Date</div>
                         <div class="result-value" id="expirationDate">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" onclick="copyToClipboard('expirationDate')"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy="expirationDate"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <!-- Copy All Button -->
-                    <button class="copy-all-btn" onclick="copyAll()"><i class="fas fa-copy"></i> Copy All Information</button>
+                    <button class="copy-all-btn" id="copyAllBtn"><i class="fas fa-copy"></i> Copy All Information</button>
                 </div>
                 
                 <div class="example-box">
@@ -272,7 +299,7 @@
                     <div style="background: var(--gray-300); padding: 25px; border-radius: 20px; border: 1px solid var(--gray-400);">
                         <i class="fas fa-copy" style="font-size: 2.5em; color: var(--button-bg); margin-bottom: 15px; display: inline-block;"></i>
                         <h3 style="color: var(--gray-900); margin-bottom: 10px;">Step 2</h3>
-                        <p style="color: var(--gray-600);">Copy your Xtream Codes (Server, Username, Password, EPG, Expiration) using individual buttons or "Copy All"</p>
+                        <p style="color: var(--gray-600);">Copy your Xtream Codes using individual buttons or "Copy All"</p>
                     </div>
                     <div style="background: var(--gray-300); padding: 25px; border-radius: 20px; border: 1px solid var(--gray-400);">
                         <i class="fas fa-tv" style="font-size: 2.5em; color: var(--button-bg); margin-bottom: 15px; display: inline-block;"></i>
@@ -333,159 +360,59 @@
         let currentEpgUrl = '';
         let currentExpiration = '';
         
-        // Function to extract expiration date from M3U URL or response
-        function extractExpirationDate(m3uUrl) {
-            // Try to extract expiration from URL parameters
-            try {
-                const url = new URL(m3uUrl);
-                const params = new URLSearchParams(url.search);
-                
-                // Check for common expiration parameter names
-                let expDate = params.get('expiration') || params.get('expire') || params.get('expires') || params.get('validuntil') || params.get('end_date');
-                
-                if (expDate) {
-                    // Try to format the date nicely
-                    if (!isNaN(expDate) && expDate.length === 10) {
-                        // Unix timestamp
-                        const date = new Date(parseInt(expDate) * 1000);
-                        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                    }
-                    return expDate;
-                }
-            } catch (e) {
-                // Not a valid URL for parsing
+        // Show toast notification
+        function showToast(message, isError = false) {
+            // Remove existing toast if any
+            const existingToast = document.querySelector('.toast-notification');
+            if (existingToast) {
+                existingToast.remove();
             }
             
-            // Try to extract from path pattern
-            const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/([^\/]+))?/);
-            if (pathMatch && pathMatch[3] && pathMatch[3].includes('exp')) {
-                return pathMatch[3];
+            // Create new toast
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            if (isError) {
+                toast.classList.add('error');
             }
+            toast.innerHTML = `<i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-check-circle'}"></i> ${message}`;
+            document.body.appendChild(toast);
             
-            return 'Not available in URL';
-        }
-        
-        // Function to extract EPG URL
-        function extractEpgUrl(m3uUrl) {
-            try {
-                const url = new URL(m3uUrl);
-                const params = new URLSearchParams(url.search);
-                
-                // Check for EPG parameter
-                let epg = params.get('epg') || params.get('epg_url') || params.get('xmltv');
-                
-                if (epg) {
-                    return epg;
-                }
-                
-                // Construct standard EPG URL
-                const baseUrl = `${url.protocol}//${url.host}`;
-                return `${baseUrl}/xmltv.php?username=${currentUsername}&password=${currentPassword}`;
-            } catch (e) {
-                return 'Not available';
-            }
-        }
-        
-        // M3U to Xtream Codes Converter Function
-        function convertM3UtoXtream() {
-            const m3uUrl = document.getElementById('m3uUrl').value.trim();
-            
-            if (!m3uUrl) {
-                alert('Please enter an M3U playlist URL');
-                return;
-            }
-            
-            try {
-                // Parse the URL
-                const url = new URL(m3uUrl);
-                const params = new URLSearchParams(url.search);
-                
-                // Extract username and password
-                let username = params.get('username');
-                let password = params.get('password');
-                
-                // If username/password not in params, try to extract from path
-                if (!username || !password) {
-                    const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/|$)/);
-                    if (pathMatch) {
-                        username = decodeURIComponent(pathMatch[1]);
-                        password = decodeURIComponent(pathMatch[2]);
-                    }
-                }
-                
-                // Build server URL
-                const serverUrl = `${url.protocol}//${url.host}`;
-                
-                if (username && password) {
-                    // Store values
-                    currentServerUrl = serverUrl;
-                    currentUsername = username;
-                    currentPassword = password;
-                    
-                    // Extract EPG URL
-                    currentEpgUrl = extractEpgUrl(m3uUrl);
-                    
-                    // Extract Expiration Date
-                    currentExpiration = extractExpirationDate(m3uUrl);
-                    
-                    // Display results
-                    document.getElementById('serverUrl').innerHTML = serverUrl;
-                    document.getElementById('username').innerHTML = username;
-                    document.getElementById('password').innerHTML = password;
-                    document.getElementById('epgUrl').innerHTML = currentEpgUrl;
-                    
-                    const expElement = document.getElementById('expirationDate');
-                    expElement.innerHTML = currentExpiration;
-                    
-                    // Add color class based on expiration status
-                    if (currentExpiration !== 'Not available in URL') {
-                        expElement.classList.add('active');
-                        expElement.classList.remove('expired');
-                    } else {
-                        expElement.classList.remove('active', 'expired');
-                    }
-                    
-                    document.getElementById('resultContainer').style.display = 'block';
-                    
-                    // Scroll to results
-                    document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    alert('Could not extract username and password from the M3U URL. Please make sure your URL contains username and password parameters.\n\nSupported formats:\n- http://server.com:8080/get.php?username=USER&password=PASS\n- http://server.com:8080/USER/PASS');
-                }
-            } catch (error) {
-                alert('Invalid URL format. Please enter a valid M3U playlist URL.\n\nExample: http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus');
-            }
+            // Auto remove after 2.5 seconds
+            setTimeout(() => {
+                toast.remove();
+            }, 2500);
         }
         
         // Copy to Clipboard Function (Individual)
-        function copyToClipboard(elementId) {
+        function copyToClipboard(elementId, fieldName) {
             const element = document.getElementById(elementId);
             const text = element.innerText;
             
-            if (text === '-' || text === 'Not available in URL' || text === 'Not available') {
-                alert('No data available to copy');
+            if (!text || text === '-' || text === 'Not available in URL' || text === 'Not available') {
+                showToast(`❌ No ${fieldName} available to copy`, true);
                 return;
             }
             
             navigator.clipboard.writeText(text).then(() => {
-                // Show temporary success message
-                const btns = document.querySelectorAll(`[onclick="copyToClipboard('${elementId}')"]`);
-                btns.forEach(btn => {
-                    const originalText = btn.innerHTML;
+                showToast(`✅ ${fieldName} copied to clipboard!`);
+                // Also change button text temporarily
+                const btn = document.querySelector(`.copy-btn[data-copy="${elementId}"]`);
+                if (btn) {
+                    const originalHTML = btn.innerHTML;
                     btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
                     setTimeout(() => {
-                        btn.innerHTML = originalText;
-                    }, 2000);
-                });
+                        btn.innerHTML = originalHTML;
+                    }, 1500);
+                }
             }).catch(() => {
-                alert('Failed to copy text');
+                showToast('❌ Failed to copy text', true);
             });
         }
         
         // Copy All Function
         function copyAll() {
             if (!currentServerUrl && !currentUsername && !currentPassword) {
-                alert('No data available. Please extract information from an M3U URL first.');
+                showToast('❌ No data available. Please extract information from an M3U URL first.', true);
                 return;
             }
             
@@ -502,15 +429,136 @@
             allText += `═══════════════════════════════════`;
             
             navigator.clipboard.writeText(allText).then(() => {
-                const copyAllBtn = document.querySelector('.copy-all-btn');
+                showToast('✅ All Xtream Codes copied to clipboard!');
+                const copyAllBtn = document.getElementById('copyAllBtn');
                 const originalText = copyAllBtn.innerHTML;
-                copyAllBtn.innerHTML = '<i class="fas fa-check"></i> All Information Copied!';
+                copyAllBtn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
                 setTimeout(() => {
                     copyAllBtn.innerHTML = originalText;
-                }, 2000);
+                }, 1500);
             }).catch(() => {
-                alert('Failed to copy all information');
+                showToast('❌ Failed to copy all information', true);
             });
+        }
+        
+        // Function to extract expiration date from M3U URL
+        function extractExpirationDate(m3uUrl) {
+            try {
+                const url = new URL(m3uUrl);
+                const params = new URLSearchParams(url.search);
+                
+                let expDate = params.get('expiration') || params.get('expire') || params.get('expires') || params.get('validuntil') || params.get('end_date');
+                
+                if (expDate) {
+                    if (!isNaN(expDate) && expDate.length === 10) {
+                        const date = new Date(parseInt(expDate) * 1000);
+                        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    }
+                    return expDate;
+                }
+            } catch (e) {}
+            
+            const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/([^\/]+))?/);
+            if (pathMatch && pathMatch[3] && pathMatch[3].includes('exp')) {
+                return pathMatch[3];
+            }
+            
+            return 'Not available in URL';
+        }
+        
+        // Function to extract EPG URL
+        function extractEpgUrl(m3uUrl, username, password) {
+            try {
+                const url = new URL(m3uUrl);
+                const params = new URLSearchParams(url.search);
+                
+                let epg = params.get('epg') || params.get('epg_url') || params.get('xmltv');
+                if (epg) return epg;
+                
+                const baseUrl = `${url.protocol}//${url.host}`;
+                return `${baseUrl}/xmltv.php?username=${username}&password=${password}`;
+            } catch (e) {
+                return 'Not available';
+            }
+        }
+        
+        // M3U to Xtream Codes Converter Function
+        function convertM3UtoXtream() {
+            const m3uUrl = document.getElementById('m3uUrl').value.trim();
+            
+            if (!m3uUrl) {
+                showToast('❌ Please enter an M3U playlist URL', true);
+                return;
+            }
+            
+            try {
+                const url = new URL(m3uUrl);
+                const params = new URLSearchParams(url.search);
+                
+                let username = params.get('username');
+                let password = params.get('password');
+                
+                if (!username || !password) {
+                    const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/|$)/);
+                    if (pathMatch) {
+                        username = decodeURIComponent(pathMatch[1]);
+                        password = decodeURIComponent(pathMatch[2]);
+                    }
+                }
+                
+                const serverUrl = `${url.protocol}//${url.host}`;
+                
+                if (username && password) {
+                    currentServerUrl = serverUrl;
+                    currentUsername = username;
+                    currentPassword = password;
+                    currentEpgUrl = extractEpgUrl(m3uUrl, username, password);
+                    currentExpiration = extractExpirationDate(m3uUrl);
+                    
+                    document.getElementById('serverUrl').innerHTML = serverUrl;
+                    document.getElementById('username').innerHTML = username;
+                    document.getElementById('password').innerHTML = password;
+                    document.getElementById('epgUrl').innerHTML = currentEpgUrl;
+                    document.getElementById('expirationDate').innerHTML = currentExpiration;
+                    
+                    document.getElementById('resultContainer').style.display = 'block';
+                    
+                    showToast('✅ Information extracted successfully!');
+                    document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    showToast('❌ Could not extract username and password from the URL', true);
+                }
+            } catch (error) {
+                showToast('❌ Invalid URL format. Please enter a valid M3U playlist URL', true);
+            }
+        }
+        
+        // Setup copy button event listeners
+        function setupCopyButtons() {
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const elementId = this.getAttribute('data-copy');
+                    let fieldName = '';
+                    switch(elementId) {
+                        case 'serverUrl': fieldName = 'Server URL'; break;
+                        case 'username': fieldName = 'Username'; break;
+                        case 'password': fieldName = 'Password'; break;
+                        case 'epgUrl': fieldName = 'EPG URL'; break;
+                        case 'expirationDate': fieldName = 'Expiration Date'; break;
+                        default: fieldName = 'Information';
+                    }
+                    copyToClipboard(elementId, fieldName);
+                });
+            });
+            
+            const copyAllBtn = document.getElementById('copyAllBtn');
+            if (copyAllBtn) {
+                copyAllBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    copyAll();
+                });
+            }
         }
         
         // Mobile Menu Toggle
@@ -530,7 +578,9 @@
             document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
         };
         
+        // Initialize
         window.changeLanguage('en');
+        setupCopyButtons();
     </script>
 </body>
 </html>
