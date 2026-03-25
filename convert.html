@@ -191,7 +191,7 @@
             <div class="converter-card">
                 <div class="input-group">
                     <label><i class="fas fa-link"></i> M3U Playlist URL</label>
-                    <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example 1: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts&#10;Example 2: http://your-server.com:8080/USER/PASS&#10;Example 3: http://your-server.com:8080/USER/PASS/EPG"></textarea>
+                    <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example 1: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts&#10;Example 2: http://your-server.com:8080/USER/PASS&#10;Example 3: http://USER:PASS@your-server.com:8080/playlist.m3u"></textarea>
                 </div>
                 <button class="convert-btn" id="convertBtn"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
                 
@@ -231,7 +231,7 @@
                     <h4><i class="fas fa-question-circle"></i> Supported M3U URL Formats</h4>
                     <p><strong>Format 1 (Query String):</strong><br>http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts</p>
                     <p><strong>Format 2 (Path):</strong><br>http://server.com:8080/USER/PASS</p>
-                    <p><strong>Format 3 (With EPG):</strong><br>http://server.com:8080/USER/PASS/EPG</p>
+                    <p><strong>Format 3 (Basic Auth):</strong><br>http://USER:PASS@server.com:8080/playlist.m3u</p>
                     <p style="margin-top:8px;"><strong>Result:</strong><br>Server: http://server.com:8080<br>Username: USER<br>Password: PASS</p>
                 </div>
             </div>
@@ -290,7 +290,6 @@
         document.querySelectorAll('img').forEach(img => { img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }); });
         document.addEventListener('copy', function(e) { e.preventDefault(); alert('Copying content is disabled'); return false; });
         document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
-        setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
         
         // ========== CONVERTER FUNCTIONS ==========
         let currentData = { serverUrl: '', username: '', password: '', epgUrl: '' };
@@ -372,7 +371,7 @@
             let serverUrl = null;
             
             try {
-                // Try to parse as URL first
+                // Try to parse as URL
                 const url = new URL(m3uUrl);
                 const params = new URLSearchParams(url.search);
                 
@@ -381,28 +380,28 @@
                 password = params.get('password');
                 serverUrl = `${url.protocol}//${url.host}`;
                 
-                // Method 2: If not found, try to extract from path (format: /username/password/)
+                // Method 2: Extract from path (format: /username/password/)
                 if (!username || !password) {
                     const pathParts = url.pathname.split('/').filter(p => p.length > 0);
                     if (pathParts.length >= 2) {
-                        // Check if the path looks like username/password
                         username = decodeURIComponent(pathParts[0]);
                         password = decodeURIComponent(pathParts[1]);
                     }
                 }
+                
+                // Method 3: Extract from basic auth (username:password@)
+                if ((!username || !password) && url.username && url.password) {
+                    username = decodeURIComponent(url.username);
+                    password = decodeURIComponent(url.password);
+                }
             } catch (e) {
                 // Not a valid URL, try regex extraction
-                const urlMatch = m3uUrl.match(/^(https?:\/\/[^\/]+)/i);
+                const urlMatch = m3uUrl.match(/^(https?:\/\/[^\/:]+(?::\d+)?)/i);
                 if (urlMatch) {
                     serverUrl = urlMatch[1];
                 }
                 
-                // Try to extract username:password from URL pattern
-                const authMatch = m3uUrl.match(/\/\/(?:[^:]+):([^@]+)@/);
-                if (authMatch) {
-                    password = authMatch[1];
-                }
-                
+                // Try query string extraction
                 const userMatch = m3uUrl.match(/[\/?&]username=([^&]+)/i);
                 if (userMatch) username = decodeURIComponent(userMatch[1]);
                 
@@ -410,10 +409,21 @@
                 if (passMatch) password = decodeURIComponent(passMatch[1]);
                 
                 // Try path format: /username/password/
-                const pathMatch = m3uUrl.match(/\/([^\/]+)\/([^\/]+)(?:\/|$)/);
-                if (pathMatch && !username) {
-                    username = decodeURIComponent(pathMatch[1]);
-                    password = decodeURIComponent(pathMatch[2]);
+                if (!username || !password) {
+                    const pathMatch = m3uUrl.match(/\/([^\/]+)\/([^\/]+)(?:\/|$)/);
+                    if (pathMatch) {
+                        username = decodeURIComponent(pathMatch[1]);
+                        password = decodeURIComponent(pathMatch[2]);
+                    }
+                }
+                
+                // Try basic auth format
+                if (!username || !password) {
+                    const authMatch = m3uUrl.match(/\/\/([^:]+):([^@]+)@/);
+                    if (authMatch) {
+                        username = decodeURIComponent(authMatch[1]);
+                        password = decodeURIComponent(authMatch[2]);
+                    }
                 }
             }
             
@@ -491,6 +501,9 @@
         if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
         
         applyLanguage(currentLang);
+        
+        // Disable dev tools detection interval (optional)
+        setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); } }, 1000);
     </script>
 </body>
 </html>
