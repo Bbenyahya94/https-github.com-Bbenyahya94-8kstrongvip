@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convert Credits – 8K Strong VIP | IPTV Reseller Panel</title>
-    <meta name="description" content="Convert your 8K Strong VIP credits to subscription months. Simple and transparent credit system for resellers. Instant activation and 24/7 support.">
-    <meta name="keywords" content="convert credits, IPTV reseller, credit system, 8K Strong VIP, subscription conversion">
+    <title>Convert M3U to Xtream Codes – 8K Strong VIP | IPTV Converter Tool</title>
+    <meta name="description" content="Free M3U to Xtream Codes converter. Transform your M3U playlist URL to Xtream Codes API (Username, Password, Server URL). Easy and fast IPTV conversion tool for 8K Strong VIP resellers and customers.">
+    <meta name="keywords" content="convert M3U to Xtream Codes, M3U to Xtream API, IPTV converter, Xtream Codes generator, M3U playlist converter, 8K Strong VIP converter, IPTV tools">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
@@ -49,227 +49,50 @@
         .mobile-menu-open .mobile-menu { display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        /* Convert Page Styles */
-        .convert-hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 30px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-        }
-        .convert-hero h1 {
-            font-size: 3.2em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .convert-hero p {
-            font-size: 1.2em;
-            color: var(--gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        /* Page Hero */
+        .page-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .page-hero h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-hero p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto; }
         
         /* Converter Section */
-        .converter-section {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .converter-info h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .converter-info p {
-            color: var(--gray-600);
-            margin-bottom: 30px;
-        }
-        .rate-box {
-            background: var(--gray-300);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .rate-box h3 {
-            color: var(--button-bg);
-            margin-bottom: 15px;
-        }
-        .rate-value {
-            font-size: 2.5em;
-            font-weight: 800;
-            color: var(--gray-900);
-        }
-        .rate-value span {
-            color: var(--button-bg);
-            font-size: 1.2em;
-        }
+        .converter-section { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; border: 1px solid var(--gray-400); display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .converter-info h2 { font-size: 2.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .converter-info p { color: var(--gray-600); margin-bottom: 20px; line-height: 1.6; }
+        .feature-list { list-style: none; margin-top: 20px; }
+        .feature-list li { margin: 12px 0; display: flex; align-items: center; gap: 10px; color: var(--gray-600); }
+        .feature-list li i { color: var(--button-bg); width: 24px; }
         
-        .converter-card {
-            background: var(--gray-300);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid var(--gray-400);
-        }
-        .input-group {
-            margin-bottom: 25px;
-        }
-        .input-group label {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--gray-700);
-            font-weight: 500;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 15px;
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 10px;
-            color: var(--gray-800);
-            font-size: 1.2em;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .input-group input:focus {
-            outline: none;
-            border-color: var(--button-bg);
-        }
-        .result-box {
-            background: var(--gray-200);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-            border: 1px solid var(--gray-400);
-        }
-        .result-label {
-            color: var(--gray-600);
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .result-value {
-            font-size: 2em;
-            font-weight: 800;
-            color: var(--button-bg);
-        }
-        .convert-btn {
-            width: 100%;
-            background: var(--button-bg);
-            color: var(--gray-100);
-            padding: 15px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .convert-btn:hover {
-            background: var(--button-hover);
-            transform: translateY(-2px);
-        }
+        .converter-card { background: var(--gray-300); border-radius: 20px; padding: 30px; border: 1px solid var(--gray-400); }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 10px; color: var(--gray-700); font-weight: 500; }
+        .input-group input, .input-group textarea { width: 100%; padding: 15px; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1em; transition: 0.3s; }
+        .input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--button-bg); }
+        .input-group textarea { resize: vertical; min-height: 100px; font-family: monospace; font-size: 0.9em; }
         
-        /* Credit Table */
-        .credit-table-section {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .credit-table-section h2 {
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .credit-convert-table {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background: var(--gray-300);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        .credit-convert-table th, .credit-convert-table td {
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid var(--gray-400);
-        }
-        .credit-convert-table th {
-            background: var(--button-bg);
-            color: var(--gray-100);
-            font-weight: bold;
-        }
-        .credit-convert-table tr:last-child td {
-            border-bottom: none;
-        }
-        .credit-amount-convert {
-            font-weight: bold;
-            color: var(--button-bg);
-        }
+        .result-box { background: var(--gray-200); border-radius: 15px; padding: 20px; margin: 20px 0; border: 1px solid var(--gray-400); }
+        .result-label { color: var(--gray-600); margin-bottom: 10px; font-size: 0.9em; }
+        .result-value { font-size: 1em; font-weight: 500; color: var(--button-bg); word-break: break-all; font-family: monospace; background: var(--gray-300); padding: 10px; border-radius: 8px; margin-top: 5px; }
+        .result-value-small { font-size: 0.85em; color: var(--gray-500); margin-top: 8px; }
         
-        /* Benefits Section */
-        .benefits-section {
-            background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .benefits-section h2 {
-            font-size: 2.2em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        .benefit-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 30px;
-            transition: 0.3s;
-        }
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-        }
-        .benefit-icon {
-            font-size: 2.5em;
-            color: var(--button-bg);
-            margin-bottom: 20px;
-        }
-        .benefit-card h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
-        }
-        .benefit-card p {
-            color: var(--gray-600);
-            font-size: 0.9em;
-        }
+        .convert-btn { width: 100%; background: var(--button-bg); color: var(--gray-100); padding: 14px; border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .convert-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
+        .copy-btn { background: transparent; border: 1px solid var(--button-bg); color: var(--button-bg); padding: 8px 15px; border-radius: 8px; cursor: pointer; margin-top: 10px; font-size: 0.85em; transition: 0.3s; }
+        .copy-btn:hover { background: var(--button-bg); color: var(--gray-100); }
+        
+        /* Example Box */
+        .example-box { background: var(--gray-300); border-radius: 15px; padding: 20px; margin-top: 20px; border: 1px solid var(--gray-400); }
+        .example-box h4 { color: var(--button-bg); margin-bottom: 10px; }
+        .example-box p { color: var(--gray-600); font-size: 0.85em; font-family: monospace; word-break: break-all; }
+        
+        /* Credit Integration Section */
+        .credit-integration { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 40px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .credit-integration h2 { font-size: 2em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .credit-integration p { color: var(--gray-600); margin-bottom: 25px; }
+        .credit-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .credit-btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .credit-btn.primary { background: var(--button-bg); color: var(--gray-100); }
+        .credit-btn.secondary { background: transparent; color: var(--button-bg); border: 2px solid var(--button-bg); }
+        .credit-btn:hover { transform: scale(1.05); }
         
         /* Footer */
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
@@ -289,7 +112,7 @@
             .logo-img { max-height: 40px; max-width: 150px; }
             .mobile-menu-toggle { display: block; }
             .main-nav { display: none; }
-            .convert-hero h1 { font-size: 2em; }
+            .page-hero h1 { font-size: 2em; }
             .converter-section { grid-template-columns: 1fr; padding: 30px; }
             .footer-content { grid-template-columns: 1fr; text-align: center; }
             .social-links { justify-content: center; }
@@ -304,9 +127,7 @@
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%23ecb619'/%3E%3Ctext x='10' y='32' fill='%23041a2f' font-weight='bold' font-size='20'%3E8K STRONG%3C/text%3E%3C/svg%3E" alt="8K Strong IPTV" class="logo-img">
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
             <div class="header-actions">
                 <div class="language-dropdown">
                     <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
@@ -349,133 +170,85 @@
 
     <main class="container">
         <!-- Hero Section -->
-        <section class="convert-hero">
-            <h1>Convert Credits to Subscription</h1>
-            <p>Simple and transparent – convert your 8K Strong VIP credits directly into subscription months. Instant activation with no hidden fees.</p>
+        <section class="page-hero">
+            <h1>Convert M3U to Xtream Codes</h1>
+            <p>Transform your M3U playlist URL into Xtream Codes API format (Username, Password, Server URL). Easy and fast conversion for all IPTV players and apps.</p>
         </section>
 
         <!-- Converter Section -->
         <div class="converter-section">
             <div class="converter-info">
-                <h2>Credit Converter</h2>
-                <p>Use our simple credit conversion tool. Enter the number of credits you have and see exactly how many months of subscription you'll get.</p>
-                <div class="rate-box">
-                    <h3><i class="fas fa-exchange-alt"></i> Conversion Rate</h3>
-                    <div class="rate-value">1 <span>Credit = 1 Month</span></div>
-                    <p style="margin-top: 10px; color: var(--gray-600);">Simple 1:1 ratio – no complicated calculations!</p>
-                </div>
+                <h2>M3U to Xtream Codes Converter</h2>
+                <p>Convert any M3U playlist URL to Xtream Codes format. This is useful for apps that require Username, Password, and Server URL instead of a long M3U link.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Works with any M3U URL format</li>
+                    <li><i class="fas fa-check-circle"></i> Instant conversion</li>
+                    <li><i class="fas fa-check-circle"></i> Compatible with all IPTV apps</li>
+                    <li><i class="fas fa-check-circle"></i> Supports M3U with username/password</li>
+                </ul>
             </div>
             <div class="converter-card">
                 <div class="input-group">
-                    <label><i class="fas fa-coins"></i> Enter Credits</label>
-                    <input type="number" id="creditsInput" placeholder="Enter number of credits" value="1" min="1" step="1">
+                    <label><i class="fas fa-link"></i> M3U Playlist URL</label>
+                    <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts"></textarea>
                 </div>
-                <div class="result-box">
-                    <div class="result-label">You Will Get</div>
-                    <div class="result-value" id="monthsResult">1 Month</div>
-                    <div style="margin-top: 10px; font-size: 0.8em; color: var(--gray-500);">Instant activation after conversion</div>
+                <button class="convert-btn" onclick="convertM3UtoXtream()"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
+                
+                <div id="resultContainer" style="display: none;">
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-server"></i> Server URL</div>
+                        <div class="result-value" id="serverUrl">-</div>
+                        <button class="copy-btn" onclick="copyToClipboard('serverUrl')"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-user"></i> Username</div>
+                        <div class="result-value" id="username">-</div>
+                        <button class="copy-btn" onclick="copyToClipboard('username')"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-lock"></i> Password</div>
+                        <div class="result-value" id="password">-</div>
+                        <button class="copy-btn" onclick="copyToClipboard('password')"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
                 </div>
-                <button class="convert-btn" onclick="convertCredits()"><i class="fas fa-sync-alt"></i> Convert Now</button>
-            </div>
-        </div>
-
-        <!-- Credit Table -->
-        <div class="credit-table-section">
-            <h2>Credit to Subscription Table</h2>
-            <table class="credit-convert-table">
-                <thead>
-                    <tr>
-                        <th>Credits</th>
-                        <th>Subscription Months</th>
-                        <th>Best Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="credit-amount-convert"><i class="fas fa-coins"></i> 1 Credit</td>
-                        <td><i class="fas fa-calendar-alt"></i> 1 Month</td>
-                        <td>—</td>
-                    </tr>
-                    <tr>
-                        <td class="credit-amount-convert"><i class="fas fa-coins"></i> 3 Credits</td>
-                        <td><i class="fas fa-calendar-alt"></i> 3 Months</td>
-                        <td>✓</td>
-                    </tr>
-                    <tr>
-                        <td class="credit-amount-convert"><i class="fas fa-coins"></i> 6 Credits</td>
-                        <td><i class="fas fa-calendar-alt"></i> 6 Months</td>
-                        <td>✓✓</td>
-                    </tr>
-                    <tr>
-                        <td class="credit-amount-convert"><i class="fas fa-coins"></i> 12 Credits</td>
-                        <td><i class="fas fa-calendar-alt"></i> 12 Months</td>
-                        <td>✓✓✓ Best Deal</td>
-                    </tr>
-                    <tr>
-                        <td class="credit-amount-convert"><i class="fas fa-coins"></i> 24 Credits</td>
-                        <td><i class="fas fa-calendar-alt"></i> 24 Months (2 Years)</td>
-                        <td>🔥 Special</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Benefits Section -->
-        <div class="benefits-section">
-            <h2>Why Use Our Credit System?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Instant Activation</h3>
-                    <p>Credits are converted immediately – no waiting time</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Flexible Purchase</h3>
-                    <p>Buy credits in any amount and convert when you need</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-gem"></i></div>
-                    <h3>No Expiration</h3>
-                    <p>Credits never expire – use them anytime</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-headset"></i></div>
-                    <h3>24/7 Support</h3>
-                    <p>Need help? Our support team is always available</p>
+                
+                <div class="example-box">
+                    <h4><i class="fas fa-question-circle"></i> Example M3U URL Format</h4>
+                    <p>http://server.com:8080/get.php?username=your_username&password=your_password&type=m3u_plus&output=ts</p>
+                    <p style="margin-top: 10px;"><strong>Xtream Codes Result:</strong><br>Server: http://server.com:8080<br>Username: your_username<br>Password: your_password</p>
                 </div>
             </div>
         </div>
 
-        <!-- FAQ Section -->
-        <div class="credit-table-section">
-            <h2>Frequently Asked Questions</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-                <div class="faq-item" style="background: var(--gray-300); border-radius: 15px; padding: 20px; margin-bottom: 15px; cursor: pointer;">
-                    <div class="faq-question" style="display: flex; justify-content: space-between;">
-                        <span>How do I get credits?</span>
-                        <i class="fas fa-plus"></i>
+        <!-- Credit Integration Section - Linked to Reseller Page -->
+        <div class="credit-integration">
+            <h2><i class="fas fa-coins"></i> 8K Strong VIP Credit System</h2>
+            <p>Convert your credits to subscription months easily. 1 Credit = 1 Month Subscription. Perfect for resellers managing multiple customers.</p>
+            <div class="credit-buttons">
+                <a href="reseller.html" class="credit-btn primary"><i class="fas fa-chart-line"></i> Become a Reseller</a>
+                <a href="reseller.html#packages" class="credit-btn secondary"><i class="fas fa-coins"></i> View Credit Packages</a>
+            </div>
+        </div>
+
+        <!-- How to Use Section -->
+        <div class="converter-section" style="grid-template-columns: 1fr;">
+            <div style="text-align: center;">
+                <h2 style="background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 30px;">How to Use Xtream Codes</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                    <div style="background: var(--gray-300); padding: 25px; border-radius: 20px; border: 1px solid var(--gray-400);">
+                        <i class="fas fa-download" style="font-size: 2.5em; color: var(--button-bg); margin-bottom: 15px; display: inline-block;"></i>
+                        <h3 style="color: var(--gray-900); margin-bottom: 10px;">Step 1</h3>
+                        <p style="color: var(--gray-600);">Enter your M3U URL above and click Convert</p>
                     </div>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--gray-600);">
-                        Contact our support team on Telegram or WhatsApp to purchase credits. We accept various payment methods including PayPal, cryptocurrency, and bank transfers.
+                    <div style="background: var(--gray-300); padding: 25px; border-radius: 20px; border: 1px solid var(--gray-400);">
+                        <i class="fas fa-copy" style="font-size: 2.5em; color: var(--button-bg); margin-bottom: 15px; display: inline-block;"></i>
+                        <h3 style="color: var(--gray-900); margin-bottom: 10px;">Step 2</h3>
+                        <p style="color: var(--gray-600);">Copy your Xtream Codes (Server, Username, Password)</p>
                     </div>
-                </div>
-                <div class="faq-item" style="background: var(--gray-300); border-radius: 15px; padding: 20px; margin-bottom: 15px; cursor: pointer;">
-                    <div class="faq-question" style="display: flex; justify-content: space-between;">
-                        <span>Can I convert credits for multiple users?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--gray-600);">
-                        Yes! As a reseller, you can convert credits to create subscriptions for your customers. Each credit gives 1 month of service for one user.
-                    </div>
-                </div>
-                <div class="faq-item" style="background: var(--gray-300); border-radius: 15px; padding: 20px; cursor: pointer;">
-                    <div class="faq-question" style="display: flex; justify-content: space-between;">
-                        <span>Is there a minimum credit purchase?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--gray-600);">
-                        Minimum credit purchase is 1 credit. For resellers, we offer special packages starting from 12 credits with discounted rates.
+                    <div style="background: var(--gray-300); padding: 25px; border-radius: 20px; border: 1px solid var(--gray-400);">
+                        <i class="fas fa-tv" style="font-size: 2.5em; color: var(--button-bg); margin-bottom: 15px; display: inline-block;"></i>
+                        <h3 style="color: var(--gray-900); margin-bottom: 10px;">Step 3</h3>
+                        <p style="color: var(--gray-600);">Use these credentials in any IPTV app that supports Xtream Codes API</p>
                     </div>
                 </div>
             </div>
@@ -524,37 +297,65 @@
     </footer>
 
     <script>
-        // Credit Converter Function
-        function convertCredits() {
-            const credits = document.getElementById('creditsInput').value;
-            const months = parseInt(credits) || 0;
-            const resultElement = document.getElementById('monthsResult');
+        // M3U to Xtream Codes Converter Function
+        function convertM3UtoXtream() {
+            const m3uUrl = document.getElementById('m3uUrl').value.trim();
             
-            if (months <= 0) {
-                resultElement.innerHTML = '0 Months';
-                alert('Please enter a valid number of credits (minimum 1)');
-            } else if (months === 1) {
-                resultElement.innerHTML = '1 Month';
-            } else {
-                resultElement.innerHTML = months + ' Months';
+            if (!m3uUrl) {
+                alert('Please enter an M3U playlist URL');
+                return;
+            }
+            
+            try {
+                // Parse the URL
+                const url = new URL(m3uUrl);
+                const params = new URLSearchParams(url.search);
+                
+                // Extract username and password
+                let username = params.get('username');
+                let password = params.get('password');
+                
+                // If username/password not in params, try to extract from path or other formats
+                if (!username || !password) {
+                    // Try to extract from URL path pattern: /username/password/ or /c/username/password/
+                    const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)\//);
+                    if (pathMatch) {
+                        username = pathMatch[1];
+                        password = pathMatch[2];
+                    }
+                }
+                
+                // Build server URL (protocol + host + port)
+                const serverUrl = `${url.protocol}//${url.host}`;
+                
+                if (username && password) {
+                    document.getElementById('serverUrl').innerHTML = serverUrl;
+                    document.getElementById('username').innerHTML = username;
+                    document.getElementById('password').innerHTML = password;
+                    document.getElementById('resultContainer').style.display = 'block';
+                } else {
+                    alert('Could not extract username and password from the M3U URL. Please make sure your URL contains username and password parameters.\n\nExample format: http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus');
+                }
+            } catch (error) {
+                alert('Invalid URL format. Please enter a valid M3U playlist URL.\n\nExample: http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus');
             }
         }
         
-        // Real-time update
-        const creditsInput = document.getElementById('creditsInput');
-        if (creditsInput) {
-            creditsInput.addEventListener('input', function() {
-                const credits = this.value;
-                const months = parseInt(credits) || 0;
-                const resultElement = document.getElementById('monthsResult');
-                
-                if (months <= 0) {
-                    resultElement.innerHTML = '0 Months';
-                } else if (months === 1) {
-                    resultElement.innerHTML = '1 Month';
-                } else {
-                    resultElement.innerHTML = months + ' Months';
-                }
+        // Copy to Clipboard Function
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Show temporary success message
+                const btn = event.target;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert('Failed to copy text');
             });
         }
         
@@ -562,21 +363,6 @@
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const header = document.querySelector('.header');
         if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
-        
-        // FAQ Accordion
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const answer = this.querySelector('.faq-answer');
-                const icon = this.querySelector('.faq-question i');
-                if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
-                    answer.style.maxHeight = '0';
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    icon.style.transform = 'rotate(45deg)';
-                }
-            });
-        });
         
         // Multi-language
         window.changeLanguage = function(lang) {
