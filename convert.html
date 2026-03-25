@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Convert M3U to Xtream Codes – 8K Strong VIP | IPTV Converter Tool</title>
-    <meta name="description" content="Free M3U to Xtream Codes converter. Transform your M3U playlist URL to Xtream Codes API (Username, Password, Server URL). Manual entry also available.">
-    <meta name="keywords" content="convert M3U to Xtream Codes, M3U to Xtream API, IPTV converter, Xtream Codes generator">
+    <meta name="description" content="Free M3U to Xtream Codes converter. Transform your M3U playlist URL to Xtream Codes API (Username, Password, Server URL).">
     
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -32,14 +31,12 @@
             --button-hover: #d4a514;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
-        [dir="rtl"] { text-align: right; }
-        img { -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; user-drag: none; pointer-events: none; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; }
         
         .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; pointer-events: none; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; }
         .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
         .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
         .language-dropdown { position: relative; }
@@ -60,40 +57,26 @@
         
         .page-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
         .page-hero h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .page-hero p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto; }
         
-        .converter-tabs { display: flex; justify-content: center; gap: 20px; margin: 40px auto 0; flex-wrap: wrap; }
-        .tab-btn { background: var(--gray-300); border: 1px solid var(--gray-400); color: var(--gray-700); padding: 12px 30px; border-radius: 50px; cursor: pointer; font-size: 1em; font-weight: bold; transition: 0.3s; }
-        .tab-btn.active { background: var(--button-bg); color: var(--gray-100); border-color: var(--button-bg); }
-        .tab-btn:hover { background: var(--button-bg); color: var(--gray-100); }
-        
-        .converter-panel { display: none; background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 30px auto; border: 1px solid var(--gray-400); }
-        .converter-panel.active { display: block; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .converter-section { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .converter-info h2 { font-size: 2.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .feature-list { list-style: none; margin-top: 20px; }
-        .feature-list li { margin: 12px 0; display: flex; align-items: center; gap: 10px; color: var(--gray-600); }
-        .feature-list li i { color: var(--button-bg); width: 24px; }
-        
-        .converter-card { background: var(--gray-300); border-radius: 20px; padding: 30px; border: 1px solid var(--gray-400); }
+        .converter-section { background: var(--gray-200); border-radius: 30px; padding: 40px; margin: 40px auto; border: 1px solid var(--gray-400); }
         .input-group { margin-bottom: 20px; }
         .input-group label { display: block; margin-bottom: 10px; color: var(--gray-700); font-weight: 500; }
-        .input-group input, .input-group textarea { width: 100%; padding: 15px; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1em; }
-        .input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--button-bg); }
-        .input-group textarea { resize: vertical; min-height: 100px; font-family: monospace; font-size: 0.9em; }
+        .input-group textarea { width: 100%; padding: 15px; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1em; resize: vertical; min-height: 120px; font-family: monospace; }
+        .input-group textarea:focus { outline: none; border-color: var(--button-bg); }
         
-        .result-box { background: var(--gray-200); border-radius: 15px; padding: 15px; margin: 12px 0; border: 1px solid var(--gray-400); }
+        .result-box { background: var(--gray-300); border-radius: 15px; padding: 15px; margin: 15px 0; border: 1px solid var(--gray-400); }
         .result-label { color: var(--gray-600); margin-bottom: 8px; font-size: 0.9em; display: flex; align-items: center; gap: 8px; }
-        .result-value { font-size: 0.95em; font-weight: 500; color: var(--button-bg); word-break: break-all; font-family: monospace; background: var(--gray-300); padding: 8px; border-radius: 6px; margin-top: 5px; }
-        .button-group { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
-        .copy-btn { background: transparent; border: 1px solid var(--button-bg); color: var(--button-bg); padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 0.75em; transition: 0.3s; display: inline-flex; align-items: center; gap: 5px; }
-        .copy-btn:hover { background: var(--button-bg); color: var(--gray-100); }
-        .copy-all-btn { background: var(--button-bg); color: var(--gray-100); border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .result-value { font-size: 1em; font-weight: 500; color: var(--button-bg); word-break: break-all; font-family: monospace; background: var(--gray-200); padding: 10px; border-radius: 6px; margin-top: 5px; }
+        .button-group { margin-top: 10px; }
+        .copy-btn { background: var(--button-bg); color: var(--gray-100); border: none; padding: 6px 15px; border-radius: 6px; cursor: pointer; font-size: 0.8em; transition: 0.3s; display: inline-flex; align-items: center; gap: 6px; }
+        .copy-btn:hover { background: var(--button-hover); transform: scale(1.02); }
+        .copy-all-btn { background: var(--button-bg); color: var(--gray-100); border: none; padding: 12px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s; width: 100%; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 1em; }
         .copy-all-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
-        .convert-btn { width: 100%; background: var(--button-bg); color: var(--gray-100); padding: 14px; border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .convert-btn { width: 100%; background: var(--button-bg); color: var(--gray-100); padding: 14px; border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: 0.3s; margin: 10px 0; }
         .convert-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
+        .example-box { background: var(--gray-300); border-radius: 15px; padding: 15px; margin-top: 20px; border: 1px solid var(--gray-400); }
+        .example-box h4 { color: var(--button-bg); margin-bottom: 10px; }
+        .example-box p { color: var(--gray-600); font-size: 0.8em; font-family: monospace; margin: 5px 0; }
         
         .credit-integration { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 40px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
         .credit-integration h2 { font-size: 2em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -119,8 +102,6 @@
             .logo-img { max-height: 40px; max-width: 150px; }
             .mobile-menu-toggle { display: block; }
             .main-nav { display: none; }
-            .page-hero h1 { font-size: 2em; }
-            .converter-section { grid-template-columns: 1fr; padding: 30px; }
             .footer-content { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
@@ -140,85 +121,52 @@
     <main class="container">
         <section class="page-hero">
             <h1>Convert M3U to Xtream Codes</h1>
-            <p>Extract Username, Password, and Server URL from your M3U playlist. Two ways: Auto-extract from URL or Manual Entry.</p>
+            <p>Paste your M3U playlist URL and click Convert. Get your Server URL, Username, Password, and EPG URL instantly.</p>
         </section>
         
-        <div class="converter-tabs">
-            <button class="tab-btn active" id="tabAutoBtn">🤖 Auto Extract from M3U URL</button>
-            <button class="tab-btn" id="tabManualBtn">✏️ Manual Entry</button>
-        </div>
-        
-        <!-- Auto Extract Panel -->
-        <div id="autoPanel" class="converter-panel active">
-            <div class="converter-section">
-                <div class="converter-info">
-                    <h2>Auto Extract from M3U URL</h2>
-                    <p>Paste your full M3U playlist URL and click Convert. We'll automatically extract the Server URL, Username, and Password.</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check-circle"></i> Works with query string format (?username=xxx&password=xxx)</li>
-                        <li><i class="fas fa-check-circle"></i> Works with path format (/username/password)</li>
-                        <li><i class="fas fa-check-circle"></i> Works with basic auth format (username:password@)</li>
-                    </ul>
-                </div>
-                <div class="converter-card">
-                    <div class="input-group">
-                        <label><i class="fas fa-link"></i> M3U Playlist URL</label>
-                        <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;&#10;Examples:&#10;http://server.com:8080/get.php?username=USER&password=PASS&type=m3u&#10;http://server.com:8080/USER/PASS&#10;http://USER:PASS@server.com:8080/playlist.m3u"></textarea>
-                    </div>
-                    <button class="convert-btn" id="autoConvertBtn"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
-                    
-                    <div id="autoResult" style="display: none;">
-                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="autoServerUrl">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoServerUrl', 'Server URL', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="autoUsername">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoUsername', 'Username', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="autoPassword">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoPassword', 'Password', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="autoEpgUrl">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoEpgUrl', 'EPG URL', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <button class="copy-all-btn" onclick="copyAllAuto()"><i class="fas fa-copy"></i> Copy All Information</button>
-                    </div>
-                </div>
+        <div class="converter-section">
+            <div class="input-group">
+                <label><i class="fas fa-link"></i> M3U Playlist URL</label>
+                <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;&#10;Examples:&#10;http://server.com:8080/get.php?username=USER&password=PASS&type=m3u&#10;http://server.com:8080/USER/PASS&#10;http://USER:PASS@server.com:8080/playlist.m3u"></textarea>
             </div>
-        </div>
-        
-        <!-- Manual Entry Panel -->
-        <div id="manualPanel" class="converter-panel">
-            <div class="converter-section">
-                <div class="converter-info">
-                    <h2>Manual Xtream Codes Entry</h2>
-                    <p>If you already have your Server URL, Username, and Password, enter them below to get your Xtream Codes ready for any IPTV app.</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check-circle"></i> Enter your credentials manually</li>
-                        <li><i class="fas fa-check-circle"></i> Get EPG URL automatically</li>
-                        <li><i class="fas fa-check-circle"></i> Copy all codes with one click</li>
-                    </ul>
+            <button class="convert-btn" id="convertBtn"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
+            
+            <div id="resultArea" style="display: none;">
+                <div class="result-box">
+                    <div class="result-label"><i class="fas fa-server"></i> Server URL</div>
+                    <div class="result-value" id="serverUrl">-</div>
+                    <div class="button-group"><button class="copy-btn" id="copyServerBtn"><i class="fas fa-copy"></i> Copy</button></div>
                 </div>
-                <div class="converter-card">
-                    <div class="input-group">
-                        <label><i class="fas fa-server"></i> Server URL</label>
-                        <input type="text" id="manualServerUrl" placeholder="http://your-server.com:8080">
-                    </div>
-                    <div class="input-group">
-                        <label><i class="fas fa-user"></i> Username</label>
-                        <input type="text" id="manualUsername" placeholder="Your username">
-                    </div>
-                    <div class="input-group">
-                        <label><i class="fas fa-lock"></i> Password</label>
-                        <input type="text" id="manualPassword" placeholder="Your password">
-                    </div>
-                    <button class="convert-btn" id="manualConvertBtn"><i class="fas fa-check-circle"></i> Generate Xtream Codes</button>
-                    
-                    <div id="manualResult" style="display: none;">
-                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="manualServerResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualServerResult', 'Server URL', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="manualUsernameResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualUsernameResult', 'Username', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="manualPasswordResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualPasswordResult', 'Password', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="manualEpgResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualEpgResult', 'EPG URL', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <button class="copy-all-btn" onclick="copyAllManual()"><i class="fas fa-copy"></i> Copy All Information</button>
-                    </div>
+                <div class="result-box">
+                    <div class="result-label"><i class="fas fa-user"></i> Username</div>
+                    <div class="result-value" id="username">-</div>
+                    <div class="button-group"><button class="copy-btn" id="copyUsernameBtn"><i class="fas fa-copy"></i> Copy</button></div>
                 </div>
+                <div class="result-box">
+                    <div class="result-label"><i class="fas fa-lock"></i> Password</div>
+                    <div class="result-value" id="password">-</div>
+                    <div class="button-group"><button class="copy-btn" id="copyPasswordBtn"><i class="fas fa-copy"></i> Copy</button></div>
+                </div>
+                <div class="result-box">
+                    <div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL (XMLTV)</div>
+                    <div class="result-value" id="epgUrl">-</div>
+                    <div class="button-group"><button class="copy-btn" id="copyEpgBtn"><i class="fas fa-copy"></i> Copy</button></div>
+                </div>
+                <button class="copy-all-btn" id="copyAllBtn"><i class="fas fa-copy"></i> Copy All Information</button>
+            </div>
+            
+            <div class="example-box">
+                <h4><i class="fas fa-question-circle"></i> Supported M3U URL Formats</h4>
+                <p>http://server.com:8080/get.php?username=USER&password=PASS&type=m3u</p>
+                <p>http://server.com:8080/USER/PASS</p>
+                <p>http://USER:PASS@server.com:8080/playlist.m3u</p>
+                <p><strong>Result:</strong> Server: http://server.com:8080 | Username: USER | Password: PASS</p>
             </div>
         </div>
         
         <div class="credit-integration">
             <h2><i class="fas fa-coins"></i> 8K Strong VIP Credit System</h2>
-            <p>Convert your credits to subscription months easily. 1 Credit = 1 Month Subscription. Perfect for resellers.</p>
+            <p>Convert your credits to subscription months easily. 1 Credit = 1 Month Subscription.</p>
             <div class="credit-buttons">
                 <a href="reseller.html" class="credit-btn primary"><i class="fas fa-chart-line"></i> Become a Reseller</a>
                 <a href="reseller.html#packages" class="credit-btn secondary"><i class="fas fa-coins"></i> View Credit Packages</a>
@@ -239,40 +187,38 @@
     <script>
         // ========== ANTI-INSPECT ==========
         document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('keydown', e => { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's')) e.preventDefault(); });
-        document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
+        document.addEventListener('keydown', e => { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's')) e.preventDefault(); });
         
-        // ========== GLOBAL DATA ==========
-        let autoData = { serverUrl: '', username: '', password: '', epgUrl: '' };
-        let manualData = { serverUrl: '', username: '', password: '', epgUrl: '' };
+        // ========== SHOW TOAST MESSAGE ==========
+        function showMessage(message, isSuccess = true) {
+            alert(message);
+        }
         
-        // ========== COPY SINGLE FIELD ==========
-        function copyField(elementId, fieldName, button) {
-            const element = document.getElementById(elementId);
-            if (!element || element.innerText === '-' || element.innerText === 'Not available') {
-                alert(`❌ No ${fieldName} available to copy`);
+        // ========== COPY FUNCTION ==========
+        function copyToClipboard(text, fieldName, buttonElement) {
+            if (!text || text === '-' || text === 'Not available') {
+                showMessage(`❌ No ${fieldName} available to copy`, false);
                 return;
             }
-            const text = element.innerText;
             navigator.clipboard.writeText(text).then(() => {
-                alert(`✅ ${fieldName} copied to clipboard!`);
-                const originalHTML = button.innerHTML;
-                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                setTimeout(() => { button.innerHTML = originalHTML; }, 1500);
+                showMessage(`✅ ${fieldName} copied to clipboard!`, true);
+                const originalHTML = buttonElement.innerHTML;
+                buttonElement.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { buttonElement.innerHTML = originalHTML; }, 1500);
             }).catch(() => {
-                alert(`❌ Failed to copy ${fieldName}`);
+                showMessage(`❌ Failed to copy ${fieldName}`, false);
             });
         }
         
-        // ========== COPY ALL AUTO ==========
-        function copyAllAuto() {
-            const serverUrl = document.getElementById('autoServerUrl').innerText;
-            const username = document.getElementById('autoUsername').innerText;
-            const password = document.getElementById('autoPassword').innerText;
-            const epgUrl = document.getElementById('autoEpgUrl').innerText;
+        // ========== COPY ALL FUNCTION ==========
+        function copyAll() {
+            const serverUrl = document.getElementById('serverUrl').innerText;
+            const username = document.getElementById('username').innerText;
+            const password = document.getElementById('password').innerText;
+            const epgUrl = document.getElementById('epgUrl').innerText;
             
             if (!serverUrl || serverUrl === '-' || !username || username === '-') {
-                alert('❌ No data available. Please convert an M3U URL first.');
+                showMessage('❌ No data available. Please convert an M3U URL first.', false);
                 return;
             }
             
@@ -290,53 +236,13 @@
 ═══════════════════════════════════`;
             
             navigator.clipboard.writeText(text).then(() => {
-                alert('✅ All Xtream Codes copied to clipboard!');
-                const btn = document.querySelector('#autoResult .copy-all-btn');
-                if (btn) {
-                    const originalText = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
-                    setTimeout(() => { btn.innerHTML = originalText; }, 1500);
-                }
+                showMessage('✅ All Xtream Codes copied to clipboard!', true);
+                const btn = document.getElementById('copyAllBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
+                setTimeout(() => { btn.innerHTML = originalText; }, 1500);
             }).catch(() => {
-                alert('❌ Failed to copy all information');
-            });
-        }
-        
-        // ========== COPY ALL MANUAL ==========
-        function copyAllManual() {
-            const serverUrl = document.getElementById('manualServerResult').innerText;
-            const username = document.getElementById('manualUsernameResult').innerText;
-            const password = document.getElementById('manualPasswordResult').innerText;
-            const epgUrl = document.getElementById('manualEpgResult').innerText;
-            
-            if (!serverUrl || serverUrl === '-' || !username || username === '-') {
-                alert('❌ No data available. Please generate Xtream Codes first.');
-                return;
-            }
-            
-            const text = `═══════════════════════════════════
-        XTREAM CODES INFORMATION
-═══════════════════════════════════
-
-📡 Server URL: ${serverUrl}
-👤 Username: ${username}
-🔐 Password: ${password}
-📅 EPG URL: ${epgUrl}
-
-═══════════════════════════════════
-8K Strong VIP - Premium IPTV Service
-═══════════════════════════════════`;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                alert('✅ All Xtream Codes copied to clipboard!');
-                const btn = document.querySelector('#manualResult .copy-all-btn');
-                if (btn) {
-                    const originalText = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
-                    setTimeout(() => { btn.innerHTML = originalText; }, 1500);
-                }
-            }).catch(() => {
-                alert('❌ Failed to copy all information');
+                showMessage('❌ Failed to copy all information', false);
             });
         }
         
@@ -345,10 +251,10 @@
             return `${serverUrl}/xmltv.php?username=${username}&password=${password}`;
         }
         
-        // ========== AUTO EXTRACT ==========
-        function autoExtract() {
+        // ========== CONVERT FUNCTION ==========
+        function convertM3UtoXtream() {
             const m3uUrl = document.getElementById('m3uUrl').value.trim();
-            if (!m3uUrl) { alert('❌ Please enter an M3U URL'); return; }
+            if (!m3uUrl) { showMessage('❌ Please enter an M3U playlist URL', false); return; }
             
             let username = null, password = null, serverUrl = null;
             
@@ -379,56 +285,25 @@
             
             if (username && password && serverUrl) {
                 const epgUrl = extractEpgUrl(serverUrl, username, password);
-                autoData = { serverUrl, username, password, epgUrl };
-                document.getElementById('autoServerUrl').innerHTML = serverUrl;
-                document.getElementById('autoUsername').innerHTML = username;
-                document.getElementById('autoPassword').innerHTML = password;
-                document.getElementById('autoEpgUrl').innerHTML = epgUrl;
-                document.getElementById('autoResult').style.display = 'block';
-                alert('✅ Conversion successful!');
+                document.getElementById('serverUrl').innerHTML = serverUrl;
+                document.getElementById('username').innerHTML = username;
+                document.getElementById('password').innerHTML = password;
+                document.getElementById('epgUrl').innerHTML = epgUrl;
+                document.getElementById('resultArea').style.display = 'block';
+                showMessage('✅ Conversion successful!', true);
+                document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
             } else {
-                alert('❌ Could not extract. Try Manual Entry tab instead.\n\nMake sure your M3U URL contains username and password.');
+                showMessage('❌ Could not extract. Make sure your M3U URL contains username and password.\n\nExamples:\nhttp://server.com:8080/get.php?username=USER&password=PASS\nhttp://server.com:8080/USER/PASS', false);
             }
-        }
-        
-        // ========== MANUAL GENERATE ==========
-        function manualGenerate() {
-            let serverUrl = document.getElementById('manualServerUrl').value.trim();
-            const username = document.getElementById('manualUsername').value.trim();
-            const password = document.getElementById('manualPassword').value.trim();
-            
-            if (!serverUrl || !username || !password) {
-                alert('❌ Please fill in all fields (Server URL, Username, Password)');
-                return;
-            }
-            if (!serverUrl.startsWith('http')) serverUrl = 'http://' + serverUrl;
-            const epgUrl = extractEpgUrl(serverUrl, username, password);
-            manualData = { serverUrl, username, password, epgUrl };
-            document.getElementById('manualServerResult').innerHTML = serverUrl;
-            document.getElementById('manualUsernameResult').innerHTML = username;
-            document.getElementById('manualPasswordResult').innerHTML = password;
-            document.getElementById('manualEpgResult').innerHTML = epgUrl;
-            document.getElementById('manualResult').style.display = 'block';
-            alert('✅ Xtream Codes generated!');
         }
         
         // ========== SETUP EVENT LISTENERS ==========
-        document.getElementById('tabAutoBtn').onclick = function() {
-            document.getElementById('tabAutoBtn').classList.add('active');
-            document.getElementById('tabManualBtn').classList.remove('active');
-            document.getElementById('autoPanel').classList.add('active');
-            document.getElementById('manualPanel').classList.remove('active');
-        };
-        
-        document.getElementById('tabManualBtn').onclick = function() {
-            document.getElementById('tabManualBtn').classList.add('active');
-            document.getElementById('tabAutoBtn').classList.remove('active');
-            document.getElementById('manualPanel').classList.add('active');
-            document.getElementById('autoPanel').classList.remove('active');
-        };
-        
-        document.getElementById('autoConvertBtn').onclick = autoExtract;
-        document.getElementById('manualConvertBtn').onclick = manualGenerate;
+        document.getElementById('convertBtn').onclick = convertM3UtoXtream;
+        document.getElementById('copyServerBtn').onclick = () => copyToClipboard(document.getElementById('serverUrl').innerText, 'Server URL', document.getElementById('copyServerBtn'));
+        document.getElementById('copyUsernameBtn').onclick = () => copyToClipboard(document.getElementById('username').innerText, 'Username', document.getElementById('copyUsernameBtn'));
+        document.getElementById('copyPasswordBtn').onclick = () => copyToClipboard(document.getElementById('password').innerText, 'Password', document.getElementById('copyPasswordBtn'));
+        document.getElementById('copyEpgBtn').onclick = () => copyToClipboard(document.getElementById('epgUrl').innerText, 'EPG URL', document.getElementById('copyEpgBtn'));
+        document.getElementById('copyAllBtn').onclick = copyAll;
         
         // ========== LANGUAGE & MOBILE ==========
         let currentLang = localStorage.getItem('language') || 'en';
@@ -443,7 +318,6 @@
             link.addEventListener('click', (e) => { e.preventDefault(); applyLanguage(link.getAttribute('data-lang')); });
         });
         document.getElementById('mobileMenuToggle').onclick = () => document.querySelector('.header').classList.toggle('mobile-menu-open');
-        
         applyLanguage(currentLang);
     </script>
 </body>
