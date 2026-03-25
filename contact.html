@@ -2,12 +2,23 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us – 8K Strong VIP IPTV Support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Contact Us – 8K Strong VIP IPTV Support | 24/7 Customer Service</title>
     <meta name="description" content="Contact 8K Strong VIP IPTV support. Reach us via Telegram, WhatsApp, or email. We're here 24/7 to help with subscriptions, free trials, and reseller inquiries.">
     <meta name="keywords" content="contact 8K Strong VIP, IPTV support, Telegram support, WhatsApp IPTV, IPTV customer service">
+    
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         :root {
             --gray-100: #041324;
@@ -23,14 +34,14 @@
             --button-hover: #d4a514;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
         [dir="rtl"] { text-align: right; }
+        img { -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; user-drag: none; pointer-events: none; }
         
-        /* Header */
         .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; pointer-events: none; }
         .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
         .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
         .language-dropdown { position: relative; }
@@ -49,468 +60,99 @@
         .mobile-menu-open .mobile-menu { display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        /* Contact Page Styles */
-        .contact-hero {
-            text-align: center;
-            padding: 60px 20px 40px;
-            background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 30px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-        }
-        .contact-hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .contact-hero p {
-            font-size: 1.2em;
-            color: var(--gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        .contact-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .contact-hero h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .contact-hero p { font-size: 1.2em; color: var(--gray-600); max-width: 700px; margin: 0 auto; }
         
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px auto;
-        }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px auto; }
+        .contact-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 40px 30px; text-align: center; transition: all 0.3s; }
+        .contact-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
+        .contact-icon { width: 80px; height: 80px; background: var(--gray-300); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5em; color: var(--button-bg); border: 2px solid var(--button-bg); }
+        .contact-card h3 { font-size: 1.8em; margin-bottom: 15px; color: var(--gray-900); }
+        .contact-detail { font-size: 1.2em; color: var(--gray-600); margin-bottom: 25px; word-break: break-all; }
+        .contact-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--button-bg); color: var(--gray-100); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .contact-btn:hover { background: var(--button-hover); transform: scale(1.05); }
         
-        .contact-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-        }
-        .contact-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gray-300);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2.5em;
-            color: var(--button-bg);
-            border: 2px solid var(--button-bg);
-        }
-        .contact-card h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            color: var(--gray-900);
-        }
-        .contact-card .contact-detail {
-            font-size: 1.2em;
-            color: var(--gray-600);
-            margin-bottom: 25px;
-            word-break: break-all;
-        }
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--button-bg);
-            color: var(--gray-100);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .contact-btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
+        .form-section { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; border: 1px solid var(--gray-400); display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .form-info h2 { font-size: 2.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .info-list { list-style: none; margin-top: 30px; }
+        .info-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; color: var(--gray-700); }
+        .info-list li i { width: 40px; height: 40px; background: var(--gray-300); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--button-bg); }
+        .contact-form { background: var(--gray-300); padding: 30px; border-radius: 20px; border: 1px solid var(--gray-400); }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1em; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--button-bg); }
+        .submit-btn { background: var(--button-bg); color: var(--gray-100); padding: 15px; border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .submit-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         
-        /* Contact Form Section */
-        .form-section {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        .form-info h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .form-info p {
-            color: var(--gray-600);
-            margin-bottom: 30px;
-        }
-        .info-list {
-            list-style: none;
-        }
-        .info-list li {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            color: var(--gray-700);
-        }
-        .info-list li i {
-            width: 40px;
-            height: 40px;
-            background: var(--gray-300);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--button-bg);
-            font-size: 1.2em;
-        }
+        .faq-mini { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .faq-mini h2 { font-size: 2.2em; margin-bottom: 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .faq-mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; text-align: left; }
+        .faq-mini-item { background: var(--gray-300); padding: 20px; border-radius: 15px; border: 1px solid var(--gray-400); }
+        .faq-mini-item h4 { color: var(--button-bg); margin-bottom: 10px; }
         
-        .contact-form {
-            background: var(--gray-300);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid var(--gray-400);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 10px;
-            color: var(--gray-800);
-            font-size: 1em;
-            transition: 0.3s;
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--button-bg);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        .submit-btn {
-            background: var(--button-bg);
-            color: var(--gray-100);
-            padding: 15px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            width: 100%;
-        }
-        .submit-btn:hover {
-            background: var(--button-hover);
-            transform: translateY(-2px);
-        }
-        
-        /* FAQ Mini Section */
-        .faq-mini {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .faq-mini h2 {
-            font-size: 2.2em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .faq-mini-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            text-align: left;
-        }
-        .faq-mini-item {
-            background: var(--gray-300);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid var(--gray-400);
-        }
-        .faq-mini-item h4 {
-            color: var(--button-bg);
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        .faq-mini-item p {
-            color: var(--gray-600);
-        }
-        
-        /* Footer */
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
         .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin: 10px 0; }
-        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
         .footer-column ul li a:hover { color: #ecb619; }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
-        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
         .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
-        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
         
         @media (max-width: 768px) {
             .header { padding: 10px 20px; }
             .logo-img { max-height: 40px; max-width: 150px; }
             .mobile-menu-toggle { display: block; }
             .main-nav { display: none; }
-            .form-section { grid-template-columns: 1fr; padding: 30px; }
             .contact-hero h1 { font-size: 2em; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            .social-links { justify-content: center; }
+            .form-section { grid-template-columns: 1fr; padding: 30px; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="header-top">
-            <div class="logo-area">
-                <a href="index.html">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%23ecb619'/%3E%3Ctext x='10' y='32' fill='%23041a2f' font-weight='bold' font-size='20'%3E8K STRONG%3C/text%3E%3C/svg%3E" alt="8K Strong IPTV" class="logo-img">
-                </a>
-            </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="header-actions">
-                <div class="language-dropdown">
-                    <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
-                    <div class="lang-dropdown-menu">
-                        <a href="#" onclick="changeLanguage('en')">🇬🇧 English</a>
-                        <a href="#" onclick="changeLanguage('ar')">🇸🇦 العربية</a>
-                        <a href="#" onclick="changeLanguage('fr')">🇫🇷 Français</a>
-                        <a href="#" onclick="changeLanguage('es')">🇪🇸 Español</a>
-                        <a href="#" onclick="changeLanguage('de')">🇩🇪 Deutsch</a>
-                        <a href="#" onclick="changeLanguage('it')">🇮🇹 Italiano</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-                <li><a href="setup-guide.html">Setup Guide</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-menu" id="mobileMenu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-                <li><a href="setup-guide.html">Setup Guide</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button><div class="lang-dropdown-menu"><a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ar">🇸🇦 العربية</a><a href="#" data-lang="fr">🇫🇷 Français</a><a href="#" data-lang="es">🇪🇸 Español</a><a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="it">🇮🇹 Italiano</a></div></div></div></div>
+        <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></nav>
+        <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     </header>
 
     <main class="container">
-        <!-- Hero Section -->
-        <section class="contact-hero">
-            <h1>Contact 8K Strong VIP Support</h1>
-            <p>We're here 24/7 to help you with subscriptions, free trials, technical support, and reseller inquiries. Choose your preferred way to reach us.</p>
-        </section>
-
-        <!-- Contact Cards -->
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon"><i class="fab fa-telegram-plane"></i></div>
-                <h3>Telegram Support</h3>
-                <div class="contact-detail">@8kstrong_support</div>
-                <a href="https://t.me/8kstrong_support" target="_blank" class="contact-btn"><i class="fab fa-telegram-plane"></i> Message on Telegram</a>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                <h3>WhatsApp Support</h3>
-                <div class="contact-detail">+1 234 567 890</div>
-                <a href="https://wa.me/1234567890" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                <h3>Email Support</h3>
-                <div class="contact-detail">support@8kstrongvip.com</div>
-                <a href="mailto:support@8kstrongvip.com" class="contact-btn"><i class="fas fa-envelope"></i> Send Email</a>
-            </div>
-        </div>
-
-        <!-- Contact Form & Info Section -->
-        <div class="form-section">
-            <div class="form-info">
-                <h2>Send Us a Message</h2>
-                <p>Have questions about our IPTV service, reseller program, or need technical assistance? Fill out the form and our team will get back to you within a few hours.</p>
-                <ul class="info-list">
-                    <li><i class="fas fa-headset"></i> <span>24/7 Customer Support</span></li>
-                    <li><i class="fas fa-bolt"></i> <span>Fast Response Time (under 2 hours)</span></li>
-                    <li><i class="fas fa-globe"></i> <span>Support in Multiple Languages</span></li>
-                    <li><i class="fas fa-gem"></i> <span>Free Trial Assistance Available</span></li>
-                </ul>
-            </div>
-            <div class="contact-form">
-                <form id="contactForm" action="#" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <select name="subject">
-                            <option value="">Select Subject</option>
-                            <option value="subscription">Subscription & Plans</option>
-                            <option value="free-trial">Free Trial Request</option>
-                            <option value="reseller">Reseller Program</option>
-                            <option value="technical">Technical Support</option>
-                            <option value="billing">Billing & Payments</option>
-                            <option value="other">Other Questions</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- FAQ Mini Section -->
-        <div class="faq-mini">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-mini-grid">
-                <div class="faq-mini-item">
-                    <h4>How do I get a free trial?</h4>
-                    <p>Contact us via Telegram or WhatsApp for a 24-hour free trial with full access to all channels and VOD content.</p>
-                </div>
-                <div class="faq-mini-item">
-                    <h4>What payment methods do you accept?</h4>
-                    <p>We accept PayPal, credit cards, cryptocurrency (Bitcoin, USDT), and bank transfers for reseller credits.</p>
-                </div>
-                <div class="faq-mini-item">
-                    <h4>How fast is the support response?</h4>
-                    <p>Our support team responds within 2 hours on Telegram and WhatsApp. Email responses are typically within 6 hours.</p>
-                </div>
-                <div class="faq-mini-item">
-                    <h4>Can I become a reseller?</h4>
-                    <p>Yes! Contact us to learn about our reseller program with flexible credit packages and dedicated support.</p>
-                </div>
-            </div>
-        </div>
+        <section class="contact-hero"><h1>Contact 8K Strong VIP Support</h1><p>We're here 24/7 to help you with subscriptions, free trials, technical support, and reseller inquiries. Choose your preferred way to reach us.</p></section>
+        <div class="contact-grid"><div class="contact-card"><div class="contact-icon"><i class="fab fa-telegram-plane"></i></div><h3>Telegram Support</h3><div class="contact-detail">@8kstrong_support</div><a href="https://t.me/8kstrong_support" target="_blank" class="contact-btn"><i class="fab fa-telegram-plane"></i> Message on Telegram</a></div><div class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp Support</h3><div class="contact-detail">+1 234 567 890</div><a href="https://wa.me/1234567890" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></div><div class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h3>Email Support</h3><div class="contact-detail">support@8kstrongvip.com</div><a href="mailto:support@8kstrongvip.com" class="contact-btn"><i class="fas fa-envelope"></i> Send Email</a></div></div>
+        <div class="form-section"><div class="form-info"><h2>Send Us a Message</h2><p>Have questions about our IPTV service, reseller program, or need technical assistance? Fill out the form and our team will get back to you within a few hours.</p><ul class="info-list"><li><i class="fas fa-headset"></i> <span>24/7 Customer Support</span></li><li><i class="fas fa-bolt"></i> <span>Fast Response Time (under 2 hours)</span></li><li><i class="fas fa-globe"></i> <span>Support in Multiple Languages</span></li><li><i class="fas fa-gem"></i> <span>Free Trial Assistance Available</span></li></ul></div><div class="contact-form"><form id="contactForm" action="#" method="POST"><div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div><div class="form-group"><input type="email" name="email" placeholder="Email Address" required></div><div class="form-group"><select name="subject"><option value="">Select Subject</option><option value="subscription">Subscription & Plans</option><option value="free-trial">Free Trial Request</option><option value="reseller">Reseller Program</option><option value="technical">Technical Support</option><option value="billing">Billing & Payments</option><option value="other">Other Questions</option></select></div><div class="form-group"><textarea name="message" placeholder="Your Message..." required></textarea></div><button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button></form></div></div>
+        <div class="faq-mini"><h2>Frequently Asked Questions</h2><div class="faq-mini-grid"><div class="faq-mini-item"><h4>How do I get a free trial?</h4><p>Contact us via Telegram or WhatsApp for a 24-hour free trial with full access to all channels and VOD content.</p></div><div class="faq-mini-item"><h4>What payment methods do you accept?</h4><p>We accept PayPal, credit cards, cryptocurrency (Bitcoin, USDT), and bank transfers for reseller credits.</p></div><div class="faq-mini-item"><h4>How fast is the support response?</h4><p>Our support team responds within 2 hours on Telegram and WhatsApp. Email responses are typically within 6 hours.</p></div><div class="faq-mini-item"><h4>Can I become a reseller?</h4><p>Yes! Contact us to learn about our reseller program with flexible credit packages and dedicated support.</p></div></div></div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h4>8K Strong VIP</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="subscription.html">Subscription</a></li>
-                    <li><a href="reseller.html">Reseller Program</a></li>
-                    <li><a href="setup-guide.html">Setup Guide</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="https://t.me/8kstrong_support">Telegram Support</a></li>
-                    <li><a href="https://wa.me/1234567890">WhatsApp</a></li>
-                    <li><a href="mailto:support@8kstrongvip.com">Email Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p>
-        </div>
-    </footer>
+    <footer class="footer"><div class="footer-content"><div class="footer-column"><h4><i class="fas fa-tools"></i> Tools</h4><ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li><li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-question-circle"></i> Help</h4><ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li><li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-cogs"></i> Services</h4><ul><li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-crown"></i> 8K Strong VIP</h4><ul><li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li></ul></div></div><div class="footer-bottom"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a><a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a></div><p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div></footer>
 
     <script>
-        // ===== MOBILE MENU =====
-        const toggleBtn = document.getElementById('mobileMenuToggle');
-        const header = document.querySelector('.header');
-        if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
-        
-        // ===== MULTI-LANGUAGE =====
-        const translations = {
-            en: {
-                // Add translations if needed
-            },
-            ar: {
-                // Arabic translations
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.shiftKey && e.key === 'K')) {
+                e.preventDefault(); return false;
             }
-        };
+        });
+        document.addEventListener('keyup', function(e) { if (e.key === 'PrintScreen') { navigator.clipboard.writeText('').catch(() => {}); alert('Screenshots are disabled on this website'); } });
+        document.querySelectorAll('img').forEach(img => { img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }); });
+        document.addEventListener('copy', function(e) { e.preventDefault(); alert('Copying content is disabled'); return false; });
+        document.addEventListener('cut', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('paste', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+        setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
         
-        window.changeLanguage = function(lang) {
-            const t = translations[lang] || translations.en;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if(t[key]) el.innerText = t[key];
-            });
-            const langBtn = document.getElementById('currentLangBtn');
-            if(lang === 'ar') langBtn.innerHTML = '🇸🇦 AR';
-            else if(lang === 'fr') langBtn.innerHTML = '🇫🇷 FR';
-            else if(lang === 'es') langBtn.innerHTML = '🇪🇸 ES';
-            else if(lang === 'de') langBtn.innerHTML = '🇩🇪 DE';
-            else if(lang === 'it') langBtn.innerHTML = '🇮🇹 IT';
-            else langBtn.innerHTML = '🇬🇧 EN';
-            document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-        };
-        
-        // ===== FORM SUBMIT HANDLER =====
-        const contactForm = document.getElementById('contactForm');
-        if(contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for contacting 8K Strong VIP! Our support team will respond within 2 hours. For immediate assistance, please reach out via Telegram or WhatsApp.');
-                contactForm.reset();
-            });
-        }
-        
-        // Set active language
-        window.changeLanguage('en');
+        const translations = { en: {}, ar: {}, fr: {}, es: {}, de: {}, it: {} };
+        let currentLang = localStorage.getItem('language') || 'en';
+        function applyLanguage(lang) { currentLang = lang; localStorage.setItem('language', lang); const langBtn = document.getElementById('currentLangBtn'); const langNames = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' }; langBtn.innerHTML = langNames[lang] || langNames.en; document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); }
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => { link.addEventListener('click', (e) => { e.preventDefault(); applyLanguage(link.getAttribute('data-lang')); }); });
+        const toggleBtn = document.getElementById('mobileMenuToggle'); const header = document.querySelector('.header'); if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) { e.preventDefault(); alert('Thank you for contacting 8K Strong VIP! Our support team will respond within 2 hours. For immediate assistance, please reach out via Telegram or WhatsApp.'); this.reset(); });
+        applyLanguage(currentLang);
     </script>
 </body>
 </html>
