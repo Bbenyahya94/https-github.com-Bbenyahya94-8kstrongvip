@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reseller Program – 8K Strong VIP | Become IPTV Reseller</title>
-    <meta name="description" content="Join 8K Strong VIP reseller program. Start your own IPTV business with flexible credit system, instant activation, dedicated support, and high profit margins.">
-    <meta name="keywords" content="IPTV reseller, reseller program, 8K Strong VIP reseller, IPTV business, reseller panel, credit system">
+    <title>Reseller Program – 8K Strong VIP | Become IPTV Reseller | Credits System</title>
+    <meta name="description" content="Join 8K Strong VIP reseller program. Start your own IPTV business with flexible credit system, instant activation, dedicated support, and high profit margins. 1 Credit = 1 Month Subscription. Packages from 12 to 1200+ credits.">
+    <meta name="keywords" content="IPTV reseller, reseller program, 8K Strong VIP reseller, IPTV business, reseller panel, credit system, IPTV credits, become reseller, bulk credits">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
@@ -49,307 +49,83 @@
         .mobile-menu-open .mobile-menu { display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        /* Reseller Page Styles */
-        .reseller-hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 30px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-        }
-        .reseller-hero h1 {
-            font-size: 3.2em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .reseller-hero p {
-            font-size: 1.2em;
-            color: var(--gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        /* Page Hero */
+        .page-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .page-hero h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-hero p { font-size: 1.2em; color: var(--gray-600); max-width: 700px; margin: 0 auto; }
         
         /* Stats Section */
-        .stats-reseller {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin: 60px auto;
-        }
-        .stat-reseller-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .stat-reseller-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-        }
-        .stat-reseller-number {
-            font-size: 2.5em;
-            font-weight: 800;
-            color: var(--button-bg);
-        }
-        .stat-reseller-label {
-            margin-top: 10px;
-            color: var(--gray-600);
-        }
+        .stats-reseller { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin: 60px auto; }
+        .stat-reseller-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px; text-align: center; transition: 0.3s; }
+        .stat-reseller-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
+        .stat-reseller-number { font-size: 2.5em; font-weight: 800; color: var(--button-bg); }
         
-        /* Credit Packages */
-        .packages-section {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .packages-section h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .packages-section .subtitle {
-            color: var(--gray-600);
-            margin-bottom: 40px;
-        }
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .package-card {
-            background: var(--gray-300);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 30px;
-            transition: 0.3s;
-            position: relative;
-        }
-        .package-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-        }
-        .package-card.popular {
-            border-color: var(--button-bg);
-            box-shadow: 0 0 20px rgba(236,182,25,0.2);
-        }
-        .popular-badge {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: var(--button-bg);
-            color: var(--gray-100);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
-        .package-credits {
-            font-size: 2.5em;
-            font-weight: 800;
-            color: var(--button-bg);
-            margin-bottom: 10px;
-        }
-        .package-months {
-            font-size: 1.2em;
-            color: var(--gray-600);
-            margin-bottom: 20px;
-        }
-        .package-price {
-            font-size: 1.8em;
-            font-weight: 800;
-            margin: 20px 0;
-            color: var(--gray-900);
-        }
-        .package-price span {
-            font-size: 0.8em;
-            color: var(--gray-500);
-        }
-        .package-features {
-            list-style: none;
-            margin: 20px 0;
-            text-align: left;
-        }
-        .package-features li {
-            margin: 10px 0;
-            color: var(--gray-600);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .package-features li i {
-            color: var(--button-bg);
-            width: 20px;
-        }
-        .package-btn {
-            display: inline-block;
-            width: 100%;
-            background: var(--button-bg);
-            color: var(--gray-100);
-            padding: 12px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-top: 20px;
-        }
-        .package-btn:hover {
-            background: var(--button-hover);
-            transform: translateY(-2px);
-        }
+        /* Credit Converter Tool */
+        .credit-converter-tool { background: var(--gray-200); border-radius: 30px; padding: 40px; margin: 40px auto; border: 1px solid var(--gray-400); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .converter-info h2 { font-size: 2em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .converter-info p { color: var(--gray-600); margin-bottom: 15px; }
+        .rate-badge { background: var(--gray-300); display: inline-block; padding: 8px 20px; border-radius: 50px; font-size: 1.2em; font-weight: bold; color: var(--button-bg); margin-top: 15px; }
+        .converter-card { background: var(--gray-300); border-radius: 20px; padding: 30px; border: 1px solid var(--gray-400); }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 10px; color: var(--gray-700); font-weight: 500; }
+        .input-group input { width: 100%; padding: 15px; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1.2em; text-align: center; }
+        .input-group input:focus { outline: none; border-color: var(--button-bg); }
+        .result-box { background: var(--gray-200); border-radius: 15px; padding: 20px; text-align: center; margin: 20px 0; }
+        .result-label { color: var(--gray-600); margin-bottom: 10px; }
+        .result-value { font-size: 2em; font-weight: 800; color: var(--button-bg); }
+        
+        /* Packages Section */
+        .packages-section { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .packages-section h2 { font-size: 2.2em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .packages-section .subtitle { color: var(--gray-600); margin-bottom: 40px; }
+        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .package-card { background: var(--gray-300); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px; transition: 0.3s; position: relative; }
+        .package-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
+        .package-card.popular { border-color: var(--button-bg); box-shadow: 0 0 20px rgba(236,182,25,0.2); }
+        .popular-badge { position: absolute; top: -12px; right: 20px; background: var(--button-bg); color: var(--gray-100); padding: 5px 15px; border-radius: 20px; font-size: 0.8em; font-weight: bold; }
+        .package-credits { font-size: 2.5em; font-weight: 800; color: var(--button-bg); margin-bottom: 10px; }
+        .package-price { font-size: 1.8em; font-weight: 800; margin: 20px 0; color: var(--gray-900); }
+        .package-price span { font-size: 0.7em; color: var(--gray-500); }
+        .package-features { list-style: none; margin: 20px 0; text-align: left; }
+        .package-features li { margin: 10px 0; color: var(--gray-600); display: flex; align-items: center; gap: 10px; }
+        .package-features li i { color: var(--button-bg); width: 20px; }
+        .package-btn { display: inline-block; width: 100%; background: var(--button-bg); color: var(--gray-100); padding: 12px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 20px; }
+        .package-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
+        
+        /* Professional Package */
+        .professional-package { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--button-bg); }
+        .professional-package h2 { font-size: 2.2em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .professional-package .credits { font-size: 3em; font-weight: 800; color: var(--button-bg); margin: 20px 0; }
+        .professional-package p { color: var(--gray-600); max-width: 600px; margin: 0 auto 25px; }
+        .contact-btn { background: var(--button-bg); color: var(--gray-100); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; font-size: 1.1em; }
+        .contact-btn:hover { transform: scale(1.05); background: var(--button-hover); }
         
         /* Benefits Section */
-        .benefits-reseller {
-            background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .benefits-reseller h2 {
-            font-size: 2.2em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .benefits-reseller-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        .benefit-reseller-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 30px;
-            transition: 0.3s;
-        }
-        .benefit-reseller-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-        }
-        .benefit-icon {
-            font-size: 2.5em;
-            color: var(--button-bg);
-            margin-bottom: 20px;
-        }
-        .benefit-reseller-card h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
-        }
-        .benefit-reseller-card p {
-            color: var(--gray-600);
-            font-size: 0.9em;
-        }
+        .benefits-reseller { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .benefits-reseller h2 { font-size: 2.2em; margin-bottom: 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .benefits-reseller-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .benefit-reseller-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px; transition: 0.3s; }
+        .benefit-reseller-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
+        .benefit-icon { font-size: 2.5em; color: var(--button-bg); margin-bottom: 20px; }
+        .benefit-reseller-card h3 { font-size: 1.3em; margin-bottom: 10px; color: var(--gray-900); background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
         
         /* How It Works */
-        .how-it-works {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .how-it-works h2 {
-            font-size: 2.2em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        .step-card {
-            background: var(--gray-300);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid var(--gray-400);
-        }
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--button-bg);
-            color: var(--gray-100);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin: 0 auto 20px;
-        }
-        .step-card h4 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
-        }
-        .step-card p {
-            color: var(--gray-600);
-            font-size: 0.9em;
-        }
+        .how-it-works { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .how-it-works h2 { font-size: 2.2em; margin-bottom: 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin: 40px auto; }
+        .step-card { background: var(--gray-300); border-radius: 20px; padding: 30px; text-align: center; border: 1px solid var(--gray-400); }
+        .step-number { width: 50px; height: 50px; background: var(--button-bg); color: var(--gray-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; font-weight: bold; margin: 0 auto 20px; }
+        .step-card h4 { font-size: 1.2em; margin-bottom: 10px; color: var(--gray-900); }
         
         /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .cta-section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: var(--gray-900);
-        }
-        .cta-section p {
-            color: var(--gray-600);
-            margin-bottom: 30px;
-        }
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .cta-btn {
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .cta-btn.telegram {
-            background: #0088cc;
-            color: white;
-        }
-        .cta-btn.whatsapp {
-            background: #25D366;
-            color: white;
-        }
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.05);
-        }
+        .cta-section { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .cta-section h2 { font-size: 2em; margin-bottom: 20px; color: var(--gray-900); }
+        .cta-section p { color: var(--gray-600); margin-bottom: 30px; }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .cta-btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .cta-btn.telegram { background: #0088cc; color: white; }
+        .cta-btn.whatsapp { background: #25D366; color: white; }
+        .cta-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
         
         /* Footer */
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
@@ -369,15 +145,14 @@
             .logo-img { max-height: 40px; max-width: 150px; }
             .mobile-menu-toggle { display: block; }
             .main-nav { display: none; }
-            .reseller-hero h1 { font-size: 2em; }
+            .page-hero h1 { font-size: 2em; }
             .stats-reseller { grid-template-columns: repeat(2, 1fr); }
             .steps-grid { grid-template-columns: 1fr; }
+            .credit-converter-tool { grid-template-columns: 1fr; padding: 30px; }
             .footer-content { grid-template-columns: 1fr; text-align: center; }
             .social-links { justify-content: center; }
         }
-        @media (max-width: 480px) {
-            .stats-reseller { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 480px) { .stats-reseller { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -388,9 +163,7 @@
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%23ecb619'/%3E%3Ctext x='10' y='32' fill='%23041a2f' font-weight='bold' font-size='20'%3E8K STRONG%3C/text%3E%3C/svg%3E" alt="8K Strong IPTV" class="logo-img">
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
             <div class="header-actions">
                 <div class="language-dropdown">
                     <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
@@ -433,86 +206,95 @@
 
     <main class="container">
         <!-- Hero Section -->
-        <section class="reseller-hero">
+        <section class="page-hero">
             <h1>8K Strong VIP Reseller Program</h1>
-            <p>Start your own IPTV business with the best reseller program in the industry. Flexible credit system, instant activation, and dedicated 24/7 support.</p>
+            <p>Start your own IPTV business with the best reseller program in the industry. Flexible credit system, instant activation, and dedicated 24/7 support. <strong>1 Credit = 1 Month Subscription</strong></p>
         </section>
 
         <!-- Stats Section -->
         <div class="stats-reseller">
-            <div class="stat-reseller-card">
-                <div class="stat-reseller-number">500+</div>
-                <div class="stat-reseller-label">Active Resellers</div>
+            <div class="stat-reseller-card"><div class="stat-reseller-number">500+</div><div>Active Resellers</div></div>
+            <div class="stat-reseller-card"><div class="stat-reseller-number">50,000+</div><div>Customers Served</div></div>
+            <div class="stat-reseller-card"><div class="stat-reseller-number">99.9%</div><div>Uptime</div></div>
+            <div class="stat-reseller-card"><div class="stat-reseller-number">24/7</div><div>Support</div></div>
+        </div>
+
+        <!-- Credit Converter Tool -->
+        <div class="credit-converter-tool">
+            <div class="converter-info">
+                <h2><i class="fas fa-calculator"></i> Credit Converter</h2>
+                <p>Simple and transparent credit system. <strong>1 Credit = 1 Month Subscription</strong></p>
+                <div class="rate-badge">
+                    <i class="fas fa-exchange-alt"></i> 1 Credit = 1 Month
+                </div>
+                <p style="margin-top: 20px;">Use the converter to calculate how many months you can create with your credits.</p>
             </div>
-            <div class="stat-reseller-card">
-                <div class="stat-reseller-number">50,000+</div>
-                <div class="stat-reseller-label">Customers Served</div>
-            </div>
-            <div class="stat-reseller-card">
-                <div class="stat-reseller-number">99.9%</div>
-                <div class="stat-reseller-label">Uptime</div>
-            </div>
-            <div class="stat-reseller-card">
-                <div class="stat-reseller-number">24/7</div>
-                <div class="stat-reseller-label">Support</div>
+            <div class="converter-card">
+                <div class="input-group">
+                    <label><i class="fas fa-coins"></i> Enter Credits</label>
+                    <input type="number" id="creditsInput" placeholder="Enter number of credits" value="1" min="1">
+                </div>
+                <div class="result-box">
+                    <div class="result-label">You Can Create</div>
+                    <div class="result-value" id="monthsResult">1 Month Subscription</div>
+                </div>
             </div>
         </div>
 
-        <!-- Credit Packages -->
+        <!-- Bulk Packages Section -->
         <div class="packages-section">
-            <h2>Reseller Credit Packages</h2>
-            <div class="subtitle">Choose the package that fits your business needs</div>
+            <h2>Bulk Credit Packages</h2>
+            <div class="subtitle">For serious resellers looking for the best value</div>
             <div class="packages-grid">
                 <div class="package-card">
-                    <div class="package-credits">12 Credits</div>
-                    <div class="package-months">= 12 Months Subscription</div>
-                    <div class="package-price">$99.99 <span>/ package</span></div>
+                    <div class="package-credits">120 Credits</div>
+                    <div class="package-price">€190.00 <span>(€1.58/credit)</span></div>
                     <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Create 12 accounts</li>
-                        <li><i class="fas fa-check"></i> 12 months total</li>
-                        <li><i class="fas fa-check"></i> Reseller panel access</li>
-                        <li><i class="fas fa-check"></i> 24/7 support</li>
-                    </ul>
-                    <a href="https://t.me/8kstrong_support" class="package-btn">Get Started</a>
-                </div>
-                <div class="package-card popular">
-                    <div class="popular-badge">🔥 Most Popular</div>
-                    <div class="package-credits">25 Credits</div>
-                    <div class="package-months">= 25 Months Subscription</div>
-                    <div class="package-price">$199.99 <span>/ package</span></div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Create 25 accounts</li>
-                        <li><i class="fas fa-check"></i> 25 months total</li>
+                        <li><i class="fas fa-check"></i> Create 120 accounts</li>
+                        <li><i class="fas fa-check"></i> 120 months total subscription</li>
                         <li><i class="fas fa-check"></i> Priority support</li>
-                        <li><i class="fas fa-check"></i> Bulk pricing benefits</li>
                     </ul>
                     <a href="https://t.me/8kstrong_support" class="package-btn">Get Started</a>
                 </div>
                 <div class="package-card">
-                    <div class="package-credits">50 Credits</div>
-                    <div class="package-months">= 50 Months Subscription</div>
-                    <div class="package-price">$349.99 <span>/ package</span></div>
+                    <div class="package-credits">240 Credits</div>
+                    <div class="package-price">€375.00 <span>(€1.56/credit)</span></div>
                     <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Create 50 accounts</li>
-                        <li><i class="fas fa-check"></i> 50 months total</li>
+                        <li><i class="fas fa-check"></i> Create 240 accounts</li>
+                        <li><i class="fas fa-check"></i> 240 months total subscription</li>
                         <li><i class="fas fa-check"></i> VIP support</li>
-                        <li><i class="fas fa-check"></i> Best value per credit</li>
                     </ul>
                     <a href="https://t.me/8kstrong_support" class="package-btn">Get Started</a>
                 </div>
                 <div class="package-card">
-                    <div class="package-credits">100 Credits</div>
-                    <div class="package-months">= 100 Months Subscription</div>
-                    <div class="package-price">$649.99 <span>/ package</span></div>
+                    <div class="package-credits">360 Credits</div>
+                    <div class="package-price">€558.00 <span>(€1.55/credit)</span></div>
                     <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Create 100 accounts</li>
-                        <li><i class="fas fa-check"></i> 100 months total</li>
-                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
-                        <li><i class="fas fa-check"></i> Custom pricing available</li>
+                        <li><i class="fas fa-check"></i> Create 360 accounts</li>
+                        <li><i class="fas fa-check"></i> 360 months total subscription</li>
+                        <li><i class="fas fa-check"></i> VIP support + Priority</li>
+                    </ul>
+                    <a href="https://t.me/8kstrong_support" class="package-btn">Get Started</a>
+                </div>
+                <div class="package-card">
+                    <div class="package-credits">600 Credits</div>
+                    <div class="package-price">€910.00 <span>(€1.52/credit)</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Create 600 accounts</li>
+                        <li><i class="fas fa-check"></i> 600 months total subscription</li>
+                        <li><i class="fas fa-check"></i> Best value for volume</li>
                     </ul>
                     <a href="https://t.me/8kstrong_support" class="package-btn">Get Started</a>
                 </div>
             </div>
+        </div>
+
+        <!-- Professional Package -->
+        <div class="professional-package">
+            <h2><i class="fas fa-crown"></i> Professional Package</h2>
+            <div class="credits">1,200+ Credits</div>
+            <p>For professional resellers and businesses looking for the ultimate IPTV solution. Custom pricing and dedicated account manager included.</p>
+            <a href="https://t.me/8kstrong_support" class="contact-btn"><i class="fab fa-telegram-plane"></i> Contact Us for Pricing</a>
         </div>
 
         <!-- Benefits Section -->
@@ -522,7 +304,7 @@
                 <div class="benefit-reseller-card">
                     <div class="benefit-icon"><i class="fas fa-tachometer-alt"></i></div>
                     <h3>Modern Reseller Panel</h3>
-                    <p>Full control with real-time analytics, instant line creation, and customer management</p>
+                    <p>Full control with real-time analytics, instant line creation, and customer management dashboard</p>
                 </div>
                 <div class="benefit-reseller-card">
                     <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
@@ -532,12 +314,12 @@
                 <div class="benefit-reseller-card">
                     <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>High Profit Margins</h3>
-                    <p>Set your own prices and enjoy competitive wholesale rates</p>
+                    <p>Set your own prices and enjoy competitive wholesale rates with high profit potential</p>
                 </div>
                 <div class="benefit-reseller-card">
                     <div class="benefit-icon"><i class="fas fa-headset"></i></div>
                     <h3>24/7 Dedicated Support</h3>
-                    <p>Our support team is always available to help you and your customers</p>
+                    <p>Our support team is always available to help you and your customers with any issues</p>
                 </div>
             </div>
         </div>
@@ -546,33 +328,17 @@
         <div class="how-it-works">
             <h2>How It Works</h2>
             <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h4>Contact Us</h4>
-                    <p>Reach out via Telegram or WhatsApp to express interest</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h4>Choose Package</h4>
-                    <p>Select the credit package that fits your business goals</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h4>Get Reseller Panel</h4>
-                    <p>Receive your login credentials for the reseller dashboard</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h4>Start Selling</h4>
-                    <p>Create accounts for your customers and start earning</p>
-                </div>
+                <div class="step-card"><div class="step-number">1</div><h4>Contact Us</h4><p>Reach out via Telegram or WhatsApp to express interest</p></div>
+                <div class="step-card"><div class="step-number">2</div><h4>Choose Package</h4><p>Select the credit package that fits your business goals</p></div>
+                <div class="step-card"><div class="step-number">3</div><h4>Get Reseller Panel</h4><p>Receive your login credentials for the reseller dashboard</p></div>
+                <div class="step-card"><div class="step-number">4</div><h4>Start Selling</h4><p>Create accounts for your customers and start earning</p></div>
             </div>
         </div>
 
         <!-- CTA Section -->
         <div class="cta-section">
             <h2>Ready to Become a Reseller?</h2>
-            <p>Join hundreds of successful resellers who trust 8K Strong VIP for their IPTV business</p>
+            <p>Join hundreds of successful resellers who trust 8K Strong VIP for their IPTV business. Start your journey today!</p>
             <div class="cta-buttons">
                 <a href="https://t.me/8kstrong_support" target="_blank" class="cta-btn telegram"><i class="fab fa-telegram-plane"></i> Contact on Telegram</a>
                 <a href="https://wa.me/1234567890" target="_blank" class="cta-btn whatsapp"><i class="fab fa-whatsapp"></i> Contact on WhatsApp</a>
@@ -617,11 +383,33 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p>
+            <p>© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device | 1 Credit = 1 Month</p>
         </div>
     </footer>
 
     <script>
+        // Credit Converter Function
+        function updateConverter() {
+            const credits = document.getElementById('creditsInput').value;
+            const months = parseInt(credits) || 0;
+            const resultElement = document.getElementById('monthsResult');
+            if (months <= 0) {
+                resultElement.innerHTML = '0 Months';
+            } else if (months === 1) {
+                resultElement.innerHTML = '1 Month Subscription';
+            } else {
+                resultElement.innerHTML = months + ' Months Subscription';
+            }
+        }
+        
+        // Event listener for credit input
+        const creditsInput = document.getElementById('creditsInput');
+        if (creditsInput) {
+            creditsInput.addEventListener('input', updateConverter);
+            // Initialize
+            updateConverter();
+        }
+        
         // Mobile Menu Toggle
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const header = document.querySelector('.header');
