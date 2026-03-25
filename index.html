@@ -2,16 +2,21 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>8K Strong VIP – The Ultimate 4K Streaming Experience</title>
-    <meta name="description" content="8K Strong VIP – Watch any place, any device, any time. Access premium IPTV content anytime, anywhere. 33,076+ live channels, 119,608+ movies, 28,753+ series in 4K/8K quality. Built-in VPN, anti-freeze streaming, 24/7 support.">
-    <meta name="keywords" content="8K Strong VIP, IPTV service, premium IPTV, watch anywhere, IPTV subscription, 4K IPTV, best IPTV, IPTV provider, IPTV free trial">
+    <meta name="description" content="8K Strong VIP – Watch any place, any device, any time. Access premium IPTV content anytime, anywhere.">
+    <meta name="keywords" content="8K Strong VIP, IPTV service, premium IPTV, watch anywhere">
     
     <!-- Security Headers -->
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,13 +37,32 @@
             --button-hover: #d4a514;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; }
+        body { 
+            background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); 
+            color: var(--gray-800); 
+            line-height: 1.6;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
         [dir="rtl"] { text-align: right; }
+        
+        /* Disable image dragging */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
         
         .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; pointer-events: none; }
         .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
         .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
         .language-dropdown { position: relative; }
@@ -57,6 +81,19 @@
         .mobile-menu-open .mobile-menu { display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
+        /* Anti-inspect overlay - prevents right-click inspect on elements */
+        .anti-inspect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 9998;
+            pointer-events: none;
+        }
+        
+        /* Rest of your CSS styles (keep your existing styles) */
         .hero-banner { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 60px 40px; margin: 40px auto; max-width: 1200px; text-align: center; border: 1px solid var(--gray-400); }
         .hero-banner h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-banner p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto 30px; }
@@ -78,7 +115,7 @@
         .slideshow-container { position: relative; max-width: 1200px; margin: 40px auto; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .slides { display: flex; transition: transform 0.5s ease-in-out; }
         .slide { min-width: 100%; position: relative; }
-        .slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
+        .slide img { width: 100%; height: 500px; object-fit: cover; display: block; pointer-events: none; }
         .slide-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; background: rgba(4,19,36,0.85); backdrop-filter: blur(10px); padding: 30px 40px; border-radius: 20px; width: 80%; max-width: 600px; border: 1px solid rgba(236,182,25,0.3); animation: fadeInUp 0.8s ease; }
         .slide-content h2 { font-size: 2.5em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .slide-content p { font-size: 1.1em; margin-bottom: 25px; color: #ced4da; }
@@ -166,6 +203,8 @@
     </style>
 </head>
 <body>
+    <div class="anti-inspect"></div>
+    
     <header class="header">
         <div class="header-top">
             <div class="logo-area">
@@ -215,6 +254,7 @@
     </header>
 
     <main class="container">
+        <!-- Your existing content here - keep the same as before -->
         <section class="hero-banner">
             <h1>8K Strong VIP – Watch Anywhere, Anytime on Any Device</h1>
             <p>Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality. 33,076+ live channels, 119,608+ movies, built-in VPN, and 24/7 support.</p>
@@ -348,7 +388,115 @@
     </footer>
 
     <script>
-        // Language Translations
+        // ========== ANTI-INSPECT & ANTI-SAVE PROTECTION ==========
+        
+        // Disable Right Click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable all keyboard shortcuts for developer tools
+        document.addEventListener('keydown', function(e) {
+            // F12 key
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+I (Inspect)
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+J (Console)
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+U (View Source)
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+S (Save Page)
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+C (Inspect Element)
+            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+K (Console - Firefox)
+            if (e.ctrlKey && e.shiftKey && e.key === 'K') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+E (Console)
+            if (e.ctrlKey && e.shiftKey && e.key === 'E') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+P (Command Palette)
+            if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable Print Screen and clear clipboard
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'PrintScreen') {
+                navigator.clipboard.writeText('').catch(() => {});
+                alert('Screenshots are disabled on this website');
+            }
+        });
+        
+        // Disable drag and drop on all images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+        });
+        
+        // Disable copy, cut, paste
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            alert('Copying content is disabled');
+            return false;
+        });
+        
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable text selection
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Detect developer tools opening
+        setInterval(function() {
+            const before = new Date().getTime();
+            debugger;
+            const after = new Date().getTime();
+            if (after - before > 100) {
+                console.clear();
+                document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>';
+                setTimeout(() => { window.location.reload(); }, 3000);
+            }
+        }, 1000);
+        
+        // ========== LANGUAGE FUNCTIONALITY ==========
         const translations = {
             en: { home: "Home", convert: "Convert", reseller: "Reseller", subscription: "Subscription", setup_guide: "Setup Guide", downloader: "Downloader", about: "About", contact: "Contact" },
             ar: { home: "الرئيسية", convert: "تحويل", reseller: "إعادة البيع", subscription: "الاشتراك", setup_guide: "دليل الإعداد", downloader: "التحميل", about: "عن", contact: "اتصل" },
@@ -380,10 +528,11 @@
             });
         });
         
-        // Slideshow
+        // ========== SLIDESHOW FUNCTIONALITY ==========
         let slideIndex = 0, slideInterval;
         const slides = document.getElementById('slides');
         let totalSlides = document.querySelectorAll('.slide').length;
+        
         function updateDots() {
             const dotsContainer = document.getElementById('dotsContainer');
             if (!dotsContainer) return;
@@ -396,6 +545,7 @@
                 dotsContainer.appendChild(dot);
             }
         }
+        
         function showSlide(index) {
             if (!slides) return;
             totalSlides = document.querySelectorAll('.slide').length;
@@ -406,26 +556,34 @@
             const dots = document.querySelectorAll('.dot');
             dots.forEach((dot, i) => { dot.classList.toggle('active', i === slideIndex); });
         }
+        
         function changeSlide(n) { showSlide(slideIndex + n); resetAutoSlide(); }
         function currentSlide(n) { showSlide(n); resetAutoSlide(); }
         function startAutoSlide() { slideInterval = setInterval(() => { changeSlide(1); }, 5000); }
         function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
         function stopAutoSlide() { clearInterval(slideInterval); }
+        
         const slideshowContainer = document.querySelector('.slideshow-container');
         if (slideshowContainer) {
             slideshowContainer.addEventListener('mouseenter', stopAutoSlide);
             slideshowContainer.addEventListener('mouseleave', startAutoSlide);
         }
         
+        // ========== MOBILE MENU ==========
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const header = document.querySelector('.header');
         if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
         
+        // ========== FAQ ACCORDION ==========
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => item.classList.toggle('active'));
         });
         
-        updateDots(); showSlide(0); startAutoSlide(); applyLanguage(currentLang);
+        // ========== INITIALIZE ==========
+        updateDots();
+        showSlide(0);
+        startAutoSlide();
+        applyLanguage(currentLang);
     </script>
 </body>
 </html>
