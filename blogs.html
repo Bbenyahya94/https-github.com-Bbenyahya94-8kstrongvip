@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPTV Blog – Latest News, Guides & Tips | 8K Strong IPTV</title>
-    <meta name="description" content="Read the latest IPTV news, setup guides, troubleshooting tips, and reseller success stories. Stay updated with 8K Strong IPTV blog.">
-    <meta name="keywords" content="iptv blog, iptv news, iptv guide, iptv setup, iptv tips, iptv troubleshooting, iptv reseller tips">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="8K Strong IPTV">
-    <link rel="canonical" href="https://8kstrongvip.com/blogs.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Blog – 8K Strong VIP | IPTV News, Guides & Updates</title>
+    <meta name="description" content="Read the latest IPTV news, setup guides, and updates from 8K Strong VIP. Learn about new features, channel updates, and streaming tips.">
+    <meta name="keywords" content="IPTV blog, IPTV news, 8K Strong VIP blog, streaming tips, IPTV guides, channel updates">
+    
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         :root {
             --gray-100: #041324;
@@ -26,413 +34,118 @@
             --button-hover: #d4a514;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--gray-100); color: var(--gray-800); line-height: 1.6; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+        [dir="rtl"] { text-align: right; }
+        img { -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; user-drag: none; pointer-events: none; }
+        
         .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; pointer-events: none; }
         .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
-        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
+        .language-dropdown { position: relative; }
         .lang-btn { background: var(--gray-300); border: 1px solid var(--gray-400); color: var(--gray-800); padding: 8px 15px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-        .theme-toggle { background: transparent; border: none; color: var(--gray-700); font-size: 1.5em; cursor: pointer; }
+        .lang-dropdown-menu { display: none; position: absolute; top: 100%; right: 0; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; min-width: 150px; z-index: 1001; margin-top: 5px; }
+        .lang-dropdown-menu a { display: block; padding: 10px 15px; color: var(--gray-800); text-decoration: none; transition: 0.3s; }
+        .lang-dropdown-menu a:hover { background: var(--gray-300); }
+        .language-dropdown:hover .lang-dropdown-menu { display: block; }
         .main-nav { margin-top: 10px; }
         .main-nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 20px; justify-content: center; }
         .main-nav a { color: var(--gray-700); text-decoration: none; padding: 8px 12px; border-radius: 50px; transition: 0.3s; font-weight: 500; }
-        .main-nav a:hover { background: var(--gray-300); color: var(--gray-900); }
+        .main-nav a:hover, .main-nav a.active { background: var(--button-bg); color: var(--gray-100); }
         .mobile-menu { display: none; background: var(--gray-200); border-top: 1px solid var(--gray-400); padding: 20px; margin-top: 10px; }
         .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
         .mobile-menu a { color: var(--gray-700); text-decoration: none; font-size: 1.2em; padding: 10px; display: block; border-radius: 10px; }
         .mobile-menu-open .mobile-menu { display: block; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        /* Hero */
-        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-200), var(--gray-300)); border-radius: 30px; margin-bottom: 40px; }
-        .hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto; }
+        .page-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .page-hero h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-hero p { font-size: 1.2em; color: var(--gray-600); max-width: 700px; margin: 0 auto; }
         
-        /* Search & Filter */
-        .blog-filters { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; justify-content: space-between; align-items: center; }
-        .search-box { flex: 1; position: relative; max-width: 400px; }
-        .search-box input { width: 100%; padding: 12px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; font-size: 14px; }
-        .search-box input:focus { outline: none; border-color: #ecb619; }
-        .search-box i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #ecb619; }
-        .category-filter { display: flex; gap: 10px; flex-wrap: wrap; }
-        .category-btn { padding: 8px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: var(--gray-700); cursor: pointer; transition: 0.3s; font-size: 14px; }
-        .category-btn:hover, .category-btn.active { background: var(--button-bg); color: var(--gray-100); border-color: var(--button-bg); }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin: 40px auto; }
+        .blog-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; overflow: hidden; transition: 0.3s; }
+        .blog-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
+        .blog-image { height: 200px; background: linear-gradient(135deg, var(--gray-300), var(--gray-400)); display: flex; align-items: center; justify-content: center; font-size: 3em; color: var(--button-bg); }
+        .blog-content { padding: 25px; }
+        .blog-category { color: var(--button-bg); font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: inline-block; }
+        .blog-title { font-size: 1.4em; margin-bottom: 15px; color: var(--gray-900); }
+        .blog-excerpt { color: var(--gray-600); margin-bottom: 20px; line-height: 1.6; }
+        .blog-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--gray-400); color: var(--gray-500); font-size: 0.85em; }
+        .read-more { color: var(--button-bg); text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .read-more:hover { color: var(--button-hover); }
         
-        /* Blog Grid */
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; margin-bottom: 60px; }
-        .blog-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 24px; overflow: hidden; transition: 0.3s; cursor: pointer; }
-        .blog-card:hover { transform: translateY(-5px); border-color: var(--button-bg); box-shadow: 0 10px 30px rgba(236,182,25,0.2); }
-        .blog-image { height: 220px; background: var(--gray-300); display: flex; align-items: center; justify-content: center; font-size: 3em; color: var(--button-bg); position: relative; overflow: hidden; }
-        .blog-image img { width: 100%; height: 100%; object-fit: cover; }
-        .blog-category { position: absolute; top: 15px; left: 15px; background: var(--button-bg); color: var(--gray-100); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; }
-        .blog-content { padding: 20px; }
-        .blog-date { font-size: 12px; color: var(--gray-600); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .blog-date i { color: var(--button-bg); }
-        .blog-title { font-size: 1.3em; font-weight: bold; margin-bottom: 12px; color: var(--gray-900); line-height: 1.4; }
-        .blog-excerpt { color: var(--gray-600); font-size: 14px; margin-bottom: 15px; line-height: 1.5; }
-        .blog-read-more { color: var(--button-bg); text-decoration: none; font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 5px; transition: 0.3s; }
-        .blog-read-more:hover { gap: 10px; }
-        
-        /* Newsletter */
-        .newsletter { background: var(--gray-200); border-radius: 30px; padding: 40px; text-align: center; margin: 40px 0; border: 1px solid var(--gray-400); }
-        .newsletter h3 { font-size: 1.8em; margin-bottom: 10px; color: var(--gray-900); }
-        .newsletter p { color: var(--gray-600); margin-bottom: 20px; }
-        .newsletter-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 500px; margin: 0 auto; }
-        .newsletter-form input { flex: 1; padding: 12px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: white; }
-        .newsletter-form button { background: var(--button-bg); color: var(--gray-100); border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .newsletter-form button:hover { transform: scale(1.02); }
-        
-        /* Pagination */
-        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; }
-        .page-btn { padding: 8px 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--gray-700); cursor: pointer; transition: 0.3s; }
-        .page-btn.active, .page-btn:hover { background: var(--button-bg); color: var(--gray-100); border-color: var(--button-bg); }
-        
-        /* Modal for full blog post */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 2000; overflow-y: auto; }
-        .modal-content { max-width: 800px; margin: 40px auto; background: var(--gray-200); border-radius: 24px; padding: 30px; border: 1px solid var(--gray-400); }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .modal-header h2 { color: var(--button-bg); }
-        .close-modal { background: none; border: none; color: white; font-size: 28px; cursor: pointer; }
-        .modal-body { color: var(--gray-700); line-height: 1.8; }
-        .modal-body img { max-width: 100%; border-radius: 16px; margin: 20px 0; }
+        .sidebar { background: var(--gray-200); border-radius: 30px; padding: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .sidebar h3 { color: var(--button-bg); margin-bottom: 20px; font-size: 1.3em; }
+        .categories-list { list-style: none; }
+        .categories-list li { margin: 12px 0; }
+        .categories-list a { color: var(--gray-600); text-decoration: none; transition: 0.3s; display: flex; justify-content: space-between; }
+        .categories-list a:hover { color: var(--button-bg); }
         
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
         .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin: 10px 0; }
-        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
         .footer-column ul li a:hover { color: #ecb619; }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
-        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
         .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
-        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
         
         @media (max-width: 768px) {
             .header { padding: 10px 20px; }
-            .logo-img { max-height: 40px; }
+            .logo-img { max-height: 40px; max-width: 150px; }
             .mobile-menu-toggle { display: block; }
             .main-nav { display: none; }
-            .hero h1 { font-size: 2em; }
+            .page-hero h1 { font-size: 2em; }
             .blog-grid { grid-template-columns: 1fr; }
-            .blog-filters { flex-direction: column; align-items: stretch; }
-            .search-box { max-width: 100%; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            .social-links { justify-content: center; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="header-top">
-            <div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
-            <div class="header-actions">
-                <div class="language-dropdown"><button class="lang-btn"><img src="images/flags/uk.png" alt="English"> EN</button></div>
-                <button class="theme-toggle"><i class="bx bx-moon"></i></button>
-            </div>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="resolution.html">Resolution Center</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-menu" id="mobileMenu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="resolution.html">Resolution Center</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
+        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button><div class="lang-dropdown-menu"><a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ar">🇸🇦 العربية</a><a href="#" data-lang="fr">🇫🇷 Français</a><a href="#" data-lang="es">🇪🇸 Español</a><a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="it">🇮🇹 Italiano</a></div></div></div></div>
+        <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+        <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     </header>
 
     <main class="container">
-        <div class="hero">
-            <h1>IPTV Blog</h1>
-            <p>Latest news, setup guides, troubleshooting tips, and reseller success stories.</p>
+        <section class="page-hero"><h1>8K Strong VIP Blog</h1><p>Stay updated with the latest IPTV news, setup guides, and streaming tips. Learn how to get the most out of your 8K Strong VIP experience.</p></section>
+        
+        <div class="blog-grid">
+            <div class="blog-card"><div class="blog-image"><i class="fas fa-play-circle"></i></div><div class="blog-content"><span class="blog-category">Setup Guide</span><h3 class="blog-title">How to Install 8K Player on Firestick</h3><p class="blog-excerpt">Step-by-step guide to install 8K Player on Amazon Firestick using Downloader codes. Includes codes 993968 and 405663.</p><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 25, 2025</span><a href="#" class="read-more">Read More →</a></div></div></div>
+            <div class="blog-card"><div class="blog-image"><i class="fas fa-tv"></i></div><div class="blog-content"><span class="blog-category">News</span><h3 class="blog-title">New 8K Player v6 Released</h3><p class="blog-excerpt">We're excited to announce the release of 8K Player v6 with improved performance, lock channel feature, and enhanced UI.</p><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 20, 2025</span><a href="#" class="read-more">Read More →</a></div></div></div>
+            <div class="blog-card"><div class="blog-image"><i class="fas fa-chart-line"></i></div><div class="blog-content"><span class="blog-category">Reseller</span><h3 class="blog-title">How to Become a Successful IPTV Reseller</h3><p class="blog-excerpt">Tips and strategies to grow your IPTV reseller business. Learn about pricing, customer support, and marketing.</p><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 15, 2025</span><a href="#" class="read-more">Read More →</a></div></div></div>
+            <div class="blog-card"><div class="blog-image"><i class="fas fa-shield-alt"></i></div><div class="blog-content"><span class="blog-category">Security</span><h3 class="blog-title">Why You Need a VPN for IPTV</h3><p class="blog-excerpt">Learn why using a VPN with IPTV is important for privacy, security, and bypassing ISP throttling.</p><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 10, 2025</span><a href="#" class="read-more">Read More →</a></div></div></div>
+            <div class="blog-card"><div class="blog-image"><i class="fas fa-mobile-alt"></i></div><div class="blog-content"><span class="blog-category">Guide</span><h3 class="blog-title">Best IPTV Apps for Android TV</h3><p class="blog-excerpt">Discover the best IPTV players for Android TV including TiviMate, IPTV Smarters, and our own 8K Player.</p><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 5, 2025</span><a href="#" class="read-more">Read More →</a></div></div></div>
+            <div class="blog-card"><div class="blog-image"><i class="fas fa-gift"></i></div><div class="blog-content"><span class="blog-category">Promo</span><h3 class="blog-title">Limited Time: 20% OFF Yearly Plans</h3><p class="blog-excerpt">Get 20% discount on all yearly subscriptions. Offer valid until March 31, 2025. Don't miss out!</p><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 1, 2025</span><a href="#" class="read-more">Read More →</a></div></div></div>
         </div>
-
-        <div class="blog-filters">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search articles...">
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="category-filter" id="categoryFilter">
-                <button class="category-btn active" data-category="all">All Posts</button>
-                <button class="category-btn" data-category="guides">Guides</button>
-                <button class="category-btn" data-category="tips">Tips</button>
-                <button class="category-btn" data-category="reseller">Reseller</button>
-                <button class="category-btn" data-category="news">News</button>
-            </div>
-        </div>
-
-        <div id="blogGrid" class="blog-grid"></div>
-
-        <div id="pagination" class="pagination"></div>
-
-        <div class="newsletter">
-            <h3>Subscribe to Our Newsletter</h3>
-            <p>Get the latest IPTV tips and updates directly to your inbox.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
+        
+        <div class="sidebar"><h3><i class="fas fa-folder-open"></i> Categories</h3><ul class="categories-list"><li><a href="#">Setup Guides <span>(8)</span></a></li><li><a href="#">News & Updates <span>(12)</span></a></li><li><a href="#">Reseller Tips <span>(6)</span></a></li><li><a href="#">Troubleshooting <span>(5)</span></a></li><li><a href="#">Device Guides <span>(10)</span></a></li><li><a href="#">Promotions <span>(4)</span></a></li></ul></div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-column"><div class="footer-logo">8K</div><div class="footer-description">Premium IPTV service with the best quality and support.</div><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-telegram"></i></a></div></div>
-            <div class="footer-column"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="trial.html">Free 24H Trial</a></li><li><a href="blogs.html">Blog</a></li></ul></div>
-            <div class="footer-column"><h4>Product</h4><ul><li><a href="pricing.html">Pricing</a></li><li><a href="reseller.html">Resellers Plan</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
-            <div class="footer-column"><h4>Help</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="dmca.html">DMCA Policy</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>&copy; 2026 8K Strong IPTV. All rights reserved.</p></div>
-    </footer>
-
-    <!-- Blog Post Modal -->
-    <div id="blogModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Blog Post</h2>
-                <button class="close-modal" onclick="closeModal()">&times;</button>
-            </div>
-            <div id="modalBody" class="modal-body"></div>
-        </div>
-    </div>
+    <footer class="footer"><div class="footer-content"><div class="footer-column"><h4><i class="fas fa-tools"></i> Tools</h4><ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li><li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-question-circle"></i> Help</h4><ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li><li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-cogs"></i> Services</h4><ul><li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-crown"></i> 8K Strong VIP</h4><ul><li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li></ul></div></div><div class="footer-bottom"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a><a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a></div><p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div></footer>
 
     <script>
-        // Blog Posts Data
-        const blogPosts = [
-            {
-                id: 1,
-                title: "How to Set Up IPTV on Firestick in 5 Minutes",
-                excerpt: "Complete step-by-step guide to install and configure IPTV on Amazon Firestick, Fire TV, and Fire TV Cube.",
-                content: "<p>Setting up IPTV on Firestick is easy and takes only a few minutes. Follow these steps:</p><h3>Step 1: Enable Apps from Unknown Sources</h3><p>Go to Settings → My Fire TV → Developer Options → Enable Apps from Unknown Sources.</p><h3>Step 2: Install Downloader App</h3><p>Search for 'Downloader' in the App Store and install it.</p><h3>Step 3: Download IPTV App</h3><p>Open Downloader and enter the URL of your preferred IPTV app (TiviMate, IPTV Smarters, etc.).</p><h3>Step 4: Add Your Playlist</h3><p>Open the app and add your M3U URL or Xtream Codes credentials.</p><h3>Step 5: Start Watching</h3><p>Enjoy thousands of channels in 4K quality!</p>",
-                date: "March 15, 2026",
-                category: "guides",
-                readTime: "5 min read",
-                image: null
-            },
-            {
-                id: 2,
-                title: "Why You Need a VPN for IPTV",
-                excerpt: "Learn how a VPN protects your privacy, bypasses ISP throttling, and unlocks geo-restricted content.",
-                content: "<p>A VPN is essential for IPTV users. Here's why:</p><h3>1. Bypass ISP Throttling</h3><p>Many ISPs slow down streaming traffic. A VPN encrypts your connection so your ISP can't throttle your speed.</p><h3>2. Protect Your Privacy</h3><p>Your IP address is hidden, keeping your streaming activity private.</p><h3>3. Access Geo-Restricted Content</h3><p>Connect to servers in different countries to unlock region-locked channels.</p><h3>4. Avoid Censorship</h3><p>In countries where IPTV is restricted, a VPN helps you access content freely.</p><p>Recommended VPNs: ExpressVPN, NordVPN, Surfshark.</p>",
-                date: "March 10, 2026",
-                category: "tips",
-                readTime: "4 min read",
-                image: null
-            },
-            {
-                id: 3,
-                title: "IPTV Reseller Success Stories: How to Earn €10,000/month",
-                excerpt: "Real stories from successful IPTV resellers. Learn their strategies, tips, and how they built their businesses.",
-                content: "<p>Meet Ahmed, a reseller who started with 120 credits and now manages over 500 clients.</p><h3>Ahmed's Story</h3><p>\"I started with the Starter plan (120 credits). I focused on local Facebook groups and Telegram channels. Within 3 months, I had 100 customers. Now I run a team of 5 sub-resellers and earn over €10,000/month.\"</p><h3>Key Tips for Success</h3><ul><li>Focus on customer support - respond quickly</li><li>Offer discounts for referrals</li><li>Create a professional website or Telegram channel</li><li>Use white-label panel for branding</li><li>Provide setup guides and technical support</li></ul><h3>Ready to Start?</h3><p>Join our reseller program today and start your IPTV business!</p>",
-                date: "March 5, 2026",
-                category: "reseller",
-                readTime: "6 min read",
-                image: null
-            },
-            {
-                id: 4,
-                title: "Best IPTV Players for 2026",
-                excerpt: "Top IPTV players for Android, iOS, Windows, Mac, and Smart TVs. Compare features and find the best one for you.",
-                content: "<h3>Top IPTV Players</h3><p><strong>1. TiviMate</strong> - Best for Android TV. Clean interface, multi-playlist support, and EPG.</p><p><strong>2. IPTV Smarters Pro</strong> - Available on all platforms. User-friendly and supports Xtream Codes.</p><p><strong>3. VLC Media Player</strong> - Free and simple. Just paste your M3U link and watch.</p><p><strong>4. Perfect Player</strong> - Great for Android boxes. Supports EPG and multiple playlists.</p><p><strong>5. GSE IPTV</strong> - Best for iOS. Feature-rich with Chromecast support.</p><h3>Which One Should You Choose?</h3><p>For Android TV: TiviMate<br>For Firestick: TiviMate or IPTV Smarters<br>For iOS: GSE IPTV<br>For Windows/Mac: VLC or IPTV Smarters</p>",
-                date: "February 28, 2026",
-                category: "guides",
-                readTime: "4 min read",
-                image: null
-            },
-            {
-                id: 5,
-                title: "IPTV Troubleshooting: Fix Buffering & Freezing",
-                excerpt: "Common IPTV buffering issues and how to fix them. Get smooth streaming with these simple solutions.",
-                content: "<h3>Why Does IPTV Buffer?</h3><p>Buffering usually happens due to slow internet, ISP throttling, or server issues.</p><h3>Solutions</h3><ul><li><strong>Check your internet speed</strong> - Minimum 15 Mbps for 4K</li><li><strong>Use a wired connection</strong> - Ethernet is more stable than Wi-Fi</li><li><strong>Try a VPN</strong> - Bypass ISP throttling</li><li><strong>Reduce quality</strong> - Switch to HD if 4K buffers</li><li><strong>Restart your router</strong> - Clear cache and refresh connection</li><li><strong>Change DNS settings</strong> - Use Google DNS (8.8.8.8)</li></ul><p>Still having issues? Contact our support team for help!</p>",
-                date: "February 20, 2026",
-                category: "tips",
-                readTime: "3 min read",
-                image: null
-            },
-            {
-                id: 6,
-                title: "IPTV Market Trends 2026",
-                excerpt: "Latest trends in the IPTV industry. What's new? What's changing? Stay ahead of the competition.",
-                content: "<p>The IPTV market is growing rapidly. Here are the top trends for 2026:</p><h3>1. 8K Content</h3><p>More providers are offering 8K channels as TVs support higher resolutions.</p><h3>2. AI-Powered Recommendations</h3><p>Smart algorithms suggest content based on viewing habits.</p><h3>3. Cloud DVR</h3><p>Record and watch later with cloud-based storage.</p><h3>4. Multi-Screen Support</h3><p>Watch on multiple devices simultaneously with family plans.</p><h3>5. Integrated VPNs</h3><p>Built-in VPN services are becoming standard features.</p><p>8K Strong IPTV is leading the way with 4K/8K quality, built-in VPN, and 24/7 support.</p>",
-                date: "February 15, 2026",
-                category: "news",
-                readTime: "3 min read",
-                image: null
-            }
-        ];
-
-        let currentCategory = "all";
-        let currentSearch = "";
-        let currentPage = 1;
-        const postsPerPage = 6;
-
-        function renderBlogPosts() {
-            let filtered = blogPosts;
-            
-            // Filter by category
-            if (currentCategory !== "all") {
-                filtered = filtered.filter(post => post.category === currentCategory);
-            }
-            
-            // Filter by search
-            if (currentSearch) {
-                filtered = filtered.filter(post => 
-                    post.title.toLowerCase().includes(currentSearch) || 
-                    post.excerpt.toLowerCase().includes(currentSearch)
-                );
-            }
-            
-            // Pagination
-            const totalPages = Math.ceil(filtered.length / postsPerPage);
-            const start = (currentPage - 1) * postsPerPage;
-            const paginatedPosts = filtered.slice(start, start + postsPerPage);
-            
-            // Render posts
-            const grid = document.getElementById('blogGrid');
-            if (paginatedPosts.length === 0) {
-                grid.innerHTML = '<div style="text-align:center; padding:60px; color:#888;"><i class="fas fa-newspaper" style="font-size:48px; margin-bottom:20px;"></i><p>No blog posts found. Try a different search term.</p></div>';
-                document.getElementById('pagination').innerHTML = '';
-                return;
-            }
-            
-            grid.innerHTML = paginatedPosts.map(post => `
-                <div class="blog-card" onclick="openPost(${post.id})">
-                    <div class="blog-image">
-                        <i class="fas ${getIconForCategory(post.category)}"></i>
-                        <span class="blog-category">${getCategoryName(post.category)}</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date"><i class="fas fa-calendar-alt"></i> ${post.date} <i class="fas fa-clock"></i> ${post.readTime}</div>
-                        <div class="blog-title">${post.title}</div>
-                        <div class="blog-excerpt">${post.excerpt}</div>
-                        <div class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </div>
-            `).join('');
-            
-            // Render pagination
-            renderPagination(totalPages);
-        }
-
-        function getIconForCategory(category) {
-            const icons = {
-                guides: "fa-book-open",
-                tips: "fa-lightbulb",
-                reseller: "fa-chart-line",
-                news: "fa-newspaper"
-            };
-            return icons[category] || "fa-blog";
-        }
-
-        function getCategoryName(category) {
-            const names = {
-                guides: "Guide",
-                tips: "Tip",
-                reseller: "Reseller",
-                news: "News"
-            };
-            return names[category] || category;
-        }
-
-        function renderPagination(totalPages) {
-            const paginationDiv = document.getElementById('pagination');
-            if (totalPages <= 1) {
-                paginationDiv.innerHTML = '';
-                return;
-            }
-            
-            let html = '';
-            for (let i = 1; i <= totalPages; i++) {
-                html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
-            }
-            paginationDiv.innerHTML = html;
-        }
-
-        function goToPage(page) {
-            currentPage = page;
-            renderBlogPosts();
-            window.scrollTo({ top: 400, behavior: 'smooth' });
-        }
-
-        function openPost(id) {
-            const post = blogPosts.find(p => p.id === id);
-            if (post) {
-                document.getElementById('modalTitle').innerText = post.title;
-                document.getElementById('modalBody').innerHTML = `
-                    <div style="margin-bottom:20px; color:var(--gray-600);"><i class="fas fa-calendar-alt"></i> ${post.date} • ${post.readTime}</div>
-                    ${post.content}
-                    <div style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
-                        <p>📺 <strong>Enjoyed this article?</strong> <a href="subscription.html" style="color:var(--button-bg);">Subscribe to 8K Strong IPTV</a> for the best streaming experience!</p>
-                    </div>
-                `;
-                document.getElementById('blogModal').style.display = 'block';
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('blogModal').style.display = 'none';
-        }
-
-        // Event listeners
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            currentSearch = e.target.value.toLowerCase();
-            currentPage = 1;
-            renderBlogPosts();
-        });
-
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentCategory = btn.dataset.category;
-                currentPage = 1;
-                renderBlogPosts();
-            });
-        });
-
-        // Close modal on outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('blogModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-
-        // Mobile menu toggle
-        const toggleBtn = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const body = document.body;
-        toggleBtn.addEventListener('click', function() {
-            body.classList.toggle('mobile-menu-open');
-            const icon = toggleBtn.querySelector('i');
-            if (body.classList.contains('mobile-menu-open')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Initial render
-        renderBlogPosts();
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('keydown', function(e) { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.shiftKey && e.key === 'K')) { e.preventDefault(); return false; } });
+        document.addEventListener('keyup', function(e) { if (e.key === 'PrintScreen') { navigator.clipboard.writeText('').catch(() => {}); alert('Screenshots are disabled'); } });
+        document.querySelectorAll('img').forEach(img => { img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }); });
+        document.addEventListener('copy', function(e) { e.preventDefault(); alert('Copying content is disabled'); return false; });
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+        setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
+        
+        const translations = { en: {}, ar: {}, fr: {}, es: {}, de: {}, it: {} };
+        let currentLang = localStorage.getItem('language') || 'en';
+        function applyLanguage(lang) { currentLang = lang; localStorage.setItem('language', lang); const langBtn = document.getElementById('currentLangBtn'); const names = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' }; langBtn.innerHTML = names[lang] || names.en; document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); }
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => { link.addEventListener('click', (e) => { e.preventDefault(); applyLanguage(link.getAttribute('data-lang')); }); });
+        const toggleBtn = document.getElementById('mobileMenuToggle'); const header = document.querySelector('.header'); if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        applyLanguage(currentLang);
     </script>
 </body>
 </html>
