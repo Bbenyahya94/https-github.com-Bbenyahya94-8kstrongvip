@@ -168,11 +168,11 @@
                     <button class="convert-btn" id="autoConvertBtn"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
                     
                     <div id="autoResult" style="display: none;">
-                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="autoServerUrl">-</div><div class="button-group"><button class="copy-btn" data-copy="autoServerUrl" data-name="Server URL"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="autoUsername">-</div><div class="button-group"><button class="copy-btn" data-copy="autoUsername" data-name="Username"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="autoPassword">-</div><div class="button-group"><button class="copy-btn" data-copy="autoPassword" data-name="Password"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="autoEpgUrl">-</div><div class="button-group"><button class="copy-btn" data-copy="autoEpgUrl" data-name="EPG URL"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <button class="copy-all-btn" id="autoCopyAllBtn"><i class="fas fa-copy"></i> Copy All Information</button>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="autoServerUrl">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoServerUrl', 'Server URL', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="autoUsername">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoUsername', 'Username', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="autoPassword">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoPassword', 'Password', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="autoEpgUrl">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoEpgUrl', 'EPG URL', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <button class="copy-all-btn" onclick="copyAllAuto()"><i class="fas fa-copy"></i> Copy All Information</button>
                     </div>
                 </div>
             </div>
@@ -206,11 +206,11 @@
                     <button class="convert-btn" id="manualConvertBtn"><i class="fas fa-check-circle"></i> Generate Xtream Codes</button>
                     
                     <div id="manualResult" style="display: none;">
-                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="manualServerResult">-</div><div class="button-group"><button class="copy-btn" data-copy="manualServerResult" data-name="Server URL"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="manualUsernameResult">-</div><div class="button-group"><button class="copy-btn" data-copy="manualUsernameResult" data-name="Username"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="manualPasswordResult">-</div><div class="button-group"><button class="copy-btn" data-copy="manualPasswordResult" data-name="Password"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="manualEpgResult">-</div><div class="button-group"><button class="copy-btn" data-copy="manualEpgResult" data-name="EPG URL"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <button class="copy-all-btn" id="manualCopyAllBtn"><i class="fas fa-copy"></i> Copy All Information</button>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="manualServerResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualServerResult', 'Server URL', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="manualUsernameResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualUsernameResult', 'Username', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="manualPasswordResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualPasswordResult', 'Password', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="manualEpgResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualEpgResult', 'EPG URL', this)"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <button class="copy-all-btn" onclick="copyAllManual()"><i class="fas fa-copy"></i> Copy All Information</button>
                     </div>
                 </div>
             </div>
@@ -242,27 +242,12 @@
         document.addEventListener('keydown', e => { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's')) e.preventDefault(); });
         document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
         
-        // ========== GLOBAL DATA STORAGE ==========
+        // ========== GLOBAL DATA ==========
         let autoData = { serverUrl: '', username: '', password: '', epgUrl: '' };
         let manualData = { serverUrl: '', username: '', password: '', epgUrl: '' };
         
-        // ========== TAB SWITCHING ==========
-        document.getElementById('tabAutoBtn').onclick = function() {
-            document.getElementById('tabAutoBtn').classList.add('active');
-            document.getElementById('tabManualBtn').classList.remove('active');
-            document.getElementById('autoPanel').classList.add('active');
-            document.getElementById('manualPanel').classList.remove('active');
-        };
-        
-        document.getElementById('tabManualBtn').onclick = function() {
-            document.getElementById('tabManualBtn').classList.add('active');
-            document.getElementById('tabAutoBtn').classList.remove('active');
-            document.getElementById('manualPanel').classList.add('active');
-            document.getElementById('autoPanel').classList.remove('active');
-        };
-        
         // ========== COPY SINGLE FIELD ==========
-        function copySingleField(elementId, fieldName, buttonElement) {
+        function copyField(elementId, fieldName, button) {
             const element = document.getElementById(elementId);
             if (!element || element.innerText === '-' || element.innerText === 'Not available') {
                 alert(`❌ No ${fieldName} available to copy`);
@@ -271,9 +256,9 @@
             const text = element.innerText;
             navigator.clipboard.writeText(text).then(() => {
                 alert(`✅ ${fieldName} copied to clipboard!`);
-                const originalHTML = buttonElement.innerHTML;
-                buttonElement.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                setTimeout(() => { buttonElement.innerHTML = originalHTML; }, 1500);
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { button.innerHTML = originalHTML; }, 1500);
             }).catch(() => {
                 alert(`❌ Failed to copy ${fieldName}`);
             });
@@ -281,28 +266,37 @@
         
         // ========== COPY ALL AUTO ==========
         function copyAllAuto() {
-            if (!autoData.serverUrl && !autoData.username && !autoData.password) {
+            const serverUrl = document.getElementById('autoServerUrl').innerText;
+            const username = document.getElementById('autoUsername').innerText;
+            const password = document.getElementById('autoPassword').innerText;
+            const epgUrl = document.getElementById('autoEpgUrl').innerText;
+            
+            if (!serverUrl || serverUrl === '-' || !username || username === '-') {
                 alert('❌ No data available. Please convert an M3U URL first.');
                 return;
             }
+            
             const text = `═══════════════════════════════════
         XTREAM CODES INFORMATION
 ═══════════════════════════════════
 
-📡 Server URL: ${autoData.serverUrl}
-👤 Username: ${autoData.username}
-🔐 Password: ${autoData.password}
-📅 EPG URL: ${autoData.epgUrl}
+📡 Server URL: ${serverUrl}
+👤 Username: ${username}
+🔐 Password: ${password}
+📅 EPG URL: ${epgUrl}
 
 ═══════════════════════════════════
 8K Strong VIP - Premium IPTV Service
 ═══════════════════════════════════`;
+            
             navigator.clipboard.writeText(text).then(() => {
                 alert('✅ All Xtream Codes copied to clipboard!');
-                const btn = document.getElementById('autoCopyAllBtn');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
-                setTimeout(() => { btn.innerHTML = originalText; }, 1500);
+                const btn = document.querySelector('#autoResult .copy-all-btn');
+                if (btn) {
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
+                    setTimeout(() => { btn.innerHTML = originalText; }, 1500);
+                }
             }).catch(() => {
                 alert('❌ Failed to copy all information');
             });
@@ -310,28 +304,37 @@
         
         // ========== COPY ALL MANUAL ==========
         function copyAllManual() {
-            if (!manualData.serverUrl && !manualData.username && !manualData.password) {
+            const serverUrl = document.getElementById('manualServerResult').innerText;
+            const username = document.getElementById('manualUsernameResult').innerText;
+            const password = document.getElementById('manualPasswordResult').innerText;
+            const epgUrl = document.getElementById('manualEpgResult').innerText;
+            
+            if (!serverUrl || serverUrl === '-' || !username || username === '-') {
                 alert('❌ No data available. Please generate Xtream Codes first.');
                 return;
             }
+            
             const text = `═══════════════════════════════════
         XTREAM CODES INFORMATION
 ═══════════════════════════════════
 
-📡 Server URL: ${manualData.serverUrl}
-👤 Username: ${manualData.username}
-🔐 Password: ${manualData.password}
-📅 EPG URL: ${manualData.epgUrl}
+📡 Server URL: ${serverUrl}
+👤 Username: ${username}
+🔐 Password: ${password}
+📅 EPG URL: ${epgUrl}
 
 ═══════════════════════════════════
 8K Strong VIP - Premium IPTV Service
 ═══════════════════════════════════`;
+            
             navigator.clipboard.writeText(text).then(() => {
                 alert('✅ All Xtream Codes copied to clipboard!');
-                const btn = document.getElementById('manualCopyAllBtn');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
-                setTimeout(() => { btn.innerHTML = originalText; }, 1500);
+                const btn = document.querySelector('#manualResult .copy-all-btn');
+                if (btn) {
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
+                    setTimeout(() => { btn.innerHTML = originalText; }, 1500);
+                }
             }).catch(() => {
                 alert('❌ Failed to copy all information');
             });
@@ -409,28 +412,23 @@
             alert('✅ Xtream Codes generated!');
         }
         
-        // ========== SETUP COPY BUTTONS ==========
-        function setupCopyButtons() {
-            // Auto panel copy buttons
-            document.querySelectorAll('#autoResult .copy-btn').forEach(btn => {
-                const targetId = btn.getAttribute('data-copy');
-                const fieldName = btn.getAttribute('data-name');
-                btn.onclick = () => copySingleField(targetId, fieldName, btn);
-            });
-            
-            // Manual panel copy buttons
-            document.querySelectorAll('#manualResult .copy-btn').forEach(btn => {
-                const targetId = btn.getAttribute('data-copy');
-                const fieldName = btn.getAttribute('data-name');
-                btn.onclick = () => copySingleField(targetId, fieldName, btn);
-            });
-        }
-        
         // ========== SETUP EVENT LISTENERS ==========
+        document.getElementById('tabAutoBtn').onclick = function() {
+            document.getElementById('tabAutoBtn').classList.add('active');
+            document.getElementById('tabManualBtn').classList.remove('active');
+            document.getElementById('autoPanel').classList.add('active');
+            document.getElementById('manualPanel').classList.remove('active');
+        };
+        
+        document.getElementById('tabManualBtn').onclick = function() {
+            document.getElementById('tabManualBtn').classList.add('active');
+            document.getElementById('tabAutoBtn').classList.remove('active');
+            document.getElementById('manualPanel').classList.add('active');
+            document.getElementById('autoPanel').classList.remove('active');
+        };
+        
         document.getElementById('autoConvertBtn').onclick = autoExtract;
         document.getElementById('manualConvertBtn').onclick = manualGenerate;
-        document.getElementById('autoCopyAllBtn').onclick = copyAllAuto;
-        document.getElementById('manualCopyAllBtn').onclick = copyAllManual;
         
         // ========== LANGUAGE & MOBILE ==========
         let currentLang = localStorage.getItem('language') || 'en';
@@ -446,9 +444,7 @@
         });
         document.getElementById('mobileMenuToggle').onclick = () => document.querySelector('.header').classList.toggle('mobile-menu-open');
         
-        // Initialize
         applyLanguage(currentLang);
-        setupCopyButtons();
     </script>
 </body>
 </html>
