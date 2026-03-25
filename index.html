@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8K Strong IPTV – The Ultimate 4K Streaming Experience</title>
+    <title>8K Strong VIP – The Ultimate 4K Streaming Experience</title>
     <meta name="description" content="8K Strong VIP – Watch any place, any device, any time. Access premium IPTV content anytime, anywhere. 33,076+ live channels, 119,608+ movies, 28,753+ series in 4K/8K quality. Built-in VPN, anti-freeze streaming, 24/7 support, and free trial via Telegram/WhatsApp.">
     <meta name="keywords" content="8K Strong VIP, IPTV service, premium IPTV, watch anywhere, IPTV subscription, 4K IPTV, best IPTV, IPTV provider, watch any device, IPTV free trial, 8K Player, download IPTV">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,7 +42,7 @@
         .main-nav { margin-top: 10px; }
         .main-nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 20px; justify-content: center; }
         .main-nav a { color: var(--gray-700); text-decoration: none; padding: 8px 12px; border-radius: 50px; transition: 0.3s; font-weight: 500; }
-        .main-nav a:hover { background: var(--gray-300); color: var(--gray-900); }
+        .main-nav a:hover, .main-nav a.active { background: var(--button-bg); color: var(--gray-100); }
         .mobile-menu { display: none; background: var(--gray-200); border-top: 1px solid var(--gray-400); padding: 20px; margin-top: 10px; }
         .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
         .mobile-menu a { color: var(--gray-700); text-decoration: none; font-size: 1.2em; padding: 10px; display: block; border-radius: 10px; }
@@ -51,7 +51,7 @@
         
         /* Hero Banner */
         .hero-banner { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 60px 40px; margin: 40px auto; max-width: 1200px; text-align: center; border: 1px solid var(--gray-400); }
-        .hero-banner h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-banner h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-banner p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto 30px; }
         .banner-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .banner-btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
@@ -60,7 +60,7 @@
         
         /* Panel Section */
         .panel-section { background: linear-gradient(135deg, var(--gray-200), var(--gray-300)); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
-        .panel-section h2 { font-size: 2.2em; margin-bottom: 15px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .panel-section h2 { font-size: 2.2em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .panel-section .subtitle { color: var(--gray-600); margin-bottom: 40px; font-size: 1.1em; }
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 40px; }
         .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 30px; text-align: center; transition: 0.3s; }
@@ -70,122 +70,27 @@
         .feature-item { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--gray-700); font-size: 0.95em; }
         .feature-item i { color: var(--button-bg); }
         
-        /* Slideshow Styles */
-        .slideshow-container {
-            position: relative;
-            max-width: 1200px;
-            margin: 40px auto;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            min-width: 100%;
-            position: relative;
-        }
-        .slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-        }
-        .slide-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            background: rgba(4,19,36,0.85);
-            backdrop-filter: blur(10px);
-            padding: 30px 40px;
-            border-radius: 20px;
-            width: 80%;
-            max-width: 600px;
-            border: 1px solid rgba(236,182,25,0.3);
-            animation: fadeInUp 0.8s ease;
-        }
-        .slide-content h2 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fff, #ecb619);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .slide-content p {
-            font-size: 1.1em;
-            margin-bottom: 25px;
-            color: #ced4da;
-        }
-        .slide-btn {
-            display: inline-block;
-            padding: 12px 35px;
-            background: #ecb619;
-            color: #041324;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .slide-btn:hover {
-            background: #d4a514;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(236,182,25,0.3);
-        }
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(4,19,36,0.8);
-            color: white;
-            border: 1px solid rgba(236,182,25,0.5);
-            padding: 16px;
-            cursor: pointer;
-            border-radius: 50%;
-            font-size: 18px;
-            transition: 0.3s;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-        }
+        /* Slideshow */
+        .slideshow-container { position: relative; max-width: 1200px; margin: 40px auto; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .slides { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide { min-width: 100%; position: relative; }
+        .slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
+        .slide-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; background: rgba(4,19,36,0.85); backdrop-filter: blur(10px); padding: 30px 40px; border-radius: 20px; width: 80%; max-width: 600px; border: 1px solid rgba(236,182,25,0.3); animation: fadeInUp 0.8s ease; }
+        .slide-content h2 { font-size: 2.5em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .slide-content p { font-size: 1.1em; margin-bottom: 25px; color: #ced4da; }
+        .slide-btn { display: inline-block; padding: 12px 35px; background: #ecb619; color: #041324; text-decoration: none; border-radius: 50px; font-weight: bold; transition: all 0.3s; }
+        .slide-btn:hover { background: #d4a514; transform: translateY(-2px); }
+        .prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(4,19,36,0.8); color: white; border: 1px solid rgba(236,182,25,0.5); padding: 16px; cursor: pointer; border-radius: 50%; font-size: 18px; transition: 0.3s; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; z-index: 10; }
         .prev:hover, .next:hover { background: #ecb619; color: #041324; }
-        .prev { left: 20px; }
-        .next { right: 20px; }
-        .dots-container {
-            text-align: center;
-            padding: 20px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 10;
-        }
-        .dot {
-            height: 12px;
-            width: 12px;
-            margin: 0 6px;
-            background-color: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            display: inline-block;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+        .prev { left: 20px; } .next { right: 20px; }
+        .dots-container { text-align: center; padding: 20px; position: absolute; bottom: 0; left: 0; right: 0; z-index: 10; }
+        .dot { height: 12px; width: 12px; margin: 0 6px; background-color: rgba(255,255,255,0.5); border-radius: 50%; display: inline-block; cursor: pointer; transition: 0.3s; }
         .dot.active { background-color: #ecb619; transform: scale(1.3); }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translate(-50%, -40%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translate(-50%, -40%); } to { opacity: 1; transform: translate(-50%, -50%); } }
         
-        /* Credit System Table */
+        /* Credit System */
         .credit-section { background: var(--gray-200); border-radius: 30px; padding: 40px; margin: 40px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; border: 1px solid var(--gray-400); }
-        .credit-left h2 { font-size: 2.5em; margin-bottom: 20px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .credit-left h2 { font-size: 2.5em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .credit-table { width: 100%; border-collapse: collapse; background: var(--gray-300); border-radius: 20px; overflow: hidden; }
         .credit-table th, .credit-table td { padding: 15px; text-align: center; border-bottom: 1px solid var(--gray-400); }
         .credit-table th { background: var(--button-bg); color: var(--gray-100); font-weight: bold; }
@@ -201,18 +106,18 @@
         .reseller-btn:hover { transform: scale(1.05); }
         
         /* Features Grid */
-        .features-section h2 { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .features-section h2 { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .feature-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px 20px; text-align: center; transition: 0.3s; }
         .feature-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
         .feature-icon { font-size: 3em; color: var(--button-bg); margin-bottom: 20px; }
-        .feature-card h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--gray-900); }
+        .feature-card h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--gray-900); background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
         .feature-card p { color: var(--gray-600); }
         .feature-btn { display: inline-block; margin-top: 15px; padding: 8px 20px; background: transparent; border: 1px solid var(--button-bg); color: var(--button-bg); text-decoration: none; border-radius: 50px; font-size: 0.9em; transition: 0.3s; }
         .feature-btn:hover { background: var(--button-bg); color: var(--gray-100); }
         
         /* Testimonials */
-        .testimonials-section h2 { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .testimonials-section h2 { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .testimonial-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 25px; }
         .testimonial-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
@@ -223,7 +128,7 @@
         
         /* FAQ */
         .faq-section { background: var(--gray-200); border-radius: 30px; padding: 40px; margin: 40px auto; border: 1px solid var(--gray-400); }
-        .faq-section h2 { text-align: center; font-size: 2.5em; margin-bottom: 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .faq-section h2 { text-align: center; font-size: 2.5em; margin-bottom: 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
         .faq-item { background: var(--gray-300); border: 1px solid var(--gray-400); border-radius: 15px; padding: 20px; cursor: pointer; }
         .faq-question { display: flex; justify-content: space-between; align-items: center; color: var(--gray-900); font-weight: 600; }
@@ -233,15 +138,16 @@
         .faq-item.active .faq-question i { transform: rotate(45deg); }
         
         /* Plans */
-        .plans-section h2 { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .plans-section h2 { text-align: center; font-size: 2.5em; margin: 60px 0 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
         .plan-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px 20px; text-align: center; transition: 0.3s; }
-        .plan-card h3 { font-size: 1.8em; margin-bottom: 10px; color: var(--gray-900); }
-        .plan-card .price { font-size: 2.2em; font-weight: 800; margin: 15px 0; background: linear-gradient(45deg, var(--gray-800), var(--gray-900)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .plan-card h3 { font-size: 1.8em; margin-bottom: 10px; color: var(--gray-900); background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+        .plan-card .price { font-size: 2.2em; font-weight: 800; margin: 15px 0; color: var(--button-bg); }
         .plan-card ul { list-style: none; margin: 20px 0; }
         .plan-card li { margin: 10px 0; color: var(--gray-600); display: flex; align-items: center; justify-content: center; gap: 8px; }
         .plan-card li i { color: var(--button-bg); }
-        .plan-card .btn { background: var(--button-bg); color: white; text-decoration: none; padding: 10px 25px; border-radius: 50px; font-weight: bold; display: inline-block; }
+        .plan-card .btn { background: var(--button-bg); color: var(--gray-100); text-decoration: none; padding: 10px 25px; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .plan-card .btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         
         /* Footer */
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
@@ -287,9 +193,7 @@
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%23ecb619'/%3E%3Ctext x='10' y='32' fill='%23041a2f' font-weight='bold' font-size='20'%3E8K STRONG%3C/text%3E%3C/svg%3E" alt="8K Strong IPTV" class="logo-img">
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
             <div class="header-actions">
                 <div class="language-dropdown">
                     <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
@@ -306,7 +210,7 @@
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="convert.html">Convert</a></li>
                 <li><a href="reseller.html">Reseller</a></li>
                 <li><a href="subscription.html">Subscription</a></li>
@@ -356,33 +260,11 @@
             </div>
         </section>
 
-        <!-- Slideshow Section -->
         <div class="slideshow-container">
             <div class="slides" id="slides">
-                <div class="slide">
-                    <img src="images/slide1.png" alt="8K Strong VIP IPTV">
-                    <div class="slide-content">
-                        <h2>8K Strong VIP IPTV – Watch Anywhere, Anytime on Any Device</h2>
-                        <p>Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality.</p>
-                        <a href="subscription.html" class="slide-btn">Subscribe Now</a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/slide2.png" alt="Reseller Program">
-                    <div class="slide-content">
-                        <h2>Become a 8K Strong VIP Reseller</h2>
-                        <p>Start your own IPTV business today. Flexible credit system, instant activation, and dedicated 24/7 support.</p>
-                        <a href="reseller.html" class="slide-btn">Join Reseller</a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/slide3.png" alt="Special Offer">
-                    <div class="slide-content">
-                        <h2>Limited Time – 20% OFF Yearly Plan</h2>
-                        <p>Get 20% discount on annual subscription. Premium IPTV service with anti-freeze technology and free trial.</p>
-                        <a href="subscription.html" class="slide-btn">Claim Offer</a>
-                    </div>
-                </div>
+                <div class="slide"><img src="images/slide1.png" alt="8K Strong VIP IPTV"><div class="slide-content"><h2>8K Strong VIP IPTV – Watch Anywhere, Anytime on Any Device</h2><p>Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality.</p><a href="subscription.html" class="slide-btn">Subscribe Now</a></div></div>
+                <div class="slide"><img src="images/slide2.png" alt="Reseller Program"><div class="slide-content"><h2>Become a 8K Strong VIP Reseller</h2><p>Start your own IPTV business today. Flexible credit system, instant activation, and dedicated 24/7 support.</p><a href="reseller.html" class="slide-btn">Join Reseller</a></div></div>
+                <div class="slide"><img src="images/slide3.png" alt="Special Offer"><div class="slide-content"><h2>Limited Time – 20% OFF Yearly Plan</h2><p>Get 20% discount on annual subscription. Premium IPTV service with anti-freeze technology and free trial.</p><a href="subscription.html" class="slide-btn">Claim Offer</a></div></div>
             </div>
             <button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
             <button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
@@ -394,9 +276,7 @@
                 <h2>Credit System</h2>
                 <p>Simple and transparent – convert credits directly into subscription months.</p>
                 <table class="credit-table">
-                    <thead>……
-<th>Credits</th><th>Subscription Months</th>……
-</thead>
+                    <thead><tr><th>Credits</th><th>Subscription Months</th></tr></thead>
                     <tbody>
                         <tr><td class="credit-amount"><i class="fas fa-coins"></i> 1 Credit</td><td class="credit-value"><i class="fas fa-calendar-alt"></i> 1 Month</td></tr>
                         <tr><td class="credit-amount"><i class="fas fa-coins"></i> 3 Credits</td><td class="credit-value"><i class="fas fa-calendar-alt"></i> 3 Months</td></tr>
@@ -440,10 +320,10 @@
         <section class="plans-section">
             <h2>Choose Your Plan</h2>
             <div class="plans-grid">
-                <div class="plan-card"><h3>1 Month</h3><div class="price">$14.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> VPN Included</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
-                <div class="plan-card"><h3>3 Months</h3><div class="price">$34.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> VPN + Priority Support</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
-                <div class="plan-card"><h3>6 Months</h3><div class="price">$59.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> 2 Connections</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
-                <div class="plan-card"><h3>12 Months</h3><div class="price">$99.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> 4K + Premium Support</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
+                <div class="plan-card"><h3>1 Month</h3><div class="price">€12.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> VPN Included</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
+                <div class="plan-card"><h3>3 Months</h3><div class="price">€29.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> VPN + Priority Support</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
+                <div class="plan-card"><h3>6 Months</h3><div class="price">€49.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> 2 Connections</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
+                <div class="plan-card"><h3>12 Months</h3><div class="price">€89.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> 4K + Premium Support</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
             </div>
         </section>
 
@@ -460,52 +340,18 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-column">
-                <h4>8K Strong VIP</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="subscription.html">Subscription</a></li>
-                    <li><a href="reseller.html">Reseller Program</a></li>
-                    <li><a href="setup-guide.html">Setup Guide</a></li>
-                    <li><a href="downloader.html">Download 8K Player</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="https://t.me/8kstrong_support">Telegram Support</a></li>
-                    <li><a href="https://wa.me/1234567890">WhatsApp</a></li>
-                    <li><a href="mailto:support@8kstrongvip.com">Email Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+            <div class="footer-column"><h4>8K Strong VIP</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
+            <div class="footer-column"><h4>Services</h4><ul><li><a href="subscription.html">Subscription</a></li><li><a href="reseller.html">Reseller Program</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Download 8K Player</a></li></ul></div>
+            <div class="footer-column"><h4>Support</h4><ul><li><a href="https://t.me/8kstrong_support">Telegram Support</a></li><li><a href="https://wa.me/1234567890">WhatsApp</a></li><li><a href="mailto:support@8kstrongvip.com">Email Us</a></li></ul></div>
+            <div class="footer-column"><h4>Follow Us</h4><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p>
-        </div>
+        <div class="footer-bottom"><p>© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div>
     </footer>
 
     <script>
-        // ===== SLIDESHOW FUNCTIONALITY =====
-        let slideIndex = 0;
-        let slideInterval;
+        let slideIndex = 0, slideInterval;
         const slides = document.getElementById('slides');
         let totalSlides = document.querySelectorAll('.slide').length;
-        
         function updateDots() {
             const dotsContainer = document.getElementById('dotsContainer');
             if (!dotsContainer) return;
@@ -518,7 +364,6 @@
                 dotsContainer.appendChild(dot);
             }
         }
-        
         function showSlide(index) {
             if (!slides) return;
             totalSlides = document.querySelectorAll('.slide').length;
@@ -529,31 +374,17 @@
             const dots = document.querySelectorAll('.dot');
             dots.forEach((dot, i) => { dot.classList.toggle('active', i === slideIndex); });
         }
-        
         function changeSlide(n) { showSlide(slideIndex + n); resetAutoSlide(); }
         function currentSlide(n) { showSlide(n); resetAutoSlide(); }
-        
         function startAutoSlide() { slideInterval = setInterval(() => { changeSlide(1); }, 5000); }
         function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
         function stopAutoSlide() { clearInterval(slideInterval); }
-        
         const slideshowContainer = document.querySelector('.slideshow-container');
-        if (slideshowContainer) {
-            slideshowContainer.addEventListener('mouseenter', stopAutoSlide);
-            slideshowContainer.addEventListener('mouseleave', startAutoSlide);
-        }
-        
-        // ===== MOBILE MENU =====
+        if (slideshowContainer) { slideshowContainer.addEventListener('mouseenter', stopAutoSlide); slideshowContainer.addEventListener('mouseleave', startAutoSlide); }
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const header = document.querySelector('.header');
         if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
-        
-        // ===== FAQ ACCORDION =====
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => item.classList.toggle('active'));
-        });
-        
-        // ===== MULTI-LANGUAGE =====
+        document.querySelectorAll('.faq-item').forEach(item => { item.addEventListener('click', () => item.classList.toggle('active')); });
         window.changeLanguage = function(lang) {
             const langBtn = document.getElementById('currentLangBtn');
             if(lang === 'ar') langBtn.innerHTML = '🇸🇦 AR';
@@ -564,12 +395,7 @@
             else langBtn.innerHTML = '🇬🇧 EN';
             document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
         };
-        
-        // Initialize
-        updateDots();
-        showSlide(0);
-        startAutoSlide();
-        window.changeLanguage('en');
+        updateDots(); showSlide(0); startAutoSlide(); window.changeLanguage('en');
     </script>
 </body>
 </html>
