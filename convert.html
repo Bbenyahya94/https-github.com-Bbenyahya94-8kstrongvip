@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Convert M3U to Xtream Codes – 8K Strong VIP | IPTV Converter Tool</title>
-    <meta name="description" content="Free M3U to Xtream Codes converter. Transform your M3U playlist URL to Xtream Codes API (Username, Password, Server URL, EPG URL, Expiration Date). Easy and fast IPTV conversion tool.">
-    <meta name="keywords" content="convert M3U to Xtream Codes, M3U to Xtream API, IPTV converter, Xtream Codes generator, M3U playlist converter, EPG extractor">
+    <meta name="description" content="Free M3U to Xtream Codes converter. Transform your M3U playlist URL to Xtream Codes API (Username, Password, Server URL, EPG URL). Easy and fast IPTV conversion tool.">
+    <meta name="keywords" content="convert M3U to Xtream Codes, M3U to Xtream API, IPTV converter, Xtream Codes generator, M3U playlist converter">
     
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -73,7 +73,7 @@
         .converter-card { background: var(--gray-300); border-radius: 20px; padding: 30px; border: 1px solid var(--gray-400); }
         .input-group { margin-bottom: 20px; }
         .input-group label { display: block; margin-bottom: 10px; color: var(--gray-700); font-weight: 500; }
-        .input-group textarea { width: 100%; padding: 15px; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1em; resize: vertical; min-height: 100px; font-family: monospace; }
+        .input-group textarea { width: 100%; padding: 15px; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1em; resize: vertical; min-height: 120px; font-family: monospace; }
         .input-group textarea:focus { outline: none; border-color: var(--button-bg); }
         
         .result-box { background: var(--gray-200); border-radius: 15px; padding: 15px; margin: 12px 0; border: 1px solid var(--gray-400); }
@@ -88,7 +88,7 @@
         .convert-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         .example-box { background: var(--gray-300); border-radius: 15px; padding: 15px; margin-top: 20px; border: 1px solid var(--gray-400); }
         .example-box h4 { color: var(--button-bg); margin-bottom: 10px; font-size: 0.9em; }
-        .example-box p { color: var(--gray-600); font-size: 0.75em; font-family: monospace; word-break: break-all; }
+        .example-box p { color: var(--gray-600); font-size: 0.75em; font-family: monospace; word-break: break-all; margin: 5px 0; }
         
         .credit-integration { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 40px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
         .credit-integration h2 { font-size: 2em; margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -174,26 +174,26 @@
     <main class="container">
         <section class="page-hero">
             <h1>Convert M3U to Xtream Codes</h1>
-            <p>Extract Username, Password, Server URL, EPG URL, and Expiration Date from your M3U playlist URL. Easy and fast conversion for all IPTV players and apps.</p>
+            <p>Extract Username, Password, Server URL, and EPG URL from your M3U playlist URL. Easy and fast conversion for all IPTV players and apps.</p>
         </section>
         
         <div class="converter-section">
             <div class="converter-info">
                 <h2>M3U to Xtream Codes Converter</h2>
-                <p>Convert any M3U playlist URL to Xtream Codes format and extract additional information like EPG URL and subscription expiration date.</p>
+                <p>Convert any M3U playlist URL to Xtream Codes format. Paste your M3U URL below and click Convert.</p>
                 <ul class="feature-list">
                     <li><i class="fas fa-check-circle"></i> Extract Username & Password</li>
                     <li><i class="fas fa-check-circle"></i> Extract Server URL & EPG URL</li>
-                    <li><i class="fas fa-check-circle"></i> Extract Expiration Date</li>
                     <li><i class="fas fa-check-circle"></i> Compatible with all IPTV apps</li>
+                    <li><i class="fas fa-check-circle"></i> Works with M3U, M3U8, and Xtream formats</li>
                 </ul>
             </div>
             <div class="converter-card">
                 <div class="input-group">
                     <label><i class="fas fa-link"></i> M3U Playlist URL</label>
-                    <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts"></textarea>
+                    <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example 1: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts&#10;Example 2: http://your-server.com:8080/USER/PASS&#10;Example 3: http://your-server.com:8080/USER/PASS/EPG"></textarea>
                 </div>
-                <button class="convert-btn" id="convertBtn"><i class="fas fa-sync-alt"></i> Extract Information</button>
+                <button class="convert-btn" id="convertBtn"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
                 
                 <div id="resultContainer" style="display: none;">
                     <div class="result-box">
@@ -218,17 +218,10 @@
                         </div>
                     </div>
                     <div class="result-box">
-                        <div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div>
+                        <div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL (XMLTV)</div>
                         <div class="result-value" id="epgUrl">-</div>
                         <div class="button-group">
                             <button class="copy-btn" data-field="epgUrl" data-name="EPG URL"><i class="fas fa-copy"></i> Copy</button>
-                        </div>
-                    </div>
-                    <div class="result-box">
-                        <div class="result-label"><i class="fas fa-hourglass-half"></i> Expiration Date</div>
-                        <div class="result-value" id="expirationDate">-</div>
-                        <div class="button-group">
-                            <button class="copy-btn" data-field="expirationDate" data-name="Expiration Date"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <button class="copy-all-btn" id="copyAllBtn"><i class="fas fa-copy"></i> Copy All Information</button>
@@ -236,9 +229,10 @@
                 
                 <div class="example-box">
                     <h4><i class="fas fa-question-circle"></i> Supported M3U URL Formats</h4>
-                    <p>http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts</p>
-                    <p>http://server.com:8080/USER/PASS</p>
-                    <p><strong>Result:</strong> Server: http://server.com:8080 | Username: USER | Password: PASS</p>
+                    <p><strong>Format 1 (Query String):</strong><br>http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts</p>
+                    <p><strong>Format 2 (Path):</strong><br>http://server.com:8080/USER/PASS</p>
+                    <p><strong>Format 3 (With EPG):</strong><br>http://server.com:8080/USER/PASS/EPG</p>
+                    <p style="margin-top:8px;"><strong>Result:</strong><br>Server: http://server.com:8080<br>Username: USER<br>Password: PASS</p>
                 </div>
             </div>
         </div>
@@ -299,7 +293,7 @@
         setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
         
         // ========== CONVERTER FUNCTIONS ==========
-        let currentData = { serverUrl: '', username: '', password: '', epgUrl: '', expirationDate: '' };
+        let currentData = { serverUrl: '', username: '', password: '', epgUrl: '' };
         
         function showMessage(msg, isError) {
             alert(msg);
@@ -307,13 +301,12 @@
         
         function copyField(fieldId, fieldName) {
             const element = document.getElementById(fieldId);
-            if (!element || element.innerText === '-' || element.innerText === 'Not available in URL' || element.innerText === 'Not available') {
+            if (!element || element.innerText === '-' || element.innerText === 'Not available') {
                 showMessage(`❌ No ${fieldName} available to copy`, true);
                 return;
             }
             navigator.clipboard.writeText(element.innerText).then(() => {
                 showMessage(`✅ ${fieldName} copied to clipboard!`);
-                // Update button text temporarily
                 const btns = document.querySelectorAll(`.copy-btn[data-field="${fieldId}"]`);
                 btns.forEach(btn => {
                     const originalHTML = btn.innerHTML;
@@ -327,7 +320,7 @@
         
         function copyAll() {
             if (!currentData.serverUrl && !currentData.username && !currentData.password) {
-                showMessage('❌ No data available. Please extract information from an M3U URL first.', true);
+                showMessage('❌ No data available. Please convert an M3U URL first.', true);
                 return;
             }
             const allText = `═══════════════════════════════════
@@ -338,7 +331,6 @@
 👤 Username: ${currentData.username}
 🔐 Password: ${currentData.password}
 📅 EPG URL: ${currentData.epgUrl}
-⏰ Expiration Date: ${currentData.expirationDate}
 
 ═══════════════════════════════════
 8K Strong VIP - Premium IPTV Service
@@ -352,22 +344,6 @@
             }).catch(() => {
                 showMessage('❌ Failed to copy all information', true);
             });
-        }
-        
-        function extractExpirationDate(m3uUrl) {
-            try {
-                const url = new URL(m3uUrl);
-                const params = new URLSearchParams(url.search);
-                let expDate = params.get('expiration') || params.get('expire') || params.get('expires') || params.get('validuntil') || params.get('end_date');
-                if (expDate) {
-                    if (!isNaN(expDate) && expDate.length === 10) {
-                        const date = new Date(parseInt(expDate) * 1000);
-                        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                    }
-                    return expDate;
-                }
-            } catch(e) {}
-            return 'Not available in URL';
         }
         
         function extractEpgUrl(m3uUrl, username, password) {
@@ -385,43 +361,85 @@
         
         function convertM3UtoXtream() {
             const m3uUrl = document.getElementById('m3uUrl').value.trim();
+            
             if (!m3uUrl) {
                 showMessage('❌ Please enter an M3U playlist URL', true);
                 return;
             }
+            
+            let username = null;
+            let password = null;
+            let serverUrl = null;
+            
             try {
+                // Try to parse as URL first
                 const url = new URL(m3uUrl);
-                let username = url.searchParams.get('username');
-                let password = url.searchParams.get('password');
+                const params = new URLSearchParams(url.search);
+                
+                // Method 1: Extract from query parameters
+                username = params.get('username');
+                password = params.get('password');
+                serverUrl = `${url.protocol}//${url.host}`;
+                
+                // Method 2: If not found, try to extract from path (format: /username/password/)
                 if (!username || !password) {
-                    const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/|$)/);
-                    if (pathMatch) {
-                        username = decodeURIComponent(pathMatch[1]);
-                        password = decodeURIComponent(pathMatch[2]);
+                    const pathParts = url.pathname.split('/').filter(p => p.length > 0);
+                    if (pathParts.length >= 2) {
+                        // Check if the path looks like username/password
+                        username = decodeURIComponent(pathParts[0]);
+                        password = decodeURIComponent(pathParts[1]);
                     }
                 }
-                const serverUrl = `${url.protocol}//${url.host}`;
-                if (username && password) {
-                    currentData = {
-                        serverUrl: serverUrl,
-                        username: username,
-                        password: password,
-                        epgUrl: extractEpgUrl(m3uUrl, username, password),
-                        expirationDate: extractExpirationDate(m3uUrl)
-                    };
-                    document.getElementById('serverUrl').innerHTML = currentData.serverUrl;
-                    document.getElementById('username').innerHTML = currentData.username;
-                    document.getElementById('password').innerHTML = currentData.password;
-                    document.getElementById('epgUrl').innerHTML = currentData.epgUrl;
-                    document.getElementById('expirationDate').innerHTML = currentData.expirationDate;
-                    document.getElementById('resultContainer').style.display = 'block';
-                    showMessage('✅ Information extracted successfully!');
-                    document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    showMessage('❌ Could not extract username and password from the URL', true);
+            } catch (e) {
+                // Not a valid URL, try regex extraction
+                const urlMatch = m3uUrl.match(/^(https?:\/\/[^\/]+)/i);
+                if (urlMatch) {
+                    serverUrl = urlMatch[1];
                 }
-            } catch (error) {
-                showMessage('❌ Invalid URL format. Please enter a valid M3U playlist URL', true);
+                
+                // Try to extract username:password from URL pattern
+                const authMatch = m3uUrl.match(/\/\/(?:[^:]+):([^@]+)@/);
+                if (authMatch) {
+                    password = authMatch[1];
+                }
+                
+                const userMatch = m3uUrl.match(/[\/?&]username=([^&]+)/i);
+                if (userMatch) username = decodeURIComponent(userMatch[1]);
+                
+                const passMatch = m3uUrl.match(/[\/?&]password=([^&]+)/i);
+                if (passMatch) password = decodeURIComponent(passMatch[1]);
+                
+                // Try path format: /username/password/
+                const pathMatch = m3uUrl.match(/\/([^\/]+)\/([^\/]+)(?:\/|$)/);
+                if (pathMatch && !username) {
+                    username = decodeURIComponent(pathMatch[1]);
+                    password = decodeURIComponent(pathMatch[2]);
+                }
+            }
+            
+            if (username && password && serverUrl) {
+                currentData = {
+                    serverUrl: serverUrl,
+                    username: username,
+                    password: password,
+                    epgUrl: extractEpgUrl(m3uUrl, username, password)
+                };
+                
+                document.getElementById('serverUrl').innerHTML = currentData.serverUrl;
+                document.getElementById('username').innerHTML = currentData.username;
+                document.getElementById('password').innerHTML = currentData.password;
+                document.getElementById('epgUrl').innerHTML = currentData.epgUrl;
+                
+                document.getElementById('resultContainer').style.display = 'block';
+                showMessage('✅ Conversion successful!');
+                document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                let errorMsg = '❌ Could not extract information from the URL.\n\n';
+                errorMsg += 'Make sure your M3U URL contains username and password in one of these formats:\n';
+                errorMsg += '1. http://server.com:8080/get.php?username=USER&password=PASS\n';
+                errorMsg += '2. http://server.com:8080/USER/PASS\n';
+                errorMsg += '3. http://USER:PASS@server.com:8080/playlist.m3u';
+                showMessage(errorMsg, true);
             }
         }
         
