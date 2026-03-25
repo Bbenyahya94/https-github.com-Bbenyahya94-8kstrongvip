@@ -124,79 +124,354 @@
 </head>
 <body>
     <header class="header">
-        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button><div class="lang-dropdown-menu"><a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ar">🇸🇦 العربية</a><a href="#" data-lang="fr">🇫🇷 Français</a><a href="#" data-lang="es">🇪🇸 Español</a><a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="it">🇮🇹 Italiano</a></div></div></div></div>
-        <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html" class="active">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
-        <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="header-top">
+            <div class="logo-area">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="8K Strong IPTV" class="logo-img">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
+            <div class="header-actions">
+                <div class="language-dropdown">
+                    <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
+                    <div class="lang-dropdown-menu">
+                        <a href="#" data-lang="en">🇬🇧 English</a>
+                        <a href="#" data-lang="ar">🇸🇦 العربية</a>
+                        <a href="#" data-lang="fr">🇫🇷 Français</a>
+                        <a href="#" data-lang="es">🇪🇸 Español</a>
+                        <a href="#" data-lang="de">🇩🇪 Deutsch</a>
+                        <a href="#" data-lang="it">🇮🇹 Italiano</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="convert.html" class="active">Convert</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="setup-guide.html">Setup Guide</a></li>
+                <li><a href="downloader.html">Downloader</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="convert.html">Convert</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="setup-guide.html">Setup Guide</a></li>
+                <li><a href="downloader.html">Downloader</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </header>
 
     <main class="container">
-        <section class="page-hero"><h1>Convert M3U to Xtream Codes</h1><p>Extract Username, Password, Server URL, EPG URL, and Expiration Date from your M3U playlist URL. Easy and fast conversion for all IPTV players and apps.</p></section>
-        <div class="converter-section"><div class="converter-info"><h2>M3U to Xtream Codes Converter</h2><p>Convert any M3U playlist URL to Xtream Codes format and extract additional information like EPG URL and subscription expiration date.</p><ul class="feature-list"><li><i class="fas fa-check-circle"></i> Extract Username & Password</li><li><i class="fas fa-check-circle"></i> Extract Server URL & EPG URL</li><li><i class="fas fa-check-circle"></i> Extract Expiration Date</li><li><i class="fas fa-check-circle"></i> Compatible with all IPTV apps</li></ul></div><div class="converter-card"><div class="input-group"><label><i class="fas fa-link"></i> M3U Playlist URL</label><textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts"></textarea></div><button class="convert-btn" onclick="convertM3UtoXtream()"><i class="fas fa-sync-alt"></i> Extract Information</button><div id="resultContainer" style="display:none;"><div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="serverUrl">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('serverUrl','Server URL')"><i class="fas fa-copy"></i> Copy</button></div></div><div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="username">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('username','Username')"><i class="fas fa-copy"></i> Copy</button></div></div><div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="password">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('password','Password')"><i class="fas fa-copy"></i> Copy</button></div></div><div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="epgUrl">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('epgUrl','EPG URL')"><i class="fas fa-copy"></i> Copy</button></div></div><div class="result-box"><div class="result-label"><i class="fas fa-hourglass-half"></i> Expiration Date</div><div class="result-value" id="expirationDate">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('expirationDate','Expiration Date')"><i class="fas fa-copy"></i> Copy</button></div></div><button class="copy-all-btn" onclick="copyAll()"><i class="fas fa-copy"></i> Copy All Information</button></div><div class="example-box"><h4><i class="fas fa-question-circle"></i> Supported M3U URL Formats</h4><p>http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts</p><p>http://server.com:8080/USER/PASS</p><p><strong>Result:</strong> Server: http://server.com:8080 | Username: USER | Password: PASS</p></div></div></div>
-        <div class="credit-integration"><h2><i class="fas fa-coins"></i> 8K Strong VIP Credit System</h2><p>Convert your credits to subscription months easily. 1 Credit = 1 Month Subscription. Perfect for resellers managing multiple customers.</p><div class="credit-buttons"><a href="reseller.html" class="credit-btn primary"><i class="fas fa-chart-line"></i> Become a Reseller</a><a href="reseller.html#packages" class="credit-btn secondary"><i class="fas fa-coins"></i> View Credit Packages</a></div></div>
+        <section class="page-hero">
+            <h1>Convert M3U to Xtream Codes</h1>
+            <p>Extract Username, Password, Server URL, EPG URL, and Expiration Date from your M3U playlist URL. Easy and fast conversion for all IPTV players and apps.</p>
+        </section>
+        
+        <div class="converter-section">
+            <div class="converter-info">
+                <h2>M3U to Xtream Codes Converter</h2>
+                <p>Convert any M3U playlist URL to Xtream Codes format and extract additional information like EPG URL and subscription expiration date.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Extract Username & Password</li>
+                    <li><i class="fas fa-check-circle"></i> Extract Server URL & EPG URL</li>
+                    <li><i class="fas fa-check-circle"></i> Extract Expiration Date</li>
+                    <li><i class="fas fa-check-circle"></i> Compatible with all IPTV apps</li>
+                </ul>
+            </div>
+            <div class="converter-card">
+                <div class="input-group">
+                    <label><i class="fas fa-link"></i> M3U Playlist URL</label>
+                    <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts"></textarea>
+                </div>
+                <button class="convert-btn" id="convertBtn"><i class="fas fa-sync-alt"></i> Extract Information</button>
+                
+                <div id="resultContainer" style="display: none;">
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-server"></i> Server URL</div>
+                        <div class="result-value" id="serverUrl">-</div>
+                        <div class="button-group">
+                            <button class="copy-btn" data-field="serverUrl" data-name="Server URL"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-user"></i> Username</div>
+                        <div class="result-value" id="username">-</div>
+                        <div class="button-group">
+                            <button class="copy-btn" data-field="username" data-name="Username"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-lock"></i> Password</div>
+                        <div class="result-value" id="password">-</div>
+                        <div class="button-group">
+                            <button class="copy-btn" data-field="password" data-name="Password"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div>
+                        <div class="result-value" id="epgUrl">-</div>
+                        <div class="button-group">
+                            <button class="copy-btn" data-field="epgUrl" data-name="EPG URL"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-hourglass-half"></i> Expiration Date</div>
+                        <div class="result-value" id="expirationDate">-</div>
+                        <div class="button-group">
+                            <button class="copy-btn" data-field="expirationDate" data-name="Expiration Date"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                    <button class="copy-all-btn" id="copyAllBtn"><i class="fas fa-copy"></i> Copy All Information</button>
+                </div>
+                
+                <div class="example-box">
+                    <h4><i class="fas fa-question-circle"></i> Supported M3U URL Formats</h4>
+                    <p>http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts</p>
+                    <p>http://server.com:8080/USER/PASS</p>
+                    <p><strong>Result:</strong> Server: http://server.com:8080 | Username: USER | Password: PASS</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="credit-integration">
+            <h2><i class="fas fa-coins"></i> 8K Strong VIP Credit System</h2>
+            <p>Convert your credits to subscription months easily. 1 Credit = 1 Month Subscription. Perfect for resellers managing multiple customers.</p>
+            <div class="credit-buttons">
+                <a href="reseller.html" class="credit-btn primary"><i class="fas fa-chart-line"></i> Become a Reseller</a>
+                <a href="reseller.html#packages" class="credit-btn secondary"><i class="fas fa-coins"></i> View Credit Packages</a>
+            </div>
+        </div>
     </main>
 
-    <footer class="footer"><div class="footer-content"><div class="footer-column"><h4><i class="fas fa-tools"></i> Tools</h4><ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li><li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-question-circle"></i> Help</h4><ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li><li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-cogs"></i> Services</h4><ul><li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-crown"></i> 8K Strong VIP</h4><ul><li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li></ul></div></div><div class="footer-bottom"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a><a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a></div><p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div></footer>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4><i class="fas fa-tools"></i> Tools</h4>
+                <ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li><li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li></ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-question-circle"></i> Help</h4>
+                <ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li><li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li></ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-cogs"></i> Services</h4>
+                <ul><li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li></ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-crown"></i> 8K Strong VIP</h4>
+                <ul><li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li><li><a href="terms.html"><i class="fas fa-file-alt"></i> Terms & Conditions</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a>
+                <a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p>
+        </div>
+    </footer>
 
     <script>
-        // Anti-inspect protection
+        // ========== ANTI-INSPECT PROTECTION ==========
         document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
-        document.addEventListener('keydown', function(e) { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.shiftKey && e.key === 'K')) { e.preventDefault(); return false; } });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.shiftKey && e.key === 'K')) {
+                e.preventDefault(); return false;
+            }
+        });
         document.addEventListener('keyup', function(e) { if (e.key === 'PrintScreen') { navigator.clipboard.writeText('').catch(() => {}); alert('Screenshots are disabled'); } });
         document.querySelectorAll('img').forEach(img => { img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }); });
         document.addEventListener('copy', function(e) { e.preventDefault(); alert('Copying content is disabled'); return false; });
         document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
         setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
         
+        // ========== CONVERTER FUNCTIONS ==========
         let currentData = { serverUrl: '', username: '', password: '', epgUrl: '', expirationDate: '' };
         
-        function showToast(msg, isError) { alert(msg); }
+        function showMessage(msg, isError) {
+            alert(msg);
+        }
         
         function copyField(fieldId, fieldName) {
             const element = document.getElementById(fieldId);
-            if (!element || element.innerText === '-' || element.innerText === 'Not available') { alert(`No ${fieldName} available`); return; }
-            navigator.clipboard.writeText(element.innerText).then(() => alert(`✅ ${fieldName} copied!`)).catch(() => alert('Failed to copy'));
+            if (!element || element.innerText === '-' || element.innerText === 'Not available in URL' || element.innerText === 'Not available') {
+                showMessage(`❌ No ${fieldName} available to copy`, true);
+                return;
+            }
+            navigator.clipboard.writeText(element.innerText).then(() => {
+                showMessage(`✅ ${fieldName} copied to clipboard!`);
+                // Update button text temporarily
+                const btns = document.querySelectorAll(`.copy-btn[data-field="${fieldId}"]`);
+                btns.forEach(btn => {
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    setTimeout(() => { btn.innerHTML = originalHTML; }, 1500);
+                });
+            }).catch(() => {
+                showMessage(`❌ Failed to copy ${fieldName}`, true);
+            });
         }
         
         function copyAll() {
-            if (!currentData.serverUrl) { alert('No data available. Extract first.'); return; }
-            const text = `Server URL: ${currentData.serverUrl}\nUsername: ${currentData.username}\nPassword: ${currentData.password}\nEPG URL: ${currentData.epgUrl}\nExpiration: ${currentData.expirationDate}`;
-            navigator.clipboard.writeText(text).then(() => alert('✅ All information copied!')).catch(() => alert('Failed to copy'));
+            if (!currentData.serverUrl && !currentData.username && !currentData.password) {
+                showMessage('❌ No data available. Please extract information from an M3U URL first.', true);
+                return;
+            }
+            const allText = `═══════════════════════════════════
+        XTREAM CODES INFORMATION
+═══════════════════════════════════
+
+📡 Server URL: ${currentData.serverUrl}
+👤 Username: ${currentData.username}
+🔐 Password: ${currentData.password}
+📅 EPG URL: ${currentData.epgUrl}
+⏰ Expiration Date: ${currentData.expirationDate}
+
+═══════════════════════════════════
+8K Strong VIP - Premium IPTV Service
+═══════════════════════════════════`;
+            navigator.clipboard.writeText(allText).then(() => {
+                showMessage('✅ All Xtream Codes copied to clipboard!');
+                const copyAllBtn = document.getElementById('copyAllBtn');
+                const originalText = copyAllBtn.innerHTML;
+                copyAllBtn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
+                setTimeout(() => { copyAllBtn.innerHTML = originalText; }, 1500);
+            }).catch(() => {
+                showMessage('❌ Failed to copy all information', true);
+            });
         }
         
         function extractExpirationDate(m3uUrl) {
-            try { const url = new URL(m3uUrl); const exp = url.searchParams.get('expiration') || url.searchParams.get('expire'); if(exp) { if(!isNaN(exp) && exp.length===10) { return new Date(parseInt(exp)*1000).toLocaleDateString(); } return exp; } } catch(e) {}
-            return 'Not available';
+            try {
+                const url = new URL(m3uUrl);
+                const params = new URLSearchParams(url.search);
+                let expDate = params.get('expiration') || params.get('expire') || params.get('expires') || params.get('validuntil') || params.get('end_date');
+                if (expDate) {
+                    if (!isNaN(expDate) && expDate.length === 10) {
+                        const date = new Date(parseInt(expDate) * 1000);
+                        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    }
+                    return expDate;
+                }
+            } catch(e) {}
+            return 'Not available in URL';
         }
         
-        function extractEpgUrl(m3uUrl, user, pass) {
-            try { const url = new URL(m3uUrl); const epg = url.searchParams.get('epg'); if(epg) return epg; return `${url.protocol}//${url.host}/xmltv.php?username=${user}&password=${pass}`; } catch(e) { return 'Not available'; }
+        function extractEpgUrl(m3uUrl, username, password) {
+            try {
+                const url = new URL(m3uUrl);
+                const params = new URLSearchParams(url.search);
+                let epg = params.get('epg') || params.get('epg_url') || params.get('xmltv');
+                if (epg) return epg;
+                const baseUrl = `${url.protocol}//${url.host}`;
+                return `${baseUrl}/xmltv.php?username=${username}&password=${password}`;
+            } catch(e) {
+                return 'Not available';
+            }
         }
         
         function convertM3UtoXtream() {
             const m3uUrl = document.getElementById('m3uUrl').value.trim();
-            if (!m3uUrl) { alert('Please enter an M3U URL'); return; }
+            if (!m3uUrl) {
+                showMessage('❌ Please enter an M3U playlist URL', true);
+                return;
+            }
             try {
                 const url = new URL(m3uUrl);
-                let user = url.searchParams.get('username');
-                let pass = url.searchParams.get('password');
-                if (!user || !pass) { const match = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/|$)/); if(match) { user = decodeURIComponent(match[1]); pass = decodeURIComponent(match[2]); } }
-                if (!user || !pass) { alert('Could not extract username/password'); return; }
-                currentData = { serverUrl: `${url.protocol}//${url.host}`, username: user, password: pass, epgUrl: extractEpgUrl(m3uUrl, user, pass), expirationDate: extractExpirationDate(m3uUrl) };
-                document.getElementById('serverUrl').innerHTML = currentData.serverUrl;
-                document.getElementById('username').innerHTML = currentData.username;
-                document.getElementById('password').innerHTML = currentData.password;
-                document.getElementById('epgUrl').innerHTML = currentData.epgUrl;
-                document.getElementById('expirationDate').innerHTML = currentData.expirationDate;
-                document.getElementById('resultContainer').style.display = 'block';
-                alert('✅ Information extracted successfully!');
-            } catch(e) { alert('Invalid URL format'); }
+                let username = url.searchParams.get('username');
+                let password = url.searchParams.get('password');
+                if (!username || !password) {
+                    const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/|$)/);
+                    if (pathMatch) {
+                        username = decodeURIComponent(pathMatch[1]);
+                        password = decodeURIComponent(pathMatch[2]);
+                    }
+                }
+                const serverUrl = `${url.protocol}//${url.host}`;
+                if (username && password) {
+                    currentData = {
+                        serverUrl: serverUrl,
+                        username: username,
+                        password: password,
+                        epgUrl: extractEpgUrl(m3uUrl, username, password),
+                        expirationDate: extractExpirationDate(m3uUrl)
+                    };
+                    document.getElementById('serverUrl').innerHTML = currentData.serverUrl;
+                    document.getElementById('username').innerHTML = currentData.username;
+                    document.getElementById('password').innerHTML = currentData.password;
+                    document.getElementById('epgUrl').innerHTML = currentData.epgUrl;
+                    document.getElementById('expirationDate').innerHTML = currentData.expirationDate;
+                    document.getElementById('resultContainer').style.display = 'block';
+                    showMessage('✅ Information extracted successfully!');
+                    document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    showMessage('❌ Could not extract username and password from the URL', true);
+                }
+            } catch (error) {
+                showMessage('❌ Invalid URL format. Please enter a valid M3U playlist URL', true);
+            }
         }
         
+        // ========== SETUP EVENT LISTENERS ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Convert button
+            const convertBtn = document.getElementById('convertBtn');
+            if (convertBtn) {
+                convertBtn.onclick = convertM3UtoXtream;
+            }
+            // Copy buttons
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.onclick = function() {
+                    const fieldId = this.getAttribute('data-field');
+                    const fieldName = this.getAttribute('data-name');
+                    if (fieldId && fieldName) {
+                        copyField(fieldId, fieldName);
+                    }
+                };
+            });
+            // Copy all button
+            const copyAllBtn = document.getElementById('copyAllBtn');
+            if (copyAllBtn) {
+                copyAllBtn.onclick = copyAll;
+            }
+        });
+        
+        // ========== LANGUAGE FUNCTIONALITY ==========
         const translations = { en: {}, ar: {}, fr: {}, es: {}, de: {}, it: {} };
         let currentLang = localStorage.getItem('language') || 'en';
-        function applyLanguage(lang) { currentLang = lang; localStorage.setItem('language', lang); const langBtn = document.getElementById('currentLangBtn'); const names = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' }; langBtn.innerHTML = names[lang] || names.en; document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); }
-        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => { link.addEventListener('click', (e) => { e.preventDefault(); applyLanguage(link.getAttribute('data-lang')); }); });
-        const toggleBtn = document.getElementById('mobileMenuToggle'); const header = document.querySelector('.header'); if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            const langBtn = document.getElementById('currentLangBtn');
+            const names = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' };
+            langBtn.innerHTML = names[lang] || names.en;
+            document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        }
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                applyLanguage(link.getAttribute('data-lang'));
+            });
+        });
+        
+        // ========== MOBILE MENU ==========
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const header = document.querySelector('.header');
+        if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        
         applyLanguage(currentLang);
     </script>
 </body>
