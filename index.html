@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>8K Strong VIP – The Ultimate 4K Streaming Experience</title>
-    <meta name="description" content="8K Strong VIP – Watch any place, any device, any time. Access premium IPTV content anytime, anywhere.">
-    <meta name="keywords" content="8K Strong VIP, IPTV service, premium IPTV, watch anywhere">
+    <meta name="description" content="8K Strong VIP – Watch any place, any device, any time. Access premium IPTV content anytime, anywhere. 33,076+ live channels, 119,608+ movies, 28,753+ series in 4K/8K quality. Built-in VPN, anti-freeze streaming, 24/7 support.">
+    <meta name="keywords" content="8K Strong VIP, IPTV service, premium IPTV, watch anywhere, IPTV subscription, 4K IPTV, best IPTV, IPTV provider, IPTV free trial">
     
     <!-- Security Headers -->
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
@@ -81,19 +81,6 @@
         .mobile-menu-open .mobile-menu { display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        /* Anti-inspect overlay - prevents right-click inspect on elements */
-        .anti-inspect {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            z-index: 9998;
-            pointer-events: none;
-        }
-        
-        /* Rest of your CSS styles (keep your existing styles) */
         .hero-banner { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 60px 40px; margin: 40px auto; max-width: 1200px; text-align: center; border: 1px solid var(--gray-400); }
         .hero-banner h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-banner p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto 30px; }
@@ -203,8 +190,6 @@
     </style>
 </head>
 <body>
-    <div class="anti-inspect"></div>
-    
     <header class="header">
         <div class="header-top">
             <div class="logo-area">
@@ -254,7 +239,6 @@
     </header>
 
     <main class="container">
-        <!-- Your existing content here - keep the same as before -->
         <section class="hero-banner">
             <h1>8K Strong VIP – Watch Anywhere, Anytime on Any Device</h1>
             <p>Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality. 33,076+ live channels, 119,608+ movies, built-in VPN, and 24/7 support.</p>
@@ -295,7 +279,9 @@
                 <h2>Credit System</h2>
                 <p>Simple and transparent – convert credits directly into subscription months.</p>
                 <table class="credit-table">
-                    <thead><tr><th>Credits</th><th>Subscription Months</th></tr></thead>
+                    <thead>……
+<th>Credits</th><th>Subscription Months</th>……
+</thead>
                     <tbody>
                         <tr><td class="credit-amount">1 Credit</td><td class="credit-value">1 Month</td></tr>
                         <tr><td class="credit-amount">3 Credits</td><td class="credit-value">3 Months</td></tr>
@@ -389,112 +375,19 @@
 
     <script>
         // ========== ANTI-INSPECT & ANTI-SAVE PROTECTION ==========
-        
-        // Disable Right Click
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable all keyboard shortcuts for developer tools
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
         document.addEventListener('keydown', function(e) {
-            // F12 key
-            if (e.key === 'F12') {
-                e.preventDefault();
-                return false;
-            }
-            // Ctrl+Shift+I (Inspect)
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-                e.preventDefault();
-                return false;
-            }
-            // Ctrl+Shift+J (Console)
-            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
-                e.preventDefault();
-                return false;
-            }
-            // Ctrl+U (View Source)
-            if (e.ctrlKey && e.key === 'u') {
-                e.preventDefault();
-                return false;
-            }
-            // Ctrl+S (Save Page)
-            if (e.ctrlKey && e.key === 's') {
-                e.preventDefault();
-                return false;
-            }
-            // Ctrl+Shift+C (Inspect Element)
-            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
-                e.preventDefault();
-                return false;
-            }
-            // Ctrl+Shift+K (Console - Firefox)
-            if (e.ctrlKey && e.shiftKey && e.key === 'K') {
-                e.preventDefault();
-                return false;
-            }
-            // Ctrl+Shift+E (Console)
-            if (e.ctrlKey && e.shiftKey && e.key === 'E') {
-                e.preventDefault();
-                return false;
-            }
-            // Ctrl+Shift+P (Command Palette)
-            if (e.ctrlKey && e.shiftKey && e.key === 'P') {
-                e.preventDefault();
-                return false;
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.shiftKey && e.key === 'K')) {
+                e.preventDefault(); return false;
             }
         });
-        
-        // Disable Print Screen and clear clipboard
-        document.addEventListener('keyup', function(e) {
-            if (e.key === 'PrintScreen') {
-                navigator.clipboard.writeText('').catch(() => {});
-                alert('Screenshots are disabled on this website');
-            }
-        });
-        
-        // Disable drag and drop on all images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('dragstart', function(e) {
-                e.preventDefault();
-                return false;
-            });
-        });
-        
-        // Disable copy, cut, paste
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            alert('Copying content is disabled');
-            return false;
-        });
-        
-        document.addEventListener('cut', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        document.addEventListener('paste', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable text selection
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Detect developer tools opening
-        setInterval(function() {
-            const before = new Date().getTime();
-            debugger;
-            const after = new Date().getTime();
-            if (after - before > 100) {
-                console.clear();
-                document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>';
-                setTimeout(() => { window.location.reload(); }, 3000);
-            }
-        }, 1000);
+        document.addEventListener('keyup', function(e) { if (e.key === 'PrintScreen') { navigator.clipboard.writeText('').catch(() => {}); alert('Screenshots are disabled on this website'); } });
+        document.querySelectorAll('img').forEach(img => { img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }); });
+        document.addEventListener('copy', function(e) { e.preventDefault(); alert('Copying content is disabled'); return false; });
+        document.addEventListener('cut', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('paste', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+        setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
         
         // ========== LANGUAGE FUNCTIONALITY ==========
         const translations = {
@@ -505,47 +398,28 @@
             de: { home: "Startseite", convert: "Konvertieren", reseller: "Wiederverkäufer", subscription: "Abonnement", setup_guide: "Anleitung", downloader: "Herunterladen", about: "Über uns", contact: "Kontakt" },
             it: { home: "Home", convert: "Convertire", reseller: "Rivenditore", subscription: "Abbonamento", setup_guide: "Guida", downloader: "Scarica", about: "Chi siamo", contact: "Contatti" }
         };
-        
         let currentLang = localStorage.getItem('language') || 'en';
-        
         function applyLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('language', lang);
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) el.innerText = translations[lang][key];
-            });
+            document.querySelectorAll('[data-i18n]').forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang] && translations[lang][key]) el.innerText = translations[lang][key]; });
             const langBtn = document.getElementById('currentLangBtn');
             const langNames = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' };
             langBtn.innerHTML = langNames[lang] || langNames.en;
             document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
         }
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => { link.addEventListener('click', (e) => { e.preventDefault(); applyLanguage(link.getAttribute('data-lang')); }); });
         
-        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                applyLanguage(link.getAttribute('data-lang'));
-            });
-        });
-        
-        // ========== SLIDESHOW FUNCTIONALITY ==========
+        // ========== SLIDESHOW ==========
         let slideIndex = 0, slideInterval;
         const slides = document.getElementById('slides');
         let totalSlides = document.querySelectorAll('.slide').length;
-        
         function updateDots() {
             const dotsContainer = document.getElementById('dotsContainer');
             if (!dotsContainer) return;
             dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('span');
-                dot.className = 'dot';
-                if (i === slideIndex) dot.classList.add('active');
-                dot.onclick = (function(index) { return function() { currentSlide(index); }; })(i);
-                dotsContainer.appendChild(dot);
-            }
+            for (let i = 0; i < totalSlides; i++) { const dot = document.createElement('span'); dot.className = 'dot'; if (i === slideIndex) dot.classList.add('active'); dot.onclick = (function(index) { return function() { currentSlide(index); }; })(i); dotsContainer.appendChild(dot); }
         }
-        
         function showSlide(index) {
             if (!slides) return;
             totalSlides = document.querySelectorAll('.slide').length;
@@ -556,34 +430,20 @@
             const dots = document.querySelectorAll('.dot');
             dots.forEach((dot, i) => { dot.classList.toggle('active', i === slideIndex); });
         }
-        
         function changeSlide(n) { showSlide(slideIndex + n); resetAutoSlide(); }
         function currentSlide(n) { showSlide(n); resetAutoSlide(); }
         function startAutoSlide() { slideInterval = setInterval(() => { changeSlide(1); }, 5000); }
         function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
         function stopAutoSlide() { clearInterval(slideInterval); }
-        
         const slideshowContainer = document.querySelector('.slideshow-container');
-        if (slideshowContainer) {
-            slideshowContainer.addEventListener('mouseenter', stopAutoSlide);
-            slideshowContainer.addEventListener('mouseleave', startAutoSlide);
-        }
+        if (slideshowContainer) { slideshowContainer.addEventListener('mouseenter', stopAutoSlide); slideshowContainer.addEventListener('mouseleave', startAutoSlide); }
         
-        // ========== MOBILE MENU ==========
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const header = document.querySelector('.header');
         if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        document.querySelectorAll('.faq-item').forEach(item => { item.addEventListener('click', () => item.classList.toggle('active')); });
         
-        // ========== FAQ ACCORDION ==========
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => item.classList.toggle('active'));
-        });
-        
-        // ========== INITIALIZE ==========
-        updateDots();
-        showSlide(0);
-        startAutoSlide();
-        applyLanguage(currentLang);
+        updateDots(); showSlide(0); startAutoSlide(); applyLanguage(currentLang);
     </script>
 </body>
 </html>
