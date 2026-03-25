@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convert M3U to Xtream Codes – 8K Strong VIP | IPTV Converter Tool</title>
-    <meta name="description" content="Free M3U to Xtream Codes converter. Transform your M3U playlist URL to Xtream Codes API (Username, Password, Server URL). Easy and fast IPTV conversion tool for 8K Strong VIP resellers and customers.">
-    <meta name="keywords" content="convert M3U to Xtream Codes, M3U to Xtream API, IPTV converter, Xtream Codes generator, M3U playlist converter, 8K Strong VIP converter, IPTV tools">
+    <meta name="description" content="Free M3U to Xtream Codes converter. Extract Username, Password, Server URL, EPG URL, and Expiration Date from your M3U playlist URL. Easy and fast IPTV conversion tool.">
+    <meta name="keywords" content="convert M3U to Xtream Codes, M3U to Xtream API, IPTV converter, Xtream Codes generator, M3U playlist converter, EPG extractor, IPTV expiration date">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
@@ -72,6 +72,8 @@
         .result-box { background: var(--gray-200); border-radius: 15px; padding: 20px; margin: 15px 0; border: 1px solid var(--gray-400); }
         .result-label { color: var(--gray-600); margin-bottom: 10px; font-size: 0.9em; display: flex; align-items: center; gap: 8px; }
         .result-value { font-size: 1em; font-weight: 500; color: var(--button-bg); word-break: break-all; font-family: monospace; background: var(--gray-300); padding: 10px; border-radius: 8px; margin-top: 5px; }
+        .result-value.expired { color: #ff6b6b; }
+        .result-value.active { color: #51cf66; }
         
         .button-group { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
         .copy-btn { background: transparent; border: 1px solid var(--button-bg); color: var(--button-bg); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 0.85em; transition: 0.3s; display: inline-flex; align-items: center; gap: 6px; }
@@ -175,19 +177,19 @@
         <!-- Hero Section -->
         <section class="page-hero">
             <h1>Convert M3U to Xtream Codes</h1>
-            <p>Transform your M3U playlist URL into Xtream Codes API format (Username, Password, Server URL). Easy and fast conversion for all IPTV players and apps.</p>
+            <p>Extract Username, Password, Server URL, EPG URL, and Expiration Date from your M3U playlist URL. Easy and fast conversion for all IPTV players and apps.</p>
         </section>
 
         <!-- Converter Section -->
         <div class="converter-section">
             <div class="converter-info">
                 <h2>M3U to Xtream Codes Converter</h2>
-                <p>Convert any M3U playlist URL to Xtream Codes format. This is useful for apps that require Username, Password, and Server URL instead of a long M3U link.</p>
+                <p>Convert any M3U playlist URL to Xtream Codes format and extract additional information like EPG URL and subscription expiration date.</p>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> Works with any M3U URL format</li>
-                    <li><i class="fas fa-check-circle"></i> Instant conversion</li>
+                    <li><i class="fas fa-check-circle"></i> Extract Username & Password</li>
+                    <li><i class="fas fa-check-circle"></i> Extract Server URL & EPG URL</li>
+                    <li><i class="fas fa-check-circle"></i> Extract Expiration Date</li>
                     <li><i class="fas fa-check-circle"></i> Compatible with all IPTV apps</li>
-                    <li><i class="fas fa-check-circle"></i> Supports M3U with username/password</li>
                 </ul>
             </div>
             <div class="converter-card">
@@ -195,7 +197,7 @@
                     <label><i class="fas fa-link"></i> M3U Playlist URL</label>
                     <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts"></textarea>
                 </div>
-                <button class="convert-btn" onclick="convertM3UtoXtream()"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
+                <button class="convert-btn" onclick="convertM3UtoXtream()"><i class="fas fa-sync-alt"></i> Extract Information</button>
                 
                 <div id="resultContainer" style="display: none;">
                     <div class="result-box">
@@ -219,14 +221,30 @@
                             <button class="copy-btn" onclick="copyToClipboard('password')"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL (XMLTV)</div>
+                        <div class="result-value" id="epgUrl">-</div>
+                        <div class="button-group">
+                            <button class="copy-btn" onclick="copyToClipboard('epgUrl')"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-hourglass-half"></i> Expiration Date</div>
+                        <div class="result-value" id="expirationDate">-</div>
+                        <div class="button-group">
+                            <button class="copy-btn" onclick="copyToClipboard('expirationDate')"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
                     <!-- Copy All Button -->
-                    <button class="copy-all-btn" onclick="copyAll()"><i class="fas fa-copy"></i> Copy All Xtream Codes</button>
+                    <button class="copy-all-btn" onclick="copyAll()"><i class="fas fa-copy"></i> Copy All Information</button>
                 </div>
                 
                 <div class="example-box">
-                    <h4><i class="fas fa-question-circle"></i> Example M3U URL Format</h4>
-                    <p>http://server.com:8080/get.php?username=your_username&password=your_password&type=m3u_plus&output=ts</p>
-                    <p style="margin-top: 10px;"><strong>Xtream Codes Result:</strong><br>Server: http://server.com:8080<br>Username: your_username<br>Password: your_password</p>
+                    <h4><i class="fas fa-question-circle"></i> Supported M3U URL Formats</h4>
+                    <p><strong>Format 1:</strong> http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts</p>
+                    <p><strong>Format 2:</strong> http://server.com:8080/USER/PASS</p>
+                    <p><strong>Format 3:</strong> http://server.com:8080/USER/PASS/EPG</p>
+                    <p style="margin-top: 10px;"><strong>Xtream Codes Result:</strong><br>Server: http://server.com:8080<br>Username: USER<br>Password: PASS</p>
                 </div>
             </div>
         </div>
@@ -244,22 +262,22 @@
         <!-- How to Use Section -->
         <div class="converter-section" style="grid-template-columns: 1fr;">
             <div style="text-align: center;">
-                <h2 style="background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 30px;">How to Use Xtream Codes</h2>
+                <h2 style="background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 30px;">How to Use Extracted Information</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
                     <div style="background: var(--gray-300); padding: 25px; border-radius: 20px; border: 1px solid var(--gray-400);">
                         <i class="fas fa-download" style="font-size: 2.5em; color: var(--button-bg); margin-bottom: 15px; display: inline-block;"></i>
                         <h3 style="color: var(--gray-900); margin-bottom: 10px;">Step 1</h3>
-                        <p style="color: var(--gray-600);">Enter your M3U URL above and click Convert</p>
+                        <p style="color: var(--gray-600);">Enter your M3U URL above and click Extract</p>
                     </div>
                     <div style="background: var(--gray-300); padding: 25px; border-radius: 20px; border: 1px solid var(--gray-400);">
                         <i class="fas fa-copy" style="font-size: 2.5em; color: var(--button-bg); margin-bottom: 15px; display: inline-block;"></i>
                         <h3 style="color: var(--gray-900); margin-bottom: 10px;">Step 2</h3>
-                        <p style="color: var(--gray-600);">Copy your Xtream Codes (Server, Username, Password) using individual buttons or "Copy All"</p>
+                        <p style="color: var(--gray-600);">Copy your Xtream Codes (Server, Username, Password, EPG, Expiration) using individual buttons or "Copy All"</p>
                     </div>
                     <div style="background: var(--gray-300); padding: 25px; border-radius: 20px; border: 1px solid var(--gray-400);">
                         <i class="fas fa-tv" style="font-size: 2.5em; color: var(--button-bg); margin-bottom: 15px; display: inline-block;"></i>
                         <h3 style="color: var(--gray-900); margin-bottom: 10px;">Step 3</h3>
-                        <p style="color: var(--gray-600);">Use these credentials in any IPTV app that supports Xtream Codes API</p>
+                        <p style="color: var(--gray-600);">Use credentials in any IPTV app that supports Xtream Codes API</p>
                     </div>
                 </div>
             </div>
@@ -308,10 +326,65 @@
     </footer>
 
     <script>
-        // Store converted data for copy all function
+        // Store extracted data for copy all function
         let currentServerUrl = '';
         let currentUsername = '';
         let currentPassword = '';
+        let currentEpgUrl = '';
+        let currentExpiration = '';
+        
+        // Function to extract expiration date from M3U URL or response
+        function extractExpirationDate(m3uUrl) {
+            // Try to extract expiration from URL parameters
+            try {
+                const url = new URL(m3uUrl);
+                const params = new URLSearchParams(url.search);
+                
+                // Check for common expiration parameter names
+                let expDate = params.get('expiration') || params.get('expire') || params.get('expires') || params.get('validuntil') || params.get('end_date');
+                
+                if (expDate) {
+                    // Try to format the date nicely
+                    if (!isNaN(expDate) && expDate.length === 10) {
+                        // Unix timestamp
+                        const date = new Date(parseInt(expDate) * 1000);
+                        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    }
+                    return expDate;
+                }
+            } catch (e) {
+                // Not a valid URL for parsing
+            }
+            
+            // Try to extract from path pattern
+            const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/([^\/]+))?/);
+            if (pathMatch && pathMatch[3] && pathMatch[3].includes('exp')) {
+                return pathMatch[3];
+            }
+            
+            return 'Not available in URL';
+        }
+        
+        // Function to extract EPG URL
+        function extractEpgUrl(m3uUrl) {
+            try {
+                const url = new URL(m3uUrl);
+                const params = new URLSearchParams(url.search);
+                
+                // Check for EPG parameter
+                let epg = params.get('epg') || params.get('epg_url') || params.get('xmltv');
+                
+                if (epg) {
+                    return epg;
+                }
+                
+                // Construct standard EPG URL
+                const baseUrl = `${url.protocol}//${url.host}`;
+                return `${baseUrl}/xmltv.php?username=${currentUsername}&password=${currentPassword}`;
+            } catch (e) {
+                return 'Not available';
+            }
+        }
         
         // M3U to Xtream Codes Converter Function
         function convertM3UtoXtream() {
@@ -331,31 +404,53 @@
                 let username = params.get('username');
                 let password = params.get('password');
                 
-                // If username/password not in params, try to extract from path or other formats
+                // If username/password not in params, try to extract from path
                 if (!username || !password) {
-                    // Try to extract from URL path pattern: /username/password/ or /c/username/password/
-                    const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)\//);
+                    const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/|$)/);
                     if (pathMatch) {
-                        username = pathMatch[1];
-                        password = pathMatch[2];
+                        username = decodeURIComponent(pathMatch[1]);
+                        password = decodeURIComponent(pathMatch[2]);
                     }
                 }
                 
-                // Build server URL (protocol + host + port)
+                // Build server URL
                 const serverUrl = `${url.protocol}//${url.host}`;
                 
                 if (username && password) {
-                    // Store values for copy all function
+                    // Store values
                     currentServerUrl = serverUrl;
                     currentUsername = username;
                     currentPassword = password;
                     
+                    // Extract EPG URL
+                    currentEpgUrl = extractEpgUrl(m3uUrl);
+                    
+                    // Extract Expiration Date
+                    currentExpiration = extractExpirationDate(m3uUrl);
+                    
+                    // Display results
                     document.getElementById('serverUrl').innerHTML = serverUrl;
                     document.getElementById('username').innerHTML = username;
                     document.getElementById('password').innerHTML = password;
+                    document.getElementById('epgUrl').innerHTML = currentEpgUrl;
+                    
+                    const expElement = document.getElementById('expirationDate');
+                    expElement.innerHTML = currentExpiration;
+                    
+                    // Add color class based on expiration status
+                    if (currentExpiration !== 'Not available in URL') {
+                        expElement.classList.add('active');
+                        expElement.classList.remove('expired');
+                    } else {
+                        expElement.classList.remove('active', 'expired');
+                    }
+                    
                     document.getElementById('resultContainer').style.display = 'block';
+                    
+                    // Scroll to results
+                    document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
-                    alert('Could not extract username and password from the M3U URL. Please make sure your URL contains username and password parameters.\n\nExample format: http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus');
+                    alert('Could not extract username and password from the M3U URL. Please make sure your URL contains username and password parameters.\n\nSupported formats:\n- http://server.com:8080/get.php?username=USER&password=PASS\n- http://server.com:8080/USER/PASS');
                 }
             } catch (error) {
                 alert('Invalid URL format. Please enter a valid M3U playlist URL.\n\nExample: http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus');
@@ -366,6 +461,11 @@
         function copyToClipboard(elementId) {
             const element = document.getElementById(elementId);
             const text = element.innerText;
+            
+            if (text === '-' || text === 'Not available in URL' || text === 'Not available') {
+                alert('No data available to copy');
+                return;
+            }
             
             navigator.clipboard.writeText(text).then(() => {
                 // Show temporary success message
@@ -385,21 +485,31 @@
         // Copy All Function
         function copyAll() {
             if (!currentServerUrl && !currentUsername && !currentPassword) {
-                alert('No Xtream Codes available. Please convert an M3U URL first.');
+                alert('No data available. Please extract information from an M3U URL first.');
                 return;
             }
             
-            const allText = `Server URL: ${currentServerUrl}\nUsername: ${currentUsername}\nPassword: ${currentPassword}`;
+            let allText = `═══════════════════════════════════\n`;
+            allText += `        XTREAM CODES INFORMATION\n`;
+            allText += `═══════════════════════════════════\n\n`;
+            allText += `📡 Server URL: ${currentServerUrl}\n`;
+            allText += `👤 Username: ${currentUsername}\n`;
+            allText += `🔐 Password: ${currentPassword}\n`;
+            allText += `📅 EPG URL: ${currentEpgUrl}\n`;
+            allText += `⏰ Expiration Date: ${currentExpiration}\n`;
+            allText += `\n═══════════════════════════════════\n`;
+            allText += `8K Strong VIP - Premium IPTV Service\n`;
+            allText += `═══════════════════════════════════`;
             
             navigator.clipboard.writeText(allText).then(() => {
                 const copyAllBtn = document.querySelector('.copy-all-btn');
                 const originalText = copyAllBtn.innerHTML;
-                copyAllBtn.innerHTML = '<i class="fas fa-check"></i> All Codes Copied!';
+                copyAllBtn.innerHTML = '<i class="fas fa-check"></i> All Information Copied!';
                 setTimeout(() => {
                     copyAllBtn.innerHTML = originalText;
                 }, 2000);
             }).catch(() => {
-                alert('Failed to copy all codes');
+                alert('Failed to copy all information');
             });
         }
         
