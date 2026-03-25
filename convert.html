@@ -144,8 +144,8 @@
         </section>
         
         <div class="converter-tabs">
-            <button class="tab-btn active" onclick="switchTab('auto')">🤖 Auto Extract from M3U URL</button>
-            <button class="tab-btn" onclick="switchTab('manual')">✏️ Manual Entry</button>
+            <button class="tab-btn active" id="tabAutoBtn">🤖 Auto Extract from M3U URL</button>
+            <button class="tab-btn" id="tabManualBtn">✏️ Manual Entry</button>
         </div>
         
         <!-- Auto Extract Panel -->
@@ -168,11 +168,11 @@
                     <button class="convert-btn" id="autoConvertBtn"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
                     
                     <div id="autoResult" style="display: none;">
-                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="autoServerUrl">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoServerUrl', 'Server URL')"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="autoUsername">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoUsername', 'Username')"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="autoPassword">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoPassword', 'Password')"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="autoEpgUrl">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('autoEpgUrl', 'EPG URL')"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <button class="copy-all-btn" id="autoCopyAllBtn" onclick="copyAllAuto()"><i class="fas fa-copy"></i> Copy All Information</button>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="autoServerUrl">-</div><div class="button-group"><button class="copy-btn" id="copyAutoServerBtn"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="autoUsername">-</div><div class="button-group"><button class="copy-btn" id="copyAutoUsernameBtn"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="autoPassword">-</div><div class="button-group"><button class="copy-btn" id="copyAutoPasswordBtn"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="autoEpgUrl">-</div><div class="button-group"><button class="copy-btn" id="copyAutoEpgBtn"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <button class="copy-all-btn" id="autoCopyAllBtn"><i class="fas fa-copy"></i> Copy All Information</button>
                     </div>
                 </div>
             </div>
@@ -206,11 +206,11 @@
                     <button class="convert-btn" id="manualConvertBtn"><i class="fas fa-check-circle"></i> Generate Xtream Codes</button>
                     
                     <div id="manualResult" style="display: none;">
-                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="manualServerResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualServerResult', 'Server URL')"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="manualUsernameResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualUsernameResult', 'Username')"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="manualPasswordResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualPasswordResult', 'Password')"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="manualEpgResult">-</div><div class="button-group"><button class="copy-btn" onclick="copyField('manualEpgResult', 'EPG URL')"><i class="fas fa-copy"></i> Copy</button></div></div>
-                        <button class="copy-all-btn" id="manualCopyAllBtn" onclick="copyAllManual()"><i class="fas fa-copy"></i> Copy All Information</button>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-server"></i> Server URL</div><div class="result-value" id="manualServerResult">-</div><div class="button-group"><button class="copy-btn" id="copyManualServerBtn"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-user"></i> Username</div><div class="result-value" id="manualUsernameResult">-</div><div class="button-group"><button class="copy-btn" id="copyManualUsernameBtn"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-lock"></i> Password</div><div class="result-value" id="manualPasswordResult">-</div><div class="button-group"><button class="copy-btn" id="copyManualPasswordBtn"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <div class="result-box"><div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div><div class="result-value" id="manualEpgResult">-</div><div class="button-group"><button class="copy-btn" id="copyManualEpgBtn"><i class="fas fa-copy"></i> Copy</button></div></div>
+                        <button class="copy-all-btn" id="manualCopyAllBtn"><i class="fas fa-copy"></i> Copy All Information</button>
                     </div>
                 </div>
             </div>
@@ -241,47 +241,43 @@
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('keydown', e => { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's')) e.preventDefault(); });
         document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
-        document.addEventListener('copy', e => { e.preventDefault(); alert('Copying content is disabled'); });
         
         // ========== GLOBAL DATA STORAGE ==========
         let autoData = { serverUrl: '', username: '', password: '', epgUrl: '' };
         let manualData = { serverUrl: '', username: '', password: '', epgUrl: '' };
         
         // ========== TAB SWITCHING ==========
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.converter-panel').forEach(panel => panel.classList.remove('active'));
-            if (tab === 'auto') {
-                document.querySelector('.tab-btn:first-child').classList.add('active');
-                document.getElementById('autoPanel').classList.add('active');
-            } else {
-                document.querySelector('.tab-btn:last-child').classList.add('active');
-                document.getElementById('manualPanel').classList.add('active');
-            }
+        function switchToAuto() {
+            document.getElementById('tabAutoBtn').classList.add('active');
+            document.getElementById('tabManualBtn').classList.remove('active');
+            document.getElementById('autoPanel').classList.add('active');
+            document.getElementById('manualPanel').classList.remove('active');
+        }
+        
+        function switchToManual() {
+            document.getElementById('tabManualBtn').classList.add('active');
+            document.getElementById('tabAutoBtn').classList.remove('active');
+            document.getElementById('manualPanel').classList.add('active');
+            document.getElementById('autoPanel').classList.remove('active');
         }
         
         // ========== COPY SINGLE FIELD ==========
-        function copyField(fieldId, fieldName) {
-            const element = document.getElementById(fieldId);
-            if (!element || element.innerText === '-' || element.innerText === 'Not available') {
+        function copyToClipboard(text, fieldName, buttonElement) {
+            if (!text || text === '-' || text === 'Not available') {
                 alert(`❌ No ${fieldName} available to copy`);
                 return;
             }
-            navigator.clipboard.writeText(element.innerText).then(() => {
+            navigator.clipboard.writeText(text).then(() => {
                 alert(`✅ ${fieldName} copied to clipboard!`);
-                // Show visual feedback on button
-                const btns = document.querySelectorAll(`[onclick="copyField('${fieldId}', '${fieldName}')"]`);
-                btns.forEach(btn => {
-                    const originalHTML = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    setTimeout(() => { btn.innerHTML = originalHTML; }, 1500);
-                });
+                const originalHTML = buttonElement.innerHTML;
+                buttonElement.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { buttonElement.innerHTML = originalHTML; }, 1500);
             }).catch(() => {
                 alert(`❌ Failed to copy ${fieldName}`);
             });
         }
         
-        // ========== COPY ALL AUTO ==========
+        // ========== COPY ALL FUNCTIONS ==========
         function copyAllAuto() {
             if (!autoData.serverUrl && !autoData.username && !autoData.password) {
                 alert('❌ No data available. Please convert an M3U URL first.');
@@ -299,7 +295,6 @@
             });
         }
         
-        // ========== COPY ALL MANUAL ==========
         function copyAllManual() {
             if (!manualData.serverUrl && !manualData.username && !manualData.password) {
                 alert('❌ No data available. Please generate Xtream Codes first.');
@@ -329,7 +324,6 @@
             
             let username = null, password = null, serverUrl = null;
             
-            // Try to parse
             try {
                 const url = new URL(m3uUrl);
                 serverUrl = `${url.protocol}//${url.host}`;
@@ -391,8 +385,24 @@
         }
         
         // ========== SETUP EVENT LISTENERS ==========
+        document.getElementById('tabAutoBtn').onclick = switchToAuto;
+        document.getElementById('tabManualBtn').onclick = switchToManual;
         document.getElementById('autoConvertBtn').onclick = autoExtract;
         document.getElementById('manualConvertBtn').onclick = manualGenerate;
+        document.getElementById('autoCopyAllBtn').onclick = copyAllAuto;
+        document.getElementById('manualCopyAllBtn').onclick = copyAllManual;
+        
+        // Auto panel copy buttons
+        document.getElementById('copyAutoServerBtn').onclick = () => copyToClipboard(autoData.serverUrl, 'Server URL', document.getElementById('copyAutoServerBtn'));
+        document.getElementById('copyAutoUsernameBtn').onclick = () => copyToClipboard(autoData.username, 'Username', document.getElementById('copyAutoUsernameBtn'));
+        document.getElementById('copyAutoPasswordBtn').onclick = () => copyToClipboard(autoData.password, 'Password', document.getElementById('copyAutoPasswordBtn'));
+        document.getElementById('copyAutoEpgBtn').onclick = () => copyToClipboard(autoData.epgUrl, 'EPG URL', document.getElementById('copyAutoEpgBtn'));
+        
+        // Manual panel copy buttons
+        document.getElementById('copyManualServerBtn').onclick = () => copyToClipboard(manualData.serverUrl, 'Server URL', document.getElementById('copyManualServerBtn'));
+        document.getElementById('copyManualUsernameBtn').onclick = () => copyToClipboard(manualData.username, 'Username', document.getElementById('copyManualUsernameBtn'));
+        document.getElementById('copyManualPasswordBtn').onclick = () => copyToClipboard(manualData.password, 'Password', document.getElementById('copyManualPasswordBtn'));
+        document.getElementById('copyManualEpgBtn').onclick = () => copyToClipboard(manualData.epgUrl, 'EPG URL', document.getElementById('copyManualEpgBtn'));
         
         // ========== LANGUAGE & MOBILE ==========
         let currentLang = localStorage.getItem('language') || 'en';
