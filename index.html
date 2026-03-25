@@ -149,18 +149,19 @@
         .plan-card .btn { background: var(--button-bg); color: var(--gray-100); text-decoration: none; padding: 10px 25px; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s; }
         .plan-card .btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         
-        /* Footer */
+        /* Footer - Updated with all sections */
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
-        .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
+        .footer-column h4 { color: #ecb619; margin-bottom: 20px; font-size: 1.1em; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin: 10px 0; }
-        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; }
-        .footer-column ul li a:hover { color: #ecb619; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+        .footer-column ul li a:hover { color: #ecb619; transform: translateX(3px); }
+        .footer-column ul li a i { width: 18px; font-size: 12px; color: var(--button-bg); }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
         .social-links { display: flex; gap: 15px; margin-top: 20px; }
         .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
-        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
         
         @media (max-width: 768px) {
             .header { padding: 10px 20px; }
@@ -172,14 +173,16 @@
             .features-panel { grid-template-columns: repeat(2, 1fr); }
             .credit-section { grid-template-columns: 1fr; }
             .faq-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            .social-links { justify-content: center; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); text-align: left; }
+            .social-links { justify-content: flex-start; }
             .slide-content h2 { font-size: 1.5rem; }
             .slide img { height: 400px; }
             .slide-content { padding: 20px; width: 90%; }
             .prev, .next { width: 40px; height: 40px; font-size: 14px; }
         }
         @media (max-width: 480px) {
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
             .slide img { height: 350px; }
             .slide-content h2 { font-size: 1.2rem; }
         }
@@ -276,7 +279,9 @@
                 <h2>Credit System</h2>
                 <p>Simple and transparent – convert credits directly into subscription months.</p>
                 <table class="credit-table">
-                    <thead><tr><th>Credits</th><th>Subscription Months</th></tr></thead>
+                    <thead>……
+<th>Credits</th><th>Subscription Months</th>……
+</thead>
                     <tbody>
                         <tr><td class="credit-amount"><i class="fas fa-coins"></i> 1 Credit</td><td class="credit-value"><i class="fas fa-calendar-alt"></i> 1 Month</td></tr>
                         <tr><td class="credit-amount"><i class="fas fa-coins"></i> 3 Credits</td><td class="credit-value"><i class="fas fa-calendar-alt"></i> 3 Months</td></tr>
@@ -340,18 +345,61 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-column"><h4>8K Strong VIP</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
-            <div class="footer-column"><h4>Services</h4><ul><li><a href="subscription.html">Subscription</a></li><li><a href="reseller.html">Reseller Program</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Download 8K Player</a></li></ul></div>
-            <div class="footer-column"><h4>Support</h4><ul><li><a href="https://t.me/8kstrong_support">Telegram Support</a></li><li><a href="https://wa.me/1234567890">WhatsApp</a></li><li><a href="mailto:support@8kstrongvip.com">Email Us</a></li></ul></div>
-            <div class="footer-column"><h4>Follow Us</h4><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+            <!-- Tools Column -->
+            <div class="footer-column">
+                <h4><i class="fas fa-tools"></i> Tools</h4>
+                <ul>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li>
+                    <li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li>
+                </ul>
+            </div>
+            <!-- Help Column -->
+            <div class="footer-column">
+                <h4><i class="fas fa-question-circle"></i> Help</h4>
+                <ul>
+                    <li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li>
+                </ul>
+            </div>
+            <!-- Services Column -->
+            <div class="footer-column">
+                <h4><i class="fas fa-cogs"></i> Services</h4>
+                <ul>
+                    <li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li>
+                    <li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li>
+                </ul>
+            </div>
+            <!-- 8K Strong VIP Column -->
+            <div class="footer-column">
+                <h4><i class="fas fa-crown"></i> 8K Strong VIP</h4>
+                <ul>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li>
+                    <li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-bottom"><p>© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a>
+                <a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p style="margin-top: 20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p>
+        </div>
     </footer>
 
     <script>
+        // Slideshow functionality
         let slideIndex = 0, slideInterval;
         const slides = document.getElementById('slides');
         let totalSlides = document.querySelectorAll('.slide').length;
+        
         function updateDots() {
             const dotsContainer = document.getElementById('dotsContainer');
             if (!dotsContainer) return;
@@ -364,6 +412,7 @@
                 dotsContainer.appendChild(dot);
             }
         }
+        
         function showSlide(index) {
             if (!slides) return;
             totalSlides = document.querySelectorAll('.slide').length;
@@ -374,17 +423,30 @@
             const dots = document.querySelectorAll('.dot');
             dots.forEach((dot, i) => { dot.classList.toggle('active', i === slideIndex); });
         }
+        
         function changeSlide(n) { showSlide(slideIndex + n); resetAutoSlide(); }
         function currentSlide(n) { showSlide(n); resetAutoSlide(); }
         function startAutoSlide() { slideInterval = setInterval(() => { changeSlide(1); }, 5000); }
         function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
         function stopAutoSlide() { clearInterval(slideInterval); }
+        
         const slideshowContainer = document.querySelector('.slideshow-container');
-        if (slideshowContainer) { slideshowContainer.addEventListener('mouseenter', stopAutoSlide); slideshowContainer.addEventListener('mouseleave', startAutoSlide); }
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('mouseenter', stopAutoSlide);
+            slideshowContainer.addEventListener('mouseleave', startAutoSlide);
+        }
+        
+        // Mobile Menu Toggle
         const toggleBtn = document.getElementById('mobileMenuToggle');
         const header = document.querySelector('.header');
         if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
-        document.querySelectorAll('.faq-item').forEach(item => { item.addEventListener('click', () => item.classList.toggle('active')); });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => item.classList.toggle('active'));
+        });
+        
+        // Multi-language
         window.changeLanguage = function(lang) {
             const langBtn = document.getElementById('currentLangBtn');
             if(lang === 'ar') langBtn.innerHTML = '🇸🇦 AR';
@@ -395,7 +457,12 @@
             else langBtn.innerHTML = '🇬🇧 EN';
             document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
         };
-        updateDots(); showSlide(0); startAutoSlide(); window.changeLanguage('en');
+        
+        // Initialize
+        updateDots();
+        showSlide(0);
+        startAutoSlide();
+        window.changeLanguage('en');
     </script>
 </body>
 </html>
