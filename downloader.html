@@ -2,12 +2,23 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>8K Player Downloads – 8K Strong VIP | Windows, Android, macOS, Firestick</title>
-    <meta name="description" content="Download 8K Player for Windows 10/11, Android APK, macOS, and Firestick. Get the official 8K Strong VIP IPTV player with M3U support and Downloader codes.">
-    <meta name="keywords" content="8K Player, 8K Strong IPTV, IPTV player download, Firestick IPTV, Windows IPTV, Android IPTV app, Downloader code">
+    <meta name="description" content="Download the official 8K Player for Windows 10/11, Android APK, macOS, and Firestick. Get Downloader codes for easy installation. Fast, stable, and supports M3U & Xtream Codes.">
+    <meta name="keywords" content="8K Player, 8K Strong VIP, IPTV player download, Firestick IPTV, Android IPTV app, Windows IPTV, macOS IPTV, Downloader code">
+    
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         :root {
             --gray-100: #041324;
@@ -23,14 +34,14 @@
             --button-hover: #d4a514;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
         [dir="rtl"] { text-align: right; }
+        img { -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; user-drag: none; pointer-events: none; }
         
-        /* Header */
         .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; pointer-events: none; }
         .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
         .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
         .language-dropdown { position: relative; }
@@ -49,524 +60,95 @@
         .mobile-menu-open .mobile-menu { display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        /* Download Page Styles */
-        .download-hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, var(--gray-300), var(--gray-200));
-            border-radius: 30px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-        }
-        .download-hero h1 {
-            font-size: 3.2em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .download-hero p {
-            font-size: 1.2em;
-            color: var(--gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        .page-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .page-hero h1 { font-size: 3.2em; margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-hero p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto; }
         
-        /* Device Categories */
-        .device-section {
-            margin: 60px 0;
-        }
-        .device-section h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            padding-left: 15px;
-            border-left: 4px solid var(--button-bg);
-            color: var(--gray-900);
-        }
-        .device-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-        .device-card {
-            background: var(--gray-200);
-            border: 1px solid var(--gray-400);
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.3s;
-        }
-        .device-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--button-bg);
-        }
-        .device-icon {
-            font-size: 3.5em;
-            color: var(--button-bg);
-            margin-bottom: 20px;
-        }
-        .device-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
-        }
-        .device-card .version {
-            color: var(--button-bg);
-            font-size: 0.85em;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        .device-card p {
-            color: var(--gray-600);
-            font-size: 0.9em;
-            margin-bottom: 20px;
-        }
-        .app-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-        .app-list li {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--gray-400);
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .app-list li:last-child {
-            border-bottom: none;
-        }
-        .app-name {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--gray-700);
-            font-size: 0.95em;
-        }
-        .app-name i {
-            width: 24px;
-            color: var(--button-bg);
-        }
-        .download-link, .code-link {
-            background: var(--button-bg);
-            color: var(--gray-100);
-            padding: 5px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.8em;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
-        }
-        .download-link:hover, .code-link:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-        }
-        .code-box {
-            background: var(--gray-300);
-            padding: 8px 12px;
-            border-radius: 10px;
-            font-family: monospace;
-            font-size: 1.1em;
-            letter-spacing: 1px;
-            color: var(--button-bg);
-            margin-top: 10px;
-            text-align: center;
-        }
-        .badge-new {
-            background: #00aa55;
-            color: white;
-            font-size: 0.7em;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-left: 10px;
-        }
+        .device-section { margin: 60px 0; }
+        .device-section h2 { font-size: 2em; margin-bottom: 30px; padding-left: 15px; border-left: 4px solid var(--button-bg); color: var(--gray-900); }
+        .device-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .device-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px; transition: 0.3s; }
+        .device-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
+        .device-icon { font-size: 3.5em; color: var(--button-bg); margin-bottom: 20px; }
+        .device-card h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--gray-900); }
+        .version { color: var(--button-bg); font-size: 0.85em; margin-bottom: 15px; display: inline-block; }
+        .badge-new { background: #00aa55; color: white; font-size: 0.7em; padding: 2px 8px; border-radius: 20px; margin-left: 10px; }
+        .app-list { list-style: none; margin: 20px 0; }
+        .app-list li { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--gray-400); flex-wrap: wrap; gap: 10px; }
+        .app-list li:last-child { border-bottom: none; }
+        .app-name { display: flex; align-items: center; gap: 10px; color: var(--gray-700); }
+        .app-name i { width: 24px; color: var(--button-bg); }
+        .download-link, .code-link { background: var(--button-bg); color: var(--gray-100); padding: 5px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8em; font-weight: bold; transition: 0.3s; display: inline-block; }
+        .download-link:hover, .code-link:hover { background: var(--button-hover); transform: scale(1.05); }
+        .code-box { background: var(--gray-300); padding: 8px 12px; border-radius: 10px; font-family: monospace; font-size: 1.1em; letter-spacing: 1px; color: var(--button-bg); margin-top: 10px; text-align: center; }
         
-        /* Setup Instructions */
-        .setup-section {
-            background: var(--gray-200);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px auto;
-            border: 1px solid var(--gray-400);
-        }
-        .setup-section h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            text-align: center;
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .setup-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .step-card {
-            background: var(--gray-300);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid var(--gray-400);
-        }
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--button-bg);
-            color: var(--gray-100);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin: 0 auto 20px;
-        }
-        .step-card h4 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: var(--gray-900);
-        }
-        .step-card p {
-            color: var(--gray-600);
-            font-size: 0.9em;
-        }
+        .setup-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0; }
+        .step-card { background: var(--gray-300); border-radius: 20px; padding: 30px; text-align: center; border: 1px solid var(--gray-400); }
+        .step-number { width: 50px; height: 50px; background: var(--button-bg); color: var(--gray-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; font-weight: bold; margin: 0 auto 20px; }
         
-        /* Footer */
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
         .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin: 10px 0; }
-        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
         .footer-column ul li a:hover { color: #ecb619; }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
-        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
         .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
-        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
         
         @media (max-width: 768px) {
             .header { padding: 10px 20px; }
             .logo-img { max-height: 40px; max-width: 150px; }
             .mobile-menu-toggle { display: block; }
             .main-nav { display: none; }
-            .download-hero h1 { font-size: 2em; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            .social-links { justify-content: center; }
-            .device-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 2em; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="header-top">
-            <div class="logo-area">
-                <a href="index.html">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%23ecb619'/%3E%3Ctext x='10' y='32' fill='%23041a2f' font-weight='bold' font-size='20'%3E8K STRONG%3C/text%3E%3C/svg%3E" alt="8K Strong IPTV" class="logo-img">
-                </a>
-            </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="header-actions">
-                <div class="language-dropdown">
-                    <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
-                    <div class="lang-dropdown-menu">
-                        <a href="#" onclick="changeLanguage('en')">🇬🇧 English</a>
-                        <a href="#" onclick="changeLanguage('ar')">🇸🇦 العربية</a>
-                        <a href="#" onclick="changeLanguage('fr')">🇫🇷 Français</a>
-                        <a href="#" onclick="changeLanguage('es')">🇪🇸 Español</a>
-                        <a href="#" onclick="changeLanguage('de')">🇩🇪 Deutsch</a>
-                        <a href="#" onclick="changeLanguage('it')">🇮🇹 Italiano</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-                <li><a href="setup-guide.html">Setup Guide</a></li>
-                <li><a href="downloader.html" class="active">Downloader</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-menu" id="mobileMenu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-                <li><a href="setup-guide.html">Setup Guide</a></li>
-                <li><a href="downloader.html">Downloader</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button><div class="lang-dropdown-menu"><a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ar">🇸🇦 العربية</a><a href="#" data-lang="fr">🇫🇷 Français</a><a href="#" data-lang="es">🇪🇸 Español</a><a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="it">🇮🇹 Italiano</a></div></div></div></div>
+        <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html" class="active">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+        <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     </header>
 
     <main class="container">
-        <!-- Hero Section -->
-        <section class="download-hero">
-            <h1>8K Player Downloads</h1>
-            <p>Download the official 8K Strong VIP player for all devices. Supports M3U with username & password login. Get the best IPTV experience on Windows, Android, macOS, and Firestick.</p>
-        </section>
-
-        <!-- Windows Apps -->
-        <div class="device-section">
-            <h2><i class="fab fa-windows"></i> 8K Player for Windows</h2>
-            <div class="device-grid">
-                <div class="device-card">
-                    <div class="device-icon"><i class="fab fa-windows"></i></div>
-                    <h3>8K Player <span class="version">Windows 10</span></h3>
-                    <p>Official 8K Strong VIP player for Windows 10. Supports M3U with username & password login. Fast and stable streaming.</p>
-                    <div class="app-list">
-                        <li>
-                            <span class="app-name"><i class="fas fa-download"></i> 8K Player Setup</span>
-                            <a href="http://download.best-ott.me/apk_8k_win/8K.Player.Setup.0.2.0.Windows10.exe" class="download-link" target="_blank">Download EXE</a>
-                        </li>
-                    </div>
-                </div>
-                <div class="device-card">
-                    <div class="device-icon"><i class="fab fa-windows"></i></div>
-                    <h3>8K Player <span class="version">Windows 11</span></h3>
-                    <p>Optimized for Windows 11. Enjoy buffer-free streaming with the latest 8K Player interface.</p>
-                    <div class="app-list">
-                        <li>
-                            <span class="app-name"><i class="fas fa-download"></i> 8K Player Setup</span>
-                            <a href="http://download.best-ott.me/apk_8k_win/8K.Player.Setup.0.2.0.Windows11.exe" class="download-link" target="_blank">Download EXE</a>
-                        </li>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Android APK Apps -->
-        <div class="device-section">
-            <h2><i class="fab fa-android"></i> 8K Player for Android</h2>
-            <div class="device-grid">
-                <div class="device-card">
-                    <div class="device-icon"><i class="fab fa-android"></i></div>
-                    <h3>Fast 8K Player <span class="version">v6.0</span> <span class="badge-new">NEW</span></h3>
-                    <p>Latest Android APK with M3U support and username & password login. Improved performance and stability.</p>
-                    <div class="app-list">
-                        <li>
-                            <span class="app-name"><i class="fas fa-download"></i> Download APK</span>
-                            <a href="https://tinyurl.com/Fast8KPlayerv6" class="download-link" target="_blank">Download</a>
-                        </li>
-                        <li>
-                            <span class="app-name"><i class="fas fa-qrcode"></i> Downloader Code</span>
-                            <span class="code-box">993968</span>
-                        </li>
-                        <li>
-                            <span class="app-name"><i class="fas fa-link"></i> AFTV News Link</span>
-                            <a href="https://aftv.news/993968" class="code-link" target="_blank">https://aftv.news/993968</a>
-                        </li>
-                    </div>
-                </div>
-                <div class="device-card">
-                    <div class="device-icon"><i class="fab fa-android"></i></div>
-                    <h3>8K Player VIP <span class="version">v3.8</span> <span class="badge-new">NEW</span></h3>
-                    <p>Premium version with Lock Channel, Add Group, and improved background colors. Supports M3U login.</p>
-                    <div class="app-list">
-                        <li>
-                            <span class="app-name"><i class="fas fa-download"></i> Download APK</span>
-                            <a href="https://tinyurl.com/8kplayervip38" class="download-link" target="_blank">Download</a>
-                        </li>
-                        <li>
-                            <span class="app-name"><i class="fas fa-qrcode"></i> Downloader Code</span>
-                            <span class="code-box">405663</span>
-                        </li>
-                        <li>
-                            <span class="app-name"><i class="fas fa-link"></i> AFTV News Link</span>
-                            <a href="https://aftv.news/405663" class="code-link" target="_blank">https://aftv.news/405663</a>
-                        </li>
-                    </div>
-                </div>
-                <div class="device-card">
-                    <div class="device-icon"><i class="fas fa-tv"></i></div>
-                    <h3>4K VIP Player <span class="version">v3.8</span></h3>
-                    <p>4K optimized player with M3U support. New modifications including Lock Channel, Add Group, and improved background colors.</p>
-                    <div class="app-list">
-                        <li>
-                            <span class="app-name"><i class="fas fa-download"></i> Download APK</span>
-                            <a href="https://2u.pw/hgf" class="download-link" target="_blank">Download</a>
-                        </li>
-                        <li>
-                            <span class="app-name"><i class="fas fa-qrcode"></i> Downloader Code</span>
-                            <span class="code-box">510994</span>
-                        </li>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- macOS App -->
-        <div class="device-section">
-            <h2><i class="fab fa-apple"></i> 8K Player for macOS</h2>
-            <div class="device-grid">
-                <div class="device-card">
-                    <div class="device-icon"><i class="fab fa-apple"></i></div>
-                    <h3>8K Player <span class="version">macOS</span> <span class="badge-new">NEW</span></h3>
-                    <p>Official 8K Player for Mac. Smooth streaming experience on all macOS devices. Supports M3U login.</p>
-                    <div class="app-list">
-                        <li>
-                            <span class="app-name"><i class="fas fa-download"></i> 8K Player for Mac</span>
-                            <a href="http://download.best-ott.me/apk_gold/8k.PLAYER.OS-1.0.0.dmg" class="download-link" target="_blank">Download DMG</a>
-                        </li>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Firestick / Downloader Codes -->
-        <div class="device-section">
-            <h2><i class="fab fa-amazon"></i> Firestick & Android TV</h2>
-            <div class="device-grid">
-                <div class="device-card">
-                    <div class="device-icon"><i class="fab fa-amazon"></i></div>
-                    <h3>TVMate Player</h3>
-                    <p>Premium IPTV player for Firestick and Android TV. Clean interface with EPG support.</p>
-                    <div class="app-list">
-                        <li>
-                            <span class="app-name"><i class="fas fa-qrcode"></i> Downloader Code</span>
-                            <span class="code-box">1969685</span>
-                        </li>
-                        <li>
-                            <span class="app-name"><i class="fas fa-link"></i> AFTV News Link</span>
-                            <a href="http://aftv.news/1969685" class="code-link" target="_blank">http://aftv.news/1969685</a>
-                        </li>
-                    </div>
-                </div>
-                <div class="device-card">
-                    <div class="device-icon"><i class="fas fa-fire"></i></div>
-                    <h3>How to Install on Firestick</h3>
-                    <p>1. Install Downloader app from Amazon Store<br>2. Enter Downloader Code<br>3. Install APK and login with your M3U credentials</p>
-                    <div class="code-box" style="margin-top: 15px;">Downloader Codes: 993968 | 405663 | 510994 | 1969685</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Setup Instructions -->
-        <div class="setup-section">
-            <h2>Quick Setup Guide</h2>
-            <div class="setup-steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h4>Download 8K Player</h4>
-                    <p>Choose your device above and download the official 8K Player app.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h4>Get Your Credentials</h4>
-                    <p>After subscribing, you'll receive your M3U URL or Xtream Codes (username & password).</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h4>Login to 8K Player</h4>
-                    <p>Open the app, select "Login with M3U" and enter your username & password or playlist URL.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h4>Start Watching!</h4>
-                    <p>Enjoy 33,076+ channels and 119,608+ movies in stunning 4K/8K quality!</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- App Features -->
-        <div class="device-section">
-            <h2><i class="fas fa-star"></i> 8K Player Features</h2>
-            <div class="device-grid">
-                <div class="device-card">
-                    <div class="device-icon"><i class="fas fa-lock"></i></div>
-                    <h3>Lock Channel</h3>
-                    <p>Secure your favorite channels with parental control features.</p>
-                </div>
-                <div class="device-card">
-                    <div class="device-icon"><i class="fas fa-folder-plus"></i></div>
-                    <h3>Add Group</h3>
-                    <p>Create custom channel groups for easy organization.</p>
-                </div>
-                <div class="device-card">
-                    <div class="device-icon"><i class="fas fa-palette"></i></div>
-                    <h3>Improved Background</h3>
-                    <p>Enhanced visual experience with modern interface colors.</p>
-                </div>
-                <div class="device-card">
-                    <div class="device-icon"><i class="fas fa-user-lock"></i></div>
-                    <h3>M3U Login Support</h3>
-                    <p>Supports M3U with username & password for secure access.</p>
-                </div>
-            </div>
-        </div>
+        <section class="page-hero"><h1>8K Player Downloads</h1><p>Download the official 8K Strong VIP player for all devices. Supports M3U with username & password login. Get the best IPTV experience on Windows, Android, macOS, and Firestick.</p></section>
+        
+        <div class="device-section"><h2><i class="fab fa-windows"></i> 8K Player for Windows</h2><div class="device-grid"><div class="device-card"><div class="device-icon"><i class="fab fa-windows"></i></div><h3>8K Player <span class="version">Windows 10</span></h3><p>Official 8K Strong VIP player for Windows 10. Supports M3U with username & password login.</p><div class="app-list"><li><span class="app-name"><i class="fas fa-download"></i> 8K Player Setup</span><a href="http://download.best-ott.me/apk_8k_win/8K.Player.Setup.0.2.0.Windows10.exe" class="download-link" target="_blank">Download EXE</a></li></div></div><div class="device-card"><div class="device-icon"><i class="fab fa-windows"></i></div><h3>8K Player <span class="version">Windows 11</span></h3><p>Optimized for Windows 11. Enjoy buffer-free streaming with the latest 8K Player interface.</p><div class="app-list"><li><span class="app-name"><i class="fas fa-download"></i> 8K Player Setup</span><a href="http://download.best-ott.me/apk_8k_win/8K.Player.Setup.0.2.0.Windows11.exe" class="download-link" target="_blank">Download EXE</a></li></div></div></div></div>
+        
+        <div class="device-section"><h2><i class="fab fa-android"></i> 8K Player for Android</h2><div class="device-grid"><div class="device-card"><div class="device-icon"><i class="fab fa-android"></i></div><h3>Fast 8K Player <span class="version">v6.0</span> <span class="badge-new">NEW</span></h3><p>Latest Android APK with M3U support and username & password login.</p><div class="app-list"><li><span class="app-name"><i class="fas fa-download"></i> Download APK</span><a href="https://tinyurl.com/Fast8KPlayerv6" class="download-link" target="_blank">Download</a></li><li><span class="app-name"><i class="fas fa-qrcode"></i> Downloader Code</span><span class="code-box">993968</span></li><li><span class="app-name"><i class="fas fa-link"></i> AFTV News Link</span><a href="https://aftv.news/993968" class="code-link" target="_blank">https://aftv.news/993968</a></li></div></div><div class="device-card"><div class="device-icon"><i class="fab fa-android"></i></div><h3>8K Player VIP <span class="version">v3.8</span> <span class="badge-new">NEW</span></h3><p>Premium version with Lock Channel, Add Group, and improved background colors.</p><div class="app-list"><li><span class="app-name"><i class="fas fa-download"></i> Download APK</span><a href="https://tinyurl.com/8kplayervip38" class="download-link" target="_blank">Download</a></li><li><span class="app-name"><i class="fas fa-qrcode"></i> Downloader Code</span><span class="code-box">405663</span></li><li><span class="app-name"><i class="fas fa-link"></i> AFTV News Link</span><a href="https://aftv.news/405663" class="code-link" target="_blank">https://aftv.news/405663</a></li></div></div><div class="device-card"><div class="device-icon"><i class="fas fa-tv"></i></div><h3>4K VIP Player <span class="version">v3.8</span></h3><p>4K optimized player with M3U support. Lock Channel, Add Group features.</p><div class="app-list"><li><span class="app-name"><i class="fas fa-download"></i> Download APK</span><a href="https://2u.pw/hgf" class="download-link" target="_blank">Download</a></li><li><span class="app-name"><i class="fas fa-qrcode"></i> Downloader Code</span><span class="code-box">510994</span></li></div></div></div></div>
+        
+        <div class="device-section"><h2><i class="fab fa-apple"></i> 8K Player for macOS</h2><div class="device-grid"><div class="device-card"><div class="device-icon"><i class="fab fa-apple"></i></div><h3>8K Player <span class="version">macOS</span> <span class="badge-new">NEW</span></h3><p>Official 8K Player for Mac. Smooth streaming experience on all macOS devices.</p><div class="app-list"><li><span class="app-name"><i class="fas fa-download"></i> 8K Player for Mac</span><a href="http://download.best-ott.me/apk_gold/8k.PLAYER.OS-1.0.0.dmg" class="download-link" target="_blank">Download DMG</a></li></div></div></div></div>
+        
+        <div class="device-section"><h2><i class="fab fa-amazon"></i> Firestick & Android TV</h2><div class="device-grid"><div class="device-card"><div class="device-icon"><i class="fab fa-amazon"></i></div><h3>TVMate Player</h3><p>Premium IPTV player for Firestick and Android TV. Clean interface with EPG support.</p><div class="app-list"><li><span class="app-name"><i class="fas fa-qrcode"></i> Downloader Code</span><span class="code-box">1969685</span></li><li><span class="app-name"><i class="fas fa-link"></i> AFTV News Link</span><a href="http://aftv.news/1969685" class="code-link" target="_blank">http://aftv.news/1969685</a></li></div></div><div class="device-card"><div class="device-icon"><i class="fas fa-fire"></i></div><h3>How to Install on Firestick</h3><p>1. Install Downloader app from Amazon Store<br>2. Enter Downloader Code<br>3. Install APK and login with your M3U credentials</p><div class="code-box" style="margin-top:15px;">Downloader Codes: 993968 | 405663 | 510994 | 1969685</div></div></div></div>
+        
+        <div class="device-section"><h2><i class="fas fa-star"></i> 8K Player Features</h2><div class="device-grid"><div class="device-card"><div class="device-icon"><i class="fas fa-lock"></i></div><h3>Lock Channel</h3><p>Secure your favorite channels with parental control features.</p></div><div class="device-card"><div class="device-icon"><i class="fas fa-folder-plus"></i></div><h3>Add Group</h3><p>Create custom channel groups for easy organization.</p></div><div class="device-card"><div class="device-icon"><i class="fas fa-palette"></i></div><h3>Improved Background</h3><p>Enhanced visual experience with modern interface colors.</p></div><div class="device-card"><div class="device-icon"><i class="fas fa-user-lock"></i></div><h3>M3U Login Support</h3><p>Supports M3U with username & password for secure access.</p></div></div></div>
+        
+        <div class="device-section"><h2><i class="fas fa-question-circle"></i> Quick Setup Guide</h2><div class="setup-steps"><div class="step-card"><div class="step-number">1</div><h4>Download 8K Player</h4><p>Choose your device above and download the official 8K Player app.</p></div><div class="step-card"><div class="step-number">2</div><h4>Get Your Credentials</h4><p>After subscribing, you'll receive your M3U URL or Xtream Codes.</p></div><div class="step-card"><div class="step-number">3</div><h4>Login to 8K Player</h4><p>Open the app, select "Login with M3U" and enter your credentials.</p></div><div class="step-card"><div class="step-number">4</div><h4>Start Watching!</h4><p>Enjoy 33,076+ channels and 119,608+ movies in stunning 4K/8K quality!</p></div></div></div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h4>8K Strong VIP</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="subscription.html">Subscription</a></li>
-                    <li><a href="reseller.html">Reseller Program</a></li>
-                    <li><a href="setup-guide.html">Setup Guide</a></li>
-                    <li><a href="downloader.html">Downloader</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="https://t.me/8kstrong_support">Telegram Support</a></li>
-                    <li><a href="https://wa.me/1234567890">WhatsApp</a></li>
-                    <li><a href="mailto:support@8kstrongvip.com">Email Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p>
-        </div>
-    </footer>
+    <footer class="footer"><div class="footer-content"><div class="footer-column"><h4><i class="fas fa-tools"></i> Tools</h4><ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li><li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-question-circle"></i> Help</h4><ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li><li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-cogs"></i> Services</h4><ul><li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-crown"></i> 8K Strong VIP</h4><ul><li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li></ul></div></div><div class="footer-bottom"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a><a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a></div><p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div></footer>
 
     <script>
-        // Mobile Menu Toggle
-        const toggleBtn = document.getElementById('mobileMenuToggle');
-        const header = document.querySelector('.header');
-        if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('keydown', function(e) { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.shiftKey && e.key === 'K')) { e.preventDefault(); return false; } });
+        document.addEventListener('keyup', function(e) { if (e.key === 'PrintScreen') { navigator.clipboard.writeText('').catch(() => {}); alert('Screenshots are disabled'); } });
+        document.querySelectorAll('img').forEach(img => { img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }); });
+        document.addEventListener('copy', function(e) { e.preventDefault(); alert('Copying content is disabled'); return false; });
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+        setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
         
-        // Multi-language
-        window.changeLanguage = function(lang) {
-            const langBtn = document.getElementById('currentLangBtn');
-            if(lang === 'ar') langBtn.innerHTML = '🇸🇦 AR';
-            else if(lang === 'fr') langBtn.innerHTML = '🇫🇷 FR';
-            else if(lang === 'es') langBtn.innerHTML = '🇪🇸 ES';
-            else if(lang === 'de') langBtn.innerHTML = '🇩🇪 DE';
-            else if(lang === 'it') langBtn.innerHTML = '🇮🇹 IT';
-            else langBtn.innerHTML = '🇬🇧 EN';
-            document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-        };
-        
-        window.changeLanguage('en');
+        const translations = { en: {}, ar: {}, fr: {}, es: {}, de: {}, it: {} };
+        let currentLang = localStorage.getItem('language') || 'en';
+        function applyLanguage(lang) { currentLang = lang; localStorage.setItem('language', lang); const langBtn = document.getElementById('currentLangBtn'); const names = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' }; langBtn.innerHTML = names[lang] || names.en; document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); }
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => { link.addEventListener('click', (e) => { e.preventDefault(); applyLanguage(link.getAttribute('data-lang')); }); });
+        const toggleBtn = document.getElementById('mobileMenuToggle'); const header = document.querySelector('.header'); if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        applyLanguage(currentLang);
     </script>
 </body>
 </html>
