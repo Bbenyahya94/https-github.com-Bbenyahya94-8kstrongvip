@@ -72,8 +72,6 @@
         .result-box { background: var(--gray-200); border-radius: 15px; padding: 20px; margin: 15px 0; border: 1px solid var(--gray-400); }
         .result-label { color: var(--gray-600); margin-bottom: 10px; font-size: 0.9em; display: flex; align-items: center; gap: 8px; }
         .result-value { font-size: 1em; font-weight: 500; color: var(--button-bg); word-break: break-all; font-family: monospace; background: var(--gray-300); padding: 10px; border-radius: 8px; margin-top: 5px; }
-        .result-value.expired { color: #ff6b6b; }
-        .result-value.active { color: #51cf66; }
         
         .button-group { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
         .copy-btn { background: transparent; border: 1px solid var(--button-bg); color: var(--button-bg); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 0.85em; transition: 0.3s; display: inline-flex; align-items: center; gap: 6px; }
@@ -224,42 +222,42 @@
                     <label><i class="fas fa-link"></i> M3U Playlist URL</label>
                     <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;Example: http://your-server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts"></textarea>
                 </div>
-                <button class="convert-btn" onclick="convertM3UtoXtream()"><i class="fas fa-sync-alt"></i> Extract Information</button>
+                <button class="convert-btn" id="convertBtn"><i class="fas fa-sync-alt"></i> Extract Information</button>
                 
                 <div id="resultContainer" style="display: none;">
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-server"></i> Server URL</div>
                         <div class="result-value" id="serverUrl">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" data-copy="serverUrl"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy-field="serverUrl" data-field-name="Server URL"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-user"></i> Username</div>
                         <div class="result-value" id="username">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" data-copy="username"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy-field="username" data-field-name="Username"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-lock"></i> Password</div>
                         <div class="result-value" id="password">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" data-copy="password"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy-field="password" data-field-name="Password"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL (XMLTV)</div>
                         <div class="result-value" id="epgUrl">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" data-copy="epgUrl"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy-field="epgUrl" data-field-name="EPG URL"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <div class="result-box">
                         <div class="result-label"><i class="fas fa-hourglass-half"></i> Expiration Date</div>
                         <div class="result-value" id="expirationDate">-</div>
                         <div class="button-group">
-                            <button class="copy-btn" data-copy="expirationDate"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="copy-btn" data-copy-field="expirationDate" data-field-name="Expiration Date"><i class="fas fa-copy"></i> Copy</button>
                         </div>
                     </div>
                     <!-- Copy All Button -->
@@ -354,101 +352,115 @@
 
     <script>
         // Store extracted data for copy all function
-        let currentServerUrl = '';
-        let currentUsername = '';
-        let currentPassword = '';
-        let currentEpgUrl = '';
-        let currentExpiration = '';
+        let currentData = {
+            serverUrl: '',
+            username: '',
+            password: '',
+            epgUrl: '',
+            expirationDate: ''
+        };
         
         // Show toast notification
         function showToast(message, isError = false) {
-            // Remove existing toast if any
             const existingToast = document.querySelector('.toast-notification');
-            if (existingToast) {
-                existingToast.remove();
-            }
+            if (existingToast) existingToast.remove();
             
-            // Create new toast
             const toast = document.createElement('div');
             toast.className = 'toast-notification';
-            if (isError) {
-                toast.classList.add('error');
-            }
+            if (isError) toast.classList.add('error');
             toast.innerHTML = `<i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-check-circle'}"></i> ${message}`;
             document.body.appendChild(toast);
-            
-            // Auto remove after 2.5 seconds
-            setTimeout(() => {
-                toast.remove();
-            }, 2500);
+            setTimeout(() => toast.remove(), 2500);
         }
         
-        // Copy to Clipboard Function (Individual)
-        function copyToClipboard(elementId, fieldName) {
-            const element = document.getElementById(elementId);
-            const text = element.innerText;
+        // Copy text to clipboard
+        async function copyText(text, fieldName) {
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast(`✅ ${fieldName} copied to clipboard!`);
+                return true;
+            } catch (err) {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                const success = document.execCommand('copy');
+                document.body.removeChild(textarea);
+                if (success) {
+                    showToast(`✅ ${fieldName} copied to clipboard!`);
+                    return true;
+                } else {
+                    showToast(`❌ Failed to copy ${fieldName}`, true);
+                    return false;
+                }
+            }
+        }
+        
+        // Individual copy function
+        function copyField(fieldId, fieldName) {
+            const element = document.getElementById(fieldId);
+            if (!element) {
+                showToast(`❌ Element not found`, true);
+                return;
+            }
             
+            const text = element.innerText;
             if (!text || text === '-' || text === 'Not available in URL' || text === 'Not available') {
                 showToast(`❌ No ${fieldName} available to copy`, true);
                 return;
             }
             
-            navigator.clipboard.writeText(text).then(() => {
-                showToast(`✅ ${fieldName} copied to clipboard!`);
-                // Also change button text temporarily
-                const btn = document.querySelector(`.copy-btn[data-copy="${elementId}"]`);
-                if (btn) {
-                    const originalHTML = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    setTimeout(() => {
-                        btn.innerHTML = originalHTML;
-                    }, 1500);
+            copyText(text, fieldName).then(success => {
+                if (success) {
+                    // Update button temporarily
+                    const btn = document.querySelector(`.copy-btn[data-copy-field="${fieldId}"]`);
+                    if (btn) {
+                        const originalHTML = btn.innerHTML;
+                        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                        setTimeout(() => { btn.innerHTML = originalHTML; }, 1500);
+                    }
                 }
-            }).catch(() => {
-                showToast('❌ Failed to copy text', true);
             });
         }
         
-        // Copy All Function
+        // Copy all function
         function copyAll() {
-            if (!currentServerUrl && !currentUsername && !currentPassword) {
+            if (!currentData.serverUrl && !currentData.username && !currentData.password) {
                 showToast('❌ No data available. Please extract information from an M3U URL first.', true);
                 return;
             }
             
-            let allText = `═══════════════════════════════════\n`;
-            allText += `        XTREAM CODES INFORMATION\n`;
-            allText += `═══════════════════════════════════\n\n`;
-            allText += `📡 Server URL: ${currentServerUrl}\n`;
-            allText += `👤 Username: ${currentUsername}\n`;
-            allText += `🔐 Password: ${currentPassword}\n`;
-            allText += `📅 EPG URL: ${currentEpgUrl}\n`;
-            allText += `⏰ Expiration Date: ${currentExpiration}\n`;
-            allText += `\n═══════════════════════════════════\n`;
-            allText += `8K Strong VIP - Premium IPTV Service\n`;
-            allText += `═══════════════════════════════════`;
+            const allText = `═══════════════════════════════════
+        XTREAM CODES INFORMATION
+═══════════════════════════════════
+
+📡 Server URL: ${currentData.serverUrl}
+👤 Username: ${currentData.username}
+🔐 Password: ${currentData.password}
+📅 EPG URL: ${currentData.epgUrl}
+⏰ Expiration Date: ${currentData.expirationDate}
+
+═══════════════════════════════════
+8K Strong VIP - Premium IPTV Service
+═══════════════════════════════════`;
             
-            navigator.clipboard.writeText(allText).then(() => {
-                showToast('✅ All Xtream Codes copied to clipboard!');
-                const copyAllBtn = document.getElementById('copyAllBtn');
-                const originalText = copyAllBtn.innerHTML;
-                copyAllBtn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
-                setTimeout(() => {
-                    copyAllBtn.innerHTML = originalText;
-                }, 1500);
-            }).catch(() => {
-                showToast('❌ Failed to copy all information', true);
+            copyText(allText, 'All Xtream Codes').then(success => {
+                if (success) {
+                    const copyAllBtn = document.getElementById('copyAllBtn');
+                    const originalText = copyAllBtn.innerHTML;
+                    copyAllBtn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
+                    setTimeout(() => { copyAllBtn.innerHTML = originalText; }, 1500);
+                }
             });
         }
         
-        // Function to extract expiration date from M3U URL
+        // Extract expiration date
         function extractExpirationDate(m3uUrl) {
             try {
                 const url = new URL(m3uUrl);
                 const params = new URLSearchParams(url.search);
-                
                 let expDate = params.get('expiration') || params.get('expire') || params.get('expires') || params.get('validuntil') || params.get('end_date');
-                
                 if (expDate) {
                     if (!isNaN(expDate) && expDate.length === 10) {
                         const date = new Date(parseInt(expDate) * 1000);
@@ -456,33 +468,25 @@
                     }
                     return expDate;
                 }
-            } catch (e) {}
-            
-            const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/([^\/]+))?/);
-            if (pathMatch && pathMatch[3] && pathMatch[3].includes('exp')) {
-                return pathMatch[3];
-            }
-            
+            } catch(e) {}
             return 'Not available in URL';
         }
         
-        // Function to extract EPG URL
+        // Extract EPG URL
         function extractEpgUrl(m3uUrl, username, password) {
             try {
                 const url = new URL(m3uUrl);
                 const params = new URLSearchParams(url.search);
-                
                 let epg = params.get('epg') || params.get('epg_url') || params.get('xmltv');
                 if (epg) return epg;
-                
                 const baseUrl = `${url.protocol}//${url.host}`;
                 return `${baseUrl}/xmltv.php?username=${username}&password=${password}`;
-            } catch (e) {
+            } catch(e) {
                 return 'Not available';
             }
         }
         
-        // M3U to Xtream Codes Converter Function
+        // Main conversion function
         function convertM3UtoXtream() {
             const m3uUrl = document.getElementById('m3uUrl').value.trim();
             
@@ -509,20 +513,21 @@
                 const serverUrl = `${url.protocol}//${url.host}`;
                 
                 if (username && password) {
-                    currentServerUrl = serverUrl;
-                    currentUsername = username;
-                    currentPassword = password;
-                    currentEpgUrl = extractEpgUrl(m3uUrl, username, password);
-                    currentExpiration = extractExpirationDate(m3uUrl);
+                    currentData = {
+                        serverUrl: serverUrl,
+                        username: username,
+                        password: password,
+                        epgUrl: extractEpgUrl(m3uUrl, username, password),
+                        expirationDate: extractExpirationDate(m3uUrl)
+                    };
                     
-                    document.getElementById('serverUrl').innerHTML = serverUrl;
-                    document.getElementById('username').innerHTML = username;
-                    document.getElementById('password').innerHTML = password;
-                    document.getElementById('epgUrl').innerHTML = currentEpgUrl;
-                    document.getElementById('expirationDate').innerHTML = currentExpiration;
+                    document.getElementById('serverUrl').innerHTML = currentData.serverUrl;
+                    document.getElementById('username').innerHTML = currentData.username;
+                    document.getElementById('password').innerHTML = currentData.password;
+                    document.getElementById('epgUrl').innerHTML = currentData.epgUrl;
+                    document.getElementById('expirationDate').innerHTML = currentData.expirationDate;
                     
                     document.getElementById('resultContainer').style.display = 'block';
-                    
                     showToast('✅ Information extracted successfully!');
                     document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
@@ -533,31 +538,33 @@
             }
         }
         
-        // Setup copy button event listeners
-        function setupCopyButtons() {
+        // Setup event listeners
+        function setupEventListeners() {
+            // Convert button
+            const convertBtn = document.getElementById('convertBtn');
+            if (convertBtn) {
+                convertBtn.onclick = convertM3UtoXtream;
+            }
+            
+            // Individual copy buttons
             document.querySelectorAll('.copy-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
+                btn.onclick = function(e) {
                     e.preventDefault();
-                    const elementId = this.getAttribute('data-copy');
-                    let fieldName = '';
-                    switch(elementId) {
-                        case 'serverUrl': fieldName = 'Server URL'; break;
-                        case 'username': fieldName = 'Username'; break;
-                        case 'password': fieldName = 'Password'; break;
-                        case 'epgUrl': fieldName = 'EPG URL'; break;
-                        case 'expirationDate': fieldName = 'Expiration Date'; break;
-                        default: fieldName = 'Information';
+                    const fieldId = this.getAttribute('data-copy-field');
+                    const fieldName = this.getAttribute('data-field-name');
+                    if (fieldId && fieldName) {
+                        copyField(fieldId, fieldName);
                     }
-                    copyToClipboard(elementId, fieldName);
-                });
+                };
             });
             
+            // Copy all button
             const copyAllBtn = document.getElementById('copyAllBtn');
             if (copyAllBtn) {
-                copyAllBtn.addEventListener('click', function(e) {
+                copyAllBtn.onclick = function(e) {
                     e.preventDefault();
                     copyAll();
-                });
+                };
             }
         }
         
@@ -580,7 +587,7 @@
         
         // Initialize
         window.changeLanguage('en');
-        setupCopyButtons();
+        setupEventListeners();
     </script>
 </body>
 </html>
