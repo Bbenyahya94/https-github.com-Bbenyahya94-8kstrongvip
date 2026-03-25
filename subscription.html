@@ -2,11 +2,23 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Plans – 8K Strong VIP | Best IPTV Prices</title>
-    <meta name="description" content="Choose the best IPTV subscription plan for your needs. 1 Month, 3 Months, 6 Months, or 12 Months plans with 4K quality, VPN included, and 24/7 support.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Subscription Plans – 8K Strong VIP | Best IPTV Prices in Euro</title>
+    <meta name="description" content="Choose the best IPTV subscription plan for your needs. 1 Month, 3 Months, 6 Months, or 12 Months plans with 4K quality, VPN included, and 24/7 support. Starting from €12.99.">
+    <meta name="keywords" content="IPTV subscription, best IPTV plans, 4K IPTV, IPTV prices, monthly IPTV, yearly IPTV, 8K Strong VIP subscription">
+    
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         :root {
             --gray-100: #041324;
@@ -22,13 +34,14 @@
             --button-hover: #d4a514;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
         [dir="rtl"] { text-align: right; }
+        img { -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; user-drag: none; pointer-events: none; }
         
         .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; pointer-events: none; }
         .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
         .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
         .language-dropdown { position: relative; }
@@ -56,26 +69,32 @@
         .plan-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
         .plan-card.popular { border-color: var(--button-bg); box-shadow: 0 0 20px rgba(236,182,25,0.2); }
         .popular-badge { position: absolute; top: -12px; right: 20px; background: var(--button-bg); color: var(--gray-100); padding: 5px 15px; border-radius: 20px; font-size: 0.8em; font-weight: bold; }
-        .plan-card h3 { font-size: 1.8em; margin-bottom: 10px; color: var(--gray-900); background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+        .plan-card h3 { font-size: 1.8em; margin-bottom: 10px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
         .plan-price { font-size: 2.5em; font-weight: 800; margin: 20px 0; color: var(--button-bg); }
-        .plan-price span { font-size: 0.8em; color: var(--gray-500); }
         .plan-features { list-style: none; margin: 25px 0; text-align: left; }
         .plan-features li { margin: 12px 0; color: var(--gray-600); display: flex; align-items: center; gap: 10px; }
         .plan-features li i { color: var(--button-bg); width: 20px; }
         .plan-btn { display: inline-block; width: 100%; background: var(--button-bg); color: var(--gray-100); padding: 12px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 20px; }
         .plan-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         
+        .features-compare { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .features-compare h2 { font-size: 2.2em; margin-bottom: 30px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .compare-table { width: 100%; border-collapse: collapse; background: var(--gray-300); border-radius: 20px; overflow: hidden; }
+        .compare-table th, .compare-table td { padding: 15px; text-align: center; border-bottom: 1px solid var(--gray-400); }
+        .compare-table th { background: var(--button-bg); color: var(--gray-100); }
+        .compare-table tr:last-child td { border-bottom: none; }
+        
         .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
         .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin: 10px 0; }
-        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
         .footer-column ul li a:hover { color: #ecb619; }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
-        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
         .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
-        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
         
         @media (max-width: 768px) {
             .header { padding: 10px 20px; }
@@ -83,57 +102,49 @@
             .mobile-menu-toggle { display: block; }
             .main-nav { display: none; }
             .page-hero h1 { font-size: 2em; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            .social-links { justify-content: center; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
+            .compare-table th, .compare-table td { padding: 10px; font-size: 12px; }
         }
+        @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="header-top">
-            <div class="logo-area"><a href="index.html"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%23ecb619'/%3E%3Ctext x='10' y='32' fill='%23041a2f' font-weight='bold' font-size='20'%3E8K STRONG%3C/text%3E%3C/svg%3E" alt="8K Strong IPTV" class="logo-img"></a></div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
-            <div class="header-actions"><div class="language-dropdown"><button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button><div class="lang-dropdown-menu"><a href="#" onclick="changeLanguage('en')">🇬🇧 English</a><a href="#" onclick="changeLanguage('ar')">🇸🇦 العربية</a><a href="#" onclick="changeLanguage('fr')">🇫🇷 Français</a><a href="#" onclick="changeLanguage('es')">🇪🇸 Español</a><a href="#" onclick="changeLanguage('de')">🇩🇪 Deutsch</a><a href="#" onclick="changeLanguage('it')">🇮🇹 Italiano</a></div></div></div>
-        </div>
+        <div class="header-top"><div class="logo-area"><a href="index.html"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div><button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button><div class="header-actions"><div class="language-dropdown"><button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button><div class="lang-dropdown-menu"><a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ar">🇸🇦 العربية</a><a href="#" data-lang="fr">🇫🇷 Français</a><a href="#" data-lang="es">🇪🇸 Español</a><a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="it">🇮🇹 Italiano</a></div></div></div></div>
         <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html" class="active">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
         <div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="convert.html">Convert</a></li><li><a href="reseller.html">Reseller</a></li><li><a href="subscription.html">Subscription</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Downloader</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     </header>
 
     <main class="container">
-        <section class="page-hero"><h1>Choose Your Subscription Plan</h1><p>Select the perfect plan for your entertainment needs. All plans include 33,076+ channels, 119,608+ movies, and built-in VPN protection.</p></section>
+        <section class="page-hero"><h1>Choose Your Subscription Plan</h1><p>Select the perfect plan for your entertainment needs. All plans include 33,076+ channels, 119,608+ movies, built-in VPN, and 24/7 support. Prices in Euro (€).</p></section>
+        
         <div class="plans-grid">
-            <div class="plan-card"><h3>1 Month</h3><div class="plan-price">€12.99</div><ul class="plan-features"><li><i class="fas fa-check"></i> 33,076+ Live Channels</li><li><i class="fas fa-check"></i> 119,608+ Movies & Series</li><li><i class="fas fa-check"></i> Built-in VPN</li><li><i class="fas fa-check"></i> 4K/8K Quality</li><li><i class="fas fa-check"></i> 1 Connection</li></ul><a href="https://t.me/8kstrong_support" class="plan-btn">Get Started</a></div>
-            <div class="plan-card popular"><div class="popular-badge">🔥 Best Value</div><h3>3 Months</h3><div class="plan-price">€29.99</div><ul class="plan-features"><li><i class="fas fa-check"></i> 33,076+ Live Channels</li><li><i class="fas fa-check"></i> 119,608+ Movies & Series</li><li><i class="fas fa-check"></i> Built-in VPN</li><li><i class="fas fa-check"></i> 4K/8K Quality</li><li><i class="fas fa-check"></i> Priority Support</li></ul><a href="https://t.me/8kstrong_support" class="plan-btn">Get Started</a></div>
-            <div class="plan-card"><h3>6 Months</h3><div class="plan-price">€49.99</div><ul class="plan-features"><li><i class="fas fa-check"></i> 33,076+ Live Channels</li><li><i class="fas fa-check"></i> 119,608+ Movies & Series</li><li><i class="fas fa-check"></i> Built-in VPN</li><li><i class="fas fa-check"></i> 4K/8K Quality</li><li><i class="fas fa-check"></i> 2 Connections</li></ul><a href="https://t.me/8kstrong_support" class="plan-btn">Get Started</a></div>
-            <div class="plan-card"><h3>12 Months</h3><div class="plan-price">€89.99</div><ul class="plan-features"><li><i class="fas fa-check"></i> 33,076+ Live Channels</li><li><i class="fas fa-check"></i> 119,608+ Movies & Series</li><li><i class="fas fa-check"></i> Built-in VPN</li><li><i class="fas fa-check"></i> 4K/8K Quality</li><li><i class="fas fa-check"></i> 2 Connections + Premium Support</li></ul><a href="https://t.me/8kstrong_support" class="plan-btn">Get Started</a></div>
+            <div class="plan-card"><h3>1 Month</h3><div class="plan-price">€12.99</div><ul class="plan-features"><li><i class="fas fa-check"></i> 33,076+ Live Channels</li><li><i class="fas fa-check"></i> 119,608+ Movies & Series</li><li><i class="fas fa-check"></i> Built-in VPN</li><li><i class="fas fa-check"></i> 4K/8K Quality</li><li><i class="fas fa-check"></i> 1 Connection</li><li><i class="fas fa-check"></i> 24/7 Support</li></ul><a href="https://t.me/8kstrong_support" class="plan-btn">Get Started</a></div>
+            <div class="plan-card popular"><div class="popular-badge">🔥 Best Value</div><h3>3 Months</h3><div class="plan-price">€29.99</div><ul class="plan-features"><li><i class="fas fa-check"></i> 33,076+ Live Channels</li><li><i class="fas fa-check"></i> 119,608+ Movies & Series</li><li><i class="fas fa-check"></i> Built-in VPN</li><li><i class="fas fa-check"></i> 4K/8K Quality</li><li><i class="fas fa-check"></i> 1 Connection</li><li><i class="fas fa-check"></i> Priority Support</li></ul><a href="https://t.me/8kstrong_support" class="plan-btn">Get Started</a></div>
+            <div class="plan-card"><h3>6 Months</h3><div class="plan-price">€49.99</div><ul class="plan-features"><li><i class="fas fa-check"></i> 33,076+ Live Channels</li><li><i class="fas fa-check"></i> 119,608+ Movies & Series</li><li><i class="fas fa-check"></i> Built-in VPN</li><li><i class="fas fa-check"></i> 4K/8K Quality</li><li><i class="fas fa-check"></i> 2 Connections</li><li><i class="fas fa-check"></i> Priority Support</li></ul><a href="https://t.me/8kstrong_support" class="plan-btn">Get Started</a></div>
+            <div class="plan-card"><h3>12 Months</h3><div class="plan-price">€89.99</div><ul class="plan-features"><li><i class="fas fa-check"></i> 33,076+ Live Channels</li><li><i class="fas fa-check"></i> 119,608+ Movies & Series</li><li><i class="fas fa-check"></i> Built-in VPN</li><li><i class="fas fa-check"></i> 4K/8K Quality</li><li><i class="fas fa-check"></i> 2 Connections</li><li><i class="fas fa-check"></i> Premium Support + VIP</li></ul><a href="https://t.me/8kstrong_support" class="plan-btn">Get Started</a></div>
         </div>
+        
+        <div class="features-compare"><h2>Plan Comparison</h2><table class="compare-table"><thead><tr><th>Features</th><th>1 Month</th><th>3 Months</th><th>6 Months</th><th>12 Months</th></tr></thead><tbody><tr><td>Price</td><td>€12.99</td><td>€29.99</td><td>€49.99</td><td>€89.99</td></tr><tr><td>Live Channels</td><td colspan="4">33,076+</td></tr><tr><td>Movies & Series</td><td colspan="4">119,608+ Movies | 28,753+ Series</td></tr><tr><td>4K/8K Quality</td><td colspan="4"><i class="fas fa-check" style="color:#ecb619;"></i></td></tr><tr><td>Built-in VPN</td><td colspan="4"><i class="fas fa-check" style="color:#ecb619;"></i></td></tr><tr><td>Anti-Freeze Technology</td><td colspan="4"><i class="fas fa-check" style="color:#ecb619;"></i></td></tr><tr><td>Connections</td><td>1</td><td>1</td><td>2</td><td>2</td></tr><tr><td>Support</td><td>Standard</td><td>Priority</td><td>Priority</td><td>Premium VIP</td></tr><tr><td>Best For</td><td>Try it out</td><td>Popular</td><td>Family</td><td>Best Value</td></tr></tbody></table></div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-column"><h4>8K Strong VIP</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
-            <div class="footer-column"><h4>Services</h4><ul><li><a href="subscription.html">Subscription</a></li><li><a href="reseller.html">Reseller Program</a></li><li><a href="setup-guide.html">Setup Guide</a></li><li><a href="downloader.html">Download 8K Player</a></li></ul></div>
-            <div class="footer-column"><h4>Support</h4><ul><li><a href="https://t.me/8kstrong_support">Telegram Support</a></li><li><a href="https://wa.me/1234567890">WhatsApp</a></li><li><a href="mailto:support@8kstrongvip.com">Email Us</a></li></ul></div>
-            <div class="footer-column"><h4>Follow Us</h4><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
-        </div>
-        <div class="footer-bottom"><p>© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div>
-    </footer>
+    <footer class="footer"><div class="footer-content"><div class="footer-column"><h4><i class="fas fa-tools"></i> Tools</h4><ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li><li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-question-circle"></i> Help</h4><ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li><li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-cogs"></i> Services</h4><ul><li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-crown"></i> 8K Strong VIP</h4><ul><li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li></ul></div></div><div class="footer-bottom"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a><a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a></div><p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p></div></footer>
 
     <script>
-        const toggleBtn = document.getElementById('mobileMenuToggle');
-        const header = document.querySelector('.header');
-        if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
-        window.changeLanguage = function(lang) {
-            const langBtn = document.getElementById('currentLangBtn');
-            if(lang === 'ar') langBtn.innerHTML = '🇸🇦 AR';
-            else if(lang === 'fr') langBtn.innerHTML = '🇫🇷 FR';
-            else if(lang === 'es') langBtn.innerHTML = '🇪🇸 ES';
-            else if(lang === 'de') langBtn.innerHTML = '🇩🇪 DE';
-            else if(lang === 'it') langBtn.innerHTML = '🇮🇹 IT';
-            else langBtn.innerHTML = '🇬🇧 EN';
-            document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-        };
-        window.changeLanguage('en');
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('keydown', function(e) { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.shiftKey && e.key === 'K')) { e.preventDefault(); return false; } });
+        document.addEventListener('keyup', function(e) { if (e.key === 'PrintScreen') { navigator.clipboard.writeText('').catch(() => {}); alert('Screenshots are disabled'); } });
+        document.querySelectorAll('img').forEach(img => { img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }); });
+        document.addEventListener('copy', function(e) { e.preventDefault(); alert('Copying content is disabled'); return false; });
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+        setInterval(function() { const before = new Date().getTime(); debugger; const after = new Date().getTime(); if (after - before > 100) { console.clear(); document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;text-align:center;"><h1>⚠️ Developer Tools Detected</h1><p>Please close developer tools to continue browsing.</p></div>'; setTimeout(() => { window.location.reload(); }, 3000); } }, 1000);
+        
+        const translations = { en: {}, ar: {}, fr: {}, es: {}, de: {}, it: {} };
+        let currentLang = localStorage.getItem('language') || 'en';
+        function applyLanguage(lang) { currentLang = lang; localStorage.setItem('language', lang); const langBtn = document.getElementById('currentLangBtn'); const names = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' }; langBtn.innerHTML = names[lang] || names.en; document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); }
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => { link.addEventListener('click', (e) => { e.preventDefault(); applyLanguage(link.getAttribute('data-lang')); }); });
+        const toggleBtn = document.getElementById('mobileMenuToggle'); const header = document.querySelector('.header'); if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        applyLanguage(currentLang);
     </script>
 </body>
 </html>
