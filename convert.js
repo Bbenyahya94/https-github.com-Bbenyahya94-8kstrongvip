@@ -1,130 +1,166 @@
-// ============================================
-// Convert M3U to Xtream Codes - JavaScript
-// ============================================
+// Store extracted data for copy all function
+let currentData = {
+    serverUrl: '',
+    username: '',
+    password: '',
+    epgUrl: '',
+    expirationDate: ''
+};
 
-let currentData = {};
+// Show toast notification (using alert for simplicity, can be enhanced)
+function showToast(message, isError = false) {
+    alert(message);
+}
 
-async function convertM3U() {
-    const inputLink = document.getElementById('m3uLink').value.trim();
-    const convertBtn = document.getElementById('convertBtn');
-    const resultBox = document.getElementById('resultBox');
-    const errorDiv = document.getElementById('errorMessage');
-    
-    if (!inputLink) {
-        errorDiv.style.display = 'block';
-        errorDiv.innerHTML = 'Please enter an M3U link';
+// Copy individual field
+function copyField(fieldId, fieldName) {
+    const element = document.getElementById(fieldId);
+    if (!element) {
+        showToast(`Element not found`, true);
         return;
     }
     
-    errorDiv.style.display = 'none';
-    convertBtn.disabled = true;
-    convertBtn.innerHTML = 'Converting...';
-    resultBox.style.display = 'none';
+    const text = element.innerText;
+    if (!text || text === '-' || text === 'Not available in URL' || text === 'Not available') {
+        showToast(`❌ No ${fieldName} available to copy`, true);
+        return;
+    }
+    
+    navigator.clipboard.writeText(text).then(() => {
+        showToast(`✅ ${fieldName} copied to clipboard!`);
+        // Update button temporarily
+        const btn = document.querySelector(`.copy-btn[data-copy-field="${fieldId}"]`);
+        if (btn) {
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => { btn.innerHTML = originalHTML; }, 1500);
+        }
+    }).catch(() => {
+        showToast(`❌ Failed to copy ${fieldName}`, true);
+    });
+}
+
+// Copy all information
+function copyAll() {
+    if (!currentData.serverUrl && !currentData.username && !currentData.password) {
+        showToast('❌ No data available. Please extract information from an M3U URL first.', true);
+        return;
+    }
+    
+    const allText = `═══════════════════════════════════
+        XTREAM CODES INFORMATION
+═══════════════════════════════════
+
+📡 Server URL: ${currentData.serverUrl}
+👤 Username: ${currentData.username}
+🔐 Password: ${currentData.password}
+📅 EPG URL: ${currentData.epgUrl}
+⏰ Expiration Date: ${currentData.expirationDate}
+
+═══════════════════════════════════
+8K Strong VIP - Premium IPTV Service
+═══════════════════════════════════`;
+    
+    navigator.clipboard.writeText(allText).then(() => {
+        showToast('✅ All Xtream Codes copied to clipboard!');
+        const copyAllBtn = document.getElementById('copyAllBtn');
+        if (copyAllBtn) {
+            const originalText = copyAllBtn.innerHTML;
+            copyAllBtn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
+            setTimeout(() => { copyAllBtn.innerHTML = originalText; }, 1500);
+        }
+    }).catch(() => {
+        showToast('❌ Failed to copy all information', true);
+    });
+}
+
+// Extract expiration date from M3U URL
+function extractExpirationDate(m3uUrl) {
+    try {
+        const url = new URL(m3uUrl);
+        const params = new URLSearchParams(url.search);
+        let expDate = params.get('expiration') || params.get('expire') || params.get('expires') || params.get('validuntil') || params.get('end_date');
+        
+        if (expDate) {
+            if (!isNaN(expDate) && expDate.length === 10) {
+                const date = new Date(parseInt(expDate) * 1000);
+                return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            }
+            return expDate;
+        }
+    } catch(e) {}
+    
+    // Try to extract from path
+    const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/([^\/]+))?/);
+    if (pathMatch && pathMatch[3] && pathMatch[3].includes('exp')) {
+        return pathMatch[3];
+    }
+    
+    return 'Not available in URL';
+}
+
+// Extract EPG URL
+function extractEpgUrl(m3uUrl, username, password) {
+    try {
+        const url = new URL(m3uUrl);
+        const params = new URLSearchParams(url.search);
+        let epg = params.get('epg') || params.get('epg_url') || params.get('xmltv');
+        if (epg) return epg;
+        const baseUrl = `${url.protocol}//${url.host}`;
+        return `${baseUrl}/xmltv.php?username=${username}&password=${password}`;
+    } catch(e) {
+        return 'Not available';
+    }
+}
+
+// Main conversion function
+function convertM3UtoXtream() {
+    const m3uUrl = document.getElementById('m3uUrl').value.trim();
+    
+    if (!m3uUrl) {
+        showToast('❌ Please enter an M3U playlist URL', true);
+        return;
+    }
     
     try {
-        let m3uContent = null;
-        let expirationDate = null;
+        const url = new URL(m3uUrl);
+        const params = new URLSearchParams(url.search);
         
-        try {
-            const response = await fetch(inputLink);
-            if (response.ok) {
-                m3uContent = await response.text();
-                expirationDate = parseExpirationFromM3U(m3uContent);
+        let username = params.get('username');
+        let password = params.get('password');
+        
+        if (!username || !password) {
+            const pathMatch = m3uUrl.match(/\/(?:c\/)?([^\/]+)\/([^\/]+)(?:\/|$)/);
+            if (pathMatch) {
+                username = decodeURIComponent(pathMatch[1]);
+                password = decodeURIComponent(pathMatch[2]);
             }
-        } catch (fetchError) {
-            console.log('Could not fetch M3U content:', fetchError);
         }
         
-        const parsed = parseM3UtoXtream(inputLink, m3uContent);
+        const serverUrl = `${url.protocol}//${url.host}`;
         
-        if (parsed) {
-            const serverUrl = parsed.serverUrl;
-            const port = parsed.port || '80';
-            const username = parsed.username;
-            const password = parsed.password;
-            
-            const hostUrl = `${serverUrl}:${port}`;
-            const m3uOutput = `${serverUrl}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`;
-            const epgOutput = `${serverUrl}/xmltv.php?username=${username}&password=${password}`;
-            
-            let playlistName = "Converted Playlist";
-            try {
-                const urlObj = new URL(inputLink);
-                const domain = urlObj.hostname;
-                playlistName = domain.replace('www.', '').split('.')[0].toUpperCase() + " Playlist";
-            } catch(e) {}
-            
+        if (username && password) {
             currentData = {
-                playlistName, username, password, hostUrl, m3uOutput, epgOutput, expirationDate
+                serverUrl: serverUrl,
+                username: username,
+                password: password,
+                epgUrl: extractEpgUrl(m3uUrl, username, password),
+                expirationDate: extractExpirationDate(m3uUrl)
             };
             
-            document.getElementById('playlistName').innerText = playlistName;
-            document.getElementById('username').innerText = username;
-            document.getElementById('password').innerText = password;
-            document.getElementById('hostUrl').innerText = hostUrl;
-            document.getElementById('m3uOutput').innerText = m3uOutput;
-            document.getElementById('epgLink').innerText = epgOutput;
+            document.getElementById('serverUrl').innerHTML = currentData.serverUrl;
+            document.getElementById('username').innerHTML = currentData.username;
+            document.getElementById('password').innerHTML = currentData.password;
+            document.getElementById('epgUrl').innerHTML = currentData.epgUrl;
+            document.getElementById('expirationDate').innerHTML = currentData.expirationDate;
             
-            const expiryDiv = document.getElementById('expiryInfo');
-            if (expirationDate && !isNaN(expirationDate.getTime())) {
-                const now = new Date();
-                const diff = expirationDate - now;
-                const isExpired = diff <= 0;
-                const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const formatted = expirationDate.toLocaleDateString('en-US', {
-                    year: 'numeric', month: 'long', day: 'numeric',
-                    hour: '2-digit', minute: '2-digit'
-                });
-                
-                expiryDiv.innerHTML = `<i class="fas ${isExpired ? 'fa-exclamation-triangle' : (daysLeft<7 ? 'fa-hourglass-half' : 'fa-calendar-check')}"></i> <strong>Expired in:</strong> ${formatted}<br><small>${daysLeft>0 ? `${daysLeft} days remaining` : 'EXPIRED'}</small>`;
-                currentData.expirationText = `Expired in: ${formatted}\n${daysLeft>0 ? `${daysLeft} days remaining` : 'EXPIRED'}`;
-            } else {
-                expiryDiv.innerHTML = `<i class="fas fa-info-circle"></i> <strong>Expired in:</strong> No expiration date detected<br><small>Account active until manually deactivated</small>`;
-                currentData.expirationText = "No expiration date detected.";
-            }
-            
-            resultBox.style.display = 'block';
+            document.getElementById('resultContainer').style.display = 'block';
+            showToast('✅ Information extracted successfully!');
+            document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-            errorDiv.style.display = 'block';
-            errorDiv.innerHTML = 'Invalid M3U link.';
+            showToast('❌ Could not extract username and password from the URL', true);
         }
     } catch (error) {
-        errorDiv.style.display = 'block';
-        errorDiv.innerHTML = 'Error processing the link.';
-    } finally {
-        convertBtn.disabled = false;
-        convertBtn.innerHTML = 'Convert to Xtream Codes';
+        showToast('❌ Invalid URL format. Please enter a valid M3U playlist URL', true);
     }
-}
-
-function parseM3UtoXtream(url, m3uContent) {
-    try {
-        const urlObj = new URL(url);
-        if (urlObj.pathname.includes('get.php') && urlObj.searchParams.has('username') && urlObj.searchParams.has('password')) {
-            return {
-                serverUrl: `${urlObj.protocol}//${urlObj.hostname}`,
-                username: urlObj.searchParams.get('username'),
-                password: urlObj.searchParams.get('password'),
-                port: urlObj.port || (urlObj.protocol === 'https:' ? '443' : '80')
-            };
-        }
-        return null;
-    } catch(e) {
-        const regex = /(https?:\/\/[^\/]+)(?:\/get\.php\?.*username=([^&]+).*password=([^&]+))/i;
-        const match = url.match(regex);
-        if (match) {
-            return {
-                serverUrl: match[1],
-                username: match[2],
-                password: match[3],
-                port: match[1].includes('https') ? '443' : '80'
-            };
-        }
-        return null;
-    }
-}
-
-function copyAll() {
-    const text = `Xtream Codes\n==============\n\nPlaylist Name: ${currentData.playlistName}\nUsername: ${currentData.username}\nPassword: ${currentData.password}\nHost/API/URL: ${currentData.hostUrl}\n\nM3U LINK:\n${currentData.m3uOutput}\n\nEPG LINK:\n${currentData.epgOutput}\n\n${currentData.expirationText || 'No expiration detected'}\n\n--- Generated by 8K Strong IPTV ---`;
-    copyToClipboard(text, 'copyAllBtn');
 }
