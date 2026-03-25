@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8K Strong VIP – The Ultimate 4K Streaming Experience</title>
-    <meta name="description" content="8K Strong VIP – Watch any place, any device, any time. Access premium IPTV content anytime, anywhere. 33,076+ live channels, 119,608+ movies, 28,753+ series in 4K/8K quality.">
+    <meta name="description" content="8K Strong VIP – Watch any place, any device, any time. Access premium IPTV content anytime, anywhere. 33,076+ live channels, 119,608+ movies, 28,753+ series in 4K/8K quality. Built-in VPN, anti-freeze streaming, 24/7 support.">
+    <meta name="keywords" content="8K Strong VIP, IPTV service, premium IPTV, watch anywhere, IPTV subscription, 4K IPTV, best IPTV, IPTV provider, IPTV free trial">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         :root {
             --gray-100: #041324;
@@ -28,7 +38,7 @@
         .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo-area a { display: flex; align-items: center; }
-        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; }
         .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
         .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
         .language-dropdown { position: relative; }
@@ -99,6 +109,8 @@
         .feature-card:hover { transform: translateY(-5px); border-color: var(--button-bg); }
         .feature-icon { font-size: 3em; color: var(--button-bg); margin-bottom: 20px; }
         .feature-card h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--gray-900); background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+        .feature-btn { display: inline-block; margin-top: 15px; padding: 8px 20px; background: transparent; border: 1px solid var(--button-bg); color: var(--button-bg); text-decoration: none; border-radius: 50px; font-size: 0.9em; transition: 0.3s; }
+        .feature-btn:hover { background: var(--button-bg); color: var(--gray-100); }
         
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .testimonial-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 25px; }
@@ -109,7 +121,8 @@
         .plan-card { background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 20px; padding: 30px 20px; text-align: center; transition: 0.3s; }
         .plan-card h3 { font-size: 1.8em; margin-bottom: 10px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
         .plan-card .price { font-size: 2.2em; font-weight: 800; margin: 15px 0; color: var(--button-bg); }
-        .plan-card .btn { background: var(--button-bg); color: var(--gray-100); text-decoration: none; padding: 10px 25px; border-radius: 50px; font-weight: bold; display: inline-block; }
+        .plan-card .btn { background: var(--button-bg); color: var(--gray-100); text-decoration: none; padding: 10px 25px; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .plan-card .btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         
         .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
         .faq-item { background: var(--gray-300); border: 1px solid var(--gray-400); border-radius: 15px; padding: 20px; cursor: pointer; }
@@ -129,7 +142,7 @@
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
         .social-links { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
         .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
-        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
         
         @media (max-width: 768px) {
             .header { padding: 10px 20px; }
@@ -140,146 +153,233 @@
             .stats-grid { grid-template-columns: 1fr; }
             .features-panel { grid-template-columns: repeat(2, 1fr); }
             .credit-section { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: repeat(2, 1fr); }
+            .slide-content h2 { font-size: 1.5rem; }
+            .slide img { height: 400px; }
         }
-        @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
+        @media (max-width: 480px) {
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
+            .slide img { height: 350px; }
+        }
     </style>
 </head>
 <body>
     <header class="header">
-    <div class="header-top">
-        <div class="logo-area">
-            <a href="index.html">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%23ecb619'/%3E%3Ctext x='10' y='32' fill='%23041a2f' font-weight='bold' font-size='20'%3E8K STRONG%3C/text%3E%3C/svg%3E" alt="8K Strong IPTV" class="logo-img">
-            </a>
-        </div>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
-        <div class="header-actions">
-            <div class="language-dropdown">
-                <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
-                <div class="lang-dropdown-menu">
-                    <a href="#" data-lang="en">🇬🇧 English</a>
-                    <a href="#" data-lang="ar">🇸🇦 العربية</a>
-                    <a href="#" data-lang="fr">🇫🇷 Français</a>
-                    <a href="#" data-lang="es">🇪🇸 Español</a>
-                    <a href="#" data-lang="de">🇩🇪 Deutsch</a>
-                    <a href="#" data-lang="it">🇮🇹 Italiano</a>
+        <div class="header-top">
+            <div class="logo-area">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="8K Strong IPTV" class="logo-img">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
+            <div class="header-actions">
+                <div class="language-dropdown">
+                    <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
+                    <div class="lang-dropdown-menu">
+                        <a href="#" data-lang="en">🇬🇧 English</a>
+                        <a href="#" data-lang="ar">🇸🇦 العربية</a>
+                        <a href="#" data-lang="fr">🇫🇷 Français</a>
+                        <a href="#" data-lang="es">🇪🇸 Español</a>
+                        <a href="#" data-lang="de">🇩🇪 Deutsch</a>
+                        <a href="#" data-lang="it">🇮🇹 Italiano</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html" data-i18n="home">Home</a></li>
-            <li><a href="convert.html" data-i18n="convert">Convert</a></li>
-            <li><a href="reseller.html" data-i18n="reseller">Reseller</a></li>
-            <li><a href="subscription.html" data-i18n="subscription">Subscription</a></li>
-            <li><a href="setup-guide.html" data-i18n="setup_guide">Setup Guide</a></li>
-            <li><a href="downloader.html" data-i18n="downloader">Downloader</a></li>
-            <li><a href="about.html" data-i18n="about">About</a></li>
-            <li><a href="contact.html" data-i18n="contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="convert.html">Convert</a></li>
-            <li><a href="reseller.html">Reseller</a></li>
-            <li><a href="subscription.html">Subscription</a></li>
-            <li><a href="setup-guide.html">Setup Guide</a></li>
-            <li><a href="downloader.html">Downloader</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-</header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="convert.html">Convert</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="setup-guide.html">Setup Guide</a></li>
+                <li><a href="downloader.html">Downloader</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="convert.html">Convert</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="setup-guide.html">Setup Guide</a></li>
+                <li><a href="downloader.html">Downloader</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
     <main class="container">
-        <section class="hero-banner"><h1 data-i18n="hero_title">8K Strong VIP – Watch Anywhere, Anytime on Any Device</h1><p data-i18n="hero_desc">Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality. 33,076+ live channels, 119,608+ movies, built-in VPN, and 24/7 support.</p><div class="banner-buttons"><a href="https://t.me/8kstrong_support" target="_blank" class="banner-btn telegram"><i class="fab fa-telegram-plane"></i> <span data-i18n="trial_telegram">Free Trial via Telegram</span></a><a href="https://wa.me/1234567890" target="_blank" class="banner-btn whatsapp"><i class="fab fa-whatsapp"></i> <span data-i18n="trial_whatsapp">Free Trial via WhatsApp</span></a></div></section>
-        <section class="panel-section"><h2 data-i18n="panel_title">Strong 8K IPTV Panel</h2><div class="stats-grid"><div class="stat-card"><div class="stat-number">33,076</div><div data-i18n="channels">Channels</div></div><div class="stat-card"><div class="stat-number">119,608</div><div data-i18n="movies">Movies</div></div><div class="stat-card"><div class="stat-number">28,753</div><div data-i18n="series">Series</div></div></div><div class="features-panel"><div class="feature-item"><i class="fas fa-bolt"></i> <span data-i18n="instant_line">Instant Line Creation</span></div><div class="feature-item"><i class="fas fa-chart-line"></i> <span data-i18n="uptime">99.9% Uptime</span></div><div class="feature-item"><i class="fas fa-snowflake"></i> <span data-i18n="anti_freeze">Anti-Freeze Streaming</span></div><div class="feature-item"><i class="fas fa-headset"></i> <span data-i18n="support">24/7 Support</span></div></div></section>
-        <div class="slideshow-container"><div class="slides" id="slides"><div class="slide"><img src="images/slide1.png" alt="8K Strong VIP"><div class="slide-content"><h2 data-i18n="slide1_title">8K Strong VIP – Watch Anywhere, Anytime on Any Device</h2><p data-i18n="slide1_desc">Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality.</p><a href="subscription.html" class="slide-btn" data-i18n="slide1_btn">Subscribe Now</a></div></div><div class="slide"><img src="images/slide2.png" alt="Reseller Program"><div class="slide-content"><h2 data-i18n="slide2_title">Become a 8K Strong VIP Reseller</h2><p data-i18n="slide2_desc">Start your own IPTV business today. Flexible credit system, instant activation, and dedicated 24/7 support.</p><a href="reseller.html" class="slide-btn" data-i18n="slide2_btn">Join Reseller</a></div></div><div class="slide"><img src="images/slide3.png" alt="Special Offer"><div class="slide-content"><h2 data-i18n="slide3_title">Limited Time – 20% OFF Yearly Plan</h2><p data-i18n="slide3_desc">Get 20% discount on annual subscription. Premium IPTV service with anti-freeze technology and free trial.</p><a href="subscription.html" class="slide-btn" data-i18n="slide3_btn">Claim Offer</a></div></div></div><button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button><button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button><div class="dots-container" id="dotsContainer"></div></div>
-        <section class="credit-section"><div class="credit-left"><h2 data-i18n="credit_title">Credit System</h2><p data-i18n="credit_desc">Simple and transparent – convert credits directly into subscription months.</p><table class="credit-table"><thead><tr><th data-i18n="credits">Credits</th><th data-i18n="subscription_months">Subscription Months</th></tr></thead><tbody><tr><td class="credit-amount">1 Credit</td><td class="credit-value">1 Month</td></tr><tr><td class="credit-amount">3 Credits</td><td class="credit-value">3 Months</td></tr><tr><td class="credit-amount">6 Credits</td><td class="credit-value">6 Months</td></tr><tr><td class="credit-amount">12 Credits</td><td class="credit-value">12 Months</td></tr></tbody></table><div class="reseller-buttons"><a href="https://t.me/8kstrong_support" target="_blank" class="reseller-btn primary"><i class="fab fa-telegram-plane"></i> <span data-i18n="free_trial">Free Trial</span></a><a href="reseller.html" class="reseller-btn secondary"><i class="fas fa-chart-line"></i> <span data-i18n="about_reseller">About Reseller</span></a></div></div><div class="credit-right"><i class="fas fa-tachometer-alt"></i><p data-i18n="panel_preview">Reseller Panel Preview</p></div></section>
-        <section class="features-section"><h2 data-i18n="features_title">Why Choose 8K Strong IPTV?</h2><div class="features-grid"><div class="feature-card"><i class="fas fa-tachometer-alt feature-icon"></i><h3 data-i18n="feature1">Ultra Fast</h3><p data-i18n="feature1_desc">High‑performance servers for buffer‑free streaming</p></div><div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3 data-i18n="feature2">VPN Protection</h3><p data-i18n="feature2_desc">Built‑in VPN for privacy and security</p></div><div class="feature-card"><i class="fas fa-globe feature-icon"></i><h3 data-i18n="feature3">Worldwide Channels</h3><p data-i18n="feature3_desc">Channels from 100+ countries</p></div><div class="feature-card"><i class="fas fa-headset feature-icon"></i><h3 data-i18n="feature4">24/7 Support</h3><p data-i18n="feature4_desc">Dedicated support team</p></div><div class="feature-card"><i class="fas fa-chart-line feature-icon"></i><h3 data-i18n="feature5">Reseller Dashboard</h3><p data-i18n="feature5_desc">Full control with real‑time analytics</p></div><div class="feature-card"><i class="fas fa-download feature-icon"></i><h3 data-i18n="feature6">8K Player Apps</h3><p data-i18n="feature6_desc">Download our official player for all devices</p><a href="downloader.html" class="feature-btn" data-i18n="download_now">Download Now →</a></div></div></section>
-        <section class="testimonials-section"><h2 data-i18n="testimonials_title">What Our Customers Say</h2><div class="testimonials-grid"><div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><i class="fas fa-user"></i></div><div><h4>Ahmed M.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text" data-i18n="testimonial1">"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus."</div></div><div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><i class="fas fa-user"></i></div><div><h4>Sarah K.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text" data-i18n="testimonial2">"As a reseller, the panel is super easy to use. My customers love the quality."</div></div><div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><i class="fas fa-user"></i></div><div><h4>David L.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text" data-i18n="testimonial3">"4K streams are flawless. Support responds within minutes. Highly recommended!"</div></div></div></section>
-        <section class="plans-section"><h2 data-i18n="plans_title">Choose Your Plan</h2><div class="plans-grid"><div class="plan-card"><h3 data-i18n="plan1">1 Month</h3><div class="price">€12.99</div><ul><li><i class="fas fa-check"></i> <span data-i18n="plan1_feat1">33k+ Channels</span></li><li><i class="fas fa-check"></i> <span data-i18n="plan1_feat2">All Movies & Series</span></li><li><i class="fas fa-check"></i> <span data-i18n="plan1_feat3">VPN Included</span></li></ul><a href="subscription.html" class="btn" data-i18n="buy_now">Buy Now</a></div><div class="plan-card"><h3 data-i18n="plan2">3 Months</h3><div class="price">€29.99</div><ul><li><i class="fas fa-check"></i> <span data-i18n="plan2_feat1">33k+ Channels</span></li><li><i class="fas fa-check"></i> <span data-i18n="plan2_feat2">All Movies & Series</span></li><li><i class="fas fa-check"></i> <span data-i18n="plan2_feat3">VPN + Priority Support</span></li></ul><a href="subscription.html" class="btn" data-i18n="buy_now">Buy Now</a></div><div class="plan-card"><h3 data-i18n="plan3">6 Months</h3><div class="price">€49.99</div><ul><li><i class="fas fa-check"></i> <span data-i18n="plan3_feat1">33k+ Channels</span></li><li><i class="fas fa-check"></i> <span data-i18n="plan3_feat2">All Movies & Series</span></li><li><i class="fas fa-check"></i> <span data-i18n="plan3_feat3">2 Connections</span></li></ul><a href="subscription.html" class="btn" data-i18n="buy_now">Buy Now</a></div><div class="plan-card"><h3 data-i18n="plan4">12 Months</h3><div class="price">€89.99</div><ul><li><i class="fas fa-check"></i> <span data-i18n="plan4_feat1">33k+ Channels</span></li><li><i class="fas fa-check"></i> <span data-i18n="plan4_feat2">All Movies & Series</span></li><li><i class="fas fa-check"></i> <span data-i18n="plan4_feat3">4K + Premium Support</span></li></ul><a href="subscription.html" class="btn" data-i18n="buy_now">Buy Now</a></div></div></section>
-        <section class="faq-section"><h2 data-i18n="faq_title">Frequently Asked Questions</h2><div class="faq-grid"><div class="faq-item"><div class="faq-question"><span data-i18n="faq1_q">What devices are compatible?</span> <i class="fas fa-plus"></i></div><div class="faq-answer" data-i18n="faq1_a">All Android TV, Firestick, Smart TVs, MAG, iOS, Windows, and more. Any device that supports IPTV apps.</div></div><div class="faq-item"><div class="faq-question"><span data-i18n="faq2_q">How to get free trial?</span> <i class="fas fa-plus"></i></div><div class="faq-answer" data-i18n="faq2_a">Contact us via Telegram or WhatsApp for a 24-hour free trial with full access.</div></div><div class="faq-item"><div class="faq-question"><span data-i18n="faq3_q">Do you offer VPN?</span> <i class="fas fa-plus"></i></div><div class="faq-answer" data-i18n="faq3_a">Yes, a built-in VPN is included for free to ensure privacy and bypass ISP throttling.</div></div><div class="faq-item"><div class="faq-question"><span data-i18n="faq4_q">How to download 8K Player?</span> <i class="fas fa-plus"></i></div><div class="faq-answer" data-i18n="faq4_a">Visit our Downloader page to get the official 8K Player for Windows, Android, macOS, and Firestick.</div></div></div></section>
+        <section class="hero-banner">
+            <h1>8K Strong VIP – Watch Anywhere, Anytime on Any Device</h1>
+            <p>Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality. 33,076+ live channels, 119,608+ movies, built-in VPN, and 24/7 support.</p>
+            <div class="banner-buttons">
+                <a href="https://t.me/8kstrong_support" target="_blank" class="banner-btn telegram"><i class="fab fa-telegram-plane"></i> Free Trial via Telegram</a>
+                <a href="https://wa.me/1234567890" target="_blank" class="banner-btn whatsapp"><i class="fab fa-whatsapp"></i> Free Trial via WhatsApp</a>
+            </div>
+        </section>
+
+        <section class="panel-section">
+            <h2>Strong 8K IPTV Panel</h2>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number">33,076</div><div>Channels</div></div>
+                <div class="stat-card"><div class="stat-number">119,608</div><div>Movies</div></div>
+                <div class="stat-card"><div class="stat-number">28,753</div><div>Series</div></div>
+            </div>
+            <div class="features-panel">
+                <div class="feature-item"><i class="fas fa-bolt"></i> <span>Instant Line Creation</span></div>
+                <div class="feature-item"><i class="fas fa-chart-line"></i> <span>99.9% Uptime</span></div>
+                <div class="feature-item"><i class="fas fa-snowflake"></i> <span>Anti-Freeze Streaming</span></div>
+                <div class="feature-item"><i class="fas fa-headset"></i> <span>24/7 Support</span></div>
+            </div>
+        </section>
+
+        <div class="slideshow-container">
+            <div class="slides" id="slides">
+                <div class="slide"><img src="images/slide1.png" alt="8K Strong VIP"><div class="slide-content"><h2>8K Strong VIP – Watch Anywhere, Anytime on Any Device</h2><p>Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality.</p><a href="subscription.html" class="slide-btn">Subscribe Now</a></div></div>
+                <div class="slide"><img src="images/slide2.png" alt="Reseller Program"><div class="slide-content"><h2>Become a 8K Strong VIP Reseller</h2><p>Start your own IPTV business today. Flexible credit system, instant activation, and dedicated 24/7 support.</p><a href="reseller.html" class="slide-btn">Join Reseller</a></div></div>
+                <div class="slide"><img src="images/slide3.png" alt="Special Offer"><div class="slide-content"><h2>Limited Time – 20% OFF Yearly Plan</h2><p>Get 20% discount on annual subscription. Premium IPTV service with anti-freeze technology and free trial.</p><a href="subscription.html" class="slide-btn">Claim Offer</a></div></div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            <div class="dots-container" id="dotsContainer"></div>
+        </div>
+
+        <section class="credit-section">
+            <div class="credit-left">
+                <h2>Credit System</h2>
+                <p>Simple and transparent – convert credits directly into subscription months.</p>
+                <table class="credit-table">
+                    <thead><tr><th>Credits</th><th>Subscription Months</th></tr></thead>
+                    <tbody>
+                        <tr><td class="credit-amount">1 Credit</td><td class="credit-value">1 Month</td></tr>
+                        <tr><td class="credit-amount">3 Credits</td><td class="credit-value">3 Months</td></tr>
+                        <tr><td class="credit-amount">6 Credits</td><td class="credit-value">6 Months</td></tr>
+                        <tr><td class="credit-amount">12 Credits</td><td class="credit-value">12 Months</td></tr>
+                    </tbody>
+                </table>
+                <div class="reseller-buttons">
+                    <a href="https://t.me/8kstrong_support" target="_blank" class="reseller-btn primary"><i class="fab fa-telegram-plane"></i> Free Trial</a>
+                    <a href="reseller.html" class="reseller-btn secondary"><i class="fas fa-chart-line"></i> About Reseller</a>
+                </div>
+            </div>
+            <div class="credit-right">
+                <i class="fas fa-tachometer-alt"></i>
+                <p>Reseller Panel Preview</p>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2>Why Choose 8K Strong IPTV?</h2>
+            <div class="features-grid">
+                <div class="feature-card"><i class="fas fa-tachometer-alt feature-icon"></i><h3>Ultra Fast</h3><p>High‑performance servers for buffer‑free streaming</p></div>
+                <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3>VPN Protection</h3><p>Built‑in VPN for privacy and security</p></div>
+                <div class="feature-card"><i class="fas fa-globe feature-icon"></i><h3>Worldwide Channels</h3><p>Channels from 100+ countries</p></div>
+                <div class="feature-card"><i class="fas fa-headset feature-icon"></i><h3>24/7 Support</h3><p>Dedicated support team</p></div>
+                <div class="feature-card"><i class="fas fa-chart-line feature-icon"></i><h3>Reseller Dashboard</h3><p>Full control with real‑time analytics</p></div>
+                <div class="feature-card"><i class="fas fa-download feature-icon"></i><h3>8K Player Apps</h3><p>Download our official player for all devices</p><a href="downloader.html" class="feature-btn">Download Now →</a></div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><i class="fas fa-user"></i></div><div><h4>Ahmed M.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text">"Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus."</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><i class="fas fa-user"></i></div><div><h4>Sarah K.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text">"As a reseller, the panel is super easy to use. My customers love the quality."</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><div class="testimonial-img"><i class="fas fa-user"></i></div><div><h4>David L.</h4><div class="stars">★★★★★</div></div></div><div class="testimonial-text">"4K streams are flawless. Support responds within minutes. Highly recommended!"</div></div>
+            </div>
+        </section>
+
+        <section class="plans-section">
+            <h2>Choose Your Plan</h2>
+            <div class="plans-grid">
+                <div class="plan-card"><h3>1 Month</h3><div class="price">€12.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> VPN Included</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
+                <div class="plan-card"><h3>3 Months</h3><div class="price">€29.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> VPN + Priority Support</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
+                <div class="plan-card"><h3>6 Months</h3><div class="price">€49.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> 2 Connections</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
+                <div class="plan-card"><h3>12 Months</h3><div class="price">€89.99</div><ul><li><i class="fas fa-check"></i> 33k+ Channels</li><li><i class="fas fa-check"></i> All Movies & Series</li><li><i class="fas fa-check"></i> 4K + Premium Support</li></ul><a href="subscription.html" class="btn">Buy Now</a></div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item"><div class="faq-question">What devices are compatible? <i class="fas fa-plus"></i></div><div class="faq-answer">All Android TV, Firestick, Smart TVs, MAG, iOS, Windows, and more. Any device that supports IPTV apps. <a href="downloader.html" style="color: #ecb619;">Download our 8K Player →</a></div></div>
+                <div class="faq-item"><div class="faq-question">How to get free trial? <i class="fas fa-plus"></i></div><div class="faq-answer">Contact us via Telegram or WhatsApp for a 24-hour free trial with full access.</div></div>
+                <div class="faq-item"><div class="faq-question">Do you offer VPN? <i class="fas fa-plus"></i></div><div class="faq-answer">Yes, a built-in VPN is included for free to ensure privacy and bypass ISP throttling.</div></div>
+                <div class="faq-item"><div class="faq-question">How to download 8K Player? <i class="fas fa-plus"></i></div><div class="faq-answer">Visit our <a href="downloader.html" style="color: #ecb619;">Downloader page</a> to get the official 8K Player for Windows, Android, macOS, and Firestick.</div></div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer"><div class="footer-content"><div class="footer-column"><h4><i class="fas fa-tools"></i> <span data-i18n="tools">Tools</span></h4><ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> <span data-i18n="convert_m3u">Convert M3U to Xtream</span></a></li><li><a href="downloader.html"><i class="fas fa-download"></i> <span data-i18n="download_player">Download 8K Player</span></a></li></ul></div><div class="footer-column"><h4><i class="fas fa-question-circle"></i> <span data-i18n="help">Help</span></h4><ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> <span data-i18n="setup_guide">Setup Guide</span></a></li><li><a href="blog.html"><i class="fas fa-blog"></i> <span data-i18n="blog">Blog</span></a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="contact_us">Contact Us</span></a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> <span data-i18n="resolution_center">Resolution Center</span></a></li></ul></div><div class="footer-column"><h4><i class="fas fa-cogs"></i> <span data-i18n="services">Services</span></h4><ul><li><a href="subscription.html"><i class="fas fa-tag"></i> <span data-i18n="subscription">Subscription</span></a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> <span data-i18n="reseller_program">Reseller Program</span></a></li></ul></div><div class="footer-column"><h4><i class="fas fa-crown"></i> <span data-i18n="company">8K Strong VIP</span></h4><ul><li><a href="about.html"><i class="fas fa-info-circle"></i> <span data-i18n="about_us">About Us</span></a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> <span data-i18n="privacy">Privacy Policy</span></a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> <span data-i18n="refund">Refund Policy</span></a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> <span data-i18n="dmca">DMCA</span></a></li></ul></div></div><div class="footer-bottom"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a><a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a></div><p>© 2025 8K Strong VIP IPTV. All rights reserved. | <span data-i18n="tagline">Watch Anywhere, Anytime on Any Device</span></p></div></footer>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4><i class="fas fa-tools"></i> Tools</h4>
+                <ul><li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a></li><li><a href="downloader.html"><i class="fas fa-download"></i> Download 8K Player</a></li></ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-question-circle"></i> Help</h4>
+                <ul><li><a href="setup-guide.html"><i class="fas fa-book-open"></i> Setup Guide</a></li><li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="resolution-center.html"><i class="fas fa-headset"></i> Resolution Center</a></li></ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-cogs"></i> Services</h4>
+                <ul><li><a href="subscription.html"><i class="fas fa-tag"></i> Subscription</a></li><li><a href="reseller.html"><i class="fas fa-chart-line"></i> Reseller Program</a></li></ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-crown"></i> 8K Strong VIP</h4>
+                <ul><li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li><li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li><li><a href="refund.html"><i class="fas fa-money-bill-wave"></i> Refund Policy</a></li><li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a>
+                <a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p style="margin-top: 20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | Watch Anywhere, Anytime on Any Device</p>
+        </div>
+    </footer>
 
     <script>
-        // Translations Database
+        // Language Translations
         const translations = {
-            en: {
-                home: "Home", convert: "Convert", reseller: "Reseller", subscription: "Subscription", setup_guide: "Setup Guide", downloader: "Downloader", about: "About", contact: "Contact",
-                hero_title: "8K Strong VIP – Watch Anywhere, Anytime on Any Device",
-                hero_desc: "Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality. 33,076+ live channels, 119,608+ movies, built-in VPN, and 24/7 support.",
-                trial_telegram: "Free Trial via Telegram", trial_whatsapp: "Free Trial via WhatsApp",
-                panel_title: "Strong 8K IPTV Panel", channels: "Channels", movies: "Movies", series: "Series",
-                instant_line: "Instant Line Creation", uptime: "99.9% Uptime", anti_freeze: "Anti-Freeze Streaming", support: "24/7 Support",
-                slide1_title: "8K Strong VIP – Watch Anywhere, Anytime on Any Device",
-                slide1_desc: "Access premium IPTV content anytime, anywhere. 8K Strong VIP offers sports, movies, and international channels in ultra HD quality.",
-                slide1_btn: "Subscribe Now", slide2_title: "Become a 8K Strong VIP Reseller", slide2_desc: "Start your own IPTV business today. Flexible credit system, instant activation, and dedicated 24/7 support.", slide2_btn: "Join Reseller",
-                slide3_title: "Limited Time – 20% OFF Yearly Plan", slide3_desc: "Get 20% discount on annual subscription. Premium IPTV service with anti-freeze technology and free trial.", slide3_btn: "Claim Offer",
-                credit_title: "Credit System", credit_desc: "Simple and transparent – convert credits directly into subscription months.", credits: "Credits", subscription_months: "Subscription Months", free_trial: "Free Trial", about_reseller: "About Reseller", panel_preview: "Reseller Panel Preview",
-                features_title: "Why Choose 8K Strong IPTV?", feature1: "Ultra Fast", feature1_desc: "High‑performance servers for buffer‑free streaming", feature2: "VPN Protection", feature2_desc: "Built‑in VPN for privacy and security", feature3: "Worldwide Channels", feature3_desc: "Channels from 100+ countries", feature4: "24/7 Support", feature4_desc: "Dedicated support team", feature5: "Reseller Dashboard", feature5_desc: "Full control with real‑time analytics", feature6: "8K Player Apps", feature6_desc: "Download our official player for all devices", download_now: "Download Now →",
-                testimonials_title: "What Our Customers Say", testimonial1: "Best IPTV service I've used. No buffering, great channel selection, and the VPN is a nice bonus.", testimonial2: "As a reseller, the panel is super easy to use. My customers love the quality.", testimonial3: "4K streams are flawless. Support responds within minutes. Highly recommended!",
-                plans_title: "Choose Your Plan", plan1: "1 Month", plan1_feat1: "33k+ Channels", plan1_feat2: "All Movies & Series", plan1_feat3: "VPN Included", plan2: "3 Months", plan2_feat1: "33k+ Channels", plan2_feat2: "All Movies & Series", plan2_feat3: "VPN + Priority Support", plan3: "6 Months", plan3_feat1: "33k+ Channels", plan3_feat2: "All Movies & Series", plan3_feat3: "2 Connections", plan4: "12 Months", plan4_feat1: "33k+ Channels", plan4_feat2: "All Movies & Series", plan4_feat3: "4K + Premium Support", buy_now: "Buy Now",
-                faq_title: "Frequently Asked Questions", faq1_q: "What devices are compatible?", faq1_a: "All Android TV, Firestick, Smart TVs, MAG, iOS, Windows, and more. Any device that supports IPTV apps.", faq2_q: "How to get free trial?", faq2_a: "Contact us via Telegram or WhatsApp for a 24-hour free trial with full access.", faq3_q: "Do you offer VPN?", faq3_a: "Yes, a built-in VPN is included for free to ensure privacy and bypass ISP throttling.", faq4_q: "How to download 8K Player?", faq4_a: "Visit our Downloader page to get the official 8K Player for Windows, Android, macOS, and Firestick.",
-                tools: "Tools", convert_m3u: "Convert M3U to Xtream", download_player: "Download 8K Player", help: "Help", blog: "Blog", contact_us: "Contact Us", resolution_center: "Resolution Center", services: "Services", reseller_program: "Reseller Program", company: "8K Strong VIP", about_us: "About Us", privacy: "Privacy Policy", refund: "Refund Policy", dmca: "DMCA", tagline: "Watch Anywhere, Anytime on Any Device"
-            },
-            ar: {
-                home: "الرئيسية", convert: "تحويل", reseller: "إعادة البيع", subscription: "الاشتراك", setup_guide: "دليل الإعداد", downloader: "التحميل", about: "عن", contact: "اتصل",
-                hero_title: "8K سترونج VIP – شاهد في أي مكان، أي وقت على أي جهاز",
-                hero_desc: "استمتع بمحتوى IPTV المتميز في أي وقت وفي أي مكان. تقدم 8K سترونج VIP قنوات رياضية وأفلاماً وقنوات دولية بجودة فائقة الوضوح.",
-                trial_telegram: "تجربة مجانية عبر تيليجرام", trial_whatsapp: "تجربة مجانية عبر واتساب",
-                panel_title: "لوحة تحكم سترونج 8K", channels: "قناة", movies: "فيلم", series: "مسلسل",
-                instant_line: "إنشاء فوري", uptime: "وقت تشغيل 99.9%", anti_freeze: "بث بدون تجميد", support: "دعم 24/7",
-                slide1_title: "8K سترونج VIP – شاهد في أي مكان، أي وقت على أي جهاز",
-                slide1_desc: "استمتع بمحتوى IPTV المتميز في أي وقت وفي أي مكان. تقدم 8K سترونج VIP قنوات رياضية وأفلاماً وقنوات دولية بجودة فائقة الوضوح.",
-                slide1_btn: "اشترك الآن", slide2_title: "كن موزعاً مع 8K سترونج VIP", slide2_desc: "ابدأ عملك الخاص في IPTV اليوم. نظام رصيد مرن، تفعيل فوري، ودعم مخصص.", slide2_btn: "انضم للموزعين",
-                slide3_title: "عرض محدود – خصم 20% على الخطة السنوية", slide3_desc: "احصل على خصم 20% على الاشتراك السنوي. خدمة IPTV متميزة مع تقنية مضادة للتجميد وتجربة مجانية.", slide3_btn: "احصل على العرض",
-                credit_title: "نظام الرصيد", credit_desc: "بسيط وشفاف – قم بتحويل الرصيد مباشرة إلى أشهر اشتراك.", credits: "الرصيد", subscription_months: "أشهر الاشتراك", free_trial: "تجربة مجانية", about_reseller: "عن إعادة البيع", panel_preview: "معاينة لوحة التحكم",
-                features_title: "لماذا تختار 8K سترونج VIP؟", feature1: "فائق السرعة", feature1_desc: "خوادم عالية الأداء لبث بدون تخزين مؤقت", feature2: "حماية VPN", feature2_desc: "VPN مدمج للخصوصية والأمان", feature3: "قنوات عالمية", feature3_desc: "قنوات من أكثر من 100 دولة", feature4: "دعم 24/7", feature4_desc: "فريق دعم مخصص", feature5: "لوحة تحكم الموزع", feature5_desc: "تحكم كامل مع تحليلات فورية", feature6: "تطبيقات 8K Player", feature6_desc: "قم بتحميل مشغلنا الرسمي لجميع الأجهزة", download_now: "تحميل الآن ←",
-                testimonials_title: "آراء عملائنا", testimonial1: "أفضل خدمة IPTV استخدمتها. لا تجميد، مجموعة قنوات رائعة، وVPN إضافة رائعة.", testimonial2: "كموزع، اللوحة سهلة الاستخدام للغاية. عملائي يحبون الجودة.", testimonial3: "بث 4K خالي من المشاكل. الدعم يجيب في دقائق. موصى به بشدة!",
-                plans_title: "اختر خطتك", plan1: "شهر واحد", plan1_feat1: "33,076+ قناة", plan1_feat2: "جميع الأفلام والمسلسلات", plan1_feat3: "VPN مدمج", plan2: "3 أشهر", plan2_feat1: "33,076+ قناة", plan2_feat2: "جميع الأفلام والمسلسلات", plan2_feat3: "VPN + دعم优先", plan3: "6 أشهر", plan3_feat1: "33,076+ قناة", plan3_feat2: "جميع الأفلام والمسلسلات", plan3_feat3: "اتصالين", plan4: "12 شهر", plan4_feat1: "33,076+ قناة", plan4_feat2: "جميع الأفلام والمسلسلات", plan4_feat3: "4K + دعم متميز", buy_now: "اشتر الآن",
-                faq_title: "الأسئلة الشائعة", faq1_q: "ما هي الأجهزة المتوافقة؟", faq1_a: "جميع أجهزة Android TV و Firestick و Smart TVs و MAG و iOS و Windows والمزيد.", faq2_q: "كيف أحصل على تجربة مجانية؟", faq2_a: "اتصل بنا عبر تيليجرام أو واتساب للحصول على تجربة مجانية لمدة 24 ساعة.", faq3_q: "هل تقدمون VPN؟", faq3_a: "نعم، VPN مدمج مجاني لضمان الخصوصية وتجاوز تقييدات مزود الخدمة.", faq4_q: "كيف أحمل 8K Player؟", faq4_a: "قم بزيارة صفحة التحميل للحصول على 8K Player الرسمي لأنظمة Windows و Android و macOS و Firestick.",
-                tools: "الأدوات", convert_m3u: "تحويل M3U إلى Xtream", download_player: "تحميل 8K Player", help: "المساعدة", blog: "المدونة", contact_us: "اتصل بنا", resolution_center: "مركز الحلول", services: "الخدمات", reseller_program: "برنامج إعادة البيع", company: "8K سترونج VIP", about_us: "معلومات عنا", privacy: "سياسة الخصوصية", refund: "سياسة الاسترداد", dmca: "سياسة DMCA", tagline: "شاهد في أي مكان، أي وقت على أي جهاز"
-            }
+            en: { home: "Home", convert: "Convert", reseller: "Reseller", subscription: "Subscription", setup_guide: "Setup Guide", downloader: "Downloader", about: "About", contact: "Contact" },
+            ar: { home: "الرئيسية", convert: "تحويل", reseller: "إعادة البيع", subscription: "الاشتراك", setup_guide: "دليل الإعداد", downloader: "التحميل", about: "عن", contact: "اتصل" },
+            fr: { home: "Accueil", convert: "Convertir", reseller: "Revendeur", subscription: "Abonnement", setup_guide: "Guide", downloader: "Télécharger", about: "À propos", contact: "Contact" },
+            es: { home: "Inicio", convert: "Convertir", reseller: "Revendedor", subscription: "Suscripción", setup_guide: "Guía", downloader: "Descargar", about: "Nosotros", contact: "Contacto" },
+            de: { home: "Startseite", convert: "Konvertieren", reseller: "Wiederverkäufer", subscription: "Abonnement", setup_guide: "Anleitung", downloader: "Herunterladen", about: "Über uns", contact: "Kontakt" },
+            it: { home: "Home", convert: "Convertire", reseller: "Rivenditore", subscription: "Abbonamento", setup_guide: "Guida", downloader: "Scarica", about: "Chi siamo", contact: "Contatti" }
         };
-
+        
         let currentLang = localStorage.getItem('language') || 'en';
-
+        
         function applyLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('language', lang);
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerText = translations[lang][key];
-                }
+                if (translations[lang] && translations[lang][key]) el.innerText = translations[lang][key];
             });
             const langBtn = document.getElementById('currentLangBtn');
-            if (lang === 'ar') langBtn.innerHTML = '🇸🇦 العربية';
-            else if (lang === 'fr') langBtn.innerHTML = '🇫🇷 Français';
-            else if (lang === 'es') langBtn.innerHTML = '🇪🇸 Español';
-            else if (lang === 'de') langBtn.innerHTML = '🇩🇪 Deutsch';
-            else if (lang === 'it') langBtn.innerHTML = '🇮🇹 Italiano';
-            else langBtn.innerHTML = '🇬🇧 English';
+            const langNames = { en: '🇬🇧 EN', ar: '🇸🇦 العربية', fr: '🇫🇷 FR', es: '🇪🇸 ES', de: '🇩🇪 DE', it: '🇮🇹 IT' };
+            langBtn.innerHTML = langNames[lang] || langNames.en;
             document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
         }
-
-        function changeLanguage(lang) {
-            applyLanguage(lang);
-        }
-
+        
         document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const lang = link.getAttribute('data-lang');
-                changeLanguage(lang);
+                applyLanguage(link.getAttribute('data-lang'));
             });
         });
-
+        
         // Slideshow
         let slideIndex = 0, slideInterval;
         const slides = document.getElementById('slides');
