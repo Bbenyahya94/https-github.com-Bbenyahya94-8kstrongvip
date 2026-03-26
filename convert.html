@@ -3,334 +3,465 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convert M3U to Xtream Codes – 8K Strong VIP</title>
-    <meta name="description" content="Free M3U to Xtream Codes converter. Transform your M3U playlist URL to Xtream Codes API (Username, Password, Server URL).">
+    
+    <!-- Primary SEO Tags -->
+    <title>Convert M3U to Xtream Codes – Free IPTV Converter Tool | 8K Strong VIP</title>
+    <meta name="title" content="Convert M3U to Xtream Codes – Free IPTV Converter Tool | 8K Strong VIP">
+    <meta name="description" content="Free online tool to convert M3U playlist URL to Xtream Codes. Extract Server URL, Username, Password, and EPG URL instantly. Easy IPTV converter for Firestick, Android TV, and all devices. 100% free.">
+    <meta name="keywords" content="convert M3U to Xtream, M3U to Xtream Codes, IPTV converter, Xtream Codes generator, IPTV playlist converter, M3U to Xtream API, free IPTV tool">
+    <meta name="author" content="8K Strong VIP">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://8kstrongvip.com/convert">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://8kstrongvip.com/convert">
+    <meta property="og:title" content="Convert M3U to Xtream Codes – Free IPTV Converter">
+    <meta property="og:description" content="Free online tool to convert M3U playlist URL to Xtream Codes. Extract Server URL, Username, and Password instantly.">
+    <meta property="og:image" content="https://8kstrongvip.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Convert M3U to Xtream Codes – Free IPTV Converter">
+    <meta name="twitter:description" content="Free online tool to convert M3U playlist URL to Xtream Codes. Extract credentials instantly.">
+    <meta name="twitter:image" content="https://8kstrongvip.com/images/og-image.jpg">
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "M3U to Xtream Codes Converter",
+      "description": "Free online tool to convert M3U playlist URLs to Xtream Codes format",
+      "url": "https://8kstrongvip.com/convert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://8kstrongvip.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Convert", "item": "https://8kstrongvip.com/convert"}
+      ]
+    }
+    </script>
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <style>
         :root {
             --gray-100: #041324;
             --gray-200: #05192f;
             --gray-300: #061e39;
             --gray-400: #072342;
+            --gray-500: #a6afb8;
+            --gray-600: #bfc8e2;
+            --gray-700: #ced4da;
+            --gray-800: #eff2f7;
+            --gray-900: #f3f6f9;
             --button-bg: #ecb619;
+            --button-hover: #d4a514;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: #fff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, 'Inter', sans-serif; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; }
+        [dir="rtl"] { text-align: right; }
+        img { max-width: 100%; height: auto; -webkit-user-drag: none; user-drag: none; }
         
-        .header { background: #05192f; padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #072342; }
+        .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-        .logo-img { height: 55px; }
-        .main-nav ul { display: flex; list-style: none; gap: 20px; justify-content: center; margin-top: 10px; }
-        .main-nav a { color: #ced4da; text-decoration: none; padding: 8px 12px; border-radius: 50px; }
-        .main-nav a:hover, .main-nav a.active { background: #ecb619; color: #041324; }
+        .logo-area a { display: flex; align-items: center; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; }
+        .mobile-menu-toggle { display: none; background: transparent; border: 1px solid var(--gray-400); color: var(--gray-700); font-size: 1.8em; cursor: pointer; padding: 5px 15px; border-radius: 10px; }
+        .header-actions { display: flex; align-items: center; gap: 15px; position: relative; }
+        .language-dropdown { position: relative; }
+        .lang-btn { background: var(--gray-300); border: 1px solid var(--gray-400); color: var(--gray-800); padding: 8px 15px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .lang-dropdown-menu { display: none; position: absolute; top: 100%; right: 0; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; min-width: 150px; z-index: 1001; margin-top: 5px; }
+        .lang-dropdown-menu a { display: block; padding: 10px 15px; color: var(--gray-800); text-decoration: none; transition: 0.3s; }
+        .lang-dropdown-menu a:hover { background: var(--gray-300); }
+        .language-dropdown:hover .lang-dropdown-menu { display: block; }
+        .main-nav { margin-top: 10px; }
+        .main-nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 20px; justify-content: center; }
+        .main-nav a { color: var(--gray-700); text-decoration: none; padding: 8px 12px; border-radius: 50px; transition: 0.3s; font-weight: 500; }
+        .main-nav a:hover, .main-nav a.active { background: var(--button-bg); color: var(--gray-100); }
+        .mobile-menu { display: none; background: var(--gray-200); border-top: 1px solid var(--gray-400); padding: 20px; margin-top: 10px; }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .mobile-menu a { color: var(--gray-700); text-decoration: none; font-size: 1.2em; padding: 10px; display: block; border-radius: 10px; }
+        .mobile-menu-open .mobile-menu { display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        .page-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #061e39, #05192f); border-radius: 30px; margin: 40px auto; }
-        .page-hero h1 { font-size: 3.2em; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; margin: 40px auto; border: 1px solid var(--gray-400); }
+        .page-hero h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-hero p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto; }
         
-        .converter-section { background: #05192f; border-radius: 30px; padding: 40px; margin: 40px auto; border: 1px solid #072342; }
+        .converter-section { background: var(--gray-200); border-radius: 30px; padding: 50px; margin: 40px auto; border: 1px solid var(--gray-400); display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .converter-info h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .feature-list { list-style: none; margin-top: 20px; }
+        .feature-list li { margin: 12px 0; display: flex; align-items: center; gap: 10px; color: var(--gray-600); }
+        .feature-list li i { color: var(--button-bg); width: 24px; }
+        
+        .converter-card { background: var(--gray-300); border-radius: 20px; padding: 30px; border: 1px solid var(--gray-400); }
         .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 10px; color: #bfc8e2; }
-        .input-group textarea { width: 100%; padding: 15px; background: #061e39; border: 1px solid #072342; border-radius: 10px; color: #fff; font-size: 1em; resize: vertical; min-height: 120px; font-family: monospace; }
+        .input-group label { display: block; margin-bottom: 10px; color: var(--gray-700); font-weight: 500; }
+        .input-group textarea { width: 100%; padding: 15px; background: var(--gray-200); border: 1px solid var(--gray-400); border-radius: 10px; color: var(--gray-800); font-size: 1em; resize: vertical; min-height: 120px; font-family: monospace; transition: 0.3s; }
+        .input-group textarea:focus { outline: none; border-color: var(--button-bg); }
         
-        .result-box { background: #061e39; border-radius: 15px; padding: 15px; margin: 15px 0; border: 1px solid #072342; }
-        .result-label { color: #bfc8e2; margin-bottom: 8px; }
-        .result-value { font-size: 1em; color: #ecb619; word-break: break-all; font-family: monospace; background: #041324; padding: 10px; border-radius: 6px; margin-top: 5px; }
-        .button-group { margin-top: 10px; }
-        .copy-btn, .copy-all-btn, .convert-btn { background: #ecb619; color: #041324; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .copy-btn:hover, .copy-all-btn:hover, .convert-btn:hover { background: #d4a514; transform: scale(1.02); }
-        .convert-btn { width: 100%; padding: 14px; border-radius: 50px; font-size: 1.1em; margin: 10px 0; }
-        .copy-all-btn { width: 100%; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .result-box { background: var(--gray-200); border-radius: 15px; padding: 15px; margin: 12px 0; border: 1px solid var(--gray-400); }
+        .result-label { color: var(--gray-600); margin-bottom: 8px; font-size: 0.9em; display: flex; align-items: center; gap: 8px; }
+        .result-value { font-size: 0.95em; font-weight: 500; color: var(--button-bg); word-break: break-all; font-family: monospace; background: var(--gray-300); padding: 8px; border-radius: 6px; margin-top: 5px; }
+        .button-group { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+        .copy-btn { background: transparent; border: 1px solid var(--button-bg); color: var(--button-bg); padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 0.75em; transition: 0.3s; display: inline-flex; align-items: center; gap: 5px; }
+        .copy-btn:hover { background: var(--button-bg); color: var(--gray-100); }
+        .copy-all-btn { background: var(--button-bg); color: var(--gray-100); border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .copy-all-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
+        .convert-btn { width: 100%; background: var(--button-bg); color: var(--gray-100); padding: 14px; border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .convert-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
         
-        .example-box { background: #061e39; border-radius: 15px; padding: 15px; margin-top: 20px; border: 1px solid #072342; }
-        .example-box h4 { color: #ecb619; margin-bottom: 10px; }
-        .example-box p { color: #bfc8e2; font-size: 0.8em; font-family: monospace; margin: 5px 0; }
+        .example-box { background: var(--gray-300); border-radius: 15px; padding: 15px; margin-top: 20px; border: 1px solid var(--gray-400); }
+        .example-box h4 { color: var(--button-bg); margin-bottom: 10px; font-size: 0.9em; }
+        .example-box p { color: var(--gray-600); font-size: 0.75em; font-family: monospace; margin: 5px 0; }
+        .example-box .highlight { color: var(--button-bg); }
         
-        .credit-integration { background: linear-gradient(135deg, #061e39, #05192f); border-radius: 30px; padding: 40px; margin: 40px auto; text-align: center; }
-        .credit-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
-        .credit-btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; }
-        .credit-btn.primary { background: #ecb619; color: #041324; }
-        .credit-btn.secondary { background: transparent; color: #ecb619; border: 2px solid #ecb619; }
+        .credit-integration { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 40px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
+        .credit-integration h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .credit-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .credit-btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .credit-btn.primary { background: var(--button-bg); color: var(--gray-100); }
+        .credit-btn.secondary { background: transparent; color: var(--button-bg); border: 2px solid var(--button-bg); }
+        .credit-btn:hover { transform: scale(1.05); }
         
-        .footer { background: #05192f; padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid #072342; text-align: center; }
-        .footer-content { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer { background: var(--gray-200); padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid var(--gray-400); }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
         .footer-column h4 { color: #ecb619; margin-bottom: 20px; }
-        .footer-column a { color: #bfc8e2; text-decoration: none; display: block; margin: 10px 0; font-size: 14px; }
-        .footer-column a:hover { color: #ecb619; }
-        .social-links { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
-        .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #bfc8e2; }
-        .social-links a:hover { background: #ecb619; color: #0a0b1a; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin: 10px 0; }
+        .footer-column ul li a { color: var(--gray-600); text-decoration: none; transition: color 0.3s; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+        .footer-column ul li a:hover { color: #ecb619; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray-600); font-size: 12px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
+        .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
         
         @media (max-width: 768px) {
             .header { padding: 10px 20px; }
-            .main-nav ul { flex-wrap: wrap; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .logo-img { max-height: 40px; max-width: 150px; }
+            .mobile-menu-toggle { display: block; }
+            .main-nav { display: none; }
+            .page-hero h1 { font-size: 2em; }
+            .converter-section { grid-template-columns: 1fr; padding: 30px; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-top">
-            <div class="logo-area"><a href="/"><img src="images/logo.png" alt="8K Strong IPTV" class="logo-img"></a></div>
-            <div class="language-dropdown">
-                <button class="lang-btn" id="currentLangBtn">🇬🇧 EN</button>
+            <div class="logo-area"><a href="/"><img src="images/logo.png" alt="8K Strong VIP Logo" class="logo-img" width="200" height="55"></a></div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            <div class="header-actions">
+                <div class="language-dropdown">
+                    <button class="lang-btn" id="currentLangBtn" aria-label="Language">🇬🇧 EN</button>
+                    <div class="lang-dropdown-menu">
+                        <a href="#" data-lang="en">🇬🇧 English</a>
+                        <a href="#" data-lang="fr">🇫🇷 Français</a>
+                        <a href="#" data-lang="ar">🇸🇦 العربية</a>
+                    </div>
+                </div>
             </div>
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="convert" class="active">Convert</a></li>
-                <li><a href="reseller">Reseller</a></li>
-                <li><a href="subscription">Subscription</a></li>
-                <li><a href="setup-guide">Setup Guide</a></li>
-                <li><a href="downloader">Downloader</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="/" data-i18n="home">Home</a></li>
+                <li><a href="convert" class="active" data-i18n="convert">Convert</a></li>
+                <li><a href="reseller" data-i18n="reseller">Reseller</a></li>
+                <li><a href="subscription" data-i18n="subscription">Subscription</a></li>
+                <li><a href="setup-guide" data-i18n="setup_guide">Setup Guide</a></li>
+                <li><a href="downloader" data-i18n="downloader">Downloader</a></li>
+                <li><a href="about" data-i18n="about">About</a></li>
+                <li><a href="contact" data-i18n="contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul><li><a href="/">Home</a></li><li><a href="convert">Convert</a></li><li><a href="reseller">Reseller</a></li><li><a href="subscription">Subscription</a></li><li><a href="setup-guide">Setup Guide</a></li><li><a href="downloader">Downloader</a></li><li><a href="about">About</a></li><li><a href="contact">Contact</a></li></ul>
+        </div>
     </header>
 
     <main class="container">
         <section class="page-hero">
-            <h1>Convert M3U to Xtream Codes</h1>
-            <p>Paste your M3U playlist URL below and click Convert. Get your Server URL, Username, and Password instantly.</p>
+            <h1 data-i18n="convert_title">Convert M3U to Xtream Codes</h1>
+            <p data-i18n="convert_desc">Extract Username, Password, Server URL, and EPG URL from your M3U playlist URL. Easy and fast conversion for all IPTV players and apps.</p>
         </section>
         
         <div class="converter-section">
-            <div class="input-group">
-                <label><i class="fas fa-link"></i> M3U Playlist URL</label>
-                <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;&#10;Examples:&#10;http://server.com:8080/get.php?username=USER&password=PASS&type=m3u&#10;http://server.com:8080/USER/PASS"></textarea>
+            <div class="converter-info">
+                <h2 data-i18n="converter_title">M3U to Xtream Codes Converter</h2>
+                <p data-i18n="converter_desc">Convert any M3U playlist URL to Xtream Codes format. Paste your M3U URL below and click Convert.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="feature1">Extract Username & Password</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="feature2">Extract Server URL & EPG URL</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="feature3">Compatible with all IPTV apps</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="feature4">Works with M3U, M3U8, and Xtream formats</span></li>
+                </ul>
             </div>
-            <button class="convert-btn" id="convertBtn"><i class="fas fa-sync-alt"></i> Convert to Xtream Codes</button>
-            
-            <div id="resultArea" style="display: none;">
-                <div class="result-box">
-                    <div class="result-label"><i class="fas fa-server"></i> Server URL</div>
-                    <div class="result-value" id="serverUrl">-</div>
-                    <div class="button-group"><button class="copy-btn" id="copyServerBtn"><i class="fas fa-copy"></i> Copy Server URL</button></div>
+            <div class="converter-card">
+                <div class="input-group">
+                    <label><i class="fas fa-link"></i> <span data-i18n="m3u_label">M3U Playlist URL</span></label>
+                    <textarea id="m3uUrl" placeholder="Enter your M3U playlist URL here...&#10;&#10;Examples:&#10;http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts&#10;http://server.com:8080/USER/PASS&#10;http://USER:PASS@server.com:8080/playlist.m3u" aria-label="M3U Playlist URL"></textarea>
                 </div>
-                <div class="result-box">
-                    <div class="result-label"><i class="fas fa-user"></i> Username</div>
-                    <div class="result-value" id="username">-</div>
-                    <div class="button-group"><button class="copy-btn" id="copyUsernameBtn"><i class="fas fa-copy"></i> Copy Username</button></div>
+                <button class="convert-btn" id="convertBtn"><i class="fas fa-sync-alt"></i> <span data-i18n="convert_btn">Convert to Xtream Codes</span></button>
+                
+                <div id="resultContainer" style="display: none;">
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-server"></i> <span data-i18n="server_label">Server URL</span></div>
+                        <div class="result-value" id="serverUrl">-</div>
+                        <div class="button-group"><button class="copy-btn" id="copyServerBtn"><i class="fas fa-copy"></i> <span data-i18n="copy_btn">Copy</span></button></div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-user"></i> <span data-i18n="username_label">Username</span></div>
+                        <div class="result-value" id="username">-</div>
+                        <div class="button-group"><button class="copy-btn" id="copyUsernameBtn"><i class="fas fa-copy"></i> <span data-i18n="copy_btn">Copy</span></button></div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-lock"></i> <span data-i18n="password_label">Password</span></div>
+                        <div class="result-value" id="password">-</div>
+                        <div class="button-group"><button class="copy-btn" id="copyPasswordBtn"><i class="fas fa-copy"></i> <span data-i18n="copy_btn">Copy</span></button></div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label"><i class="fas fa-calendar-alt"></i> <span data-i18n="epg_label">EPG URL (XMLTV)</span></div>
+                        <div class="result-value" id="epgUrl">-</div>
+                        <div class="button-group"><button class="copy-btn" id="copyEpgBtn"><i class="fas fa-copy"></i> <span data-i18n="copy_btn">Copy</span></button></div>
+                    </div>
+                    <button class="copy-all-btn" id="copyAllBtn"><i class="fas fa-copy"></i> <span data-i18n="copy_all_btn">Copy All Information</span></button>
                 </div>
-                <div class="result-box">
-                    <div class="result-label"><i class="fas fa-lock"></i> Password</div>
-                    <div class="result-value" id="password">-</div>
-                    <div class="button-group"><button class="copy-btn" id="copyPasswordBtn"><i class="fas fa-copy"></i> Copy Password</button></div>
+                
+                <div class="example-box">
+                    <h4><i class="fas fa-question-circle"></i> <span data-i18n="supported_formats">Supported M3U URL Formats</span></h4>
+                    <p><span class="highlight">Format 1 (Query String):</span><br>http://server.com:8080/get.php?username=USER&password=PASS&type=m3u_plus&output=ts</p>
+                    <p><span class="highlight">Format 2 (Path):</span><br>http://server.com:8080/USER/PASS</p>
+                    <p><span class="highlight">Format 3 (Basic Auth):</span><br>http://USER:PASS@server.com:8080/playlist.m3u</p>
+                    <p><span class="highlight">Result Example:</span><br>Server: http://server.com:8080<br>Username: USER<br>Password: PASS</p>
                 </div>
-                <div class="result-box">
-                    <div class="result-label"><i class="fas fa-calendar-alt"></i> EPG URL</div>
-                    <div class="result-value" id="epgUrl">-</div>
-                    <div class="button-group"><button class="copy-btn" id="copyEpgBtn"><i class="fas fa-copy"></i> Copy EPG URL</button></div>
-                </div>
-                <button class="copy-all-btn" id="copyAllBtn"><i class="fas fa-copy"></i> 📋 Copy All Information</button>
-            </div>
-            
-            <div class="example-box">
-                <h4><i class="fas fa-question-circle"></i> Supported Formats</h4>
-                <p>http://server.com:8080/get.php?username=USER&password=PASS&type=m3u</p>
-                <p>http://server.com:8080/USER/PASS</p>
-                <p><strong>Result:</strong> Server: http://server.com:8080 | Username: USER | Password: PASS</p>
             </div>
         </div>
         
         <div class="credit-integration">
-            <h2><i class="fas fa-coins"></i> 8K Strong VIP Credit System</h2>
-            <p>1 Credit = 1 Month Subscription. Become a reseller today!</p>
+            <h2><i class="fas fa-coins"></i> <span data-i18n="credit_title">8K Strong VIP Credit System</h2>
+            <p data-i18n="credit_desc">Convert your credits to subscription months easily. 1 Credit = 1 Month Subscription. Perfect for resellers managing multiple customers.</p>
             <div class="credit-buttons">
-                <a href="reseller" class="credit-btn primary"><i class="fas fa-chart-line"></i> Become a Reseller</a>
-                <a href="reseller.html#packages" class="credit-btn secondary"><i class="fas fa-coins"></i> View Packages</a>
+                <a href="reseller" class="credit-btn primary"><i class="fas fa-chart-line"></i> <span data-i18n="become_reseller">Become a Reseller</span></a>
+                <a href="reseller#packages" class="credit-btn secondary"><i class="fas fa-coins"></i> <span data-i18n="view_packages">View Credit Packages</span></a>
             </div>
         </div>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-column"><h4>Tools</h4><a href="convert">Convert M3U to Xtream</a><a href="downloader">Download 8K Player</a></div>
-            <div class="footer-column"><h4>Help</h4><a href="setup-guide">Setup Guide</a><a href="blog.html">Blog</a><a href="contact">Contact Us</a><a href="resolution-center">Resolution Center</a></div>
-            <div class="footer-column"><h4>Services</h4><a href="subscription">Subscription</a><a href="reseller">Reseller Program</a></div>
-            <div class="footer-column"><h4>8K Strong VIP</h4><a href="about">About Us</a><a href="privacy">Privacy Policy</a><a href="refund">Refund Policy</a><a href="dmca">DMCA</a><a href="terms">Terms & Conditions</a></div>
+            <div class="footer-column"><h4><i class="fas fa-tools"></i> <span data-i18n="tools">Tools</span></h4><ul><li><a href="convert"><i class="fas fa-exchange-alt"></i> <span data-i18n="convert_m3u">Convert M3U to Xtream</span></a></li><li><a href="downloader"><i class="fas fa-download"></i> <span data-i18n="download_player">Download 8K Player</span></a></li></ul></div>
+            <div class="footer-column"><h4><i class="fas fa-question-circle"></i> <span data-i18n="help">Help</span></h4><ul><li><a href="setup-guide"><i class="fas fa-book-open"></i> <span data-i18n="setup_guide">Setup Guide</span></a></li><li><a href="blog"><i class="fas fa-blog"></i> <span data-i18n="blog">Blog</span></a></li><li><a href="contact"><i class="fas fa-envelope"></i> <span data-i18n="contact_us">Contact Us</span></a></li><li><a href="resolution-center"><i class="fas fa-headset"></i> <span data-i18n="resolution_center">Resolution Center</span></a></li></ul></div>
+            <div class="footer-column"><h4><i class="fas fa-cogs"></i> <span data-i18n="services">Services</span></h4><ul><li><a href="subscription"><i class="fas fa-tag"></i> <span data-i18n="subscription">Subscription</span></a></li><li><a href="reseller"><i class="fas fa-chart-line"></i> <span data-i18n="reseller_program">Reseller Program</span></a></li></ul></div>
+            <div class="footer-column"><h4><i class="fas fa-crown"></i> <span data-i18n="company">8K Strong VIP</span></h4><ul><li><a href="about"><i class="fas fa-info-circle"></i> <span data-i18n="about_us">About Us</span></a></li><li><a href="privacy"><i class="fas fa-shield-alt"></i> <span data-i18n="privacy">Privacy Policy</span></a></li><li><a href="refund"><i class="fas fa-money-bill-wave"></i> <span data-i18n="refund">Refund Policy</span></a></li><li><a href="dmca"><i class="fas fa-copyright"></i> <span data-i18n="dmca">DMCA</span></a></li><li><a href="terms"><i class="fas fa-file-alt"></i> <span data-i18n="terms">Terms & Conditions</span></a></li></ul></div>
         </div>
-        <div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support"><i class="fab fa-telegram"></i></a><a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a></div>
-        <p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved.</p>
+        <div class="footer-bottom">
+            <div class="social-links"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support" aria-label="Telegram"><i class="fab fa-telegram"></i></a><a href="https://wa.me/212670969192" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+            <p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | <span data-i18n="tagline">Watch Anywhere, Anytime on Any Device</span></p>
+        </div>
     </footer>
 
     <script>
-        // ========== COPY FUNCTION ==========
-        function copyText(text, fieldName, button) {
-            if (!text || text === '-' || text === 'Not available') {
-                alert(`❌ No ${fieldName} available to copy`);
-                return false;
+        // Translations
+        const translations = {
+            en: {
+                home: "Home", convert: "Convert", reseller: "Reseller", subscription: "Subscription", setup_guide: "Setup Guide", downloader: "Downloader", about: "About", contact: "Contact",
+                convert_title: "Convert M3U to Xtream Codes",
+                convert_desc: "Extract Username, Password, Server URL, and EPG URL from your M3U playlist URL. Easy and fast conversion for all IPTV players and apps.",
+                converter_title: "M3U to Xtream Codes Converter",
+                converter_desc: "Convert any M3U playlist URL to Xtream Codes format. Paste your M3U URL below and click Convert.",
+                feature1: "Extract Username & Password", feature2: "Extract Server URL & EPG URL", feature3: "Compatible with all IPTV apps", feature4: "Works with M3U, M3U8, and Xtream formats",
+                m3u_label: "M3U Playlist URL", convert_btn: "Convert to Xtream Codes",
+                server_label: "Server URL", username_label: "Username", password_label: "Password", epg_label: "EPG URL (XMLTV)", copy_btn: "Copy", copy_all_btn: "Copy All Information",
+                supported_formats: "Supported M3U URL Formats",
+                credit_title: "8K Strong VIP Credit System", credit_desc: "Convert your credits to subscription months easily. 1 Credit = 1 Month Subscription.", become_reseller: "Become a Reseller", view_packages: "View Credit Packages",
+                tools: "Tools", convert_m3u: "Convert M3U to Xtream", download_player: "Download 8K Player", help: "Help", blog: "Blog", contact_us: "Contact Us", resolution_center: "Resolution Center", services: "Services", reseller_program: "Reseller Program", company: "8K Strong VIP", about_us: "About Us", privacy: "Privacy Policy", refund: "Refund Policy", dmca: "DMCA", terms: "Terms & Conditions", tagline: "Watch Anywhere, Anytime on Any Device"
+            },
+            fr: {
+                home: "Accueil", convert: "Convertir", reseller: "Revendeur", subscription: "Abonnement", setup_guide: "Guide", downloader: "Télécharger", about: "À propos", contact: "Contact",
+                convert_title: "Convertir M3U en Xtream Codes",
+                convert_desc: "Extrayez le nom d'utilisateur, le mot de passe, l'URL du serveur et l'URL EPG de votre URL de playlist M3U.",
+                converter_title: "Convertisseur M3U vers Xtream Codes",
+                converter_desc: "Convertissez n'importe quelle URL de playlist M3U au format Xtream Codes.",
+                feature1: "Extraire nom d'utilisateur et mot de passe", feature2: "Extraire URL serveur et EPG", feature3: "Compatible avec toutes les apps IPTV", feature4: "Fonctionne avec les formats M3U, M3U8 et Xtream",
+                m3u_label: "URL de playlist M3U", convert_btn: "Convertir en Xtream Codes",
+                server_label: "URL du serveur", username_label: "Nom d'utilisateur", password_label: "Mot de passe", epg_label: "URL EPG (XMLTV)", copy_btn: "Copier", copy_all_btn: "Tout copier",
+                supported_formats: "Formats M3U supportés",
+                credit_title: "Système de crédits 8K Strong VIP", credit_desc: "Convertissez vos crédits en mois d'abonnement. 1 Crédit = 1 Mois.", become_reseller: "Devenir revendeur", view_packages: "Voir les forfaits",
+                tools: "Outils", convert_m3u: "Convertir M3U en Xtream", download_player: "Télécharger 8K Player", help: "Aide", blog: "Blog", contact_us: "Contactez-nous", resolution_center: "Centre de résolution", services: "Services", reseller_program: "Programme revendeur", company: "8K Strong VIP", about_us: "À propos", privacy: "Confidentialité", refund: "Remboursement", dmca: "Politique DMCA", terms: "Conditions", tagline: "Regardez n'importe où, n'importe quand"
+            },
+            ar: {
+                home: "الرئيسية", convert: "تحويل", reseller: "إعادة البيع", subscription: "الاشتراك", setup_guide: "دليل الإعداد", downloader: "التحميل", about: "عن", contact: "اتصل",
+                convert_title: "تحويل M3U إلى Xtream Codes",
+                convert_desc: "استخرج اسم المستخدم وكلمة المرور وعنوان الخادم وعنوان EPG من عنوان URL لقائمة تشغيل M3U الخاصة بك.",
+                converter_title: "محول M3U إلى Xtream Codes",
+                converter_desc: "قم بتحويل أي عنوان URL لقائمة تشغيل M3U إلى تنسيق Xtream Codes.",
+                feature1: "استخراج اسم المستخدم وكلمة المرور", feature2: "استخراج عنوان الخادم و EPG", feature3: "متوافق مع جميع تطبيقات IPTV", feature4: "يعمل مع صيغ M3U و M3U8 و Xtream",
+                m3u_label: "عنوان URL لقائمة M3U", convert_btn: "تحويل إلى Xtream Codes",
+                server_label: "عنوان الخادم", username_label: "اسم المستخدم", password_label: "كلمة المرور", epg_label: "عنوان EPG (XMLTV)", copy_btn: "نسخ", copy_all_btn: "نسخ جميع المعلومات",
+                supported_formats: "صيغ M3U المدعومة",
+                credit_title: "نظام الرصيد 8K سترونج VIP", credit_desc: "قم بتحويل أرصدتك إلى أشهر اشتراك بسهولة. 1 رصيد = 1 شهر.", become_reseller: "كن موزعاً", view_packages: "عرض باقات الرصيد",
+                tools: "الأدوات", convert_m3u: "تحويل M3U إلى Xtream", download_player: "تحميل 8K Player", help: "المساعدة", blog: "المدونة", contact_us: "اتصل بنا", resolution_center: "مركز الحلول", services: "الخدمات", reseller_program: "برنامج إعادة البيع", company: "8K سترونج VIP", about_us: "معلومات عنا", privacy: "سياسة الخصوصية", refund: "سياسة الاسترداد", dmca: "سياسة DMCA", terms: "الشروط والأحكام", tagline: "شاهد في أي مكان، أي وقت على أي جهاز"
             }
-            
-            // Try modern clipboard API
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => {
-                    alert(`✅ ${fieldName} copied to clipboard!`);
-                    const originalText = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    setTimeout(() => { button.innerHTML = originalText; }, 1500);
-                }).catch(() => {
-                    alert(`❌ Failed to copy ${fieldName}`);
-                });
-            } else {
-                // Fallback for older browsers
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                const success = document.execCommand('copy');
-                document.body.removeChild(textarea);
-                if (success) {
-                    alert(`✅ ${fieldName} copied to clipboard!`);
-                    const originalText = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    setTimeout(() => { button.innerHTML = originalText; }, 1500);
-                } else {
-                    alert(`❌ Failed to copy ${fieldName}`);
+        };
+
+        let currentLang = localStorage.getItem('language') || 'en';
+        
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
                 }
-            }
+            });
+            const langBtn = document.getElementById('currentLangBtn');
+            const langNames = { en: '🇬🇧 EN', fr: '🇫🇷 FR', ar: '🇸🇦 العربية' };
+            langBtn.innerHTML = langNames[lang] || langNames.en;
+            document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
         }
         
-        // ========== COPY ALL ==========
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                applyLanguage(link.getAttribute('data-lang'));
+            });
+        });
+        
+        // Converter Functions
+        let currentData = { serverUrl: '', username: '', password: '', epgUrl: '' };
+        
+        function showMessage(msg) { alert(msg); }
+        
+        function copyField(fieldId, fieldName, button) {
+            const element = document.getElementById(fieldId);
+            if (!element || element.innerText === '-' || element.innerText === 'Not available') {
+                showMessage(`❌ No ${fieldName} available to copy`);
+                return;
+            }
+            navigator.clipboard.writeText(element.innerText).then(() => {
+                showMessage(`✅ ${fieldName} copied to clipboard!`);
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { button.innerHTML = originalHTML; }, 1500);
+            }).catch(() => showMessage(`❌ Failed to copy ${fieldName}`));
+        }
+        
         function copyAll() {
             const serverUrl = document.getElementById('serverUrl').innerText;
             const username = document.getElementById('username').innerText;
             const password = document.getElementById('password').innerText;
             const epgUrl = document.getElementById('epgUrl').innerText;
-            
             if (!serverUrl || serverUrl === '-' || !username || username === '-') {
-                alert('❌ No data available. Please convert an M3U URL first.');
+                showMessage('❌ No data available. Please convert an M3U URL first.');
                 return;
             }
-            
-            const text = `═══════════════════════════════════
-        XTREAM CODES INFORMATION
-═══════════════════════════════════
-
-📡 Server URL: ${serverUrl}
-👤 Username: ${username}
-🔐 Password: ${password}
-📅 EPG URL: ${epgUrl}
-
-═══════════════════════════════════
-8K Strong VIP - Premium IPTV Service
-═══════════════════════════════════`;
-            
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('✅ All Xtream Codes copied to clipboard!');
-                    const btn = document.getElementById('copyAllBtn');
-                    const originalText = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
-                    setTimeout(() => { btn.innerHTML = originalText; }, 1500);
-                }).catch(() => {
-                    alert('❌ Failed to copy all information');
-                });
-            } else {
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                const success = document.execCommand('copy');
-                document.body.removeChild(textarea);
-                if (success) {
-                    alert('✅ All Xtream Codes copied to clipboard!');
-                    const btn = document.getElementById('copyAllBtn');
-                    const originalText = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
-                    setTimeout(() => { btn.innerHTML = originalText; }, 1500);
-                } else {
-                    alert('❌ Failed to copy all information');
-                }
-            }
+            const text = `═══════════════════════════════════\n        XTREAM CODES INFORMATION\n═══════════════════════════════════\n\n📡 Server URL: ${serverUrl}\n👤 Username: ${username}\n🔐 Password: ${password}\n📅 EPG URL: ${epgUrl}\n\n═══════════════════════════════════\n8K Strong VIP - Premium IPTV Service\n═══════════════════════════════════`;
+            navigator.clipboard.writeText(text).then(() => {
+                showMessage('✅ All Xtream Codes copied to clipboard!');
+                const btn = document.getElementById('copyAllBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> All Copied!';
+                setTimeout(() => { btn.innerHTML = originalText; }, 1500);
+            }).catch(() => showMessage('❌ Failed to copy all information'));
         }
         
-        // ========== EXTRACT EPG URL ==========
         function extractEpgUrl(serverUrl, username, password) {
             return `${serverUrl}/xmltv.php?username=${username}&password=${password}`;
         }
         
-        // ========== CONVERT FUNCTION ==========
         function convertM3UtoXtream() {
             const m3uUrl = document.getElementById('m3uUrl').value.trim();
-            if (!m3uUrl) {
-                alert('❌ Please enter an M3U playlist URL');
-                return;
-            }
+            if (!m3uUrl) { showMessage('❌ Please enter an M3U playlist URL'); return; }
             
             let username = null, password = null, serverUrl = null;
-            
             try {
                 const url = new URL(m3uUrl);
                 serverUrl = `${url.protocol}//${url.host}`;
                 username = url.searchParams.get('username');
                 password = url.searchParams.get('password');
-                
-                if (!username && url.username) {
-                    username = decodeURIComponent(url.username);
-                    password = decodeURIComponent(url.password);
-                }
-                
+                if (!username && url.username) { username = decodeURIComponent(url.username); password = decodeURIComponent(url.password); }
                 if (!username || !password) {
                     const pathParts = url.pathname.split('/').filter(p => p.length > 0);
-                    if (pathParts.length >= 2) {
-                        username = decodeURIComponent(pathParts[0]);
-                        password = decodeURIComponent(pathParts[1]);
-                    }
+                    if (pathParts.length >= 2) { username = decodeURIComponent(pathParts[0]); password = decodeURIComponent(pathParts[1]); }
                 }
             } catch(e) {
                 const urlMatch = m3uUrl.match(/^(https?:\/\/[^\/:]+(?::\d+)?)/i);
                 if (urlMatch) serverUrl = urlMatch[1];
-                
                 const userMatch = m3uUrl.match(/[\/?&]username=([^&]+)/i);
                 if (userMatch) username = decodeURIComponent(userMatch[1]);
-                
                 const passMatch = m3uUrl.match(/[\/?&]password=([^&]+)/i);
                 if (passMatch) password = decodeURIComponent(passMatch[1]);
-                
                 if (!username || !password) {
                     const pathMatch = m3uUrl.match(/\/([^\/]+)\/([^\/]+)(?:\/|$)/);
-                    if (pathMatch) {
-                        username = decodeURIComponent(pathMatch[1]);
-                        password = decodeURIComponent(pathMatch[2]);
-                    }
+                    if (pathMatch) { username = decodeURIComponent(pathMatch[1]); password = decodeURIComponent(pathMatch[2]); }
                 }
-                
                 const authMatch = m3uUrl.match(/\/\/([^:]+):([^@]+)@/);
-                if (authMatch) {
-                    username = decodeURIComponent(authMatch[1]);
-                    password = decodeURIComponent(authMatch[2]);
-                }
+                if (authMatch) { username = decodeURIComponent(authMatch[1]); password = decodeURIComponent(authMatch[2]); }
             }
             
             if (username && password && serverUrl) {
                 const epgUrl = extractEpgUrl(serverUrl, username, password);
+                currentData = { serverUrl, username, password, epgUrl };
                 document.getElementById('serverUrl').innerHTML = serverUrl;
                 document.getElementById('username').innerHTML = username;
                 document.getElementById('password').innerHTML = password;
                 document.getElementById('epgUrl').innerHTML = epgUrl;
-                document.getElementById('resultArea').style.display = 'block';
-                alert('✅ Conversion successful!');
-                document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('resultContainer').style.display = 'block';
+                showMessage('✅ Conversion successful!');
+                document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
             } else {
-                alert('❌ Could not extract username and password.\n\nMake sure your M3U URL contains credentials in one of these formats:\n\n1. http://server.com:8080/get.php?username=USER&password=PASS\n2. http://server.com:8080/USER/PASS');
+                showMessage('❌ Could not extract. Try Manual Entry tab instead.\n\nMake sure your M3U URL contains username and password.');
             }
         }
         
-        // ========== SETUP BUTTONS ==========
+        // Setup event listeners
         document.getElementById('convertBtn').onclick = convertM3UtoXtream;
-        document.getElementById('copyServerBtn').onclick = function() { copyText(document.getElementById('serverUrl').innerText, 'Server URL', this); };
-        document.getElementById('copyUsernameBtn').onclick = function() { copyText(document.getElementById('username').innerText, 'Username', this); };
-        document.getElementById('copyPasswordBtn').onclick = function() { copyText(document.getElementById('password').innerText, 'Password', this); };
-        document.getElementById('copyEpgBtn').onclick = function() { copyText(document.getElementById('epgUrl').innerText, 'EPG URL', this); };
+        document.getElementById('copyServerBtn').onclick = () => copyField('serverUrl', 'Server URL', document.getElementById('copyServerBtn'));
+        document.getElementById('copyUsernameBtn').onclick = () => copyField('username', 'Username', document.getElementById('copyUsernameBtn'));
+        document.getElementById('copyPasswordBtn').onclick = () => copyField('password', 'Password', document.getElementById('copyPasswordBtn'));
+        document.getElementById('copyEpgBtn').onclick = () => copyField('epgUrl', 'EPG URL', document.getElementById('copyEpgBtn'));
         document.getElementById('copyAllBtn').onclick = copyAll;
         
-        // Language
-        let currentLang = localStorage.getItem('language') || 'en';
-        document.getElementById('currentLangBtn').innerHTML = currentLang === 'en' ? '🇬🇧 EN' : currentLang === 'ar' ? '🇸🇦 العربية' : currentLang === 'fr' ? '🇫🇷 FR' : '🇬🇧 EN';
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const header = document.querySelector('.header');
+        if(toggleBtn) toggleBtn.addEventListener('click', () => header.classList.toggle('mobile-menu-open'));
+        
+        applyLanguage(currentLang);
+        
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's')) e.preventDefault();
+        });
+        document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
     </script>
 </body>
 </html>
