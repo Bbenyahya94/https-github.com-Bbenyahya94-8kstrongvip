@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://8kstrongvip.com/sitemap.xml
+Disallow: /images/
