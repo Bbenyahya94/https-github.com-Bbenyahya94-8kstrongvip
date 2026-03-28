@@ -13,30 +13,7 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://8kstrongvip.com/reseller">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Primary SEO Tags -->
-    <title>Your Page Title</title>
-    <meta name="description" content="Your description">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://8kstrongvip.com/your-page">
-    <meta property="og:title" content="Your Page Title">
-    <meta property="og:description" content="Your description">
-    <meta property="og:image" content="https://8kstrongvip.com/images/og-image.jpg">
-    
-    <!-- Twitter Card - ADD THESE -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Your Page Title">
-    <meta name="twitter:description" content="Your description">
-    <meta name="twitter:image" content="https://8kstrongvip.com/images/og-image.jpg">
-    
-    <!-- Rest of your head content -->
-    <link rel="stylesheet" href="...">
-</head>
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://8kstrongvip.com/reseller">
@@ -165,14 +142,58 @@
         .package-features { list-style: none; margin: 20px 0; text-align: left; }
         .package-features li { margin: 10px 0; color: var(--gray-600); display: flex; align-items: center; gap: 10px; }
         .package-features li i { color: var(--button-bg); width: 20px; }
-        .package-btn { display: inline-block; width: 100%; background: var(--button-bg); color: var(--gray-100); padding: 12px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 20px; }
-        .package-btn:hover { background: var(--button-hover); transform: translateY(-2px); }
+        
+        /* WhatsApp Button for Package Cards */
+        .package-btn-wa {
+            display: inline-block;
+            width: 100%;
+            background: #25D366;
+            color: white;
+            padding: 12px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 20px;
+            text-align: center;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        
+        .package-btn-wa:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+        }
+        
+        .package-btn-wa i {
+            margin-right: 8px;
+        }
         
         .professional-package { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--button-bg); }
         .professional-package h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .professional-package .credits { font-size: 3em; font-weight: 800; color: var(--button-bg); margin: 20px 0; }
-        .contact-btn { background: var(--button-bg); color: var(--gray-100); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
-        .contact-btn:hover { transform: scale(1.05); background: var(--button-hover); }
+        
+        /* WhatsApp Button for Professional Package */
+        .contact-btn-wa {
+            background: #25D366;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            font-size: 1.1em;
+        }
+        
+        .contact-btn-wa:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
         
         .benefits-reseller { background: linear-gradient(135deg, var(--gray-300), var(--gray-200)); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
         .benefits-reseller h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 40px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -216,55 +237,6 @@
         }
         @media (max-width: 480px) { .stats-reseller { grid-template-columns: 1fr; } .footer-content { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
     </style>
-    /* ========== WHATSAPP BUTTONS FOR RESELLER PAGE ========== */
-
-/* WhatsApp Button for Package Cards */
-.package-btn-wa {
-    display: inline-block;
-    width: 100%;
-    background: #25D366;
-    color: white;
-    padding: 12px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-    margin-top: 20px;
-    text-align: center;
-    border: none;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-.package-btn-wa:hover {
-    background: #128C7E;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37,211,102,0.3);
-}
-
-.package-btn-wa i {
-    margin-right: 8px;
-}
-
-/* WhatsApp Button for Professional Package */
-.contact-btn-wa {
-    background: #25D366;
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-    font-size: 1.1em;
-}
-
-.contact-btn-wa:hover {
-    background: #128C7E;
-    transform: scale(1.05);
-}
 </head>
 <body>
     <header class="header">
@@ -328,73 +300,76 @@
             <h2 data-i18n="bulk_packages">Bulk Credit Packages</h2>
             <div class="subtitle" data-i18n="bulk_subtitle">For serious resellers looking for the best value. 1 Credit = 1 Month Subscription</div>
             <div class="packages-grid">
-    <!-- 120 Credits Package -->
-    <div class="package-card">
-        <div class="package-credits">120 Credits</div>
-        <div class="package-price">€190.00 <span>(€1.58/credit)</span></div>
-        <ul class="package-features">
-            <li><i class="fas fa-check"></i> Create 120 accounts</li>
-            <li><i class="fas fa-check"></i> 120 months total subscription</li>
-            <li><i class="fas fa-check"></i> Priority support</li>
-            <li><i class="fas fa-check"></i> Full reseller panel access</li>
-        </ul>
-        <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20with%20the%20120%20Credits%20package%20for%20€190.00" target="_blank" class="package-btn-wa" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> Get Started - 120 Credits
-        </a>
-    </div>
-    
-    <!-- 240 Credits Package -->
-    <div class="package-card">
-        <div class="package-credits">240 Credits</div>
-        <div class="package-price">€375.00 <span>(€1.56/credit)</span></div>
-        <ul class="package-features">
-            <li><i class="fas fa-check"></i> Create 240 accounts</li>
-            <li><i class="fas fa-check"></i> 240 months total subscription</li>
-            <li><i class="fas fa-check"></i> VIP support</li>
-            <li><i class="fas fa-check"></i> Priority line creation</li>
-        </ul>
-        <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20with%20the%20240%20Credits%20package%20for%20€375.00" target="_blank" class="package-btn-wa" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> Get Started - 240 Credits
-        </a>
-    </div>
-    
-    <!-- 360 Credits Package (Popular) -->
-    <div class="package-card popular">
-        <div class="popular-badge">🔥 Best Value</div>
-        <div class="package-credits">360 Credits</div>
-        <div class="package-price">€558.00 <span>(€1.55/credit)</span></div>
-        <ul class="package-features">
-            <li><i class="fas fa-check"></i> Create 360 accounts</li>
-            <li><i class="fas fa-check"></i> 360 months total subscription</li>
-            <li><i class="fas fa-check"></i> VIP support + Priority</li>
-            <li><i class="fas fa-check"></i> Bulk pricing benefits</li>
-        </ul>
-        <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20with%20the%20360%20Credits%20package%20for%20€558.00" target="_blank" class="package-btn-wa" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> Get Started - 360 Credits
-        </a>
-    </div>
-    
-    <!-- 600 Credits Package -->
-    <div class="package-card">
-        <div class="package-credits">600 Credits</div>
-        <div class="package-price">€910.00 <span>(€1.52/credit)</span></div>
-        <ul class="package-features">
-            <li><i class="fas fa-check"></i> Create 600 accounts</li>
-            <li><i class="fas fa-check"></i> 600 months total subscription</li>
-            <li><i class="fas fa-check"></i> Dedicated support</li>
-            <li><i class="fas fa-check"></i> Best value for volume</li>
-        </ul>
-        <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20with%20the%20600%20Credits%20package%20for%20€910.00" target="_blank" class="package-btn-wa" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> Get Started - 600 Credits
-        </a>
-    </div>
-</div>
+                <!-- 120 Credits Package -->
+                <div class="package-card">
+                    <div class="package-credits">120 Credits</div>
+                    <div class="package-price">€190.00 <span>(€1.58/credit)</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Create 120 accounts</li>
+                        <li><i class="fas fa-check"></i> 120 months total subscription</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Full reseller panel access</li>
+                    </ul>
+                    <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20with%20the%20120%20Credits%20package%20for%20€190.00" target="_blank" class="package-btn-wa" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Get Started - 120 Credits
+                    </a>
+                </div>
+                
+                <!-- 240 Credits Package -->
+                <div class="package-card">
+                    <div class="package-credits">240 Credits</div>
+                    <div class="package-price">€375.00 <span>(€1.56/credit)</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Create 240 accounts</li>
+                        <li><i class="fas fa-check"></i> 240 months total subscription</li>
+                        <li><i class="fas fa-check"></i> VIP support</li>
+                        <li><i class="fas fa-check"></i> Priority line creation</li>
+                    </ul>
+                    <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20with%20the%20240%20Credits%20package%20for%20€375.00" target="_blank" class="package-btn-wa" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Get Started - 240 Credits
+                    </a>
+                </div>
+                
+                <!-- 360 Credits Package (Popular) -->
+                <div class="package-card popular">
+                    <div class="popular-badge">🔥 Best Value</div>
+                    <div class="package-credits">360 Credits</div>
+                    <div class="package-price">€558.00 <span>(€1.55/credit)</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Create 360 accounts</li>
+                        <li><i class="fas fa-check"></i> 360 months total subscription</li>
+                        <li><i class="fas fa-check"></i> VIP support + Priority</li>
+                        <li><i class="fas fa-check"></i> Bulk pricing benefits</li>
+                    </ul>
+                    <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20with%20the%20360%20Credits%20package%20for%20€558.00" target="_blank" class="package-btn-wa" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Get Started - 360 Credits
+                    </a>
+                </div>
+                
+                <!-- 600 Credits Package -->
+                <div class="package-card">
+                    <div class="package-credits">600 Credits</div>
+                    <div class="package-price">€910.00 <span>(€1.52/credit)</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Create 600 accounts</li>
+                        <li><i class="fas fa-check"></i> 600 months total subscription</li>
+                        <li><i class="fas fa-check"></i> Dedicated support</li>
+                        <li><i class="fas fa-check"></i> Best value for volume</li>
+                    </ul>
+                    <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20with%20the%20600%20Credits%20package%20for%20€910.00" target="_blank" class="package-btn-wa" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Get Started - 600 Credits
+                    </a>
+                </div>
+            </div>
+        </div>
         
         <div class="professional-package">
             <h2><i class="fas fa-crown"></i> <span data-i18n="professional">Professional Package</span></h2>
             <div class="credits">1,200+ Credits</div>
             <p data-i18n="professional_desc">For professional resellers and businesses looking for the ultimate IPTV solution. Custom pricing and dedicated account manager included.</p>
-            <a href="https://t.me/8kstrong_support" class="contact-btn" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i> <span data-i18n="contact_for_pricing">Contact Us for Pricing</span></a>
+            <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20professional%20reseller%20with%201200+%20Credits.%20Please%20send%20me%20custom%20pricing." target="_blank" class="contact-btn-wa" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> <span data-i18n="contact_for_pricing">Contact Us for Pricing</span>
+            </a>
         </div>
         
         <div class="benefits-reseller">
@@ -413,10 +388,10 @@
                 <div class="step-card"><div class="step-number">1</div><h4 data-i18n="step1_title">Contact Us</h4><p data-i18n="step1_desc">Reach out via Telegram or WhatsApp to express interest</p></div>
                 <div class="step-card"><div class="step-number">2</div><h4 data-i18n="step2_title">Choose Package</h4><p data-i18n="step2_desc">Select the credit package that fits your business goals</p></div>
                 <div class="step-card"><div class="step-number">3</div><h4 data-i18n="step3_title">Get Reseller Panel</h4><p data-i18n="step3_desc">Receive your login credentials for the reseller dashboard</p></div>
-                <div class="step-card"><div class="step-number">4</div><h4数据-i18n="step4_title">Start Selling</h4><p data-i18n="step4_desc">Create accounts for your customers and start earning</p></div>
+                <div class="step-card"><div class="step-number">4</div><h4 data-i18n="step4_title">Start Selling</h4><p data-i18n="step4_desc">Create accounts for your customers and start earning</p></div>
             </div>
             <div class="cta-buttons">
-                <a href="https://t.me/8kstrong_support" target="_blank" class="cta-btn telegram" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i> <span data-i18n="contact_telegram">Contact on Telegram</span></a>
+                <a href="https://t.me/premiumiptvpanel" target="_blank" class="cta-btn telegram" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i> <span data-i18n="contact_telegram">Contact on Telegram</span></a>
                 <a href="https://wa.me/212670969192?text=Hello%20I%20want%20to%20become%20a%20reseller%20for%208K%20Strong%20VIP" target="_blank" class="cta-btn whatsapp" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> <span data-i18n="contact_whatsapp">Contact on WhatsApp</span></a>
             </div>
         </div>
@@ -424,13 +399,13 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-column"><h4><i class="fas fa-tools"></i> <span data-i18n="tools">Tools</span></h4><ul><li><a href="convert"><i class="fas fa-exchange-alt"></i> <span data-i18n="convert_m3u">Convert M3U to Xtream</span></a></li><li><a href="downloader"><i class="fas fa-download"></i> <span数据-i18n="download_player">Download 8K Player</span></a></li></ul></div>
-            <div class="footer-column"><h4><i class="fas fa-question-circle"></i> <span data-i18n="help">Help</span></h4><ul><li><a href="setup-guide"><i class="fas fa-book-open"></i> <span data-i18n="setup_guide">Setup Guide</span></a></li><li><a ><i class="fas fa-blog"></i> <span data-i18n="blog">Blog</span></a></li><li><a href="contact"><i class="fas fa-envelope"></i> <span data-i18n="contact_us">Contact Us</span></a></li><li><a href="resolution-center"><i class="fas fa-headset"></i> <span data-i18n="resolution_center">Resolution Center</span></a></li></ul></div>
+            <div class="footer-column"><h4><i class="fas fa-tools"></i> <span data-i18n="tools">Tools</span></h4><ul><li><a href="convert"><i class="fas fa-exchange-alt"></i> <span data-i18n="convert_m3u">Convert M3U to Xtream</span></a></li><li><a href="downloader"><i class="fas fa-download"></i> <span data-i18n="download_player">Download 8K Player</span></a></li></ul></div>
+            <div class="footer-column"><h4><i class="fas fa-question-circle"></i> <span data-i18n="help">Help</span></h4><ul><li><a href="setup-guide"><i class="fas fa-book-open"></i> <span data-i18n="setup_guide">Setup Guide</span></a></li><li><a href="blog"><i class="fas fa-blog"></i> <span data-i18n="blog">Blog</span></a></li><li><a href="contact"><i class="fas fa-envelope"></i> <span data-i18n="contact_us">Contact Us</span></a></li><li><a href="resolution-center"><i class="fas fa-headset"></i> <span data-i18n="resolution_center">Resolution Center</span></a></li></ul></div>
             <div class="footer-column"><h4><i class="fas fa-cogs"></i> <span data-i18n="services">Services</span></h4><ul><li><a href="subscription"><i class="fas fa-tag"></i> <span data-i18n="subscription">Subscription</span></a></li><li><a href="reseller"><i class="fas fa-chart-line"></i> <span data-i18n="reseller_program">Reseller Program</span></a></li></ul></div>
             <div class="footer-column"><h4><i class="fas fa-crown"></i> <span data-i18n="company">8K Strong VIP</span></h4><ul><li><a href="about"><i class="fas fa-info-circle"></i> <span data-i18n="about_us">About Us</span></a></li><li><a href="privacy"><i class="fas fa-shield-alt"></i> <span data-i18n="privacy">Privacy Policy</span></a></li><li><a href="refund"><i class="fas fa-money-bill-wave"></i> <span data-i18n="refund">Refund Policy</span></a></li><li><a href="dmca"><i class="fas fa-copyright"></i> <span data-i18n="dmca">DMCA</span></a></li><li><a href="terms"><i class="fas fa-file-alt"></i> <span data-i18n="terms">Terms & Conditions</span></a></li></ul></div>
         </div>
         <div class="footer-bottom">
-            <div class="social-links"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://t.me/8kstrong_support" aria-label="Telegram"><i class="fab fa-telegram"></i></a><a href="https://wa.me/212670969192" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+            <div class="social-links"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://t.me/premiumiptvpanel" aria-label="Telegram"><i class="fab fa-telegram"></i></a><a href="https://wa.me/212670969192" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
             <p style="margin-top:20px;">© 2025 8K Strong VIP IPTV. All rights reserved. | <span data-i18n="tagline">1 Credit = 1 Month | 24/7 Support</span></p>
         </div>
     </footer>
@@ -445,11 +420,7 @@
                 active_resellers: "Active Resellers", customers_served: "Customers Served", uptime: "Uptime", support: "Support",
                 credit_converter: "Credit Converter", credit_converter_desc: "Simple and transparent credit system. 1 Credit = 1 Month Subscription", rate: "1 Credit = 1 Month", enter_credits: "Enter Credits",
                 bulk_packages: "Bulk Credit Packages", bulk_subtitle: "For serious resellers looking for the best value. 1 Credit = 1 Month Subscription",
-                create_120: "Create 120 accounts", months_120: "120 months total subscription", priority_support: "Priority support", full_panel: "Full reseller panel access",
-                create_240: "Create 240 accounts", months_240: "240 months total subscription", vip_support: "VIP support", priority_line: "Priority line creation",
-                create_360: "Create 360 accounts", months_360: "360 months total subscription", vip_priority: "VIP support + Priority", bulk_benefits: "Bulk pricing benefits",
-                create_600: "Create 600 accounts", months_600: "600 months total subscription", dedicated_support: "Dedicated support", best_volume: "Best value for volume",
-                best_value: "Best Value", get_started: "Get Started",
+                best_value: "Best Value",
                 professional: "Professional Package", professional_desc: "For professional resellers and businesses looking for the ultimate IPTV solution. Custom pricing and dedicated account manager included.", contact_for_pricing: "Contact Us for Pricing",
                 why_become: "Why Become a Reseller?",
                 modern_panel: "Modern Reseller Panel", modern_panel_desc: "Full control with real-time analytics, instant line creation, and customer management dashboard",
@@ -471,11 +442,7 @@
                 active_resellers: "Revendeurs actifs", customers_served: "Clients servis", uptime: "Disponibilité", support: "Support",
                 credit_converter: "Convertisseur de crédits", credit_converter_desc: "Système de crédits simple et transparent. 1 Crédit = 1 Mois", rate: "1 Crédit = 1 Mois", enter_credits: "Entrez les crédits",
                 bulk_packages: "Forfaits de crédits en gros", bulk_subtitle: "Pour les revendeurs sérieux à la recherche de la meilleure valeur. 1 Crédit = 1 Mois",
-                create_120: "Créez 120 comptes", months_120: "120 mois d'abonnement", priority_support: "Support prioritaire", full_panel: "Accès complet au panel revendeur",
-                create_240: "Créez 240 comptes", months_240: "240 mois d'abonnement", vip_support: "Support VIP", priority_line: "Création prioritaire",
-                create_360: "Créez 360 comptes", months_360: "360 mois d'abonnement", vip_priority: "Support VIP + Priorité", bulk_benefits: "Avantages de gros",
-                create_600: "Créez 600 comptes", months_600: "600 mois d'abonnement", dedicated_support: "Support dédié", best_volume: "Meilleur rapport volume",
-                best_value: "Meilleure valeur", get_started: "Commencer",
+                best_value: "Meilleure valeur",
                 professional: "Forfait Professionnel", professional_desc: "Pour les revendeurs professionnels et les entreprises. Tarifs personnalisés et gestionnaire de compte dédié.", contact_for_pricing: "Contactez-nous",
                 why_become: "Pourquoi devenir revendeur?",
                 modern_panel: "Panel Revendeur Moderne", modern_panel_desc: "Contrôle total avec analyses en temps réel",
@@ -497,11 +464,7 @@
                 active_resellers: "موزع نشط", customers_served: "عميل تم خدمتهم", uptime: "وقت تشغيل", support: "دعم",
                 credit_converter: "محول الرصيد", credit_converter_desc: "نظام رصيد بسيط وشفاف. 1 رصيد = شهر واحد", rate: "1 رصيد = شهر واحد", enter_credits: "أدخل الرصيد",
                 bulk_packages: "باقات الرصيد بالجملة", bulk_subtitle: "للموزعين الجادين الذين يبحثون عن أفضل قيمة. 1 رصيد = شهر واحد",
-                create_120: "إنشاء 120 حساب", months_120: "120 شهر اشتراك", priority_support: "دعم優先", full_panel: "وصول كامل للوحة التحكم",
-                create_240: "إنشاء 240 حساب", months_240: "240 شهر اشتراك", vip_support: "دعم VIP", priority_line: "إنشاء優先",
-                create_360: "إنشاء 360 حساب", months_360: "360 شهر اشتراك", vip_priority: "دعم VIP + أولوية", bulk_benefits: "مزايا الشراء بالجملة",
-                create_600: "إنشاء 600 حساب", months_600: "600 شهر اشتراك", dedicated_support: "دعم مخصص", best_volume: "أفضل قيمة للحجم",
-                best_value: "أفضل قيمة", get_started: "ابدأ الآن",
+                best_value: "أفضل قيمة",
                 professional: "الباقة الاحترافية", professional_desc: "للموزعين المحترفين والشركات التي تبحث عن حل IPTV النهائي. أسعار مخصصة ومدير حساب مخصص.", contact_for_pricing: "اتصل بنا للتسعير",
                 why_become: "لماذا تصبح موزعاً؟",
                 modern_panel: "لوحة تحكم عصرية", modern_panel_desc: "تحكم كامل مع تحليلات فورية وإنشاء فوري للخطوط",
