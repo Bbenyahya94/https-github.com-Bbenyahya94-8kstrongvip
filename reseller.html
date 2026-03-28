@@ -3,22 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJG2GXB6WB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-ZJG2GXB6WB');
-</script>
-    <!-- Primary SEO Tags -->
-    <title>IPTV Reseller Program – 8K Strong VIP | Become a Reseller | Bulk Credits from 120-1200+</title>
-    <meta name="title" content="IPTV Reseller Program – 8K Strong VIP | Become a Reseller | Bulk Credits from 120-1200+">
-    <meta name="description" content="Start your own IPTV business with 8K Strong VIP reseller program. Bulk credit packages: 120 Credits (€190), 240 Credits (€375), 360 Credits (€558), 600 Credits (€910), and 1200+ Credits. 1 Credit = 1 Month Subscription. Instant activation, 24/7 support, high profit margins. Join 500+ successful resellers today!">
-    <meta name="keywords" content="IPTV reseller, reseller program, become IPTV reseller, IPTV business, bulk IPTV credits, 8K Strong VIP reseller, IPTV wholesale, reseller panel, IPTV subscription reseller, best IPTV reseller program">
-    <meta name="author" content="8K Strong VIP">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="JyH3qv-iGz1yh2WIFUzPy8dyV5EvWvIoeo8kWUEXLBc" />
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJG2GXB6WB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZJG2GXB6WB');
+    </script>
+    
+    <!-- Event Tracking for Reseller Page -->
+    <script>
+      // Track package clicks
+      document.addEventListener('DOMContentLoaded', function() {
+          // Track WhatsApp button clicks on packages
+          document.querySelectorAll('.package-btn-wa, .contact-btn-wa').forEach(btn => {
+              btn.addEventListener('click', function() {
+                  if (typeof gtag !== 'undefined') {
+                      let packageName = this.innerText;
+                      gtag('event', 'reseller_package_click', {
+                          'event_category': 'Reseller',
+                          'event_label': packageName
+                      });
+                  }
+              });
+          });
+          
+          // Track credit converter usage
+          const creditsInput = document.getElementById('creditsInput');
+          if (creditsInput) {
+              creditsInput.addEventListener('change', function() {
+                  if (typeof gtag !== 'undefined') {
+                      gtag('event', 'credit_converter_used', {
+                          'event_category': 'Reseller',
+                          'event_label': this.value + ' credits'
+                      });
+                  }
+              });
+          }
+      });
+    </script>
+    
+    <title>IPTV Reseller Program – 8K Strong VIP | Become a Reseller | Bulk Credits 120-1200+</title>
+    <meta name="description" content="Start your own IPTV business with 8K Strong VIP reseller program. Bulk credit packages: 120 Credits (€190), 240 Credits (€375), 360 Credits (€558), 600 Credits (€910), and 1200+ Credits. 1 Credit = 1 Month. Join 500+ resellers!">
+    <meta name="keywords" content="IPTV reseller, reseller program, become IPTV reseller, IPTV business, bulk IPTV credits, 8K Strong VIP reseller">
     <link rel="canonical" href="https://8kstrongvip.com/reseller">
     
     <!-- Open Graph / Facebook -->
