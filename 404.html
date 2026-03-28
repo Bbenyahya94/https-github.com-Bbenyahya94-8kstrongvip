@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Tags -->
+    <title>404 – Page Not Found | 8K Strong VIP IPTV</title>
+    <meta name="description" content="Sorry, the page you're looking for doesn't exist. Find the best IPTV reseller program, VIP IPTV subscription, and streaming guides on 8K Strong VIP.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://8kstrongvip.com/">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        :root {
+            --gray-100: #041324;
+            --gray-200: #05192f;
+            --gray-300: #061e39;
+            --gray-400: #072342;
+            --gray-500: #a6afb8;
+            --gray-600: #bfc8e2;
+            --gray-700: #ced4da;
+            --gray-800: #eff2f7;
+            --gray-900: #f3f6f9;
+            --button-bg: #ecb619;
+            --button-hover: #d4a514;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, 'Inter', sans-serif; }
+        body { background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2f 100%); color: var(--gray-800); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        .header { background: var(--gray-200); backdrop-filter: blur(10px); padding: 10px 50px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gray-400); }
+        .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .logo-area a { display: flex; align-items: center; }
+        .logo-img { height: auto; max-height: 55px; width: auto; max-width: 200px; object-fit: contain; }
+        .main-nav { margin-top: 10px; }
+        .main-nav ul { display: flex; flex-wrap: wrap; list-style: none; gap: 20px; justify-content: center; }
+        .main-nav a { color: var(--gray-700); text-decoration: none; padding: 8px 12px; border-radius: 50px; transition: 0.3s; font-weight: 500; }
+        .main-nav a:hover { background: var(--button-bg); color: var(--gray-100); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; flex: 1; display: flex; align-items: center; justify-content: center; }
+        
+        .error-404 {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #ecb619);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--gray-900);
+        }
+        .error-text {
+            color: var(--gray-600);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .error-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--button-bg);
+            color: var(--gray-100);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-home:hover {
+            background: var(--button-hover);
+            transform: translateY(-2px);
+        }
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--button-bg);
+            border: 2px solid var(--button-bg);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-contact:hover {
+            background: var(--button-bg);
+            color: var(--gray-100);
+            transform: translateY(-2px);
+        }
+        
+        .suggestions {
+            background: var(--gray-200);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: left;
+            border: 1px solid var(--gray-400);
+        }
+        .suggestions h3 {
+            color: var(--button-bg);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        .suggestions-grid a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray-600);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .suggestions-grid a:hover {
+            background: var(--gray-300);
+            color: var(--button-bg);
+            transform: translateX(5px);
+        }
+        .suggestions-grid a i {
+            width: 20px;
+            color: var(--button-bg);
+        }
+        
+        .footer { background: var(--gray-200); padding: 40px 0 20px; margin-top: 60px; border-top: 1px solid var(--gray-400); text-align: center; }
+        .footer p { color: var(--gray-600); font-size: 12px; }
+        .social-links { display: flex; gap: 15px; justify-content: center; margin-bottom: 20px; }
+        .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-600); text-decoration: none; transition: all 0.3s; }
+        .social-links a:hover { background: #ecb619; color: #0a0b1a; transform: translateY(-3px); }
+        
+        @media (max-width: 768px) {
+            .header { padding: 10px 20px; }
+            .logo-img { max-height: 40px; max-width: 150px; }
+            .main-nav ul { gap: 10px; }
+            .error-code { font-size: 5rem; }
+            .error-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="logo-area">
+                <a href="/">
+                    <img src="images/logo.png" alt="8K Strong VIP Logo" class="logo-img">
+                </a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="convert">Convert</a></li>
+                <li><a href="reseller">Reseller</a></li>
+                <li><a href="subscription">Subscription</a></li>
+                <li><a href="setup-guide">Setup Guide</a></li>
+                <li><a href="downloader">Downloader</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="error-404">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-text">Oops! The page you're looking for doesn't exist or has been moved. Don't worry, we'll help you find your way back.</p>
+            
+            <div class="error-buttons">
+                <a href="/" class="btn-home"><i class="fas fa-home"></i> Back to Home</a>
+                <a href="contact" class="btn-contact"><i class="fas fa-headset"></i> Contact Support</a>
+            </div>
+            
+            <div class="suggestions">
+                <h3><i class="fas fa-compass"></i> You might be looking for:</h3>
+                <div class="suggestions-grid">
+                    <a href="/"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="convert"><i class="fas fa-exchange-alt"></i> Convert M3U to Xtream</a>
+                    <a href="reseller"><i class="fas fa-chart-line"></i> Reseller Program</a>
+                    <a href="subscription"><i class="fas fa-tag"></i> Subscription Plans</a>
+                    <a href="setup-guide"><i class="fas fa-book-open"></i> Setup Guide</a>
+                    <a href="downloader"><i class="fas fa-download"></i> Download 8K Player</a>
+                    <a href="about"><i class="fas fa-info-circle"></i> About Us</a>
+                    <a href="contact"><i class="fas fa-envelope"></i> Contact Support</a>
+                    <a href="blog"><i class="fas fa-blog"></i> IPTV Blog</a>
+                    <a href="resolution-center"><i class="fas fa-headset"></i> Resolution Center</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/8kstrong_support" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://wa.me/212670969192" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>© 2025 8K Strong VIP IPTV. All rights reserved. | Best IPTV Reseller & VIP IPTV Subscription</p>
+    </footer>
+
+    <script>
+        // Simple analytics to track 404 errors (optional)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', '404', {
+                'page_path': window.location.pathname,
+                'page_title': '404 - Page Not Found'
+            });
+        }
+        
+        // Log 404 for debugging
+        console.log('404 Error: ' + window.location.pathname);
+        
+        // Prevent right-click and inspect
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 's')) e.preventDefault();
+        });
+        document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
+    </script>
+</body>
+</html>
