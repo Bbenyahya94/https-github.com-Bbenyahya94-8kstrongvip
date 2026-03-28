@@ -105,8 +105,118 @@
         .hero-banner p { font-size: 1.2em; color: var(--gray-600); max-width: 800px; margin: 0 auto 30px; }
         .banner-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .banner-btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
-        .banner-btn.telegram { background: #0088cc; color: white; }
-        .banner-btn.whatsapp { background: #25D366; color: white; }
+/* ========== FIXED BUTTON STYLES WITH HIGH CONTRAST ========== */
+
+/* Telegram Button */
+.banner-btn.telegram {
+    background: #0088cc;
+    color: #ffffff !important;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+}
+.banner-btn.telegram:hover {
+    background: #006699;
+    transform: translateY(-2px);
+}
+
+/* WhatsApp Button */
+.banner-btn.whatsapp {
+    background: #25D366;
+    color: #ffffff !important;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+}
+.banner-btn.whatsapp:hover {
+    background: #1da851;
+    transform: translateY(-2px);
+}
+
+/* WhatsApp Plan Buttons (Get VIP IPTV) */
+.btn-wa {
+    background: #25D366;
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+.btn-wa:hover {
+    background: #1da851;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+.btn-wa i {
+    margin-right: 8px;
+    color: #ffffff;
+}
+
+/* Gold Buttons (Primary) - Dark text for good contrast */
+.reseller-btn.primary,
+.credit-btn.primary,
+.package-btn,
+.slide-btn,
+.submit-btn,
+.contact-btn {
+    background: #ecb619;
+    color: #041324 !important;
+    font-weight: bold;
+}
+.reseller-btn.primary:hover,
+.credit-btn.primary:hover,
+.package-btn:hover,
+.slide-btn:hover,
+.submit-btn:hover,
+.contact-btn:hover {
+    background: #d4a514;
+    color: #041324 !important;
+}
+
+/* Secondary Buttons */
+.reseller-btn.secondary,
+.credit-btn.secondary {
+    background: transparent;
+    color: #ecb619;
+    border: 2px solid #ecb619;
+    font-weight: bold;
+}
+.reseller-btn.secondary:hover,
+.credit-btn.secondary:hover {
+    background: #ecb619;
+    color: #041324;
+}
+
+/* Ensure all button text is properly colored */
+.banner-btn.telegram span,
+.banner-btn.whatsapp span,
+.btn-wa span {
+    color: #ffffff !important;
+}
         
         .panel-section { background: linear-gradient(135deg, var(--gray-200), var(--gray-300)); border-radius: 30px; padding: 50px; margin: 40px auto; text-align: center; border: 1px solid var(--gray-400); }
         .panel-section h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 15px; background: linear-gradient(45deg, #fff, #ecb619); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
