@@ -1,4 +1,20 @@
 User-agent: *
 Allow: /
 Sitemap: https://8kstrongvip.com/sitemap.xml
-Disallow: /images/
+
+# Disallow admin or private areas
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots
+User-agent: GPTBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
