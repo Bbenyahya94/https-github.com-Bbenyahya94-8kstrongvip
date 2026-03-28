@@ -1,37 +1,11 @@
-# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
-
-# Sitemap location
 Sitemap: https://8kstrongvip.com/sitemap.xml
-
-# Disallow sensitive directories
 Disallow: /images/
 Disallow: /css/
 Disallow: /js/
-Disallow: /admin/
-Disallow: /private/
 
-# Allow Googlebot to crawl everything
-User-agent: Googlebot
-Allow: /
-
-# Allow Bingbot to crawl everything
-User-agent: Bingbot
-Allow: /
-
-# Block AI bots that may scrape content
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-# Allow crawling of important pages (these are already allowed by "Allow: /")
-# But explicitly listed for clarity
+# Allow important pages
 Allow: /convert
 Allow: /reseller
 Allow: /subscription
@@ -41,3 +15,23 @@ Allow: /about
 Allow: /contact
 Allow: /blog
 Allow: /resolution-center
+Allow: /privacy
+Allow: /refund
+Allow: /terms
+Allow: /dmca
+
+# Block AI bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
